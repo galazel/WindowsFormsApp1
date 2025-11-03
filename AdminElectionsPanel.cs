@@ -16,5 +16,10 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
+
+        private void create_election_bttn_Click(object sender, EventArgs e)
+        {
+            new CreateElection().ShowDialog();
+        }
     }
 }

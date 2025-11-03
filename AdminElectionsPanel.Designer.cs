@@ -50,6 +50,7 @@
             this.create_election_bttn.TabIndex = 20;
             this.create_election_bttn.Text = "CREATE";
             this.create_election_bttn.UseVisualStyleBackColor = true;
+            this.create_election_bttn.Click += new System.EventHandler(this.create_election_bttn_Click);
             // 
             // elections_flow
             // 

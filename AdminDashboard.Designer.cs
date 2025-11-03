@@ -32,8 +32,8 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.others_icon = new FontAwesome.Sharp.IconButton();
-            this.result_icons = new FontAwesome.Sharp.IconButton();
+            this.logout_icon = new FontAwesome.Sharp.IconButton();
+            this.results_icons = new FontAwesome.Sharp.IconButton();
             this.elections_icon = new FontAwesome.Sharp.IconButton();
             this.dashboard_icon = new FontAwesome.Sharp.IconButton();
             this.admin_panel = new System.Windows.Forms.Panel();
@@ -105,8 +105,8 @@
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.others_icon, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.result_icons, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.logout_icon, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.results_icons, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.elections_icon, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.dashboard_icon, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -121,35 +121,37 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(213, 633);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // others_icon
+            // logout_icon
             // 
-            this.others_icon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.others_icon.IconChar = FontAwesome.Sharp.IconChar.Landmark;
-            this.others_icon.IconColor = System.Drawing.Color.Black;
-            this.others_icon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.others_icon.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.others_icon.Location = new System.Drawing.Point(5, 186);
-            this.others_icon.Name = "others_icon";
-            this.others_icon.Size = new System.Drawing.Size(203, 53);
-            this.others_icon.TabIndex = 3;
-            this.others_icon.Text = "Logout";
-            this.others_icon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.others_icon.UseVisualStyleBackColor = true;
+            this.logout_icon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.logout_icon.IconChar = FontAwesome.Sharp.IconChar.Landmark;
+            this.logout_icon.IconColor = System.Drawing.Color.Black;
+            this.logout_icon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.logout_icon.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.logout_icon.Location = new System.Drawing.Point(5, 186);
+            this.logout_icon.Name = "logout_icon";
+            this.logout_icon.Size = new System.Drawing.Size(203, 53);
+            this.logout_icon.TabIndex = 3;
+            this.logout_icon.Text = "Logout";
+            this.logout_icon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.logout_icon.UseVisualStyleBackColor = true;
+            this.logout_icon.Click += new System.EventHandler(this.logout_icon_Click);
             // 
-            // result_icons
+            // results_icons
             // 
-            this.result_icons.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.result_icons.IconChar = FontAwesome.Sharp.IconChar.Landmark;
-            this.result_icons.IconColor = System.Drawing.Color.Black;
-            this.result_icons.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.result_icons.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.result_icons.Location = new System.Drawing.Point(5, 125);
-            this.result_icons.Name = "result_icons";
-            this.result_icons.Size = new System.Drawing.Size(203, 53);
-            this.result_icons.TabIndex = 2;
-            this.result_icons.Text = "Results";
-            this.result_icons.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.result_icons.UseVisualStyleBackColor = true;
+            this.results_icons.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.results_icons.IconChar = FontAwesome.Sharp.IconChar.Landmark;
+            this.results_icons.IconColor = System.Drawing.Color.Black;
+            this.results_icons.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.results_icons.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.results_icons.Location = new System.Drawing.Point(5, 125);
+            this.results_icons.Name = "results_icons";
+            this.results_icons.Size = new System.Drawing.Size(203, 53);
+            this.results_icons.TabIndex = 2;
+            this.results_icons.Text = "Results";
+            this.results_icons.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.results_icons.UseVisualStyleBackColor = true;
+            this.results_icons.Click += new System.EventHandler(this.results_icons_Click);
             // 
             // elections_icon
             // 
@@ -165,6 +167,7 @@
             this.elections_icon.Text = "Elections";
             this.elections_icon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.elections_icon.UseVisualStyleBackColor = true;
+            this.elections_icon.Click += new System.EventHandler(this.elections_icon_Click);
             // 
             // dashboard_icon
             // 
@@ -180,6 +183,7 @@
             this.dashboard_icon.Text = "Dashboard";
             this.dashboard_icon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.dashboard_icon.UseVisualStyleBackColor = true;
+            this.dashboard_icon.Click += new System.EventHandler(this.dashboard_icon_Click);
             // 
             // admin_panel
             // 
@@ -217,8 +221,8 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private FontAwesome.Sharp.IconButton others_icon;
-        private FontAwesome.Sharp.IconButton result_icons;
+        private FontAwesome.Sharp.IconButton logout_icon;
+        private FontAwesome.Sharp.IconButton results_icons;
         private FontAwesome.Sharp.IconButton elections_icon;
         private FontAwesome.Sharp.IconButton dashboard_icon;
         private System.Windows.Forms.Panel admin_panel;

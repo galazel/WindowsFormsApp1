@@ -84,6 +84,7 @@
             this.add_candidate_bttn.TabIndex = 24;
             this.add_candidate_bttn.Text = "ADD CANDIDATE";
             this.add_candidate_bttn.UseVisualStyleBackColor = true;
+            this.add_candidate_bttn.Click += new System.EventHandler(this.add_candidate_bttn_Click);
             // 
             // candidates_list
             // 
@@ -122,14 +123,15 @@
             this.add_election_bttn.Name = "add_election_bttn";
             this.add_election_bttn.Size = new System.Drawing.Size(139, 23);
             this.add_election_bttn.TabIndex = 30;
-            this.add_election_bttn.Text = "ADD CANDIDATE";
+            this.add_election_bttn.Text = "ADD ELECTION";
             this.add_election_bttn.UseVisualStyleBackColor = true;
+            this.add_election_bttn.Click += new System.EventHandler(this.add_election_bttn_Click);
             // 
             // CreateElection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 568);
+            this.ClientSize = new System.Drawing.Size(520, 527);
             this.Controls.Add(this.add_election_bttn);
             this.Controls.Add(this.departments_combo);
             this.Controls.Add(this.election_name_box);

@@ -1,0 +1,744 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="eBotoDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Candidates">
+          <Key>
+            <PropertyRef Name="CandidateId" />
+          </Key>
+          <Property Name="CandidateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CandidateName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Partylist" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PositionId" Type="int" Nullable="false" />
+          <Property Name="Motto" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DepartmentId" Type="int" Nullable="false" />
+          <Property Name="ElectionId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Departments">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Name="DepartmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Elections">
+          <Key>
+            <PropertyRef Name="ElectionId" />
+          </Key>
+          <Property Name="ElectionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ElectionName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="DepartmentId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EndedElections">
+          <Key>
+            <PropertyRef Name="EndedId" />
+          </Key>
+          <Property Name="EndedId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ElectionId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OngoingElections">
+          <Key>
+            <PropertyRef Name="OngoingId" />
+          </Key>
+          <Property Name="OngoingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ElectionId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Positions">
+          <Key>
+            <PropertyRef Name="PositionId" />
+          </Key>
+          <Property Name="PositionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PositionName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="VotedCandidates">
+          <Key>
+            <PropertyRef Name="VotedCandidatesId" />
+          </Key>
+          <Property Name="VotedCandidatesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VoterId" Type="int" />
+        </EntityType>
+        <EntityType Name="Voters">
+          <Key>
+            <PropertyRef Name="VoterId" />
+          </Key>
+          <Property Name="VoterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MiddleName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BirthDate" Type="date" Nullable="false" />
+          <Property Name="ContactNumber" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Province" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Barangay" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Year" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Section" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="DepartmentId" Type="int" />
+          <Property Name="VotedCandidatesId" Type="int" />
+        </EntityType>
+        <EntityType Name="Winners">
+          <Key>
+            <PropertyRef Name="WinnerId" />
+          </Key>
+          <Property Name="WinnerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ElectionId" Type="int" Nullable="false" />
+          <Property Name="CandidateId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Candidate_Department">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+          <End Role="Candidates" Type="Self.Candidates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="Candidates">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Candidate_Election">
+          <End Role="Elections" Type="Self.Elections" Multiplicity="1" />
+          <End Role="Candidates" Type="Self.Candidates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Elections">
+              <PropertyRef Name="ElectionId" />
+            </Principal>
+            <Dependent Role="Candidates">
+              <PropertyRef Name="ElectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Candidate_Position">
+          <End Role="Positions" Type="Self.Positions" Multiplicity="1" />
+          <End Role="Candidates" Type="Self.Candidates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Positions">
+              <PropertyRef Name="PositionId" />
+            </Principal>
+            <Dependent Role="Candidates">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Election_Department">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+          <End Role="Elections" Type="Self.Elections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="Elections">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EndedElections_Election">
+          <End Role="Elections" Type="Self.Elections" Multiplicity="1" />
+          <End Role="EndedElections" Type="Self.EndedElections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Elections">
+              <PropertyRef Name="ElectionId" />
+            </Principal>
+            <Dependent Role="EndedElections">
+              <PropertyRef Name="ElectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OngoingElections_Election">
+          <End Role="Elections" Type="Self.Elections" Multiplicity="1" />
+          <End Role="OngoingElections" Type="Self.OngoingElections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Elections">
+              <PropertyRef Name="ElectionId" />
+            </Principal>
+            <Dependent Role="OngoingElections">
+              <PropertyRef Name="ElectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VotedCandidates_Voter">
+          <End Role="Voters" Type="Self.Voters" Multiplicity="0..1" />
+          <End Role="VotedCandidates" Type="Self.VotedCandidates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Voters">
+              <PropertyRef Name="VoterId" />
+            </Principal>
+            <Dependent Role="VotedCandidates">
+              <PropertyRef Name="VoterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Voter_Department">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+          <End Role="Voters" Type="Self.Voters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="Voters">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Voter_VotedCandidates">
+          <End Role="VotedCandidates" Type="Self.VotedCandidates" Multiplicity="0..1" />
+          <End Role="Voters" Type="Self.Voters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VotedCandidates">
+              <PropertyRef Name="VotedCandidatesId" />
+            </Principal>
+            <Dependent Role="Voters">
+              <PropertyRef Name="VotedCandidatesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Winners_Candidates">
+          <End Role="Candidates" Type="Self.Candidates" Multiplicity="1" />
+          <End Role="Winners" Type="Self.Winners" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidates">
+              <PropertyRef Name="CandidateId" />
+            </Principal>
+            <Dependent Role="Winners">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Winners_Elections">
+          <End Role="Elections" Type="Self.Elections" Multiplicity="1" />
+          <End Role="Winners" Type="Self.Winners" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Elections">
+              <PropertyRef Name="ElectionId" />
+            </Principal>
+            <Dependent Role="Winners">
+              <PropertyRef Name="ElectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="eBotoDBModelStoreContainer">
+          <EntitySet Name="Candidates" EntityType="Self.Candidates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Elections" EntityType="Self.Elections" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EndedElections" EntityType="Self.EndedElections" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OngoingElections" EntityType="Self.OngoingElections" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Positions" EntityType="Self.Positions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VotedCandidates" EntityType="Self.VotedCandidates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Voters" EntityType="Self.Voters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Winners" EntityType="Self.Winners" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Candidate_Department" Association="Self.FK_Candidate_Department">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Candidates" EntitySet="Candidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Candidate_Election" Association="Self.FK_Candidate_Election">
+            <End Role="Elections" EntitySet="Elections" />
+            <End Role="Candidates" EntitySet="Candidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Candidate_Position" Association="Self.FK_Candidate_Position">
+            <End Role="Positions" EntitySet="Positions" />
+            <End Role="Candidates" EntitySet="Candidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Election_Department" Association="Self.FK_Election_Department">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Elections" EntitySet="Elections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EndedElections_Election" Association="Self.FK_EndedElections_Election">
+            <End Role="Elections" EntitySet="Elections" />
+            <End Role="EndedElections" EntitySet="EndedElections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OngoingElections_Election" Association="Self.FK_OngoingElections_Election">
+            <End Role="Elections" EntitySet="Elections" />
+            <End Role="OngoingElections" EntitySet="OngoingElections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VotedCandidates_Voter" Association="Self.FK_VotedCandidates_Voter">
+            <End Role="Voters" EntitySet="Voters" />
+            <End Role="VotedCandidates" EntitySet="VotedCandidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Voter_Department" Association="Self.FK_Voter_Department">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Voters" EntitySet="Voters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Voter_VotedCandidates" Association="Self.FK_Voter_VotedCandidates">
+            <End Role="VotedCandidates" EntitySet="VotedCandidates" />
+            <End Role="Voters" EntitySet="Voters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Winners_Candidates" Association="Self.FK_Winners_Candidates">
+            <End Role="Candidates" EntitySet="Candidates" />
+            <End Role="Winners" EntitySet="Winners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Winners_Elections" Association="Self.FK_Winners_Elections">
+            <End Role="Elections" EntitySet="Elections" />
+            <End Role="Winners" EntitySet="Winners" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="eBotoDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Candidate">
+          <Key>
+            <PropertyRef Name="CandidateId" />
+          </Key>
+          <Property Name="CandidateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CandidateName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Partylist" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PositionId" Type="Int32" Nullable="false" />
+          <Property Name="Motto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+          <Property Name="ElectionId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_Candidate_Department" FromRole="Candidates" ToRole="Departments" />
+          <NavigationProperty Name="Election" Relationship="Self.FK_Candidate_Election" FromRole="Candidates" ToRole="Elections" />
+          <NavigationProperty Name="Position" Relationship="Self.FK_Candidate_Position" FromRole="Candidates" ToRole="Positions" />
+          <NavigationProperty Name="Winners" Relationship="Self.FK_Winners_Candidates" FromRole="Candidates" ToRole="Winners" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Candidates" Relationship="Self.FK_Candidate_Department" FromRole="Departments" ToRole="Candidates" />
+          <NavigationProperty Name="Elections" Relationship="Self.FK_Election_Department" FromRole="Departments" ToRole="Elections" />
+          <NavigationProperty Name="Voters" Relationship="Self.FK_Voter_Department" FromRole="Departments" ToRole="Voters" />
+        </EntityType>
+        <EntityType Name="Election">
+          <Key>
+            <PropertyRef Name="ElectionId" />
+          </Key>
+          <Property Name="ElectionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ElectionName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Candidates" Relationship="Self.FK_Candidate_Election" FromRole="Elections" ToRole="Candidates" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_Election_Department" FromRole="Elections" ToRole="Departments" />
+          <NavigationProperty Name="EndedElections" Relationship="Self.FK_EndedElections_Election" FromRole="Elections" ToRole="EndedElections" />
+          <NavigationProperty Name="OngoingElections" Relationship="Self.FK_OngoingElections_Election" FromRole="Elections" ToRole="OngoingElections" />
+          <NavigationProperty Name="Winners" Relationship="Self.FK_Winners_Elections" FromRole="Elections" ToRole="Winners" />
+        </EntityType>
+        <EntityType Name="EndedElection">
+          <Key>
+            <PropertyRef Name="EndedId" />
+          </Key>
+          <Property Name="EndedId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ElectionId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Election" Relationship="Self.FK_EndedElections_Election" FromRole="EndedElections" ToRole="Elections" />
+        </EntityType>
+        <EntityType Name="OngoingElection">
+          <Key>
+            <PropertyRef Name="OngoingId" />
+          </Key>
+          <Property Name="OngoingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ElectionId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Election" Relationship="Self.FK_OngoingElections_Election" FromRole="OngoingElections" ToRole="Elections" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="PositionId" />
+          </Key>
+          <Property Name="PositionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PositionName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Candidates" Relationship="Self.FK_Candidate_Position" FromRole="Positions" ToRole="Candidates" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="VotedCandidate">
+          <Key>
+            <PropertyRef Name="VotedCandidatesId" />
+          </Key>
+          <Property Name="VotedCandidatesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VoterId" Type="Int32" />
+          <NavigationProperty Name="Voter" Relationship="Self.FK_VotedCandidates_Voter" FromRole="VotedCandidates" ToRole="Voters" />
+          <NavigationProperty Name="Voters" Relationship="Self.FK_Voter_VotedCandidates" FromRole="VotedCandidates" ToRole="Voters" />
+        </EntityType>
+        <EntityType Name="Voter">
+          <Key>
+            <PropertyRef Name="VoterId" />
+          </Key>
+          <Property Name="VoterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ContactNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Province" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Barangay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Year" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Section" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="DepartmentId" Type="Int32" />
+          <Property Name="VotedCandidatesId" Type="Int32" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_Voter_Department" FromRole="Voters" ToRole="Departments" />
+          <NavigationProperty Name="VotedCandidates" Relationship="Self.FK_VotedCandidates_Voter" FromRole="Voters" ToRole="VotedCandidates" />
+          <NavigationProperty Name="VotedCandidate" Relationship="Self.FK_Voter_VotedCandidates" FromRole="Voters" ToRole="VotedCandidates" />
+        </EntityType>
+        <EntityType Name="Winner">
+          <Key>
+            <PropertyRef Name="WinnerId" />
+          </Key>
+          <Property Name="WinnerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ElectionId" Type="Int32" Nullable="false" />
+          <Property Name="CandidateId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Candidate" Relationship="Self.FK_Winners_Candidates" FromRole="Winners" ToRole="Candidates" />
+          <NavigationProperty Name="Election" Relationship="Self.FK_Winners_Elections" FromRole="Winners" ToRole="Elections" />
+        </EntityType>
+        <Association Name="FK_Candidate_Department">
+          <End Role="Departments" Type="Self.Department" Multiplicity="1" />
+          <End Role="Candidates" Type="Self.Candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="Candidates">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Candidate_Election">
+          <End Role="Elections" Type="Self.Election" Multiplicity="1" />
+          <End Role="Candidates" Type="Self.Candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Elections">
+              <PropertyRef Name="ElectionId" />
+            </Principal>
+            <Dependent Role="Candidates">
+              <PropertyRef Name="ElectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Candidate_Position">
+          <End Role="Positions" Type="Self.Position" Multiplicity="1" />
+          <End Role="Candidates" Type="Self.Candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Positions">
+              <PropertyRef Name="PositionId" />
+            </Principal>
+            <Dependent Role="Candidates">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Winners_Candidates">
+          <End Role="Candidates" Type="Self.Candidate" Multiplicity="1" />
+          <End Role="Winners" Type="Self.Winner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidates">
+              <PropertyRef Name="CandidateId" />
+            </Principal>
+            <Dependent Role="Winners">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Election_Department">
+          <End Role="Departments" Type="Self.Department" Multiplicity="1" />
+          <End Role="Elections" Type="Self.Election" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="Elections">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Voter_Department">
+          <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Voters" Type="Self.Voter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="Voters">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EndedElections_Election">
+          <End Role="Elections" Type="Self.Election" Multiplicity="1" />
+          <End Role="EndedElections" Type="Self.EndedElection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Elections">
+              <PropertyRef Name="ElectionId" />
+            </Principal>
+            <Dependent Role="EndedElections">
+              <PropertyRef Name="ElectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OngoingElections_Election">
+          <End Role="Elections" Type="Self.Election" Multiplicity="1" />
+          <End Role="OngoingElections" Type="Self.OngoingElection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Elections">
+              <PropertyRef Name="ElectionId" />
+            </Principal>
+            <Dependent Role="OngoingElections">
+              <PropertyRef Name="ElectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Winners_Elections">
+          <End Role="Elections" Type="Self.Election" Multiplicity="1" />
+          <End Role="Winners" Type="Self.Winner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Elections">
+              <PropertyRef Name="ElectionId" />
+            </Principal>
+            <Dependent Role="Winners">
+              <PropertyRef Name="ElectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VotedCandidates_Voter">
+          <End Role="Voters" Type="Self.Voter" Multiplicity="0..1" />
+          <End Role="VotedCandidates" Type="Self.VotedCandidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Voters">
+              <PropertyRef Name="VoterId" />
+            </Principal>
+            <Dependent Role="VotedCandidates">
+              <PropertyRef Name="VoterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Voter_VotedCandidates">
+          <End Role="VotedCandidates" Type="Self.VotedCandidate" Multiplicity="0..1" />
+          <End Role="Voters" Type="Self.Voter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VotedCandidates">
+              <PropertyRef Name="VotedCandidatesId" />
+            </Principal>
+            <Dependent Role="Voters">
+              <PropertyRef Name="VotedCandidatesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="eBotoDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Candidates" EntityType="Self.Candidate" />
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="Elections" EntityType="Self.Election" />
+          <EntitySet Name="EndedElections" EntityType="Self.EndedElection" />
+          <EntitySet Name="OngoingElections" EntityType="Self.OngoingElection" />
+          <EntitySet Name="Positions" EntityType="Self.Position" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="VotedCandidates" EntityType="Self.VotedCandidate" />
+          <EntitySet Name="Voters" EntityType="Self.Voter" />
+          <EntitySet Name="Winners" EntityType="Self.Winner" />
+          <AssociationSet Name="FK_Candidate_Department" Association="Self.FK_Candidate_Department">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Candidates" EntitySet="Candidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Candidate_Election" Association="Self.FK_Candidate_Election">
+            <End Role="Elections" EntitySet="Elections" />
+            <End Role="Candidates" EntitySet="Candidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Candidate_Position" Association="Self.FK_Candidate_Position">
+            <End Role="Positions" EntitySet="Positions" />
+            <End Role="Candidates" EntitySet="Candidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Winners_Candidates" Association="Self.FK_Winners_Candidates">
+            <End Role="Candidates" EntitySet="Candidates" />
+            <End Role="Winners" EntitySet="Winners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Election_Department" Association="Self.FK_Election_Department">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Elections" EntitySet="Elections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Voter_Department" Association="Self.FK_Voter_Department">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Voters" EntitySet="Voters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EndedElections_Election" Association="Self.FK_EndedElections_Election">
+            <End Role="Elections" EntitySet="Elections" />
+            <End Role="EndedElections" EntitySet="EndedElections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OngoingElections_Election" Association="Self.FK_OngoingElections_Election">
+            <End Role="Elections" EntitySet="Elections" />
+            <End Role="OngoingElections" EntitySet="OngoingElections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Winners_Elections" Association="Self.FK_Winners_Elections">
+            <End Role="Elections" EntitySet="Elections" />
+            <End Role="Winners" EntitySet="Winners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VotedCandidates_Voter" Association="Self.FK_VotedCandidates_Voter">
+            <End Role="Voters" EntitySet="Voters" />
+            <End Role="VotedCandidates" EntitySet="VotedCandidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Voter_VotedCandidates" Association="Self.FK_Voter_VotedCandidates">
+            <End Role="VotedCandidates" EntitySet="VotedCandidates" />
+            <End Role="Voters" EntitySet="Voters" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="eBotoDBModelStoreContainer" CdmEntityContainer="eBotoDBEntities">
+          <EntitySetMapping Name="Candidates">
+            <EntityTypeMapping TypeName="eBotoDBModel.Candidate">
+              <MappingFragment StoreEntitySet="Candidates">
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+                <ScalarProperty Name="CandidateName" ColumnName="CandidateName" />
+                <ScalarProperty Name="Partylist" ColumnName="Partylist" />
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+                <ScalarProperty Name="Motto" ColumnName="Motto" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="ElectionId" ColumnName="ElectionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="eBotoDBModel.Department">
+              <MappingFragment StoreEntitySet="Departments">
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Elections">
+            <EntityTypeMapping TypeName="eBotoDBModel.Election">
+              <MappingFragment StoreEntitySet="Elections">
+                <ScalarProperty Name="ElectionId" ColumnName="ElectionId" />
+                <ScalarProperty Name="ElectionName" ColumnName="ElectionName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EndedElections">
+            <EntityTypeMapping TypeName="eBotoDBModel.EndedElection">
+              <MappingFragment StoreEntitySet="EndedElections">
+                <ScalarProperty Name="EndedId" ColumnName="EndedId" />
+                <ScalarProperty Name="ElectionId" ColumnName="ElectionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OngoingElections">
+            <EntityTypeMapping TypeName="eBotoDBModel.OngoingElection">
+              <MappingFragment StoreEntitySet="OngoingElections">
+                <ScalarProperty Name="OngoingId" ColumnName="OngoingId" />
+                <ScalarProperty Name="ElectionId" ColumnName="ElectionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions">
+            <EntityTypeMapping TypeName="eBotoDBModel.Position">
+              <MappingFragment StoreEntitySet="Positions">
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+                <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="eBotoDBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VotedCandidates">
+            <EntityTypeMapping TypeName="eBotoDBModel.VotedCandidate">
+              <MappingFragment StoreEntitySet="VotedCandidates">
+                <ScalarProperty Name="VotedCandidatesId" ColumnName="VotedCandidatesId" />
+                <ScalarProperty Name="VoterId" ColumnName="VoterId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Voters">
+            <EntityTypeMapping TypeName="eBotoDBModel.Voter">
+              <MappingFragment StoreEntitySet="Voters">
+                <ScalarProperty Name="VoterId" ColumnName="VoterId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="Barangay" ColumnName="Barangay" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="VotedCandidatesId" ColumnName="VotedCandidatesId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Winners">
+            <EntityTypeMapping TypeName="eBotoDBModel.Winner">
+              <MappingFragment StoreEntitySet="Winners">
+                <ScalarProperty Name="WinnerId" ColumnName="WinnerId" />
+                <ScalarProperty Name="ElectionId" ColumnName="ElectionId" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
