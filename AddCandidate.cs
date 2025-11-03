@@ -49,7 +49,16 @@ namespace WindowsFormsApp1
                 return;
             }else
             {
-                candidateService.AddCandidate(candidate_name_box.Text,candidate_partylist_box.Text,motto_box.Text,candidate_positions_combo.SelectedItem.ToString(),imagePath,departmentId);
+                Others.othersList.Add(new Others
+                {
+                    CandidateName = candidate_name_box.Text,
+                    Partylist = candidate_partylist_box.Text,
+                    Motto = motto_box.Text,
+                    Image = imagePath,
+                    PositionId = positionService.GetPositionId(candidate_positions_combo.SelectedItem.ToString()),
+                    DepartmentId = departmentId
+                });
+                CreateElection.candidateList.Items.Add(candidate_name_box.Text.ToUpper() + " <----------> " + candidate_positions_combo.SelectedItem.ToString());
                 this.Hide();
             }
         }

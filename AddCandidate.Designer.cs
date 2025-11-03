@@ -187,8 +187,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button add_candidate_bttn;
-        private FontAwesome.Sharp.IconPictureBox candidate_photo_picture;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox motto_box;
+        public FontAwesome.Sharp.IconPictureBox candidate_photo_picture;
     }
 }

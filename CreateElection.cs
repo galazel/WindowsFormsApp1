@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -15,12 +9,16 @@ namespace WindowsFormsApp1
         private DepartmentService departmentService;
         private ElectionService electionService;
         private CandidateService candidateService;
+        private PositionService positionService;
+        public static ListBox candidateList;
         public CreateElection()
         {
             InitializeComponent();
             departmentService = new DepartmentService();
             electionService = new ElectionService();
             candidateService = new CandidateService();
+            candidateList = candidates_list;
+            positionService = new PositionService();
             LoadDepartments();
         }
         public void LoadDepartments()
@@ -45,13 +43,41 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Please fill in all required fields.");
             }else
             {
+                electionService.AddElection(election_name_box.Text, description_box.Text, false,departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString()));
+                candidateService.AddCandidate(Others.othersList,electionService.GetElectionId(election_name_box.Text));
                 MessageBox.Show("Election Added Successfully!");
-                candidateService.AddCandidate(electionService.GetElectionId(election_name_box.Text));
+                this.Hide();
+
             }
         }
 
+        private void candidates_list_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (candidates_list.SelectedItem == null)
+                    return;
 
+                var confirm = MessageBox.Show("Do you want to delete this record?",
+                                              "Confirm Delete",
+                                              MessageBoxButtons.YesNo,
+                                              MessageBoxIcon.Warning);
 
-
+                if (confirm == DialogResult.Yes)
+                {
+                    Others.othersList.RemoveAt(candidates_list.SelectedIndex);
+                    LoadCandidates();
+                }
+                   
+            }
+        }
+        public void LoadCandidates()
+        {
+            candidateList.Items.Clear();
+            foreach (var candidate in Others.othersList)
+            {
+                candidateList.Items.Add(candidate.CandidateName.ToUpper() + " <----------> " + positionService.GetPositionName(candidate.PositionId));
+            }
+        }
     }
 }

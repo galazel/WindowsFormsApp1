@@ -93,6 +93,7 @@
             this.candidates_list.Name = "candidates_list";
             this.candidates_list.Size = new System.Drawing.Size(423, 134);
             this.candidates_list.TabIndex = 25;
+            this.candidates_list.KeyDown += new System.Windows.Forms.KeyEventHandler(this.candidates_list_KeyDown);
             // 
             // description_box
             // 

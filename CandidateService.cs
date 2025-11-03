@@ -21,32 +21,25 @@ namespace WindowsFormsApp1
                 return db.Candidates.Any(c => c.CandidateName == candidateName);
             }
         }
-        public void AddCandidate(string name, string partylist,string motto, string position, string image, int departmentId)
+        public void AddCandidate(List<Others> candidates, int electionId)
         {
-            int positionId = positionService.GetPositionId(position);
             using(var db = new eBotoDBEntities())
             {
-                Candidate newCandidate = new Candidate
+                foreach(var candidate in candidates)
                 {
-                    CandidateName = name,
-                    Partylist = partylist,
-                    Motto = "",
-                    PositionId = positionId,
-                    Image = image,
-                    DepartmentId = 1,
-                    ElectionId = 1
-                };
-                db.Candidates.Add(newCandidate);
+                    Candidate newCandidate = new Candidate
+                    {
+                        CandidateName = candidate.CandidateName,
+                        Partylist = candidate.Partylist,
+                        Motto = candidate.Motto,
+                        PositionId = candidate.PositionId,
+                        Image = candidate.Image,
+                        DepartmentId = candidate.DepartmentId,
+                        ElectionId = electionId
+                    };
+                    db.Candidates.Add(newCandidate);
+                }
                 db.SaveChanges();
-            }
-        }
-        public void AddCandidate(int electionId)
-        {
-            using(var db = new eBotoDBEntities())
-            {
-                var candidatesInElection = db.Candidates.Where(c => c.ElectionId == electionId).ToList();
-                foreach(var candidate in candidatesInElection)
-                    candidate.ElectionId = electionId;
             }
         }
 

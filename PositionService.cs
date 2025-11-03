@@ -16,6 +16,14 @@ namespace WindowsFormsApp1
                 return position != null ? position.PositionId : -1;
             }
         }
+        public string GetPositionName(int positionId)
+        {
+            using (var db = new eBotoDBEntities())
+            {
+                var position = db.Positions.FirstOrDefault(p => p.PositionId == positionId);
+                return position != null ? position.PositionName : null;
+            }
+        }
         public List<string> GetAllPositions()
         {
             using (var db = new eBotoDBEntities())
