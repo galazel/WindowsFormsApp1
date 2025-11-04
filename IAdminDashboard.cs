@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    internal interface IDBConnection
+    internal interface IAdminDashboard
     {
-        eBotoDBEntities Entities { get; }
+
     }
 }

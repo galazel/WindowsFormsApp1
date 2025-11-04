@@ -31,5 +31,46 @@ namespace WindowsFormsApp1
                 return db.Positions.Select(p => p.PositionName).ToList();
             }
         }
+        public void SavePosition(string positionName)
+        {
+            using (var db = new eBotoDBEntities())
+            {
+                db.Positions.Add(new Position { PositionName = positionName.ToUpper() });
+                db.SaveChanges();
+            }
+        }
+
+        public void DeletePosition(int positionId)
+        {
+            using (var db = new eBotoDBEntities())
+            {
+                var position = db.Positions.FirstOrDefault(p => p.PositionId == positionId);
+                db.Positions.Remove(position);
+                db.SaveChanges();
+
+            }
+        }
+        public Boolean DoesExists(string positionName)
+        {
+            using (var db = new eBotoDBEntities())
+            {
+                var post = db.Positions.FirstOrDefault(d => d.PositionName == positionName);
+                if (post == null)
+                    return false;
+
+            }
+            return true;
+        }
+        public void EditPosition(int positionId, string newPosition)
+        {
+            using (var db = new eBotoDBEntities())
+            {
+                var position = db.Positions.FirstOrDefault(p => p.PositionId == positionId);
+                if (position == null) return;
+                else position.PositionName = newPosition;
+
+                db.SaveChanges();
+            }
+        }
     }
 }

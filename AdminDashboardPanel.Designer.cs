@@ -46,6 +46,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.total_voters = new System.Windows.Forms.Label();
+            this.add_position = new FontAwesome.Sharp.IconButton();
+            this.add_department = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.positions_grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.departments_grid)).BeginInit();
             this.panel4.SuspendLayout();
@@ -66,7 +68,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(108, 440);
+            this.label12.Location = new System.Drawing.Point(108, 449);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(49, 13);
             this.label12.TabIndex = 22;
@@ -84,18 +86,23 @@
             // positions_grid
             // 
             this.positions_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.positions_grid.Location = new System.Drawing.Point(111, 456);
+            this.positions_grid.Location = new System.Drawing.Point(111, 465);
             this.positions_grid.Name = "positions_grid";
-            this.positions_grid.Size = new System.Drawing.Size(707, 130);
+            this.positions_grid.Size = new System.Drawing.Size(645, 130);
             this.positions_grid.TabIndex = 20;
+            this.positions_grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.positions_grid_CellClick);
+            this.positions_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.positions_grid_CellContentClick);
             // 
             // departments_grid
             // 
             this.departments_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.departments_grid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.departments_grid.Location = new System.Drawing.Point(111, 290);
             this.departments_grid.Name = "departments_grid";
-            this.departments_grid.Size = new System.Drawing.Size(707, 130);
+            this.departments_grid.Size = new System.Drawing.Size(645, 130);
             this.departments_grid.TabIndex = 19;
+            this.departments_grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.departments_grid_CellClick);
+            this.departments_grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.departments_grid_CellDoubleClick);
             // 
             // label2
             // 
@@ -218,10 +225,38 @@
             this.total_voters.TabIndex = 9;
             this.total_voters.Text = "0";
             // 
+            // add_position
+            // 
+            this.add_position.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.add_position.IconColor = System.Drawing.Color.Black;
+            this.add_position.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.add_position.Location = new System.Drawing.Point(660, 439);
+            this.add_position.Name = "add_position";
+            this.add_position.Size = new System.Drawing.Size(96, 23);
+            this.add_position.TabIndex = 25;
+            this.add_position.Text = "ADD POSITION";
+            this.add_position.UseVisualStyleBackColor = true;
+            this.add_position.Click += new System.EventHandler(this.add_position_Click);
+            // 
+            // add_department
+            // 
+            this.add_department.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.add_department.IconColor = System.Drawing.Color.Black;
+            this.add_department.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.add_department.Location = new System.Drawing.Point(640, 264);
+            this.add_department.Name = "add_department";
+            this.add_department.Size = new System.Drawing.Size(116, 23);
+            this.add_department.TabIndex = 26;
+            this.add_department.Text = "ADD DEPARTMENT";
+            this.add_department.UseVisualStyleBackColor = true;
+            this.add_department.Click += new System.EventHandler(this.add_department_Click);
+            // 
             // AdminDashboardPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.add_department);
+            this.Controls.Add(this.add_position);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -269,5 +304,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label total_voters;
+        private FontAwesome.Sharp.IconButton add_position;
+        private FontAwesome.Sharp.IconButton add_department;
     }
 }

@@ -45,6 +45,7 @@
     <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>packages\FontAwesome.Sharp.6.6.0\lib\net48\FontAwesome.Sharp.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -71,6 +72,12 @@
     </Compile>
     <Compile Include="AddCandidate.Designer.cs">
       <DependentUpon>AddCandidate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog.Designer.cs">
+      <DependentUpon>Dialog.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminController.cs" />
     <Compile Include="AdminDashboard.cs">
@@ -107,8 +114,14 @@
     <Compile Include="CreateElection.Designer.cs">
       <DependentUpon>CreateElection.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditDashboard.Designer.cs">
+      <DependentUpon>EditDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="ElectionDTO.cs" />
-    <Compile Include="IDBConnection.cs" />
+    <Compile Include="IAdminDashboard.cs" />
     <Compile Include="Department.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -196,6 +209,9 @@
     <EmbeddedResource Include="AddCandidate.resx">
       <DependentUpon>AddCandidate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialog.resx">
+      <DependentUpon>Dialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateElection.resx">
       <DependentUpon>CreateElection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditDashboard.resx">
+      <DependentUpon>EditDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ElectionPanel.resx">
       <DependentUpon>ElectionPanel.cs</DependentUpon>
