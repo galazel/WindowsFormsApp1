@@ -107,12 +107,20 @@
     <Compile Include="CreateElection.Designer.cs">
       <DependentUpon>CreateElection.cs</DependentUpon>
     </Compile>
+    <Compile Include="ElectionDTO.cs" />
+    <Compile Include="IDBConnection.cs" />
     <Compile Include="Department.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DepartmentService.cs" />
     <Compile Include="Election.cs">
       <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ElectionPanel.Designer.cs">
+      <DependentUpon>ElectionPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="ElectionService.cs" />
     <Compile Include="EndedElection.cs">
@@ -161,6 +169,12 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="ResultPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ResultPanel.Designer.cs">
+      <DependentUpon>ResultPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="sysdiagram.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -197,6 +211,9 @@
     <EmbeddedResource Include="CreateElection.resx">
       <DependentUpon>CreateElection.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ElectionPanel.resx">
+      <DependentUpon>ElectionPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LiveResults.resx">
       <DependentUpon>LiveResults.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,6 +231,9 @@
     </Compile>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResultPanel.resx">
+      <DependentUpon>ResultPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VoterDashboard.resx">
       <DependentUpon>VoterDashboard.cs</DependentUpon>

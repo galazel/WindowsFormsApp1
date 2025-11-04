@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace WindowsFormsApp1
 {
@@ -30,6 +31,29 @@ namespace WindowsFormsApp1
                 db.Elections.Add(newElection);
                 db.SaveChanges();
             }
+        }
+        public List<ElectionDTO> GetElections()
+        {
+            var list = new List<ElectionDTO>();
+            DepartmentService departmentService = new DepartmentService();
+
+            using (var context = new eBotoDBEntities())
+            { 
+                var elections =  context.Elections.Include(e => e.Candidates).Include(e => e.Department).Where(e => e.Status == false).ToList();
+
+                foreach (var election in elections)
+                {
+                    ElectionDTO electionDTO = new ElectionDTO();
+                    electionDTO.ElectionName = election.ElectionName;
+                    electionDTO.Department = election.Department.DepartmentName;
+                    electionDTO.Status = election.Status == true ? "Ongoing" : "Not Started";
+                    electionDTO.Description = election.Description;
+                    electionDTO.Candidates = election.Candidates.ToList();
+                    list.Add(electionDTO);
+                }
+
+            }
+            return list;
         }
     }
 }

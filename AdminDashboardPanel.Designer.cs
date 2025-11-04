@@ -66,7 +66,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(108, 498);
+            this.label12.Location = new System.Drawing.Point(108, 440);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(49, 13);
             this.label12.TabIndex = 22;
@@ -75,7 +75,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(108, 271);
+            this.label11.Location = new System.Drawing.Point(108, 274);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(67, 13);
             this.label11.TabIndex = 21;
@@ -84,17 +84,17 @@
             // positions_grid
             // 
             this.positions_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.positions_grid.Location = new System.Drawing.Point(111, 514);
+            this.positions_grid.Location = new System.Drawing.Point(111, 456);
             this.positions_grid.Name = "positions_grid";
-            this.positions_grid.Size = new System.Drawing.Size(814, 182);
+            this.positions_grid.Size = new System.Drawing.Size(707, 130);
             this.positions_grid.TabIndex = 20;
             // 
             // departments_grid
             // 
             this.departments_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.departments_grid.Location = new System.Drawing.Point(111, 292);
+            this.departments_grid.Location = new System.Drawing.Point(111, 290);
             this.departments_grid.Name = "departments_grid";
-            this.departments_grid.Size = new System.Drawing.Size(814, 182);
+            this.departments_grid.Size = new System.Drawing.Size(707, 130);
             this.departments_grid.TabIndex = 19;
             // 
             // label2

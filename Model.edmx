@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="eBotoDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="eBotoDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Candidates">
           <Key>
             <PropertyRef Name="CandidateId" />
@@ -103,7 +103,7 @@
           <Property Name="ElectionId" Type="int" Nullable="false" />
           <Property Name="CandidateId" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Candidate_Department">
+        <Association Name="FK_Candidates_Departments">
           <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
           <End Role="Candidates" Type="Self.Candidates" Multiplicity="*" />
           <ReferentialConstraint>
@@ -115,7 +115,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Candidate_Election">
+        <Association Name="FK_Candidates_Elections">
           <End Role="Elections" Type="Self.Elections" Multiplicity="1" />
           <End Role="Candidates" Type="Self.Candidates" Multiplicity="*" />
           <ReferentialConstraint>
@@ -127,7 +127,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Candidate_Position">
+        <Association Name="FK_Candidates_Positions">
           <End Role="Positions" Type="Self.Positions" Multiplicity="1" />
           <End Role="Candidates" Type="Self.Candidates" Multiplicity="*" />
           <ReferentialConstraint>
@@ -139,7 +139,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Election_Department">
+        <Association Name="FK_Elections_Departments">
           <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
           <End Role="Elections" Type="Self.Elections" Multiplicity="*" />
           <ReferentialConstraint>
@@ -151,7 +151,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_EndedElections_Election">
+        <Association Name="FK_EndedElections_Elections">
           <End Role="Elections" Type="Self.Elections" Multiplicity="1" />
           <End Role="EndedElections" Type="Self.EndedElections" Multiplicity="*" />
           <ReferentialConstraint>
@@ -163,19 +163,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OngoingElections_Election">
-          <End Role="Elections" Type="Self.Elections" Multiplicity="1" />
-          <End Role="OngoingElections" Type="Self.OngoingElections" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Elections">
-              <PropertyRef Name="ElectionId" />
-            </Principal>
-            <Dependent Role="OngoingElections">
-              <PropertyRef Name="ElectionId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_VotedCandidates_Voter">
+        <Association Name="FK_VotedCandidates_Voters">
           <End Role="Voters" Type="Self.Voters" Multiplicity="0..1" />
           <End Role="VotedCandidates" Type="Self.VotedCandidates" Multiplicity="*" />
           <ReferentialConstraint>
@@ -187,7 +175,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Voter_Department">
+        <Association Name="FK_Voters_Departments">
           <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
           <End Role="Voters" Type="Self.Voters" Multiplicity="*" />
           <ReferentialConstraint>
@@ -199,7 +187,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Voter_VotedCandidates">
+        <Association Name="FK_Voters_VotedCandidates">
           <End Role="VotedCandidates" Type="Self.VotedCandidates" Multiplicity="0..1" />
           <End Role="Voters" Type="Self.Voters" Multiplicity="*" />
           <ReferentialConstraint>
@@ -246,39 +234,35 @@
           <EntitySet Name="VotedCandidates" EntityType="Self.VotedCandidates" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Voters" EntityType="Self.Voters" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Winners" EntityType="Self.Winners" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Candidate_Department" Association="Self.FK_Candidate_Department">
+          <AssociationSet Name="FK_Candidates_Departments" Association="Self.FK_Candidates_Departments">
             <End Role="Departments" EntitySet="Departments" />
             <End Role="Candidates" EntitySet="Candidates" />
           </AssociationSet>
-          <AssociationSet Name="FK_Candidate_Election" Association="Self.FK_Candidate_Election">
+          <AssociationSet Name="FK_Candidates_Elections" Association="Self.FK_Candidates_Elections">
             <End Role="Elections" EntitySet="Elections" />
             <End Role="Candidates" EntitySet="Candidates" />
           </AssociationSet>
-          <AssociationSet Name="FK_Candidate_Position" Association="Self.FK_Candidate_Position">
+          <AssociationSet Name="FK_Candidates_Positions" Association="Self.FK_Candidates_Positions">
             <End Role="Positions" EntitySet="Positions" />
             <End Role="Candidates" EntitySet="Candidates" />
           </AssociationSet>
-          <AssociationSet Name="FK_Election_Department" Association="Self.FK_Election_Department">
+          <AssociationSet Name="FK_Elections_Departments" Association="Self.FK_Elections_Departments">
             <End Role="Departments" EntitySet="Departments" />
             <End Role="Elections" EntitySet="Elections" />
           </AssociationSet>
-          <AssociationSet Name="FK_EndedElections_Election" Association="Self.FK_EndedElections_Election">
+          <AssociationSet Name="FK_EndedElections_Elections" Association="Self.FK_EndedElections_Elections">
             <End Role="Elections" EntitySet="Elections" />
             <End Role="EndedElections" EntitySet="EndedElections" />
           </AssociationSet>
-          <AssociationSet Name="FK_OngoingElections_Election" Association="Self.FK_OngoingElections_Election">
-            <End Role="Elections" EntitySet="Elections" />
-            <End Role="OngoingElections" EntitySet="OngoingElections" />
-          </AssociationSet>
-          <AssociationSet Name="FK_VotedCandidates_Voter" Association="Self.FK_VotedCandidates_Voter">
+          <AssociationSet Name="FK_VotedCandidates_Voters" Association="Self.FK_VotedCandidates_Voters">
             <End Role="Voters" EntitySet="Voters" />
             <End Role="VotedCandidates" EntitySet="VotedCandidates" />
           </AssociationSet>
-          <AssociationSet Name="FK_Voter_Department" Association="Self.FK_Voter_Department">
+          <AssociationSet Name="FK_Voters_Departments" Association="Self.FK_Voters_Departments">
             <End Role="Departments" EntitySet="Departments" />
             <End Role="Voters" EntitySet="Voters" />
           </AssociationSet>
-          <AssociationSet Name="FK_Voter_VotedCandidates" Association="Self.FK_Voter_VotedCandidates">
+          <AssociationSet Name="FK_Voters_VotedCandidates" Association="Self.FK_Voters_VotedCandidates">
             <End Role="VotedCandidates" EntitySet="VotedCandidates" />
             <End Role="Voters" EntitySet="Voters" />
           </AssociationSet>
@@ -291,8 +275,7 @@
             <End Role="Winners" EntitySet="Winners" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="eBotoDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">

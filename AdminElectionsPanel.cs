@@ -15,11 +15,16 @@ namespace WindowsFormsApp1
         public AdminElectionsPanel()
         {
             InitializeComponent();
+            LoadElectionPanels();
         }
 
         private void create_election_bttn_Click(object sender, EventArgs e)
         {
             new CreateElection().ShowDialog();
+        }
+        public void LoadElectionPanels()
+        {
+            Others.LoadElections(this.elections_flow);
         }
     }
 }

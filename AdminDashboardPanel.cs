@@ -44,11 +44,6 @@ namespace WindowsFormsApp1
                     positions.Rows.Add(post.PositionId, post.PositionName);
                 positions_grid.DataSource = positions;
 
-
-
-
-
-
             }
 
         }

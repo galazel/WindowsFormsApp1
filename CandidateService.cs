@@ -43,5 +43,13 @@ namespace WindowsFormsApp1
             }
         }
 
+        public List<Candidate> GetCandidatesByElectionId(int electionId)
+        {
+            using(var db = new eBotoDBEntities())
+            {
+                return db.Candidates.Where(c => c.ElectionId ==  electionId).ToList();
+            }
+        }
+
     }
 }

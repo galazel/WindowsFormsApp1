@@ -23,5 +23,15 @@ namespace WindowsFormsApp1
                 return department != null ? department.DepartmentId : -1;
             }
         }
+        public string GetDepartmentNameById(int departmentId)
+        {
+            using (var db = new eBotoDBEntities())
+            {
+                return db.Departments.FirstOrDefault(e => e.DepartmentId == departmentId).DepartmentName;
+            }
+        }
+
+       
+            
     }
 }
