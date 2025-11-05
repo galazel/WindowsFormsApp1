@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
         public AdminOngoingPanel()
         {
             InitializeComponent();
+            this.Dock = DockStyle.Fill;
             LoadOngoingElections();
         }
         public void LoadOngoingElections()

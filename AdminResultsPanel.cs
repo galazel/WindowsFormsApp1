@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
         public AdminResultsPanel()
         {
             InitializeComponent();
+            this.Dock = DockStyle.Fill;
         }
     }
 }

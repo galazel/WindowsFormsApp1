@@ -15,16 +15,18 @@ namespace WindowsFormsApp1
         public AdminElectionsPanel()
         {
             InitializeComponent();
+            this.Dock = DockStyle.Fill;
             LoadElectionPanels();
+        }
+
+        public void LoadElectionPanels()
+        {
+            Others.LoadElections(this.elections_flow);
         }
 
         private void create_election_bttn_Click(object sender, EventArgs e)
         {
             new CreateElection(this.elections_flow).ShowDialog();
-        }
-        public void LoadElectionPanels()
-        {
-            Others.LoadElections(this.elections_flow);
         }
     }
 }

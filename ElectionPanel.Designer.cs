@@ -55,47 +55,57 @@
             // 
             // delete_bttn
             // 
-            this.delete_bttn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.delete_bttn.IconColor = System.Drawing.Color.Black;
+            this.delete_bttn.BackColor = System.Drawing.Color.Transparent;
+            this.delete_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.delete_bttn.ForeColor = System.Drawing.Color.Transparent;
+            this.delete_bttn.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            this.delete_bttn.IconColor = System.Drawing.Color.Red;
             this.delete_bttn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.delete_bttn.Location = new System.Drawing.Point(662, 23);
+            this.delete_bttn.IconSize = 30;
+            this.delete_bttn.Location = new System.Drawing.Point(653, 23);
             this.delete_bttn.Name = "delete_bttn";
-            this.delete_bttn.Size = new System.Drawing.Size(75, 23);
+            this.delete_bttn.Size = new System.Drawing.Size(67, 45);
             this.delete_bttn.TabIndex = 40;
-            this.delete_bttn.Text = "DELETE";
-            this.delete_bttn.UseVisualStyleBackColor = true;
+            this.delete_bttn.UseVisualStyleBackColor = false;
             this.delete_bttn.Click += new System.EventHandler(this.delete_bttn_Click);
             // 
             // start_bttn
             // 
-            this.start_bttn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.start_bttn.IconColor = System.Drawing.Color.Black;
+            this.start_bttn.BackColor = System.Drawing.Color.Transparent;
+            this.start_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.start_bttn.ForeColor = System.Drawing.Color.Transparent;
+            this.start_bttn.IconChar = FontAwesome.Sharp.IconChar.Play;
+            this.start_bttn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.start_bttn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.start_bttn.Location = new System.Drawing.Point(581, 23);
+            this.start_bttn.IconSize = 30;
+            this.start_bttn.Location = new System.Drawing.Point(572, 23);
             this.start_bttn.Name = "start_bttn";
-            this.start_bttn.Size = new System.Drawing.Size(75, 23);
+            this.start_bttn.Size = new System.Drawing.Size(67, 45);
             this.start_bttn.TabIndex = 41;
-            this.start_bttn.Text = "START";
-            this.start_bttn.UseVisualStyleBackColor = true;
+            this.start_bttn.UseVisualStyleBackColor = false;
             this.start_bttn.Click += new System.EventHandler(this.start_bttn_Click);
             // 
             // view_details_bttn
             // 
-            this.view_details_bttn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.view_details_bttn.IconColor = System.Drawing.Color.Black;
+            this.view_details_bttn.BackColor = System.Drawing.Color.Transparent;
+            this.view_details_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.view_details_bttn.ForeColor = System.Drawing.Color.Transparent;
+            this.view_details_bttn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.view_details_bttn.IconColor = System.Drawing.Color.Navy;
             this.view_details_bttn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.view_details_bttn.Location = new System.Drawing.Point(500, 23);
+            this.view_details_bttn.IconSize = 30;
+            this.view_details_bttn.Location = new System.Drawing.Point(491, 23);
             this.view_details_bttn.Name = "view_details_bttn";
-            this.view_details_bttn.Size = new System.Drawing.Size(75, 23);
+            this.view_details_bttn.Size = new System.Drawing.Size(67, 45);
             this.view_details_bttn.TabIndex = 42;
-            this.view_details_bttn.Text = "VIEW";
-            this.view_details_bttn.UseVisualStyleBackColor = true;
+            this.view_details_bttn.UseVisualStyleBackColor = false;
             this.view_details_bttn.Click += new System.EventHandler(this.view_details_bttn_Click_1);
             // 
             // ElectionPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(213)))), ((int)(((byte)(255)))));
             this.Controls.Add(this.view_details_bttn);
             this.Controls.Add(this.start_bttn);
             this.Controls.Add(this.delete_bttn);

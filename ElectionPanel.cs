@@ -27,14 +27,6 @@ namespace WindowsFormsApp1
             this.id = electionDto.ElectionId;
             this.candidates = electionDto.Candidates;
             this.description = electionDto.Description;
-            StatusUpdate();
-        }
-        public void StatusUpdate()
-        {
-            if (status)
-                this.BackColor = Color.Green;
-            else
-                this.BackColor = Color.Red;
         }
 
 
