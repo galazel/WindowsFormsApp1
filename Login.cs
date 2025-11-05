@@ -47,5 +47,11 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
+        private void register_label_Click(object sender, EventArgs e)
+        {
+            new Register().ShowDialog();
+            this.Hide();
+        }
     }
 }

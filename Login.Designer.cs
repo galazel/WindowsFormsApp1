@@ -82,11 +82,12 @@
             // register_label
             // 
             this.register_label.AutoSize = true;
-            this.register_label.Location = new System.Drawing.Point(74, 390);
+            this.register_label.Location = new System.Drawing.Point(135, 385);
             this.register_label.Name = "register_label";
             this.register_label.Size = new System.Drawing.Size(188, 13);
             this.register_label.TabIndex = 5;
             this.register_label.Text = "Don\'t have an account? Register here";
+            this.register_label.Click += new System.EventHandler(this.register_label_Click);
             // 
             // label1
             // 

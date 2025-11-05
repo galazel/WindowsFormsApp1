@@ -91,6 +91,7 @@
           <Property Name="Section" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" />
           <Property Name="Status" Type="bit" Nullable="false" />
           <Property Name="DepartmentId" Type="int" />
           <Property Name="VotedCandidatesId" Type="int" />
@@ -388,6 +389,7 @@
           <NavigationProperty Name="Department" Relationship="Self.FK_Voter_Department" FromRole="Voters" ToRole="Departments" />
           <NavigationProperty Name="VotedCandidates" Relationship="Self.FK_VotedCandidates_Voter" FromRole="Voters" ToRole="VotedCandidates" />
           <NavigationProperty Name="VotedCandidate" Relationship="Self.FK_Voter_VotedCandidates" FromRole="Voters" ToRole="VotedCandidates" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Winner">
           <Key>
@@ -672,6 +674,7 @@
           <EntitySetMapping Name="Voters">
             <EntityTypeMapping TypeName="eBotoDBModel.Voter">
               <MappingFragment StoreEntitySet="Voters">
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="VoterId" ColumnName="VoterId" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />

@@ -54,12 +54,22 @@
             this.department_combo = new System.Windows.Forms.ComboBox();
             this.birthdate_date = new System.Windows.Forms.DateTimePicker();
             this.register_bttn = new System.Windows.Forms.Button();
+            this.photo_box = new FontAwesome.Sharp.IconPictureBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.return_icon = new FontAwesome.Sharp.IconButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.barangay_box = new System.Windows.Forms.TextBox();
+            this.province_box = new System.Windows.Forms.TextBox();
+            this.city_box = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.photo_box)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(315, 36);
+            this.label1.Location = new System.Drawing.Point(306, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(137, 13);
             this.label1.TabIndex = 0;
@@ -77,7 +87,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(46, 335);
+            this.label3.Location = new System.Drawing.Point(46, 387);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(137, 13);
             this.label3.TabIndex = 2;
@@ -140,7 +150,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(498, 267);
+            this.label10.Location = new System.Drawing.Point(498, 319);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(82, 13);
             this.label10.TabIndex = 12;
@@ -149,7 +159,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(274, 267);
+            this.label11.Location = new System.Drawing.Point(274, 319);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(54, 13);
             this.label11.TabIndex = 11;
@@ -158,7 +168,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(45, 267);
+            this.label12.Location = new System.Drawing.Point(45, 319);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(36, 13);
             this.label12.TabIndex = 10;
@@ -167,7 +177,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(275, 367);
+            this.label13.Location = new System.Drawing.Point(45, 483);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(70, 13);
             this.label13.TabIndex = 14;
@@ -176,7 +186,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(46, 367);
+            this.label14.Location = new System.Drawing.Point(46, 419);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(68, 13);
             this.label14.TabIndex = 13;
@@ -219,21 +229,21 @@
             // 
             // section_box
             // 
-            this.section_box.Location = new System.Drawing.Point(277, 283);
+            this.section_box.Location = new System.Drawing.Point(277, 335);
             this.section_box.Name = "section_box";
             this.section_box.Size = new System.Drawing.Size(208, 20);
             this.section_box.TabIndex = 22;
             // 
             // year_box
             // 
-            this.year_box.Location = new System.Drawing.Point(48, 283);
+            this.year_box.Location = new System.Drawing.Point(48, 335);
             this.year_box.Name = "year_box";
             this.year_box.Size = new System.Drawing.Size(208, 20);
             this.year_box.TabIndex = 21;
             // 
             // password_box
             // 
-            this.password_box.Location = new System.Drawing.Point(278, 383);
+            this.password_box.Location = new System.Drawing.Point(48, 499);
             this.password_box.Name = "password_box";
             this.password_box.PasswordChar = '*';
             this.password_box.Size = new System.Drawing.Size(208, 20);
@@ -242,7 +252,7 @@
             // 
             // username_box
             // 
-            this.username_box.Location = new System.Drawing.Point(49, 383);
+            this.username_box.Location = new System.Drawing.Point(49, 435);
             this.username_box.Name = "username_box";
             this.username_box.Size = new System.Drawing.Size(208, 20);
             this.username_box.TabIndex = 24;
@@ -250,13 +260,14 @@
             // department_combo
             // 
             this.department_combo.FormattingEnabled = true;
-            this.department_combo.Location = new System.Drawing.Point(501, 281);
+            this.department_combo.Location = new System.Drawing.Point(501, 333);
             this.department_combo.Name = "department_combo";
             this.department_combo.Size = new System.Drawing.Size(208, 21);
             this.department_combo.TabIndex = 26;
             // 
             // birthdate_date
             // 
+            this.birthdate_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.birthdate_date.Location = new System.Drawing.Point(48, 222);
             this.birthdate_date.Name = "birthdate_date";
             this.birthdate_date.Size = new System.Drawing.Size(208, 20);
@@ -264,18 +275,112 @@
             // 
             // register_bttn
             // 
-            this.register_bttn.Location = new System.Drawing.Point(327, 474);
+            this.register_bttn.Location = new System.Drawing.Point(309, 568);
             this.register_bttn.Name = "register_bttn";
             this.register_bttn.Size = new System.Drawing.Size(125, 23);
             this.register_bttn.TabIndex = 28;
             this.register_bttn.Text = "CONFIRM";
             this.register_bttn.UseVisualStyleBackColor = true;
+            this.register_bttn.Click += new System.EventHandler(this.register_bttn_Click);
+            // 
+            // photo_box
+            // 
+            this.photo_box.BackColor = System.Drawing.SystemColors.Control;
+            this.photo_box.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.photo_box.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.photo_box.IconColor = System.Drawing.SystemColors.ControlText;
+            this.photo_box.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.photo_box.IconSize = 116;
+            this.photo_box.Location = new System.Drawing.Point(277, 403);
+            this.photo_box.Name = "photo_box";
+            this.photo_box.Size = new System.Drawing.Size(199, 116);
+            this.photo_box.TabIndex = 29;
+            this.photo_box.TabStop = false;
+            this.photo_box.Click += new System.EventHandler(this.photo_box_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(274, 387);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(45, 13);
+            this.label15.TabIndex = 30;
+            this.label15.Text = "PHOTO";
+            // 
+            // return_icon
+            // 
+            this.return_icon.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.return_icon.IconColor = System.Drawing.Color.Black;
+            this.return_icon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.return_icon.Location = new System.Drawing.Point(48, 36);
+            this.return_icon.Name = "return_icon";
+            this.return_icon.Size = new System.Drawing.Size(48, 29);
+            this.return_icon.TabIndex = 31;
+            this.return_icon.Text = "return";
+            this.return_icon.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(501, 282);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(208, 20);
+            this.textBox1.TabIndex = 37;
+            // 
+            // barangay_box
+            // 
+            this.barangay_box.Location = new System.Drawing.Point(277, 282);
+            this.barangay_box.Name = "barangay_box";
+            this.barangay_box.Size = new System.Drawing.Size(208, 20);
+            this.barangay_box.TabIndex = 36;
+            // 
+            // province_box
+            // 
+            this.province_box.Location = new System.Drawing.Point(48, 282);
+            this.province_box.Name = "province_box";
+            this.province_box.Size = new System.Drawing.Size(208, 20);
+            this.province_box.TabIndex = 35;
+            // 
+            // city_box
+            // 
+            this.city_box.AutoSize = true;
+            this.city_box.Location = new System.Drawing.Point(498, 265);
+            this.city_box.Name = "city_box";
+            this.city_box.Size = new System.Drawing.Size(31, 13);
+            this.city_box.TabIndex = 34;
+            this.city_box.Text = "CITY";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(274, 265);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(66, 13);
+            this.label17.TabIndex = 33;
+            this.label17.Text = "BARANGAY";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(45, 265);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(62, 13);
+            this.label18.TabIndex = 32;
+            this.label18.Text = "PROVINCE";
             // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(756, 603);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.barangay_box);
+            this.Controls.Add(this.province_box);
+            this.Controls.Add(this.city_box);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.return_icon);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.photo_box);
             this.Controls.Add(this.register_bttn);
             this.Controls.Add(this.birthdate_date);
             this.Controls.Add(this.department_combo);
@@ -304,6 +409,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Register";
             this.Text = "Register";
+            ((System.ComponentModel.ISupportInitialize)(this.photo_box)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,5 +443,14 @@
         private System.Windows.Forms.ComboBox department_combo;
         private System.Windows.Forms.DateTimePicker birthdate_date;
         private System.Windows.Forms.Button register_bttn;
+        private FontAwesome.Sharp.IconPictureBox photo_box;
+        private System.Windows.Forms.Label label15;
+        private FontAwesome.Sharp.IconButton return_icon;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox barangay_box;
+        private System.Windows.Forms.TextBox province_box;
+        private System.Windows.Forms.Label city_box;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
     }
 }
