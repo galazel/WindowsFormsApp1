@@ -11,9 +11,11 @@ namespace WindowsFormsApp1
         private CandidateService candidateService;
         private PositionService positionService;
         public static ListBox candidateList;
-        public CreateElection()
+        private FlowLayoutPanel electionsPanel;
+        public CreateElection(FlowLayoutPanel electionsPanel)
         {
             InitializeComponent();
+            this.electionsPanel = electionsPanel;
             departmentService = new DepartmentService();
             electionService = new ElectionService();
             candidateService = new CandidateService();
@@ -41,12 +43,19 @@ namespace WindowsFormsApp1
             if (election_name_box.Text.Equals("") || description_box.Text.Equals("") || departments_combo.SelectedItem == null || candidates_list.Items.Count == 0)
             {
                 MessageBox.Show("Please fill in all required fields.");
+            }
+            else if (electionService.DoesElectionAlreadyExists(election_name_box.Text, departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString())))
+            {
+                MessageBox.Show("An election already exists in the selected department.");
+                return;
             }else
             {
-                electionService.AddElection(election_name_box.Text, description_box.Text, false,departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString()));
-                candidateService.AddCandidate(Others.othersList,electionService.GetElectionId(election_name_box.Text));
+                electionService.AddElection(election_name_box.Text, description_box.Text, false, departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString()));
+                candidateService.AddCandidate(Others.othersList, electionService.GetElectionId(election_name_box.Text));
                 MessageBox.Show("Election Added Successfully!");
                 this.Hide();
+                Others.othersList.Clear();
+                Others.LoadElections(electionsPanel);
 
             }
         }

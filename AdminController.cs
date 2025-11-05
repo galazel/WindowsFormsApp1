@@ -17,6 +17,10 @@ namespace WindowsFormsApp1
                     panel.Controls.Clear();
                     panel.Controls.Add(new AdminElectionsPanel());
                     break;
+                case "Ongoing":
+                    panel.Controls.Clear();
+                    panel.Controls.Add(new AdminOngoingPanel());
+                    break;
                 case "Results":
                     panel.Controls.Clear();
                     panel.Controls.Add(new AdminResultsPanel());

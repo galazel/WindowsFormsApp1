@@ -29,16 +29,19 @@ namespace WindowsFormsApp1
 
         }
 
-        private void results_icons_Click(object sender, EventArgs e)
+        private void ongoing_icon_Click(object sender, EventArgs e)
+        {
+            AdminController.AdminTabControl("Ongoing", this.admin_panel);
+        }
+
+        private void results_icon_Click(object sender, EventArgs e)
         {
             AdminController.AdminTabControl("Results", this.admin_panel);
-
         }
 
         private void logout_icon_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            new Login().ShowDialog();
+
         }
     }
 }
