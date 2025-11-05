@@ -12,9 +12,11 @@ namespace WindowsFormsApp1
 {
     public partial class VoterDashboard : Form
     {
+        private VoterDTO voterDTO;
         public VoterDashboard(VoterDTO voter)
         {
             InitializeComponent();
+            this.voterDTO = voter;
             voter_image.Image = Image.FromFile(voter.Voter.Image);
             name_label.Text = voter.Voter.FirstName + " " + voter.Voter.MiddleName +" "+ voter.Voter.LastName;
             status_label.Text = voter.Voter.Status ? "Status: Voted" : "Status: Not Voted";
@@ -24,12 +26,10 @@ namespace WindowsFormsApp1
             birthday_label.Text = "Birthdate: " + voter.Voter.BirthDate.ToShortDateString();
             contact_label.Text = "Contact Number: " + voter.Voter.ContactNumber;
             email_label.Text = "Email: " + voter.Voter.Email;
-
-            greetings_label.Text = "Welcome, " + voter.Voter.FirstName + " " + voter.Voter.LastName + "!";
-            status_election_label.Text = "Election Status: " + (voter.Election.Status ? "Active" : "Inactive");
-            election_name.Text = "Election: " + voter.Election.ElectionName;
-            department_label.Text = "Department: " + voter.Department.DepartmentName;
-            if(voter.Election.Status)
+            status_election_label.Text =  voter.Election.Status ? "Started Now" : "Not Yet Started";
+            election_name.Text = voter.Election.ElectionName.ToUpper();
+            department_label.Text = voter.Department.DepartmentName.ToUpper();
+            if (voter.Election.Status)
             {
                 vote_now_bttn.Enabled = true;
                 vote_now_bttn.Text = "Vote Now!";
@@ -40,8 +40,18 @@ namespace WindowsFormsApp1
                 vote_now_bttn.Text = "Election is Inactive";
             }
 
+        }
+        private void vote_now_bttn_Click(object sender, EventArgs e)
+        {
+            StringBuilder candidates = new StringBuilder();
 
+            foreach(var candidate in voterDTO.Candidates)
+            {
+                string positionName = new PositionService().GetPositionName(candidate.PositionId);
+                candidates.AppendLine(candidate.CandidateName + " " + positionName);
+            }
 
+            MessageBox.Show(candidates.ToString(), "Candidates");
         }
     }
 }

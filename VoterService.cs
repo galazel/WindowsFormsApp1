@@ -69,16 +69,18 @@ namespace WindowsFormsApp1
         {
             using (var db = new eBotoDBEntities())
             {
-               var voter = from v in db.Voters
-                           join d in db.Departments on v.DepartmentId equals d.DepartmentId
-                           join e in db.Elections on d.DepartmentId equals e.DepartmentId
-                           where v.VoterId == voterId
-                           select new VoterDTO
-                           {
-                              Voter = v,
-                              Department = d,
-                              Election = e
-                           };
+                var voter = from v in db.Voters
+                            join d in db.Departments on v.DepartmentId equals d.DepartmentId
+                            join e in db.Elections on d.DepartmentId equals e.DepartmentId
+                            join c in db.Candidates on e.ElectionId equals c.ElectionId
+                            where v.VoterId == voterId
+                            select new VoterDTO
+                            {
+                                Voter = v,
+                                Department = d,
+                                Election = e,
+                                Candidates = e.Candidates.ToList()
+                            };
                 return voter.FirstOrDefault();
             }
             

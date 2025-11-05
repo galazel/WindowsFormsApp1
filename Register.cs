@@ -38,6 +38,12 @@ namespace WindowsFormsApp1
 
         private void register_bttn_Click(object sender, EventArgs e)
         {
+            
+            if (province_box.Text.Equals("") || barangay_box.Text.Equals("") || province_box.Text.Equals("") || username_box.Text.Equals("") || password_box.Text.Equals("") || lastname_box.Text.Equals("") || firstname_box.Text.Equals("") || middle_box.Text.Equals("") || birthdate_date.Value.ToString().Equals("") || contact_box.Text.Equals("") || email_box.Text.Equals("") || year_box.Text.Equals("") || section_box.Text.Equals("") || department_combo.SelectedItem.ToString().Equals("") || string.IsNullOrEmpty(imagePath))
+            {
+                MessageBox.Show("Please fill in all required fields.");
+                return;
+            }
             int age = 2025 - birthdate_date.Value.Year;
             Voter voter = new Voter
             {
@@ -58,11 +64,7 @@ namespace WindowsFormsApp1
                 DepartmentId = GetDepartmentId(department_combo.SelectedItem.ToString()),
                 Image = imagePath
             };
-            if (province_box.Text.Equals("") || barangay_box.Text.Equals("") || province_box.Text.Equals("") || username_box.Text.Equals("") || password_box.Text.Equals("") || lastname_box.Text.Equals("") || firstname_box.Text.Equals("") || middle_box.Text.Equals("") || birthdate_date.Value.ToString().Equals("") || contact_box.Text.Equals("") || email_box.Text.Equals("") || year_box.Text.Equals("") || section_box.Text.Equals("") || department_combo.SelectedItem.ToString().Equals("") || string.IsNullOrEmpty(imagePath))
-            {
-                MessageBox.Show("Please fill in all required fields.");
-                return;
-            } else if (age < 18)
+            if (age < 18)
             {
                 MessageBox.Show("You are not allowed to vote");
                 return;
@@ -78,6 +80,12 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Voter already exists!");
             }
+        }
+
+        private void return_icon_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Login().ShowDialog();
         }
     }
 }
