@@ -44,7 +44,7 @@
             // 
             // create_election_bttn
             // 
-            this.create_election_bttn.Location = new System.Drawing.Point(770, 51);
+            this.create_election_bttn.Location = new System.Drawing.Point(706, 56);
             this.create_election_bttn.Name = "create_election_bttn";
             this.create_election_bttn.Size = new System.Drawing.Size(139, 23);
             this.create_election_bttn.TabIndex = 20;
@@ -58,7 +58,7 @@
             this.elections_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.elections_flow.Location = new System.Drawing.Point(87, 93);
             this.elections_flow.Name = "elections_flow";
-            this.elections_flow.Size = new System.Drawing.Size(822, 397);
+            this.elections_flow.Size = new System.Drawing.Size(779, 397);
             this.elections_flow.TabIndex = 21;
             this.elections_flow.WrapContents = false;
             // 
