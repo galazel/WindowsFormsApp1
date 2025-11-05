@@ -28,30 +28,24 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Please input the required fields");
             else
             {
-                using (var db = new eBotoDBEntities())
+                if(!new VoterService().DoesVoterAlreadyExisted(username_box.Text))
                 {
-                    var user = db.Voters.Where(u => u.Username.Equals(username_box.Text) && u.Password.Equals(password_box.Text)).ToList();
-                    if (user.Count() > 0)
-                    {
-                        MessageBox.Show("Login Successful!");
-                        this.Hide();
-                        new VoterDashboard().ShowDialog();
-                        return;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid username or password.");
-                        username_box.Text = "";
-                        password_box.Text = "";
-                    }
+                    MessageBox.Show("No registered voters found. Please register first.");
+                    return;
+                }else
+                {
+                    MessageBox.Show("Login Successful!");
+                    this.Hide();
+                    new VoterDashboard(new VoterService().GetVoterDepartmentElection(new VoterService().GetVoterIdByUsername(username_box.Text))).ShowDialog();
                 }
             }
         }
 
         private void register_label_Click(object sender, EventArgs e)
         {
-            new Register().ShowDialog();
             this.Hide();
+            new Register().ShowDialog();
+            
         }
     }
 }

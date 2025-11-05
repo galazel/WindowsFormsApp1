@@ -1,31 +1,89 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+using System.Data.Entity;
 
 namespace WindowsFormsApp1
 {
     internal class VoterService
     {
-        public void AddVoter(Voter voter)
+        public Boolean AddVoter(Voter voter)
         {
             using (var db = new eBotoDBEntities())
             {
-                var existingVoter = db.Voters.FirstOrDefault(v => v.VoterId == voter.VoterId);
-                if(existingVoter == null)
-                {
-                    db.Voters.Add(voter);
-                    db.SaveChanges();
-                }else
-                {
-                    MessageBox.Show("Voter already exists!");
-                    return;
-                }
+                var existingVoter = db.Voters.FirstOrDefault(v => v.FirstName == voter.FirstName && v.LastName == voter.LastName && v.DepartmentId == voter.DepartmentId && v.BirthDate == voter.BirthDate);
 
-               
+                if (existingVoter != null)
+                    return false;
+                
+                db.Voters.Add(voter);
+                db.SaveChanges();
+                return true;
             }
         }
+        public Boolean UpdateVoter(Voter voter)
+        {
+            using (var db = new eBotoDBEntities())
+            {
+                var existingVoter = db.Voters.Find(voter.VoterId);
+                if (existingVoter == null)
+                    return false;
+                existingVoter.FirstName = voter.FirstName;
+                existingVoter.LastName = voter.LastName;
+                existingVoter.MiddleName = voter.MiddleName;
+                existingVoter.DepartmentId = voter.DepartmentId;
+                existingVoter.Year = voter.Year;
+                existingVoter.Section = voter.Section;
+                existingVoter.BirthDate = voter.BirthDate;
+                existingVoter.ContactNumber = voter.ContactNumber;
+                existingVoter.Email = voter.Email;
+                existingVoter.Username = voter.Username;
+                existingVoter.Password = voter.Password;
+                existingVoter.Image = voter.Image;
+                existingVoter.Status = voter.Status;
+                db.SaveChanges();
+                return true;
+            }
+        }
+        public int GetVoterIdByUsername(string username)
+        {
+            using (var db = new eBotoDBEntities())
+            {
+                var voter = db.Voters.FirstOrDefault(v => v.Username == username);
+                return voter != null ? voter.VoterId : -1;
+            }
+        }
+        public Boolean DoesVoterAlreadyExisted(String username)
+        {
+            using (var db = new eBotoDBEntities())
+            {
+                var voter = db.Voters.FirstOrDefault(v => v.Username == username);
+                if (voter == null)
+                    return false;
+            }
+            return true;
+
+
+        }
+
+        public VoterDTO GetVoterDepartmentElection(int voterId)
+        {
+            using (var db = new eBotoDBEntities())
+            {
+               var voter = from v in db.Voters
+                           join d in db.Departments on v.DepartmentId equals d.DepartmentId
+                           join e in db.Elections on d.DepartmentId equals e.DepartmentId
+                           where v.VoterId == voterId
+                           select new VoterDTO
+                           {
+                              Voter = v,
+                              Department = d,
+                              Election = e
+                           };
+                return voter.FirstOrDefault();
+            }
+            
+           
+        }
+
     }
 }

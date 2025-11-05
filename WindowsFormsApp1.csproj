@@ -203,6 +203,7 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="VoterDTO.cs" />
     <Compile Include="VoterService.cs" />
     <Compile Include="VotedCandidate.cs">
       <DependentUpon>Model.tt</DependentUpon>
