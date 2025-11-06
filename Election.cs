@@ -28,6 +28,7 @@ namespace WindowsFormsApp1
         public string Description { get; set; }
         public bool Status { get; set; }
         public int DepartmentId { get; set; }
+        public bool EndStatus { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Candidate> Candidates { get; set; }

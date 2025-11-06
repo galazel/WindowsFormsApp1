@@ -194,11 +194,11 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <Compile Include="ResultPanel.cs">
+    <Compile Include="ResultsPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ResultPanel.Designer.cs">
-      <DependentUpon>ResultPanel.cs</DependentUpon>
+    <Compile Include="ResultsPanel.Designer.cs">
+      <DependentUpon>ResultsPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="sysdiagram.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -271,8 +271,8 @@
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResultPanel.resx">
-      <DependentUpon>ResultPanel.cs</DependentUpon>
+    <EmbeddedResource Include="ResultsPanel.resx">
+      <DependentUpon>ResultsPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VoterDashboard.resx">
       <DependentUpon>VoterDashboard.cs</DependentUpon>

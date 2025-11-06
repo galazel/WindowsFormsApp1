@@ -61,6 +61,8 @@
             // 
             // elections_flow
             // 
+            this.elections_flow.AutoScroll = true;
+            this.elections_flow.AutoSize = true;
             this.elections_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.elections_flow.Location = new System.Drawing.Point(68, 93);
             this.elections_flow.Name = "elections_flow";

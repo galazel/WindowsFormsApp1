@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class ResultPanel : UserControl
+    public partial class ResultsPanel : UserControl
     {
-        public ResultPanel()
+        public ResultsPanel(ElectionDTO electionDTO)
         {
             InitializeComponent();
         }

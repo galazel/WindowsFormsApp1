@@ -38,7 +38,7 @@
             // election_name_label
             // 
             this.election_name_label.AutoSize = true;
-            this.election_name_label.Location = new System.Drawing.Point(27, 23);
+            this.election_name_label.Location = new System.Drawing.Point(38, 33);
             this.election_name_label.Name = "election_name_label";
             this.election_name_label.Size = new System.Drawing.Size(113, 13);
             this.election_name_label.TabIndex = 23;
@@ -47,7 +47,7 @@
             // department_label
             // 
             this.department_label.AutoSize = true;
-            this.department_label.Location = new System.Drawing.Point(27, 45);
+            this.department_label.Location = new System.Drawing.Point(38, 55);
             this.department_label.Name = "department_label";
             this.department_label.Size = new System.Drawing.Size(113, 13);
             this.department_label.TabIndex = 24;
@@ -57,14 +57,14 @@
             // 
             this.delete_bttn.BackColor = System.Drawing.Color.Transparent;
             this.delete_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.delete_bttn.ForeColor = System.Drawing.Color.Transparent;
+            this.delete_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(213)))), ((int)(((byte)(255)))));
             this.delete_bttn.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            this.delete_bttn.IconColor = System.Drawing.Color.Red;
+            this.delete_bttn.IconColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.delete_bttn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.delete_bttn.IconSize = 30;
-            this.delete_bttn.Location = new System.Drawing.Point(653, 23);
+            this.delete_bttn.Location = new System.Drawing.Point(700, 23);
             this.delete_bttn.Name = "delete_bttn";
-            this.delete_bttn.Size = new System.Drawing.Size(67, 45);
+            this.delete_bttn.Size = new System.Drawing.Size(24, 45);
             this.delete_bttn.TabIndex = 40;
             this.delete_bttn.UseVisualStyleBackColor = false;
             this.delete_bttn.Click += new System.EventHandler(this.delete_bttn_Click);
@@ -73,14 +73,14 @@
             // 
             this.start_bttn.BackColor = System.Drawing.Color.Transparent;
             this.start_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.start_bttn.ForeColor = System.Drawing.Color.Transparent;
+            this.start_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(213)))), ((int)(((byte)(255)))));
             this.start_bttn.IconChar = FontAwesome.Sharp.IconChar.Play;
-            this.start_bttn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.start_bttn.IconColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.start_bttn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.start_bttn.IconSize = 30;
-            this.start_bttn.Location = new System.Drawing.Point(572, 23);
+            this.start_bttn.Location = new System.Drawing.Point(670, 23);
             this.start_bttn.Name = "start_bttn";
-            this.start_bttn.Size = new System.Drawing.Size(67, 45);
+            this.start_bttn.Size = new System.Drawing.Size(24, 45);
             this.start_bttn.TabIndex = 41;
             this.start_bttn.UseVisualStyleBackColor = false;
             this.start_bttn.Click += new System.EventHandler(this.start_bttn_Click);
@@ -89,14 +89,14 @@
             // 
             this.view_details_bttn.BackColor = System.Drawing.Color.Transparent;
             this.view_details_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.view_details_bttn.ForeColor = System.Drawing.Color.Transparent;
+            this.view_details_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(213)))), ((int)(((byte)(255)))));
             this.view_details_bttn.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.view_details_bttn.IconColor = System.Drawing.Color.Navy;
+            this.view_details_bttn.IconColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.view_details_bttn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.view_details_bttn.IconSize = 30;
-            this.view_details_bttn.Location = new System.Drawing.Point(491, 23);
+            this.view_details_bttn.Location = new System.Drawing.Point(640, 23);
             this.view_details_bttn.Name = "view_details_bttn";
-            this.view_details_bttn.Size = new System.Drawing.Size(67, 45);
+            this.view_details_bttn.Size = new System.Drawing.Size(24, 45);
             this.view_details_bttn.TabIndex = 42;
             this.view_details_bttn.UseVisualStyleBackColor = false;
             this.view_details_bttn.Click += new System.EventHandler(this.view_details_bttn_Click_1);
@@ -105,6 +105,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(213)))), ((int)(((byte)(255)))));
             this.Controls.Add(this.view_details_bttn);
             this.Controls.Add(this.start_bttn);
@@ -112,7 +113,8 @@
             this.Controls.Add(this.department_label);
             this.Controls.Add(this.election_name_label);
             this.Name = "ElectionPanel";
-            this.Size = new System.Drawing.Size(757, 84);
+            this.Padding = new System.Windows.Forms.Padding(10);
+            this.Size = new System.Drawing.Size(757, 101);
             this.ResumeLayout(false);
             this.PerformLayout();
 

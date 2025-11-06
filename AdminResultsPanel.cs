@@ -16,6 +16,18 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
+            LoadResultsElections();
+
+        }
+        public void LoadResultsElections()
+        {
+            results_flow.Controls.Clear();
+            foreach (var election in new ElectionService().GetElections())
+            {
+                var panel = new ResultsPanel(election);
+                panel.OnUpdateRequested += LoadResultsElections;
+                results_flow.Controls.Add(panel);
+            }
         }
     }
 }

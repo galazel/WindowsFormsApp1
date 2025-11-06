@@ -33,6 +33,7 @@
           <Property Name="ElectionName" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="EndStatus" Type="bit" Nullable="false" />
           <Property Name="DepartmentId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="EndedElections">
@@ -321,6 +322,7 @@
           <NavigationProperty Name="EndedElections" Relationship="Self.FK_EndedElections_Election" FromRole="Elections" ToRole="EndedElections" />
           <NavigationProperty Name="OngoingElections" Relationship="Self.FK_OngoingElections_Election" FromRole="Elections" ToRole="OngoingElections" />
           <NavigationProperty Name="Winners" Relationship="Self.FK_Winners_Elections" FromRole="Elections" ToRole="Winners" />
+          <Property Name="EndStatus" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="EndedElection">
           <Key>
@@ -620,6 +622,7 @@
           <EntitySetMapping Name="Elections">
             <EntityTypeMapping TypeName="eBotoDBModel.Election">
               <MappingFragment StoreEntitySet="Elections">
+                <ScalarProperty Name="EndStatus" ColumnName="EndStatus" />
                 <ScalarProperty Name="ElectionId" ColumnName="ElectionId" />
                 <ScalarProperty Name="ElectionName" ColumnName="ElectionName" />
                 <ScalarProperty Name="Description" ColumnName="Description" />

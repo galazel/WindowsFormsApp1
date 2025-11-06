@@ -28,18 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ongoing_flow = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.ongoing_flow = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
-            // 
-            // ongoing_flow
-            // 
-            this.ongoing_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.ongoing_flow.Location = new System.Drawing.Point(68, 93);
-            this.ongoing_flow.Name = "ongoing_flow";
-            this.ongoing_flow.Size = new System.Drawing.Size(779, 397);
-            this.ongoing_flow.TabIndex = 24;
-            this.ongoing_flow.WrapContents = false;
             // 
             // label1
             // 
@@ -52,6 +43,16 @@
             this.label1.Size = new System.Drawing.Size(208, 23);
             this.label1.TabIndex = 28;
             this.label1.Text = "ONGOING ELECTIONS";
+            // 
+            // ongoing_flow
+            // 
+            this.ongoing_flow.AutoScroll = true;
+            this.ongoing_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.ongoing_flow.Location = new System.Drawing.Point(68, 93);
+            this.ongoing_flow.Name = "ongoing_flow";
+            this.ongoing_flow.Size = new System.Drawing.Size(809, 397);
+            this.ongoing_flow.TabIndex = 24;
+            this.ongoing_flow.WrapContents = false;
             // 
             // AdminOngoingPanel
             // 
@@ -68,8 +69,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.FlowLayoutPanel ongoing_flow;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel ongoing_flow;
     }
 }

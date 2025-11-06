@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -16,13 +10,22 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
-            LoadElectionPanels();
+            LoadElections();       
+
+        }
+        public void LoadElections()
+        {
+            elections_flow.Controls.Clear();
+
+            foreach (var election in new ElectionService().GetElections())
+            {
+                var panel = new ElectionPanel(election);
+                panel.OnUpdateRequested += LoadElections;
+                elections_flow.Controls.Add(panel);
+            }
         }
 
-        public void LoadElectionPanels()
-        {
-            Others.LoadElections(this.elections_flow);
-        }
+
 
         private void create_election_bttn_Click(object sender, EventArgs e)
         {

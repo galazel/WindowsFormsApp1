@@ -36,8 +36,8 @@
             this.dashboard_icon = new FontAwesome.Sharp.IconButton();
             this.logout_icon = new FontAwesome.Sharp.IconButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.name_label = new System.Windows.Forms.Label();
             this.voter_image = new System.Windows.Forms.PictureBox();
+            this.name_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -48,7 +48,6 @@
             // admin_panel
             // 
             this.admin_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
-            this.admin_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.admin_panel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.admin_panel.Location = new System.Drawing.Point(0, 0);
             this.admin_panel.Margin = new System.Windows.Forms.Padding(5);
@@ -190,18 +189,6 @@
             this.splitContainer1.SplitterWidth = 2;
             this.splitContainer1.TabIndex = 0;
             // 
-            // name_label
-            // 
-            this.name_label.AutoSize = true;
-            this.name_label.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name_label.ForeColor = System.Drawing.Color.White;
-            this.name_label.Location = new System.Drawing.Point(92, 277);
-            this.name_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.name_label.Name = "name_label";
-            this.name_label.Size = new System.Drawing.Size(143, 21);
-            this.name_label.TabIndex = 12;
-            this.name_label.Text = "ADMINISTRATOR";
-            // 
             // voter_image
             // 
             this.voter_image.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
@@ -216,6 +203,18 @@
             this.voter_image.TabIndex = 13;
             this.voter_image.TabStop = false;
             // 
+            // name_label
+            // 
+            this.name_label.AutoSize = true;
+            this.name_label.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name_label.ForeColor = System.Drawing.Color.White;
+            this.name_label.Location = new System.Drawing.Point(92, 277);
+            this.name_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.name_label.Name = "name_label";
+            this.name_label.Size = new System.Drawing.Size(143, 21);
+            this.name_label.TabIndex = 12;
+            this.name_label.Text = "ADMINISTRATOR";
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -224,7 +223,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "AdminDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminDashboard";

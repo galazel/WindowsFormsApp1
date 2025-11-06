@@ -18,6 +18,8 @@ namespace WindowsFormsApp1
 
         public static List<Others> othersList = othersList = new List<Others>();
 
+        public static bool FlowState = false;
+
         public static void LoadElections(FlowLayoutPanel electionsFlow)
         {
             electionsFlow.Controls.Clear();

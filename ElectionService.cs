@@ -62,7 +62,28 @@ namespace WindowsFormsApp1
             DepartmentService departmentService = new DepartmentService();
             using (var context = new eBotoDBEntities())
             {
-                var elections = context.Elections.Include(e => e.Candidates).Include(e => e.Department).Where(e => e.Status == true).ToList();
+                var elections = context.Elections.Include(e => e.Candidates).Include(e => e.Department).Where(e => e.Status == true &&  e.EndStatus == false).ToList();
+                foreach (var election in elections)
+                {
+                    ElectionDTO electionDTO = new ElectionDTO();
+                    electionDTO.ElectionId = election.ElectionId;
+                    electionDTO.ElectionName = election.ElectionName;
+                    electionDTO.Department = election.Department.DepartmentName;
+                    electionDTO.Description = election.Description;
+                    electionDTO.Candidates = election.Candidates.ToList();
+                    list.Add(electionDTO);
+                }
+            }
+            return list;
+        }
+
+        public List<ElectionDTO> GetEndedElections()
+        {
+            var list = new List<ElectionDTO>();
+            DepartmentService departmentService = new DepartmentService();
+            using (var context = new eBotoDBEntities())
+            {
+                var elections = context.Elections.Include(e => e.Candidates).Include(e => e.Department).Where(e => e.EndStatus == true).ToList();
                 foreach (var election in elections)
                 {
                     ElectionDTO electionDTO = new ElectionDTO();
@@ -80,7 +101,7 @@ namespace WindowsFormsApp1
         {
             using (var db = new eBotoDBEntities())
             {
-                var election = db.Elections.FirstOrDefault(e => e.ElectionName == electionName || e.DepartmentId == departmentId && e.Status == false);
+                var election = db.Elections.FirstOrDefault(e => e.ElectionName == electionName || e.DepartmentId == departmentId && e.Status == true);
                 if (election == null)
                     return false;
                 return true;
@@ -110,6 +131,15 @@ namespace WindowsFormsApp1
             using (var db = new eBotoDBEntities())
             {
                 return db.Elections.Where(e => e.Status == false).ToList();
+            }
+        }
+        public void DeleteElection(int electionId)
+        {
+            using (var db = new eBotoDBEntities())
+            {
+               db.Candidates.RemoveRange(db.Candidates.Where(c => c.ElectionId == electionId));
+                db.Elections.RemoveRange(db.Elections.Where(e => e.ElectionId == electionId));
+                db.SaveChanges();
             }
         }
     }

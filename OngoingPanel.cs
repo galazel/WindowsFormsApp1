@@ -38,5 +38,10 @@ namespace WindowsFormsApp1
             }
             MessageBox.Show($"Election Name: {election_name_label.Text}\nDepartment: {department_label.Text}\nDescription: {description}\nCandidates: \n" + candidatesString);
         }
+
+        private void end_bttn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

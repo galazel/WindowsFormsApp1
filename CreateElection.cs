@@ -40,6 +40,7 @@ namespace WindowsFormsApp1
 
         private void add_election_bttn_Click(object sender, EventArgs e)
         {
+            
             if (election_name_box.Text.Equals("") || description_box.Text.Equals("") || departments_combo.SelectedItem == null || candidates_list.Items.Count == 0)
             {
                 MessageBox.Show("Please fill in all required fields.");
