@@ -35,12 +35,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(70)))), ((int)(((byte)(134)))));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
             this.label1.Location = new System.Drawing.Point(65, 56);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 23);
+            this.label1.Size = new System.Drawing.Size(299, 32);
             this.label1.TabIndex = 28;
             this.label1.Text = "ONGOING ELECTIONS";
             // 
@@ -48,21 +48,24 @@
             // 
             this.ongoing_flow.AutoScroll = true;
             this.ongoing_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.ongoing_flow.Location = new System.Drawing.Point(68, 93);
+            this.ongoing_flow.Location = new System.Drawing.Point(71, 119);
+            this.ongoing_flow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ongoing_flow.Name = "ongoing_flow";
-            this.ongoing_flow.Size = new System.Drawing.Size(809, 397);
+            this.ongoing_flow.Size = new System.Drawing.Size(1083, 736);
             this.ongoing_flow.TabIndex = 24;
             this.ongoing_flow.WrapContents = false;
             // 
             // AdminOngoingPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ongoing_flow);
+            this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "AdminOngoingPanel";
-            this.Size = new System.Drawing.Size(1037, 535);
+            this.Size = new System.Drawing.Size(1256, 941);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -24,9 +24,9 @@ namespace WindowsFormsApp1
             results_flow.Controls.Clear();
             foreach (var election in new ElectionService().GetElections())
             {
-                var panel = new ResultsPanel(election);
-                panel.OnUpdateRequested += LoadResultsElections;
-                results_flow.Controls.Add(panel);
+                //var panel = new ResultsPanel(election);
+                //panel.OnUpdateRequested += LoadResultsElections;
+                //results_flow.Controls.Add(panel);
             }
         }
     }

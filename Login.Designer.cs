@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.username = new System.Windows.Forms.Label();
             this.password = new System.Windows.Forms.Label();
             this.username_box = new System.Windows.Forms.TextBox();
@@ -35,6 +36,10 @@
             this.login_bttn = new System.Windows.Forms.Button();
             this.register_label = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // username
@@ -42,7 +47,7 @@
             this.username.AutoSize = true;
             this.username.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.username.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.username.Location = new System.Drawing.Point(70, 224);
+            this.username.Location = new System.Drawing.Point(37, 249);
             this.username.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(88, 21);
@@ -54,7 +59,7 @@
             this.password.AutoSize = true;
             this.password.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.password.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.password.Location = new System.Drawing.Point(70, 298);
+            this.password.Location = new System.Drawing.Point(37, 323);
             this.password.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(82, 21);
@@ -65,8 +70,8 @@
             // 
             this.username_box.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.username_box.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.username_box.Location = new System.Drawing.Point(74, 246);
-            this.username_box.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.username_box.Location = new System.Drawing.Point(41, 271);
+            this.username_box.Margin = new System.Windows.Forms.Padding(4);
             this.username_box.Name = "username_box";
             this.username_box.Size = new System.Drawing.Size(367, 27);
             this.username_box.TabIndex = 2;
@@ -75,8 +80,8 @@
             // 
             this.password_box.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.password_box.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.password_box.Location = new System.Drawing.Point(74, 323);
-            this.password_box.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.password_box.Location = new System.Drawing.Point(41, 348);
+            this.password_box.Margin = new System.Windows.Forms.Padding(4);
             this.password_box.Name = "password_box";
             this.password_box.PasswordChar = '*';
             this.password_box.Size = new System.Drawing.Size(367, 27);
@@ -85,16 +90,16 @@
             // 
             // login_bttn
             // 
-            this.login_bttn.BackColor = System.Drawing.Color.White;
+            this.login_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
             this.login_bttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.login_bttn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.login_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.login_bttn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.login_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.login_bttn.Location = new System.Drawing.Point(188, 427);
-            this.login_bttn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.login_bttn.ForeColor = System.Drawing.Color.White;
+            this.login_bttn.Location = new System.Drawing.Point(41, 446);
+            this.login_bttn.Margin = new System.Windows.Forms.Padding(4);
             this.login_bttn.Name = "login_bttn";
-            this.login_bttn.Size = new System.Drawing.Size(137, 37);
+            this.login_bttn.Size = new System.Drawing.Size(367, 37);
             this.login_bttn.TabIndex = 4;
             this.login_bttn.Text = "LOGIN";
             this.login_bttn.UseVisualStyleBackColor = false;
@@ -104,12 +109,12 @@
             // 
             this.register_label.AutoSize = true;
             this.register_label.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.register_label.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.register_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.register_label.Location = new System.Drawing.Point(104, 560);
+            this.register_label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.register_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
+            this.register_label.Location = new System.Drawing.Point(37, 379);
             this.register_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.register_label.Name = "register_label";
-            this.register_label.Size = new System.Drawing.Size(308, 21);
+            this.register_label.Size = new System.Drawing.Size(254, 17);
             this.register_label.TabIndex = 5;
             this.register_label.Text = "Don\'t have an account? Register here";
             this.register_label.Click += new System.EventHandler(this.register_label_Click);
@@ -117,14 +122,41 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.label1.Location = new System.Drawing.Point(178, 87);
+            this.label1.Location = new System.Drawing.Point(35, 125);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 56);
+            this.label1.Size = new System.Drawing.Size(386, 36);
             this.label1.TabIndex = 6;
-            this.label1.Text = "eBoto";
+            this.label1.Text = "LOGIN TO YOUR ACCOUNT";
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
+            this.splitContainer1.Panel1.Controls.Add(this.username_box);
+            this.splitContainer1.Panel1.Controls.Add(this.label1);
+            this.splitContainer1.Panel1.Controls.Add(this.password_box);
+            this.splitContainer1.Panel1.Controls.Add(this.username);
+            this.splitContainer1.Panel1.Controls.Add(this.login_bttn);
+            this.splitContainer1.Panel1.Controls.Add(this.register_label);
+            this.splitContainer1.Panel1.Controls.Add(this.password);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("splitContainer1.Panel2.BackgroundImage")));
+            this.splitContainer1.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.splitContainer1.Size = new System.Drawing.Size(1100, 707);
+            this.splitContainer1.SplitterDistance = 460;
+            this.splitContainer1.SplitterWidth = 1;
+            this.splitContainer1.TabIndex = 7;
             // 
             // Login
             // 
@@ -132,26 +164,23 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(531, 601);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.register_label);
-            this.Controls.Add(this.login_bttn);
-            this.Controls.Add(this.password_box);
-            this.Controls.Add(this.username_box);
-            this.Controls.Add(this.password);
-            this.Controls.Add(this.username);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(188)))), ((int)(((byte)(65)))));
+            this.ClientSize = new System.Drawing.Size(1100, 707);
+            this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Login";
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -164,6 +193,7 @@
         private System.Windows.Forms.Button login_bttn;
         private System.Windows.Forms.Label register_label;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
     }
 }
 

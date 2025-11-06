@@ -36,12 +36,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(70)))), ((int)(((byte)(134)))));
-            this.label1.Location = new System.Drawing.Point(65, 56);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
+            this.label1.Location = new System.Drawing.Point(65, 63);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 23);
+            this.label1.Size = new System.Drawing.Size(151, 32);
             this.label1.TabIndex = 22;
             this.label1.Text = "ELECTIONS";
             // 
@@ -51,9 +51,10 @@
             this.create_election_bttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.create_election_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.create_election_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.create_election_bttn.Location = new System.Drawing.Point(719, 42);
+            this.create_election_bttn.Location = new System.Drawing.Point(968, 60);
+            this.create_election_bttn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.create_election_bttn.Name = "create_election_bttn";
-            this.create_election_bttn.Size = new System.Drawing.Size(129, 37);
+            this.create_election_bttn.Size = new System.Drawing.Size(150, 49);
             this.create_election_bttn.TabIndex = 20;
             this.create_election_bttn.Text = "CREATE";
             this.create_election_bttn.UseVisualStyleBackColor = false;
@@ -64,22 +65,25 @@
             this.elections_flow.AutoScroll = true;
             this.elections_flow.AutoSize = true;
             this.elections_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.elections_flow.Location = new System.Drawing.Point(68, 93);
+            this.elections_flow.Location = new System.Drawing.Point(69, 121);
+            this.elections_flow.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.elections_flow.Name = "elections_flow";
-            this.elections_flow.Size = new System.Drawing.Size(779, 397);
+            this.elections_flow.Size = new System.Drawing.Size(1049, 736);
             this.elections_flow.TabIndex = 25;
             this.elections_flow.WrapContents = false;
             // 
             // AdminElectionsPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.Controls.Add(this.elections_flow);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.create_election_bttn);
+            this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "AdminElectionsPanel";
-            this.Size = new System.Drawing.Size(1037, 535);
+            this.Size = new System.Drawing.Size(1256, 941);
             this.ResumeLayout(false);
             this.PerformLayout();
 

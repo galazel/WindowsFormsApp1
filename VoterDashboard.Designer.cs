@@ -86,7 +86,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(70)))), ((int)(((byte)(134)))));
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(62, 117);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
@@ -98,7 +98,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(70)))), ((int)(((byte)(134)))));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
             this.label1.Location = new System.Drawing.Point(61, 380);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
@@ -108,7 +108,7 @@
             // 
             // live_results_flow
             // 
-            this.live_results_flow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(213)))), ((int)(((byte)(255)))));
+            this.live_results_flow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(188)))), ((int)(((byte)(65)))));
             this.live_results_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.live_results_flow.Location = new System.Drawing.Point(65, 414);
             this.live_results_flow.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
@@ -119,7 +119,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(213)))), ((int)(((byte)(255)))));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(188)))), ((int)(((byte)(65)))));
             this.panel3.Controls.Add(this.vote_now_bttn);
             this.panel3.Controls.Add(this.status_election_label);
             this.panel3.Controls.Add(this.election_department_label);
@@ -132,9 +132,9 @@
             // 
             // vote_now_bttn
             // 
-            this.vote_now_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
+            this.vote_now_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
             this.vote_now_bttn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.vote_now_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.vote_now_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.vote_now_bttn.ForeColor = System.Drawing.Color.White;
             this.vote_now_bttn.Location = new System.Drawing.Point(871, 57);
             this.vote_now_bttn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
@@ -149,7 +149,7 @@
             // 
             this.status_election_label.AutoSize = true;
             this.status_election_label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status_election_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(70)))), ((int)(((byte)(134)))));
+            this.status_election_label.ForeColor = System.Drawing.Color.Black;
             this.status_election_label.Location = new System.Drawing.Point(23, 78);
             this.status_election_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.status_election_label.Name = "status_election_label";
@@ -161,7 +161,7 @@
             // 
             this.election_department_label.AutoSize = true;
             this.election_department_label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.election_department_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(70)))), ((int)(((byte)(134)))));
+            this.election_department_label.ForeColor = System.Drawing.Color.Black;
             this.election_department_label.Location = new System.Drawing.Point(23, 20);
             this.election_department_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.election_department_label.Name = "election_department_label";
@@ -173,7 +173,7 @@
             // 
             this.election_name.AutoSize = true;
             this.election_name.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.election_name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(70)))), ((int)(((byte)(134)))));
+            this.election_name.ForeColor = System.Drawing.Color.Black;
             this.election_name.Location = new System.Drawing.Point(19, 37);
             this.election_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.election_name.Name = "election_name";
@@ -185,7 +185,7 @@
             // 
             this.label.AutoSize = true;
             this.label.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(70)))), ((int)(((byte)(134)))));
+            this.label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
             this.label.Location = new System.Drawing.Point(58, 60);
             this.label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label.Name = "label";
