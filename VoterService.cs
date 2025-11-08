@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Data.Entity;
+using System.Windows;
+using System.Windows.Documents;
 
 namespace WindowsFormsApp1
 {
@@ -64,6 +66,21 @@ namespace WindowsFormsApp1
 
 
         }
+        public VoterDTO GetVoterDepartment(int voterId)
+        {
+            using (var db = new eBotoDBEntities())
+            {
+                var voter = from v in db.Voters
+                            join d in db.Departments on v.DepartmentId equals d.DepartmentId
+                            where v.VoterId == voterId
+                            select new VoterDTO
+                            {
+                                Voter = v,
+                                Department = d
+                            };
+                return voter.FirstOrDefault();
+            }
+        }
 
         public VoterDTO GetVoterDepartmentElection(int voterId)
         {
@@ -79,12 +96,12 @@ namespace WindowsFormsApp1
                                 Voter = v,
                                 Department = d,
                                 Election = e,
-                                Candidates = e.Candidates.ToList()
+                                Candidates = e.Candidates.ToList(),
+                                Positions = e.Candidates.Where(ca => ca.ElectionId == e.ElectionId).Select(ca => ca.Position).Distinct().ToList()
                             };
                 return voter.FirstOrDefault();
+
             }
-            
-           
         }
 
     }

@@ -12,5 +12,6 @@ namespace WindowsFormsApp1
         public Department Department { get; set; }
         public Election Election { get; set; }
         public List <Candidate> Candidates { get; set; }
+        public List<Position> Positions { get; set; }
     }
 }

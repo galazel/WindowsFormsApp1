@@ -41,7 +41,9 @@ namespace WindowsFormsApp1
 
         private void logout_icon_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Logged Out Successfully!");
+            this.Hide();
+            new Login().ShowDialog();
         }
     }
 }

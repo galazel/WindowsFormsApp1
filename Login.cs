@@ -36,7 +36,20 @@ namespace WindowsFormsApp1
                 {
                     MessageBox.Show("Login Successful!");
                     this.Hide();
-                    new VoterDashboard(new VoterService().GetVoterDepartmentElection(new VoterService().GetVoterIdByUsername(username_box.Text))).ShowDialog();
+
+                    int voterId = new VoterService().GetVoterIdByUsername(username_box.Text);
+                    int departmentId = new VoterService().GetVoterDepartment(voterId).Department.DepartmentId;
+
+                    if (!new ElectionService().FindDepartmentActiveElection(departmentId))
+                    {
+                        VoterDTO voterDTO = new VoterService().GetVoterDepartment(voterId);
+                        new VoterDashboard(voterDTO).ShowDialog();
+                    }
+                    else
+                    {
+                        VoterDTO voterDTO = new VoterService().GetVoterDepartmentElection(voterId);
+                        new VoterDashboard(voterDTO).ShowDialog();
+                    }
                 }
             }
         }

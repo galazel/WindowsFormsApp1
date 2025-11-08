@@ -301,6 +301,7 @@
             this.logout_icon.Text = "Logout";
             this.logout_icon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.logout_icon.UseVisualStyleBackColor = false;
+            this.logout_icon.Click += new System.EventHandler(this.logout_icon_Click);
             // 
             // label10
             // 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace WindowsFormsApp1
 {
@@ -142,5 +143,18 @@ namespace WindowsFormsApp1
                 db.SaveChanges();
             }
         }
+
+        public bool FindDepartmentActiveElection(int departmentId)
+        {
+            using (var db = new eBotoDBEntities())
+            {
+                var hasActiveElection = db.Elections
+                    .Any(e => e.DepartmentId == departmentId && e.Status == true);
+                return hasActiveElection;
+                
+            }
+        }
+
+
     }
 }

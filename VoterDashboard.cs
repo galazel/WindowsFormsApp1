@@ -17,8 +17,9 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             this.voterDTO = voter;
+
             voter_image.Image = Image.FromFile(voter.Voter.Image);
-            name_label.Text = voter.Voter.FirstName + " " + voter.Voter.MiddleName +" "+ voter.Voter.LastName;
+            name_label.Text = voter.Voter.FirstName + " " + voter.Voter.MiddleName + " " + voter.Voter.LastName;
             status_label.Text = voter.Voter.Status ? "Status: Voted" : "Status: Not Voted";
             department_label.Text = "Department: " + voter.Department.DepartmentName;
             year_label.Text = "Year: " + voter.Voter.Year;
@@ -26,32 +27,51 @@ namespace WindowsFormsApp1
             birthday_label.Text = "Birthdate: " + voter.Voter.BirthDate.ToShortDateString();
             contact_label.Text = "Contact Number: " + voter.Voter.ContactNumber;
             email_label.Text = "Email: " + voter.Voter.Email;
-            status_election_label.Text =  voter.Election.Status ? "Started Now" : "Not Yet Started";
-            election_name.Text = voter.Election.ElectionName.ToUpper();
             department_label.Text = voter.Department.DepartmentName.ToUpper();
-            if (voter.Election.Status)
-            {
-                vote_now_bttn.Enabled = true;
-                vote_now_bttn.Text = "Vote Now!";
+
+            if (voter.Election == null)
+            { 
+                status_election_label.Text = "";
+                election_name.Text = "NO ELECTION CREATED";
+                election_department_label.Text = "";
+                vote_now_bttn.Enabled = false;
+                vote_now_bttn.Text = "No Election Available";
+                Label noElectionLabel = new Label();
+                noElectionLabel.Text = "No Election Available";
+                noElectionLabel.Font = new Font("Century Gothic", 10, FontStyle.Bold);
+                noElectionLabel.ForeColor = Color.Red;
+                live_results_flow.Controls.Add(noElectionLabel);
+
             }
             else
             {
-                vote_now_bttn.Enabled = false;
-                vote_now_bttn.Text = "Election is Inactive";
+                status_election_label.Text = voter.Election.Status ? "Started Now" : "Not Yet Started";
+                election_name.Text = voter.Election.ElectionName.ToUpper();
+                election_department_label.Text = voter.Department.DepartmentName.ToUpper();
+               
+                if (voter.Election.Status)
+                {
+                    vote_now_bttn.Enabled = true;
+                    vote_now_bttn.Text = "Vote Now!";
+                }
+                else
+                {
+                    vote_now_bttn.Enabled = false;
+                    vote_now_bttn.Text = "Election is Inactive";
+                }
             }
 
         }
         private void vote_now_bttn_Click(object sender, EventArgs e)
         {
-            StringBuilder candidates = new StringBuilder();
+            MessageBox.Show(""+voterDTO.Positions );
+        }
 
-            foreach(var candidate in voterDTO.Candidates)
-            {
-                string positionName = new PositionService().GetPositionName(candidate.PositionId);
-                candidates.AppendLine(candidate.CandidateName + " " + positionName);
-            }
-
-            MessageBox.Show(candidates.ToString(), "Candidates");
+        private void logout_icon_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("You have been logged out.");
+            this.Hide();
+            new Login().ShowDialog();
         }
     }
 }

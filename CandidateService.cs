@@ -4,6 +4,7 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace WindowsFormsApp1
 {
@@ -48,6 +49,19 @@ namespace WindowsFormsApp1
             using(var db = new eBotoDBEntities())
             {
                 return db.Candidates.Where(c => c.ElectionId ==  electionId).ToList();
+            }
+        }
+        public void GetPositions(int electionId, int departmentId)
+        {
+            using (var db = new eBotoDBEntities())
+            {
+                var positions = db.Candidates.Where(c => c.ElectionId == electionId && c.DepartmentId == departmentId).Select(c => c.PositionId).Distinct().ToList();
+                Console.WriteLine(positions.Count());
+                foreach(var po in positions)
+                {
+                    string positionName = positionService.GetPositionName(po);
+                    Console.WriteLine("Position: " + positionName);
+                }
             }
         }
 

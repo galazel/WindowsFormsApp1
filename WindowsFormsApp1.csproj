@@ -79,6 +79,12 @@
     <Compile Include="AdminResultsPanel.Designer.cs">
       <DependentUpon>AdminResultsPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="CandidatePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CandidatePanel.Designer.cs">
+      <DependentUpon>CandidatePanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +209,12 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="VoteNow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VoteNow.Designer.cs">
+      <DependentUpon>VoteNow.cs</DependentUpon>
+    </Compile>
     <Compile Include="VoterDTO.cs" />
     <Compile Include="VoterService.cs" />
     <Compile Include="VotedCandidate.cs">
@@ -225,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminResultsPanel.resx">
       <DependentUpon>AdminResultsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CandidatePanel.resx">
+      <DependentUpon>CandidatePanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialog.resx">
       <DependentUpon>Dialog.cs</DependentUpon>
@@ -273,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ResultsPanel.resx">
       <DependentUpon>ResultsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VoteNow.resx">
+      <DependentUpon>VoteNow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VoterDashboard.resx">
       <DependentUpon>VoterDashboard.cs</DependentUpon>
