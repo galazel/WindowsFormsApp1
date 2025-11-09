@@ -48,23 +48,36 @@ namespace WindowsFormsApp1
                 status_election_label.Text = voter.Election.Status ? "Started Now" : "Not Yet Started";
                 election_name.Text = voter.Election.ElectionName.ToUpper();
                 election_department_label.Text = voter.Department.DepartmentName.ToUpper();
-               
-                if (voter.Election.Status)
-                {
-                    vote_now_bttn.Enabled = true;
-                    vote_now_bttn.Text = "Vote Now!";
-                }
-                else
-                {
-                    vote_now_bttn.Enabled = false;
-                    vote_now_bttn.Text = "Election is Inactive";
-                }
+                LoadDashboard();
+
+
             }
 
         }
+
+        public void LoadDashboard()
+        {
+            if (voterDTO.Election.Status && !voterDTO.Voter.Status)
+            {
+                vote_now_bttn.Enabled = true;
+                vote_now_bttn.Text = "Vote Now!";
+
+            }
+            else if (voterDTO.Election.Status && voterDTO.Voter.Status)
+            {
+                vote_now_bttn.Enabled = false;
+                vote_now_bttn.Text = "Already Voted!";
+            }
+            else
+            {
+                vote_now_bttn.Enabled = false;
+                vote_now_bttn.Text = "Election is Inactive";
+            }
+        }
         private void vote_now_bttn_Click(object sender, EventArgs e)
         {
-            new VoteNow(voterDTO.Positions, voterDTO.Election.ElectionId).ShowDialog();
+            var voteNow = new VoteNow(voterDTO.Positions, voterDTO.Election.ElectionId, voterDTO.Voter.VoterId);
+            voteNow.OnUpdateRequested += LoadDashboard;
             
         }
 
@@ -73,6 +86,20 @@ namespace WindowsFormsApp1
             MessageBox.Show("You have been logged out.");
             this.Hide();
             new Login().ShowDialog();
+        }
+
+        private void edit_profile_icon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void view_ballot_icon_Click(object sender, EventArgs e)
+        {
+
+        }
+        public void SetButton()
+        {
+            vote_now_bttn.Enabled = false;
         }
     }
 }

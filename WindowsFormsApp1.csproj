@@ -133,6 +133,7 @@
       <DependentUpon>EditDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="ElectionDTO.cs" />
+    <Compile Include="ElectionSummary.cs" />
     <Compile Include="IAdminDashboard.cs" />
     <Compile Include="Department.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -235,6 +236,12 @@
     <Compile Include="VoterDashboard.Designer.cs">
       <DependentUpon>VoterDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="VoteSummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VoteSummary.Designer.cs">
+      <DependentUpon>VoteSummary.cs</DependentUpon>
+    </Compile>
     <Compile Include="Winner.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -303,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VoterDashboard.resx">
       <DependentUpon>VoterDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VoteSummary.resx">
+      <DependentUpon>VoteSummary.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

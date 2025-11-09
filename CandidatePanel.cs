@@ -12,12 +12,22 @@ namespace WindowsFormsApp1
 {
     public partial class CandidatePanel : UserControl
     {
-        public CandidatePanel(Candidate candidate)
+        private string positionName;
+        private Candidate candidate;
+        public CandidatePanel(Candidate candidate, string positionName)
         {
             InitializeComponent();
             candidate_image.Image = Image.FromFile(candidate.Image);
-            candidate_name_label.Text = candidate.CandidateName;
+            candidate_name_label.Text = candidate.CandidateName.ToUpper();
             candidate_party_label.Text = candidate.Partylist;
+            this.positionName = positionName;
+            this.candidate = candidate;
+        }
+
+        private void vote_candidate_bttn_Click(object sender, EventArgs e)
+        {
+            if (ElectionSummary.ChoosenCandidates.ContainsKey(positionName))
+                ElectionSummary.ChoosenCandidates[positionName] = candidate;
         }
     }
 }

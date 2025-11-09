@@ -103,6 +103,15 @@ namespace WindowsFormsApp1
 
             }
         }
+        public void SetVoterStatus(int voterId)
+        {
+            using(var db = new eBotoDBEntities())
+            {
+                db.Voters.FirstOrDefault(v => v.VoterId == voterId).Status = true;
+            }
+
+                    
+        }
 
     }
 }

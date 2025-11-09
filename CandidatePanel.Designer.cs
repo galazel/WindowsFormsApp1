@@ -37,9 +37,10 @@
             // 
             // candidate_image
             // 
+            this.candidate_image.BackColor = System.Drawing.Color.Black;
             this.candidate_image.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.candidate_image.Location = new System.Drawing.Point(26, 28);
-            this.candidate_image.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.candidate_image.Margin = new System.Windows.Forms.Padding(4);
             this.candidate_image.Name = "candidate_image";
             this.candidate_image.Size = new System.Drawing.Size(216, 168);
             this.candidate_image.TabIndex = 0;
@@ -60,12 +61,12 @@
             // candidate_party_label
             // 
             this.candidate_party_label.AutoSize = true;
-            this.candidate_party_label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.candidate_party_label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.candidate_party_label.ForeColor = System.Drawing.Color.Black;
             this.candidate_party_label.Location = new System.Drawing.Point(79, 223);
             this.candidate_party_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.candidate_party_label.Name = "candidate_party_label";
-            this.candidate_party_label.Size = new System.Drawing.Size(103, 17);
+            this.candidate_party_label.Size = new System.Drawing.Size(109, 16);
             this.candidate_party_label.TabIndex = 15;
             this.candidate_party_label.Text = "BOTO PARTYLIST";
             // 
@@ -82,6 +83,7 @@
             this.vote_candidate_bttn.TabIndex = 32;
             this.vote_candidate_bttn.Text = "VOTE";
             this.vote_candidate_bttn.UseVisualStyleBackColor = false;
+            this.vote_candidate_bttn.Click += new System.EventHandler(this.vote_candidate_bttn_Click);
             // 
             // CandidatePanel
             // 
@@ -93,7 +95,7 @@
             this.Controls.Add(this.candidate_name_label);
             this.Controls.Add(this.candidate_image);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CandidatePanel";
             this.Size = new System.Drawing.Size(270, 308);
             ((System.ComponentModel.ISupportInitialize)(this.candidate_image)).EndInit();
