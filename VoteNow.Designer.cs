@@ -34,10 +34,11 @@
             // 
             // vote_candidates_flow
             // 
+            this.vote_candidates_flow.AutoScroll = true;
             this.vote_candidates_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.vote_candidates_flow.Location = new System.Drawing.Point(102, 105);
+            this.vote_candidates_flow.Location = new System.Drawing.Point(70, 104);
             this.vote_candidates_flow.Name = "vote_candidates_flow";
-            this.vote_candidates_flow.Size = new System.Drawing.Size(1037, 533);
+            this.vote_candidates_flow.Size = new System.Drawing.Size(1103, 533);
             this.vote_candidates_flow.TabIndex = 0;
             this.vote_candidates_flow.WrapContents = false;
             // 
@@ -57,13 +58,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.ClientSize = new System.Drawing.Size(1254, 710);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.vote_candidates_flow);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VoteNow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VoteNow";
             this.ResumeLayout(false);
             this.PerformLayout();

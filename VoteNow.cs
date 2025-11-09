@@ -19,6 +19,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
             this.positions = positions;
             this.electionId = electionId;
+            AddFlowEachPosition();
         }
         public void AddFlowEachPosition()
         {

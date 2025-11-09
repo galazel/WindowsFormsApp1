@@ -35,11 +35,12 @@
             // candidates_flow
             // 
             this.candidates_flow.AutoScroll = true;
+            this.candidates_flow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(188)))), ((int)(((byte)(65)))));
             this.candidates_flow.Location = new System.Drawing.Point(32, 54);
             this.candidates_flow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.candidates_flow.Name = "candidates_flow";
             this.candidates_flow.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.candidates_flow.Size = new System.Drawing.Size(1016, 277);
+            this.candidates_flow.Size = new System.Drawing.Size(1016, 338);
             this.candidates_flow.TabIndex = 0;
             this.candidates_flow.WrapContents = false;
             // 
@@ -64,7 +65,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "PositionFlowLayout";
-            this.Size = new System.Drawing.Size(1074, 364);
+            this.Size = new System.Drawing.Size(1074, 432);
             this.ResumeLayout(false);
             this.PerformLayout();
 

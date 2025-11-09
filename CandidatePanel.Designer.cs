@@ -37,6 +37,7 @@
             // 
             // candidate_image
             // 
+            this.candidate_image.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.candidate_image.Location = new System.Drawing.Point(26, 28);
             this.candidate_image.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.candidate_image.Name = "candidate_image";
@@ -86,6 +87,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.Controls.Add(this.vote_candidate_bttn);
             this.Controls.Add(this.candidate_party_label);
             this.Controls.Add(this.candidate_name_label);
