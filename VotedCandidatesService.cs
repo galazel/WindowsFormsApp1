@@ -8,14 +8,15 @@ namespace WindowsFormsApp1
 {
     internal class VotedCandidatesService
     {
-        public void AddVotedCandidates(int voterId, int candidateId)
+        public void AddVotedCandidates(int voterId, int candidateId, int electionId)
         {
             using(var db = new eBotoDBEntities())
             {
                 VotedCandidate votedCandidate = new VotedCandidate()
                 {
                     VoterId = voterId,
-                    CandidateId = candidateId
+                    CandidateId = candidateId,
+                    ElectionId = electionId
                 };
                 db.VotedCandidates.Add(votedCandidate);
                 db.SaveChanges();

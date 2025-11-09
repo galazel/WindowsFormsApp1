@@ -21,6 +21,7 @@ namespace WindowsFormsApp1
             this.EndedElections = new HashSet<EndedElection>();
             this.OngoingElections = new HashSet<OngoingElection>();
             this.Winners = new HashSet<Winner>();
+            this.VotedCandidates = new HashSet<VotedCandidate>();
         }
     
         public int ElectionId { get; set; }
@@ -39,5 +40,7 @@ namespace WindowsFormsApp1
         public virtual ICollection<OngoingElection> OngoingElections { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Winner> Winners { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VotedCandidate> VotedCandidates { get; set; }
     }
 }
