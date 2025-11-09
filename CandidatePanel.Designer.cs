@@ -28,18 +28,83 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.candidate_image = new System.Windows.Forms.PictureBox();
+            this.candidate_name_label = new System.Windows.Forms.Label();
+            this.candidate_party_label = new System.Windows.Forms.Label();
+            this.vote_candidate_bttn = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.candidate_image)).BeginInit();
             this.SuspendLayout();
+            // 
+            // candidate_image
+            // 
+            this.candidate_image.Location = new System.Drawing.Point(26, 28);
+            this.candidate_image.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.candidate_image.Name = "candidate_image";
+            this.candidate_image.Size = new System.Drawing.Size(216, 168);
+            this.candidate_image.TabIndex = 0;
+            this.candidate_image.TabStop = false;
+            // 
+            // candidate_name_label
+            // 
+            this.candidate_name_label.AutoSize = true;
+            this.candidate_name_label.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.candidate_name_label.ForeColor = System.Drawing.Color.Black;
+            this.candidate_name_label.Location = new System.Drawing.Point(65, 200);
+            this.candidate_name_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.candidate_name_label.Name = "candidate_name_label";
+            this.candidate_name_label.Size = new System.Drawing.Size(137, 20);
+            this.candidate_name_label.TabIndex = 14;
+            this.candidate_name_label.Text = "GLYZEL GALAGAR";
+            // 
+            // candidate_party_label
+            // 
+            this.candidate_party_label.AutoSize = true;
+            this.candidate_party_label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.candidate_party_label.ForeColor = System.Drawing.Color.Black;
+            this.candidate_party_label.Location = new System.Drawing.Point(79, 223);
+            this.candidate_party_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.candidate_party_label.Name = "candidate_party_label";
+            this.candidate_party_label.Size = new System.Drawing.Size(103, 17);
+            this.candidate_party_label.TabIndex = 15;
+            this.candidate_party_label.Text = "BOTO PARTYLIST";
+            // 
+            // vote_candidate_bttn
+            // 
+            this.vote_candidate_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(57)))), ((int)(((byte)(21)))));
+            this.vote_candidate_bttn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.vote_candidate_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.vote_candidate_bttn.ForeColor = System.Drawing.Color.White;
+            this.vote_candidate_bttn.Location = new System.Drawing.Point(26, 244);
+            this.vote_candidate_bttn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.vote_candidate_bttn.Name = "vote_candidate_bttn";
+            this.vote_candidate_bttn.Size = new System.Drawing.Size(216, 46);
+            this.vote_candidate_bttn.TabIndex = 32;
+            this.vote_candidate_bttn.Text = "VOTE";
+            this.vote_candidate_bttn.UseVisualStyleBackColor = false;
             // 
             // CandidatePanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.vote_candidate_bttn);
+            this.Controls.Add(this.candidate_party_label);
+            this.Controls.Add(this.candidate_name_label);
+            this.Controls.Add(this.candidate_image);
+            this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "CandidatePanel";
-            this.Size = new System.Drawing.Size(251, 254);
+            this.Size = new System.Drawing.Size(270, 308);
+            ((System.ComponentModel.ISupportInitialize)(this.candidate_image)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox candidate_image;
+        private System.Windows.Forms.Label candidate_name_label;
+        private System.Windows.Forms.Label candidate_party_label;
+        private System.Windows.Forms.Button vote_candidate_bttn;
     }
 }

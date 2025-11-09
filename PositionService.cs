@@ -72,5 +72,7 @@ namespace WindowsFormsApp1
                 db.SaveChanges();
             }
         }
+
+       
     }
 }

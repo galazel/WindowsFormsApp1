@@ -10,14 +10,16 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class CandidatePanel : UserControl
+    public partial class PositionFlowLayout : UserControl
     {
-        public CandidatePanel(Candidate candidate)
+        public PositionFlowLayout(string positionName)
         {
             InitializeComponent();
-            candidate_image.Image = Image.FromFile(candidate.Image);
-            candidate_name_label.Text = candidate.CandidateName;
-            candidate_party_label.Text = candidate.Partylist;
+            position_label.Text = positionName;
+        }
+        public void AddPositionPanel(CandidatePanel candidatePanel)
+        {
+            candidates_flow.Controls.Add(candidatePanel);
         }
     }
 }

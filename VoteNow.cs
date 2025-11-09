@@ -12,9 +12,33 @@ namespace WindowsFormsApp1
 {
     public partial class VoteNow : Form
     {
-        public VoteNow()
+        private List<Position> positions;
+        private int electionId;
+        public VoteNow(List<Position> positions, int electionId)
         {
             InitializeComponent();
+            this.positions = positions;
+            this.electionId = electionId;
+        }
+        public void AddFlowEachPosition()
+        {
+            foreach (var position in positions)
+            {
+                int positionId = position.PositionId;
+                string positionName = position.PositionName;
+
+                if (new CandidateService().IsPosition(positionId, electionId))
+                {
+                    List <Candidate> candidates = new CandidateService().GetCandidate(positionId, electionId);
+                    PositionFlowLayout positionFlowLayout = new PositionFlowLayout(positionName);
+
+                    foreach (Candidate candidate in candidates)
+                        positionFlowLayout.AddPositionPanel(new CandidatePanel(candidate));    
+                    
+                    vote_candidates_flow.Controls.Add(positionFlowLayout);
+
+                }
+            }
         }
     }
 }

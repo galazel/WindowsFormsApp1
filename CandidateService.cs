@@ -65,5 +65,21 @@ namespace WindowsFormsApp1
             }
         }
 
+        public Boolean IsPosition(int positionId, int electionId)
+        {
+            using (var db = new eBotoDBEntities())
+            {
+                return db.Candidates.Any(c => c.PositionId == positionId && c.ElectionId == electionId);
+            }
+        }
+
+        public List<Candidate> GetCandidate(int positionId, int electionId)
+        {
+            using(var db = new eBotoDBEntities())
+            {
+                return db.Candidates.Where(ca => ca.PositionId == positionId && ca.ElectionId == electionId).ToList();
+            }
+        }
+
     }
 }

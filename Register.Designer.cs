@@ -63,8 +63,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.photo_box)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,7 +83,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
-            this.label3.Location = new System.Drawing.Point(51, 558);
+            this.label3.Location = new System.Drawing.Point(51, 489);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(199, 19);
@@ -205,7 +203,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(49, 683);
+            this.label13.Location = new System.Drawing.Point(49, 614);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(99, 21);
@@ -217,7 +215,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(51, 600);
+            this.label14.Location = new System.Drawing.Point(51, 531);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(97, 21);
@@ -298,7 +296,7 @@
             // 
             this.password_box.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.password_box.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.password_box.Location = new System.Drawing.Point(53, 704);
+            this.password_box.Location = new System.Drawing.Point(53, 635);
             this.password_box.Margin = new System.Windows.Forms.Padding(4);
             this.password_box.Name = "password_box";
             this.password_box.PasswordChar = '*';
@@ -310,7 +308,7 @@
             // 
             this.username_box.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.username_box.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.username_box.Location = new System.Drawing.Point(54, 621);
+            this.username_box.Location = new System.Drawing.Point(54, 552);
             this.username_box.Margin = new System.Windows.Forms.Padding(4);
             this.username_box.Name = "username_box";
             this.username_box.Size = new System.Drawing.Size(242, 27);
@@ -358,7 +356,7 @@
             this.photo_box.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
             this.photo_box.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.photo_box.IconSize = 131;
-            this.photo_box.Location = new System.Drawing.Point(320, 600);
+            this.photo_box.Location = new System.Drawing.Point(320, 531);
             this.photo_box.Margin = new System.Windows.Forms.Padding(4);
             this.photo_box.Name = "photo_box";
             this.photo_box.Size = new System.Drawing.Size(135, 131);
@@ -371,7 +369,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
-            this.label15.Location = new System.Drawing.Point(317, 558);
+            this.label15.Location = new System.Drawing.Point(317, 489);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(128, 19);
@@ -474,36 +472,12 @@
             this.label16.TabIndex = 38;
             this.label16.Text = "VOTER\'S REGISTRATION";
             // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.textBox2.Location = new System.Drawing.Point(55, 491);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(242, 27);
-            this.textBox2.TabIndex = 40;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(51, 470);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 21);
-            this.label1.TabIndex = 39;
-            this.label1.Text = "PROGRAM";
-            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.ClientSize = new System.Drawing.Size(882, 805);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.barangay_box);
@@ -587,7 +561,5 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label1;
     }
 }

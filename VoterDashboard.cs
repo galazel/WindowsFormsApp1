@@ -64,7 +64,8 @@ namespace WindowsFormsApp1
         }
         private void vote_now_bttn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(""+voterDTO.Positions );
+            new VoteNow(voterDTO.Positions, voterDTO.Election.ElectionId).ShowDialog();
+            
         }
 
         private void logout_icon_Click(object sender, EventArgs e)
