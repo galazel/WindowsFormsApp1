@@ -60,7 +60,7 @@ namespace WindowsFormsApp1
 
             foreach(var candidate in ElectionSummary.ChoosenCandidates)
                 new VotedCandidatesService().AddVotedCandidates(voterId, candidate.Value.CandidateId);
-
+            MessageBox.Show("Thank you for voting!");
             OnUpdateRequested?.Invoke();
             this.Hide();
         }
