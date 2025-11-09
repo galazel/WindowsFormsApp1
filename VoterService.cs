@@ -108,6 +108,7 @@ namespace WindowsFormsApp1
             using(var db = new eBotoDBEntities())
             {
                 db.Voters.FirstOrDefault(v => v.VoterId == voterId).Status = true;
+                db.SaveChanges();
             }
 
                     

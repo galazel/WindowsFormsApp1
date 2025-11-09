@@ -78,6 +78,7 @@ namespace WindowsFormsApp1
         {
             var voteNow = new VoteNow(voterDTO.Positions, voterDTO.Election.ElectionId, voterDTO.Voter.VoterId);
             voteNow.OnUpdateRequested += LoadDashboard;
+            voteNow.ShowDialog();
             
         }
 
@@ -97,9 +98,6 @@ namespace WindowsFormsApp1
         {
 
         }
-        public void SetButton()
-        {
-            vote_now_bttn.Enabled = false;
-        }
+       
     }
 }

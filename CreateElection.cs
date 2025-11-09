@@ -28,7 +28,7 @@ namespace WindowsFormsApp1
             List<string> departments = departmentService.GetAllDepartments();
             departments_combo.Items.Clear();
             foreach (var dept in departments)
-                departments_combo.Items.Add(dept);S
+                departments_combo.Items.Add(dept);
         }
 
         private void add_candidate_bttn_Click(object sender, EventArgs e)
