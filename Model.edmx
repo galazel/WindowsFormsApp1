@@ -73,6 +73,7 @@
           </Key>
           <Property Name="VotedCandidatesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="VoterId" Type="int" />
+          <Property Name="CandidateId" Type="int" />
         </EntityType>
         <EntityType Name="Voters">
           <Key>
@@ -129,18 +130,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Candidates_Positions">
-          <End Role="Positions" Type="Self.Positions" Multiplicity="1" />
-          <End Role="Candidates" Type="Self.Candidates" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Positions">
-              <PropertyRef Name="PositionId" />
-            </Principal>
-            <Dependent Role="Candidates">
-              <PropertyRef Name="PositionId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Elections_Departments">
           <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
           <End Role="Elections" Type="Self.Elections" Multiplicity="*" />
@@ -165,15 +154,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_VotedCandidates_Voters">
-          <End Role="Voters" Type="Self.Voters" Multiplicity="0..1" />
+        <Association Name="FK_OngoingElections_Elections">
+          <End Role="Elections" Type="Self.Elections" Multiplicity="1" />
+          <End Role="OngoingElections" Type="Self.OngoingElections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Elections">
+              <PropertyRef Name="ElectionId" />
+            </Principal>
+            <Dependent Role="OngoingElections">
+              <PropertyRef Name="ElectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VotedCandidates_Candidates">
+          <End Role="Candidates" Type="Self.Candidates" Multiplicity="0..1" />
           <End Role="VotedCandidates" Type="Self.VotedCandidates" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Voters">
-              <PropertyRef Name="VoterId" />
+            <Principal Role="Candidates">
+              <PropertyRef Name="CandidateId" />
             </Principal>
             <Dependent Role="VotedCandidates">
-              <PropertyRef Name="VoterId" />
+              <PropertyRef Name="CandidateId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -244,10 +245,6 @@
             <End Role="Elections" EntitySet="Elections" />
             <End Role="Candidates" EntitySet="Candidates" />
           </AssociationSet>
-          <AssociationSet Name="FK_Candidates_Positions" Association="Self.FK_Candidates_Positions">
-            <End Role="Positions" EntitySet="Positions" />
-            <End Role="Candidates" EntitySet="Candidates" />
-          </AssociationSet>
           <AssociationSet Name="FK_Elections_Departments" Association="Self.FK_Elections_Departments">
             <End Role="Departments" EntitySet="Departments" />
             <End Role="Elections" EntitySet="Elections" />
@@ -256,8 +253,12 @@
             <End Role="Elections" EntitySet="Elections" />
             <End Role="EndedElections" EntitySet="EndedElections" />
           </AssociationSet>
-          <AssociationSet Name="FK_VotedCandidates_Voters" Association="Self.FK_VotedCandidates_Voters">
-            <End Role="Voters" EntitySet="Voters" />
+          <AssociationSet Name="FK_OngoingElections_Elections" Association="Self.FK_OngoingElections_Elections">
+            <End Role="Elections" EntitySet="Elections" />
+            <End Role="OngoingElections" EntitySet="OngoingElections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VotedCandidates_Candidates" Association="Self.FK_VotedCandidates_Candidates">
+            <End Role="Candidates" EntitySet="Candidates" />
             <End Role="VotedCandidates" EntitySet="VotedCandidates" />
           </AssociationSet>
           <AssociationSet Name="FK_Voters_Departments" Association="Self.FK_Voters_Departments">
@@ -297,6 +298,7 @@
           <NavigationProperty Name="Election" Relationship="Self.FK_Candidate_Election" FromRole="Candidates" ToRole="Elections" />
           <NavigationProperty Name="Position" Relationship="Self.FK_Candidate_Position" FromRole="Candidates" ToRole="Positions" />
           <NavigationProperty Name="Winners" Relationship="Self.FK_Winners_Candidates" FromRole="Candidates" ToRole="Winners" />
+          <NavigationProperty Name="VotedCandidates" Relationship="eBotoDBModel.FK_VotedCandidates_Candidates" FromRole="Candidate" ToRole="VotedCandidate" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
@@ -366,6 +368,8 @@
           <Property Name="VoterId" Type="Int32" />
           <NavigationProperty Name="Voter" Relationship="Self.FK_VotedCandidates_Voter" FromRole="VotedCandidates" ToRole="Voters" />
           <NavigationProperty Name="Voters" Relationship="Self.FK_Voter_VotedCandidates" FromRole="VotedCandidates" ToRole="Voters" />
+          <Property Name="CandidateId" Type="Int32" />
+          <NavigationProperty Name="Candidate" Relationship="eBotoDBModel.FK_VotedCandidates_Candidates" FromRole="VotedCandidate" ToRole="Candidate" />
         </EntityType>
         <EntityType Name="Voter">
           <Key>
@@ -590,7 +594,23 @@
             <End Role="VotedCandidates" EntitySet="VotedCandidates" />
             <End Role="Voters" EntitySet="Voters" />
           </AssociationSet>
+          <AssociationSet Name="FK_VotedCandidates_Candidates" Association="eBotoDBModel.FK_VotedCandidates_Candidates">
+            <End Role="Candidate" EntitySet="Candidates" />
+            <End Role="VotedCandidate" EntitySet="VotedCandidates" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_VotedCandidates_Candidates">
+          <End Type="eBotoDBModel.Candidate" Role="Candidate" Multiplicity="0..1" />
+          <End Type="eBotoDBModel.VotedCandidate" Role="VotedCandidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidate">
+              <PropertyRef Name="CandidateId" />
+            </Principal>
+            <Dependent Role="VotedCandidate">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -669,6 +689,7 @@
           <EntitySetMapping Name="VotedCandidates">
             <EntityTypeMapping TypeName="eBotoDBModel.VotedCandidate">
               <MappingFragment StoreEntitySet="VotedCandidates">
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
                 <ScalarProperty Name="VotedCandidatesId" ColumnName="VotedCandidatesId" />
                 <ScalarProperty Name="VoterId" ColumnName="VoterId" />
               </MappingFragment>

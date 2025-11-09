@@ -36,6 +36,7 @@ namespace WindowsFormsApp1
                 election_department_label.Text = "";
                 vote_now_bttn.Enabled = false;
                 vote_now_bttn.Text = "No Election Available";
+  
                 Label noElectionLabel = new Label();
                 noElectionLabel.Text = "No Election Available";
                 noElectionLabel.Font = new Font("Century Gothic", 10, FontStyle.Bold);
@@ -61,12 +62,12 @@ namespace WindowsFormsApp1
             {
                 vote_now_bttn.Enabled = true;
                 vote_now_bttn.Text = "Vote Now!";
-
             }
             else if (voterDTO.Election.Status && voterDTO.Voter.Status)
             {
                 vote_now_bttn.Enabled = false;
                 vote_now_bttn.Text = "Already Voted!";
+                
             }
             else
             {

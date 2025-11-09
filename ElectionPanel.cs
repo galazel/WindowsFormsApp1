@@ -13,7 +13,6 @@ namespace WindowsFormsApp1
         private int id;
         private ElectionService electionService;
 
-        // ✅ event to notify parent to refresh its UI
         public event Action OnUpdateRequested;
 
         public ElectionPanel(ElectionDTO electionDto)

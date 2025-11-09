@@ -18,6 +18,7 @@ namespace WindowsFormsApp1
         public Candidate()
         {
             this.Winners = new HashSet<Winner>();
+            this.VotedCandidates = new HashSet<VotedCandidate>();
         }
     
         public int CandidateId { get; set; }
@@ -34,5 +35,7 @@ namespace WindowsFormsApp1
         public virtual Position Position { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Winner> Winners { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VotedCandidate> VotedCandidates { get; set; }
     }
 }

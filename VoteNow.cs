@@ -57,6 +57,10 @@ namespace WindowsFormsApp1
             MessageBox.Show("Summary: \n"+summary);
             new VoterService().SetVoterStatus(voterId);
             voterDTO.Voter.Status = true;
+
+            foreach(var candidate in ElectionSummary.ChoosenCandidates)
+                new VotedCandidatesService().AddVotedCandidates(voterId, candidate.Value.CandidateId);
+
             OnUpdateRequested?.Invoke();
             this.Hide();
         }

@@ -26,6 +26,7 @@
         <AssociationConnector Association="eBotoDBModel.FK_Winners_Elections" ManuallyRouted="false" />
         <AssociationConnector Association="eBotoDBModel.FK_VotedCandidates_Voter" ManuallyRouted="false" />
         <AssociationConnector Association="eBotoDBModel.FK_Voter_VotedCandidates" ManuallyRouted="false" />
+        <AssociationConnector Association="eBotoDBModel.FK_VotedCandidates_Candidates" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -99,7 +99,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
-            this.label1.Location = new System.Drawing.Point(61, 380);
+            this.label1.Location = new System.Drawing.Point(51, 419);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(315, 23);
@@ -110,7 +110,7 @@
             // 
             this.live_results_flow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(188)))), ((int)(((byte)(65)))));
             this.live_results_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.live_results_flow.Location = new System.Drawing.Point(65, 414);
+            this.live_results_flow.Location = new System.Drawing.Point(55, 453);
             this.live_results_flow.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.live_results_flow.Name = "live_results_flow";
             this.live_results_flow.Size = new System.Drawing.Size(1132, 455);
@@ -124,19 +124,19 @@
             this.panel3.Controls.Add(this.status_election_label);
             this.panel3.Controls.Add(this.election_department_label);
             this.panel3.Controls.Add(this.election_name);
-            this.panel3.Location = new System.Drawing.Point(65, 200);
+            this.panel3.Location = new System.Drawing.Point(55, 200);
             this.panel3.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1132, 134);
+            this.panel3.Size = new System.Drawing.Size(1132, 188);
             this.panel3.TabIndex = 11;
             // 
             // vote_now_bttn
             // 
-            this.vote_now_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
+            this.vote_now_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(57)))), ((int)(((byte)(21)))));
             this.vote_now_bttn.Cursor = System.Windows.Forms.Cursors.Default;
             this.vote_now_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.vote_now_bttn.ForeColor = System.Drawing.Color.White;
-            this.vote_now_bttn.Location = new System.Drawing.Point(871, 57);
+            this.vote_now_bttn.Location = new System.Drawing.Point(875, 101);
             this.vote_now_bttn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.vote_now_bttn.Name = "vote_now_bttn";
             this.vote_now_bttn.Size = new System.Drawing.Size(231, 49);
@@ -150,7 +150,7 @@
             this.status_election_label.AutoSize = true;
             this.status_election_label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.status_election_label.ForeColor = System.Drawing.Color.Black;
-            this.status_election_label.Location = new System.Drawing.Point(23, 78);
+            this.status_election_label.Location = new System.Drawing.Point(23, 90);
             this.status_election_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.status_election_label.Name = "status_election_label";
             this.status_election_label.Size = new System.Drawing.Size(88, 17);
@@ -172,12 +172,12 @@
             // election_name
             // 
             this.election_name.AutoSize = true;
-            this.election_name.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.election_name.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.election_name.ForeColor = System.Drawing.Color.Black;
-            this.election_name.Location = new System.Drawing.Point(19, 37);
+            this.election_name.Location = new System.Drawing.Point(19, 49);
             this.election_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.election_name.Name = "election_name";
-            this.election_name.Size = new System.Drawing.Size(235, 41);
+            this.election_name.Size = new System.Drawing.Size(182, 32);
             this.election_name.TabIndex = 12;
             this.election_name.Text = "Hello, Glyzel!";
             // 

@@ -216,6 +216,7 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="VotedCandidatesService.cs" />
     <Compile Include="VoteNow.cs">
       <SubType>Form</SubType>
     </Compile>
