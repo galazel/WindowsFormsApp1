@@ -15,13 +15,15 @@ namespace WindowsFormsApp1
         private List<Position> positions;
         private int electionId, voterId;
         public event Action OnUpdateRequested;
+        private VoterDTO voterDTO;
 
-        public VoteNow(List<Position> positions, int electionId, int voterId)
+        public VoteNow(List<Position> positions, int electionId, int voterId, VoterDTO voterDto)
         {
             InitializeComponent();
             this.positions = positions;
             this.electionId = electionId;
             this.voterId = voterId;
+            this.voterDTO = voterDto;
             AddFlowEachPosition();
         }
         public void AddFlowEachPosition()
@@ -54,6 +56,7 @@ namespace WindowsFormsApp1
                 summary.AppendLine($"{item.Key} - {item.Value.CandidateName}");
             MessageBox.Show("Summary: \n"+summary);
             new VoterService().SetVoterStatus(voterId);
+            voterDTO.Voter.Status = true;
             OnUpdateRequested?.Invoke();
             this.Hide();
         }

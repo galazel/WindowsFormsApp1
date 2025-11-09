@@ -76,7 +76,7 @@ namespace WindowsFormsApp1
         }
         private void vote_now_bttn_Click(object sender, EventArgs e)
         {
-            var voteNow = new VoteNow(voterDTO.Positions, voterDTO.Election.ElectionId, voterDTO.Voter.VoterId);
+            var voteNow = new VoteNow(voterDTO.Positions, voterDTO.Election.ElectionId, voterDTO.Voter.VoterId, this.voterDTO);
             voteNow.OnUpdateRequested += LoadDashboard;
             voteNow.ShowDialog();
             
