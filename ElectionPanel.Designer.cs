@@ -67,7 +67,7 @@
             this.delete_bttn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.delete_bttn.IconSize = 30;
             this.delete_bttn.Location = new System.Drawing.Point(975, 37);
-            this.delete_bttn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.delete_bttn.Margin = new System.Windows.Forms.Padding(5);
             this.delete_bttn.Name = "delete_bttn";
             this.delete_bttn.Size = new System.Drawing.Size(51, 45);
             this.delete_bttn.TabIndex = 40;
@@ -84,7 +84,7 @@
             this.start_bttn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.start_bttn.IconSize = 30;
             this.start_bttn.Location = new System.Drawing.Point(914, 37);
-            this.start_bttn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.start_bttn.Margin = new System.Windows.Forms.Padding(5);
             this.start_bttn.Name = "start_bttn";
             this.start_bttn.Size = new System.Drawing.Size(51, 45);
             this.start_bttn.TabIndex = 41;
@@ -101,7 +101,7 @@
             this.view_details_bttn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.view_details_bttn.IconSize = 30;
             this.view_details_bttn.Location = new System.Drawing.Point(853, 37);
-            this.view_details_bttn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.view_details_bttn.Margin = new System.Windows.Forms.Padding(5);
             this.view_details_bttn.Name = "view_details_bttn";
             this.view_details_bttn.Size = new System.Drawing.Size(51, 45);
             this.view_details_bttn.TabIndex = 42;
@@ -113,14 +113,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(188)))), ((int)(((byte)(65)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
             this.Controls.Add(this.view_details_bttn);
             this.Controls.Add(this.start_bttn);
             this.Controls.Add(this.delete_bttn);
             this.Controls.Add(this.department_label);
             this.Controls.Add(this.election_name_label);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "ElectionPanel";
             this.Padding = new System.Windows.Forms.Padding(17, 16, 17, 16);
             this.Size = new System.Drawing.Size(1083, 123);

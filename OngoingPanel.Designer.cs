@@ -44,7 +44,7 @@
             this.view_details_bttn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.view_details_bttn.IconSize = 30;
             this.view_details_bttn.Location = new System.Drawing.Point(975, 37);
-            this.view_details_bttn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.view_details_bttn.Margin = new System.Windows.Forms.Padding(5);
             this.view_details_bttn.Name = "view_details_bttn";
             this.view_details_bttn.Size = new System.Drawing.Size(51, 45);
             this.view_details_bttn.TabIndex = 47;
@@ -61,7 +61,7 @@
             this.end_bttn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.end_bttn.IconSize = 30;
             this.end_bttn.Location = new System.Drawing.Point(914, 37);
-            this.end_bttn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.end_bttn.Margin = new System.Windows.Forms.Padding(5);
             this.end_bttn.Name = "end_bttn";
             this.end_bttn.Size = new System.Drawing.Size(51, 45);
             this.end_bttn.TabIndex = 48;
@@ -95,13 +95,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(188)))), ((int)(((byte)(65)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
             this.Controls.Add(this.department_label);
             this.Controls.Add(this.election_name_label);
             this.Controls.Add(this.end_bttn);
             this.Controls.Add(this.view_details_bttn);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "OngoingPanel";
             this.Padding = new System.Windows.Forms.Padding(17, 16, 17, 16);
             this.Size = new System.Drawing.Size(1083, 122);

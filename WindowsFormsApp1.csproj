@@ -232,6 +232,12 @@
     <Compile Include="ResultsPanel.Designer.cs">
       <DependentUpon>ResultsPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="SummaryPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SummaryPanel.Designer.cs">
+      <DependentUpon>SummaryPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="sysdiagram.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -330,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ResultsPanel.resx">
       <DependentUpon>ResultsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SummaryPanel.resx">
+      <DependentUpon>SummaryPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VoteNow.resx">
       <DependentUpon>VoteNow.cs</DependentUpon>

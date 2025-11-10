@@ -45,46 +45,46 @@
             // username
             // 
             this.username.AutoSize = true;
-            this.username.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.username.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.username.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
             this.username.Location = new System.Drawing.Point(37, 249);
             this.username.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(88, 21);
+            this.username.Size = new System.Drawing.Size(113, 24);
             this.username.TabIndex = 0;
             this.username.Text = "Username";
             // 
             // password
             // 
             this.password.AutoSize = true;
-            this.password.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.password.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
             this.password.Location = new System.Drawing.Point(37, 323);
             this.password.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(82, 21);
+            this.password.Size = new System.Drawing.Size(104, 24);
             this.password.TabIndex = 1;
             this.password.Text = "Password";
             // 
             // username_box
             // 
-            this.username_box.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.username_box.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.username_box.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.username_box.Location = new System.Drawing.Point(41, 271);
+            this.username_box.Location = new System.Drawing.Point(42, 277);
             this.username_box.Margin = new System.Windows.Forms.Padding(4);
             this.username_box.Name = "username_box";
-            this.username_box.Size = new System.Drawing.Size(367, 27);
+            this.username_box.Size = new System.Drawing.Size(423, 33);
             this.username_box.TabIndex = 2;
             // 
             // password_box
             // 
-            this.password_box.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password_box.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.password_box.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
             this.password_box.Location = new System.Drawing.Point(41, 348);
             this.password_box.Margin = new System.Windows.Forms.Padding(4);
             this.password_box.Name = "password_box";
             this.password_box.PasswordChar = '*';
-            this.password_box.Size = new System.Drawing.Size(367, 27);
+            this.password_box.Size = new System.Drawing.Size(423, 33);
             this.password_box.TabIndex = 3;
             this.password_box.UseSystemPasswordChar = true;
             // 
@@ -94,12 +94,13 @@
             this.login_bttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.login_bttn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.login_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.login_bttn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.login_bttn.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login_bttn.ForeColor = System.Drawing.Color.White;
-            this.login_bttn.Location = new System.Drawing.Point(41, 446);
+            this.login_bttn.Location = new System.Drawing.Point(41, 401);
             this.login_bttn.Margin = new System.Windows.Forms.Padding(4);
             this.login_bttn.Name = "login_bttn";
-            this.login_bttn.Size = new System.Drawing.Size(367, 37);
+            this.login_bttn.Padding = new System.Windows.Forms.Padding(5);
+            this.login_bttn.Size = new System.Drawing.Size(423, 50);
             this.login_bttn.TabIndex = 4;
             this.login_bttn.Text = "LOGIN";
             this.login_bttn.UseVisualStyleBackColor = false;
@@ -109,12 +110,12 @@
             // 
             this.register_label.AutoSize = true;
             this.register_label.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.register_label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.register_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
-            this.register_label.Location = new System.Drawing.Point(37, 379);
+            this.register_label.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.register_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
+            this.register_label.Location = new System.Drawing.Point(37, 651);
             this.register_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.register_label.Name = "register_label";
-            this.register_label.Size = new System.Drawing.Size(254, 17);
+            this.register_label.Size = new System.Drawing.Size(402, 24);
             this.register_label.TabIndex = 5;
             this.register_label.Text = "Don\'t have an account? Register here";
             this.register_label.Click += new System.EventHandler(this.register_label_Click);
@@ -122,12 +123,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
             this.label1.Location = new System.Drawing.Point(35, 125);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(386, 36);
+            this.label1.Size = new System.Drawing.Size(429, 38);
             this.label1.TabIndex = 6;
             this.label1.Text = "LOGIN TO YOUR ACCOUNT";
             // 
@@ -154,7 +155,7 @@
             this.splitContainer1.Panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("splitContainer1.Panel2.BackgroundImage")));
             this.splitContainer1.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.splitContainer1.Size = new System.Drawing.Size(1100, 707);
-            this.splitContainer1.SplitterDistance = 460;
+            this.splitContainer1.SplitterDistance = 499;
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 7;
             // 

@@ -14,12 +14,13 @@ namespace WindowsFormsApp1
     {
         private string positionName;
         private Candidate candidate;
+        public event Action OnUpdateRequested;
         public CandidatePanel(Candidate candidate, string positionName)
         {
             InitializeComponent();
             candidate_image.Image = Image.FromFile(candidate.Image);
-            candidate_name_label.Text = candidate.CandidateName.ToUpper();
-            candidate_party_label.Text = candidate.Partylist;
+            candidate_name_label.Text = $"NAME: {candidate.CandidateName.ToUpper()}";
+            candidate_party_label.Text = $"PARTY: {candidate.Partylist}";
             this.positionName = positionName;
             this.candidate = candidate;
         }
@@ -28,6 +29,7 @@ namespace WindowsFormsApp1
         {
             if (ElectionSummary.ChoosenCandidates.ContainsKey(positionName))
                 ElectionSummary.ChoosenCandidates[positionName] = candidate;
+            OnUpdateRequested?.Invoke();
         }
     }
 }

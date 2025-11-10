@@ -86,7 +86,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(62, 117);
+            this.label2.Location = new System.Drawing.Point(43, 86);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(955, 34);
@@ -98,7 +98,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
-            this.label1.Location = new System.Drawing.Point(51, 419);
+            this.label1.Location = new System.Drawing.Point(42, 379);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(315, 23);
@@ -108,32 +108,32 @@
             // live_results_flow
             // 
             this.live_results_flow.AutoScroll = true;
-            this.live_results_flow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(188)))), ((int)(((byte)(65)))));
+            this.live_results_flow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
             this.live_results_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.live_results_flow.Location = new System.Drawing.Point(55, 453);
+            this.live_results_flow.Location = new System.Drawing.Point(46, 412);
             this.live_results_flow.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.live_results_flow.Name = "live_results_flow";
             this.live_results_flow.Padding = new System.Windows.Forms.Padding(10);
-            this.live_results_flow.Size = new System.Drawing.Size(1132, 455);
+            this.live_results_flow.Size = new System.Drawing.Size(1155, 488);
             this.live_results_flow.TabIndex = 12;
             this.live_results_flow.WrapContents = false;
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(188)))), ((int)(((byte)(65)))));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
             this.panel3.Controls.Add(this.vote_now_bttn);
             this.panel3.Controls.Add(this.status_election_label);
             this.panel3.Controls.Add(this.election_department_label);
             this.panel3.Controls.Add(this.election_name);
-            this.panel3.Location = new System.Drawing.Point(55, 200);
+            this.panel3.Location = new System.Drawing.Point(46, 153);
             this.panel3.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1132, 188);
+            this.panel3.Size = new System.Drawing.Size(1155, 188);
             this.panel3.TabIndex = 11;
             // 
             // vote_now_bttn
             // 
-            this.vote_now_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(57)))), ((int)(((byte)(21)))));
+            this.vote_now_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
             this.vote_now_bttn.Cursor = System.Windows.Forms.Cursors.Default;
             this.vote_now_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.vote_now_bttn.ForeColor = System.Drawing.Color.White;
@@ -187,7 +187,7 @@
             this.label.AutoSize = true;
             this.label.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
-            this.label.Location = new System.Drawing.Point(58, 60);
+            this.label.Location = new System.Drawing.Point(39, 33);
             this.label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(348, 38);

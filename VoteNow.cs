@@ -25,6 +25,19 @@ namespace WindowsFormsApp1
             this.voterId = voterId;
             this.voterDTO = voterDto;
             AddFlowEachPosition();
+            SetSummary();
+        }
+
+        public void SetSummary()
+        {
+            chosen_flow.Controls.Clear();
+            foreach(var chosen in ElectionSummary.ChoosenCandidates)
+            { 
+                if(chosen.Value == null)
+                    chosen_flow.Controls.Add(new SummaryPanel("", chosen.Key));
+                else
+                    chosen_flow.Controls.Add(new SummaryPanel(chosen.Value.CandidateName,chosen.Key));
+            }
         }
         public void AddFlowEachPosition()
         {
@@ -40,7 +53,11 @@ namespace WindowsFormsApp1
                     PositionFlowLayout positionFlowLayout = new PositionFlowLayout(positionName);
 
                     foreach (Candidate candidate in candidates)
-                        positionFlowLayout.AddPositionPanel(new CandidatePanel(candidate,positionName));    
+                    {
+                        CandidatePanel candidatePanel = new CandidatePanel(candidate, positionName);
+                        positionFlowLayout.AddPositionPanel(candidatePanel);
+                        candidatePanel.OnUpdateRequested += SetSummary;
+                    }
                     
                     vote_candidates_flow.Controls.Add(positionFlowLayout);
 
@@ -51,18 +68,30 @@ namespace WindowsFormsApp1
 
         private void vote_candidate_bttn_Click(object sender, EventArgs e)
         {
+            foreach(var chosen in ElectionSummary.ChoosenCandidates)
+            {
+                if(chosen.Value == null)
+                {
+                    MessageBox.Show("Choose your prefer candidate first");
+                    return;
+                }
+            }
+
             StringBuilder summary = new StringBuilder();
-            foreach(var item in ElectionSummary.ChoosenCandidates)
+            foreach (var item in ElectionSummary.ChoosenCandidates)
                 summary.AppendLine($"{item.Key} - {item.Value.CandidateName}");
-            MessageBox.Show("Summary: \n"+summary);
+
+            MessageBox.Show("Summary: \n" + summary);
             new VoterService().SetVoterStatus(voterId);
             voterDTO.Voter.Status = true;
 
-            foreach(var candidate in ElectionSummary.ChoosenCandidates)
-                new VotedCandidatesService().AddVotedCandidates(voterId, candidate.Value.CandidateId, electionId);
+            foreach (var candidate in ElectionSummary.ChoosenCandidates)
+              new VotedCandidatesService().AddVotedCandidates(voterId, candidate.Value.CandidateId, electionId);
+
             MessageBox.Show("Thank you for voting!");
             OnUpdateRequested?.Invoke();
             this.Hide();
+            
         }
 
     
