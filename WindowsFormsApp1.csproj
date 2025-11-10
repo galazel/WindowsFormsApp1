@@ -85,14 +85,14 @@
     <Compile Include="CandidatePanel.Designer.cs">
       <DependentUpon>CandidatePanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CandidatesDTO.cs" />
+    <Compile Include="DTOs\CandidatesDTO.cs" />
     <Compile Include="Dialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialog.Designer.cs">
       <DependentUpon>Dialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,7 +120,7 @@
     <Compile Include="Candidate.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="CandidateService.cs" />
+    <Compile Include="Services\CandidateService.cs" />
     <Compile Include="CreateElection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,13 +139,13 @@
     <Compile Include="EditProfile.Designer.cs">
       <DependentUpon>EditProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="ElectionDTO.cs" />
+    <Compile Include="DTOs\ElectionDTO.cs" />
     <Compile Include="ElectionSummary.cs" />
-    <Compile Include="IAdminDashboard.cs" />
+    <Compile Include="Connection\DBConnection.cs" />
     <Compile Include="Department.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="DepartmentService.cs" />
+    <Compile Include="Services\DepartmentService.cs" />
     <Compile Include="Election.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -155,7 +155,7 @@
     <Compile Include="ElectionPanel.Designer.cs">
       <DependentUpon>ElectionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="ElectionService.cs" />
+    <Compile Include="Services\ElectionService.cs" />
     <Compile Include="EndedElection.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -211,7 +211,7 @@
     <Compile Include="PositionFlowLayout.Designer.cs">
       <DependentUpon>PositionFlowLayout.cs</DependentUpon>
     </Compile>
-    <Compile Include="PositionService.cs" />
+    <Compile Include="Services\PositionService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.cs">
@@ -235,15 +235,15 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="VotedCandidatesService.cs" />
+    <Compile Include="Services\VotedCandidatesService.cs" />
     <Compile Include="VoteNow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VoteNow.Designer.cs">
       <DependentUpon>VoteNow.cs</DependentUpon>
     </Compile>
-    <Compile Include="VoterDTO.cs" />
-    <Compile Include="VoterService.cs" />
+    <Compile Include="DTOs\VoterDTO.cs" />
+    <Compile Include="Services\VoterService.cs" />
     <Compile Include="VotedCandidate.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -938,6 +938,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

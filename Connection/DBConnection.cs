@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    internal interface IAdminDashboard
+    internal interface DBConnection
     {
+
+
 
     }
 }

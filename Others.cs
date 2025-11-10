@@ -39,6 +39,7 @@ namespace WindowsFormsApp1
                 electionsFlow.Controls.Add(new OngoingPanel(election));
             }
         }
+
    
 
     }

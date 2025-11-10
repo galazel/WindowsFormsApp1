@@ -48,15 +48,12 @@
             this.add_department = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.positions_grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.departments_grid)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label12
@@ -64,7 +61,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(70)))), ((int)(((byte)(134)))));
-            this.label12.Location = new System.Drawing.Point(637, 636);
+            this.label12.Location = new System.Drawing.Point(639, 415);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(63, 17);
@@ -76,7 +73,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(70)))), ((int)(((byte)(134)))));
-            this.label11.Location = new System.Drawing.Point(105, 636);
+            this.label11.Location = new System.Drawing.Point(107, 415);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(92, 17);
@@ -88,8 +85,8 @@
             this.positions_grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(188)))), ((int)(((byte)(65)))));
             this.positions_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.positions_grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.positions_grid.Location = new System.Drawing.Point(640, 657);
-            this.positions_grid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.positions_grid.Location = new System.Drawing.Point(642, 436);
+            this.positions_grid.Margin = new System.Windows.Forms.Padding(4);
             this.positions_grid.Name = "positions_grid";
             this.positions_grid.Size = new System.Drawing.Size(442, 170);
             this.positions_grid.TabIndex = 20;
@@ -101,8 +98,8 @@
             this.departments_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.departments_grid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.departments_grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.departments_grid.Location = new System.Drawing.Point(108, 657);
-            this.departments_grid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.departments_grid.Location = new System.Drawing.Point(110, 436);
+            this.departments_grid.Margin = new System.Windows.Forms.Padding(4);
             this.departments_grid.Name = "departments_grid";
             this.departments_grid.Size = new System.Drawing.Size(481, 170);
             this.departments_grid.TabIndex = 19;
@@ -115,7 +112,7 @@
             this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.total_voted);
             this.panel4.Location = new System.Drawing.Point(850, 115);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(231, 189);
             this.panel4.TabIndex = 17;
@@ -148,7 +145,7 @@
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.total_candidates);
             this.panel3.Location = new System.Drawing.Point(604, 115);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(231, 189);
             this.panel3.TabIndex = 16;
@@ -181,7 +178,7 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.total_elections);
             this.panel2.Location = new System.Drawing.Point(357, 115);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(231, 189);
             this.panel2.TabIndex = 15;
@@ -214,7 +211,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.total_voters);
             this.panel1.Location = new System.Drawing.Point(108, 115);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(231, 189);
             this.panel1.TabIndex = 14;
@@ -249,8 +246,8 @@
             this.add_position.IconChar = FontAwesome.Sharp.IconChar.None;
             this.add_position.IconColor = System.Drawing.Color.Black;
             this.add_position.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.add_position.Location = new System.Drawing.Point(947, 835);
-            this.add_position.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.add_position.Location = new System.Drawing.Point(949, 614);
+            this.add_position.Margin = new System.Windows.Forms.Padding(4);
             this.add_position.Name = "add_position";
             this.add_position.Size = new System.Drawing.Size(135, 30);
             this.add_position.TabIndex = 25;
@@ -266,8 +263,8 @@
             this.add_department.IconChar = FontAwesome.Sharp.IconChar.None;
             this.add_department.IconColor = System.Drawing.Color.Black;
             this.add_department.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.add_department.Location = new System.Drawing.Point(454, 835);
-            this.add_department.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.add_department.Location = new System.Drawing.Point(456, 614);
+            this.add_department.Margin = new System.Windows.Forms.Padding(4);
             this.add_department.Name = "add_department";
             this.add_department.Size = new System.Drawing.Size(135, 30);
             this.add_department.TabIndex = 26;
@@ -292,42 +289,18 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
-            this.label3.Location = new System.Drawing.Point(63, 323);
+            this.label3.Location = new System.Drawing.Point(65, 359);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(135, 32);
             this.label3.TabIndex = 30;
             this.label3.Text = "MANAGE";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(70)))), ((int)(((byte)(134)))));
-            this.label2.Location = new System.Drawing.Point(105, 386);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 17);
-            this.label2.TabIndex = 31;
-            this.label2.Text = "Voters";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(188)))), ((int)(((byte)(65)))));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView1.Location = new System.Drawing.Point(108, 406);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(973, 215);
-            this.dataGridView1.TabIndex = 32;
-            // 
             // AdminDashboardPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.add_department);
@@ -341,7 +314,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminDashboardPanel";
             this.Size = new System.Drawing.Size(1210, 962);
             ((System.ComponentModel.ISupportInitialize)(this.positions_grid)).EndInit();
@@ -354,7 +327,6 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -381,7 +353,5 @@
         private System.Windows.Forms.Label total_candidates;
         private System.Windows.Forms.Label total_elections;
         private System.Windows.Forms.Label total_voters;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

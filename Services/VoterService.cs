@@ -54,11 +54,11 @@ namespace WindowsFormsApp1
                 return voter != null ? voter.VoterId : -1;
             }
         }
-        public Boolean DoesVoterAlreadyExisted(String username)
+        public Boolean DoesVoterAlreadyExisted(string username, string password)
         {
             using (var db = new eBotoDBEntities())
             {
-                var voter = db.Voters.FirstOrDefault(v => v.Username == username);
+                var voter = db.Voters.FirstOrDefault(v => v.Username == username && v.Password == password);
                 if (voter == null)
                     return false;
             }

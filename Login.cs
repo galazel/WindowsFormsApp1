@@ -28,9 +28,9 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Please input the required fields");
             else
             {
-                if(!new VoterService().DoesVoterAlreadyExisted(username_box.Text))
+                if(!new VoterService().DoesVoterAlreadyExisted(username_box.Text, password_box.Text))
                 {
-                    MessageBox.Show("No registered voters found. Please register first.");
+                    MessageBox.Show("No registered voter found. Please register first.");
                     return;
                 }else
                 {

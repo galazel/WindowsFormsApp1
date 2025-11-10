@@ -29,7 +29,6 @@ namespace WindowsFormsApp1
             total_elections.Text = new ElectionService().GetElectionsCount();
             total_voted.Text = new VoterService().GetVotedCount();
         }
-
         public void LoadDepartments()
         {
             try
