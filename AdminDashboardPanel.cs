@@ -22,26 +22,14 @@ namespace WindowsFormsApp1
             LoadPositions();
         }
 
-        // ✅ Loads summary labels
         public void LoadLabel()
         {
-            try
-            {
-                using (var db = new eBotoDBEntities())
-                {
-                    total_voters.Text = db.Voters.Count().ToString();
-                    total_candidates.Text = db.Candidates.Count().ToString();
-                    total_elections.Text = db.Elections.Count().ToString();
-                    total_voted.Text = db.Voters.Count(v => v.Status == true).ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading counts: " + ex.Message);
-            }
+            total_voters.Text = new VoterService().GetVotersCount();
+            total_candidates.Text = new CandidateService().GetCandidatesCount();
+            total_elections.Text = new ElectionService().GetElectionsCount();
+            total_voted.Text = new VoterService().GetVotedCount();
         }
 
-        // ✅ Loads Departments into grid
         public void LoadDepartments()
         {
             try
@@ -58,7 +46,6 @@ namespace WindowsFormsApp1
 
                 departments_grid.DataSource = departments;
 
-                // Optional: Hide the ID column for cleaner look
                 if (departments_grid.Columns["DepartmentID"] != null)
                     departments_grid.Columns["DepartmentID"].Visible = false;
             }
@@ -67,8 +54,6 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Error loading departments: " + ex.Message);
             }
         }
-
-        // ✅ Loads Positions into grid
         public void LoadPositions()
         {
             try
@@ -94,21 +79,18 @@ namespace WindowsFormsApp1
             }
         }
 
-        // ✅ Add new department
         private void add_department_Click(object sender, EventArgs e)
         {
             new Dialog(true).ShowDialog();
             LoadDepartments();
         }
 
-        // ✅ Add new position
         private void add_position_Click(object sender, EventArgs e)
         {
             new Dialog(false).ShowDialog();
             LoadPositions();
         }
 
-        // ✅ Delete department on double click
         private void departments_grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -139,7 +121,6 @@ namespace WindowsFormsApp1
             }
         }
 
-        // ✅ Delete position on double click (fixed wrong event)
         private void positions_grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -169,8 +150,6 @@ namespace WindowsFormsApp1
                 }
             }
         }
-
-        // ✅ Edit department on single click
         private void departments_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -181,7 +160,6 @@ namespace WindowsFormsApp1
             }
         }
 
-        // ✅ Edit position on single click
         private void positions_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)

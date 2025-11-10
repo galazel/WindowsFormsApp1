@@ -40,7 +40,6 @@
             this.election_name = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.edit_profile_icon = new FontAwesome.Sharp.IconButton();
             this.name_label = new System.Windows.Forms.Label();
             this.status_label = new System.Windows.Forms.Label();
             this.view_ballot_icon = new FontAwesome.Sharp.IconButton();
@@ -108,11 +107,13 @@
             // 
             // live_results_flow
             // 
+            this.live_results_flow.AutoScroll = true;
             this.live_results_flow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(188)))), ((int)(((byte)(65)))));
             this.live_results_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.live_results_flow.Location = new System.Drawing.Point(55, 453);
             this.live_results_flow.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.live_results_flow.Name = "live_results_flow";
+            this.live_results_flow.Padding = new System.Windows.Forms.Padding(10);
             this.live_results_flow.Size = new System.Drawing.Size(1132, 455);
             this.live_results_flow.TabIndex = 12;
             this.live_results_flow.WrapContents = false;
@@ -136,7 +137,7 @@
             this.vote_now_bttn.Cursor = System.Windows.Forms.Cursors.Default;
             this.vote_now_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.vote_now_bttn.ForeColor = System.Drawing.Color.White;
-            this.vote_now_bttn.Location = new System.Drawing.Point(875, 101);
+            this.vote_now_bttn.Location = new System.Drawing.Point(25, 125);
             this.vote_now_bttn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.vote_now_bttn.Name = "vote_now_bttn";
             this.vote_now_bttn.Size = new System.Drawing.Size(231, 49);
@@ -189,14 +190,13 @@
             this.label.Location = new System.Drawing.Point(58, 60);
             this.label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(345, 38);
+            this.label.Size = new System.Drawing.Size(348, 38);
             this.label.TabIndex = 10;
-            this.label.Text = "WELCOME TO EBOTO!";
+            this.label.Text = "WELCOME TO eBOTO!";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.panel1.Controls.Add(this.edit_profile_icon);
             this.panel1.Controls.Add(this.name_label);
             this.panel1.Controls.Add(this.status_label);
             this.panel1.Controls.Add(this.view_ballot_icon);
@@ -217,27 +217,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(337, 943);
             this.panel1.TabIndex = 0;
-            // 
-            // edit_profile_icon
-            // 
-            this.edit_profile_icon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.edit_profile_icon.Cursor = System.Windows.Forms.Cursors.Default;
-            this.edit_profile_icon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.edit_profile_icon.ForeColor = System.Drawing.Color.Transparent;
-            this.edit_profile_icon.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
-            this.edit_profile_icon.IconColor = System.Drawing.Color.White;
-            this.edit_profile_icon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.edit_profile_icon.IconSize = 80;
-            this.edit_profile_icon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.edit_profile_icon.Location = new System.Drawing.Point(27, 657);
-            this.edit_profile_icon.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.edit_profile_icon.Name = "edit_profile_icon";
-            this.edit_profile_icon.Size = new System.Drawing.Size(275, 76);
-            this.edit_profile_icon.TabIndex = 45;
-            this.edit_profile_icon.Text = "Edit Profile";
-            this.edit_profile_icon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.edit_profile_icon.UseVisualStyleBackColor = false;
-            this.edit_profile_icon.Click += new System.EventHandler(this.edit_profile_icon_Click);
             // 
             // name_label
             // 
@@ -279,7 +258,7 @@
             this.view_ballot_icon.Name = "view_ballot_icon";
             this.view_ballot_icon.Size = new System.Drawing.Size(275, 76);
             this.view_ballot_icon.TabIndex = 44;
-            this.view_ballot_icon.Text = "View Ballot";
+            this.view_ballot_icon.Text = "View eBallot";
             this.view_ballot_icon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.view_ballot_icon.UseVisualStyleBackColor = false;
             this.view_ballot_icon.Click += new System.EventHandler(this.view_ballot_icon_Click);
@@ -411,6 +390,7 @@
             this.voter_image.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.voter_image.Name = "voter_image";
             this.voter_image.Size = new System.Drawing.Size(276, 225);
+            this.voter_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.voter_image.TabIndex = 4;
             this.voter_image.TabStop = false;
             // 
@@ -508,7 +488,6 @@
         private FontAwesome.Sharp.IconButton profile_button;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label label1;
-        private FontAwesome.Sharp.IconButton edit_profile_icon;
         private System.Windows.Forms.Label label2;
     }
 }

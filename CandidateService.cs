@@ -81,7 +81,22 @@ namespace WindowsFormsApp1
             }
         }
 
-       
+        public Candidate GetCandidate(int candidateId)
+        {
+            using (var db = new eBotoDBEntities())
+            {
+                return db.Candidates.FirstOrDefault(c => c.CandidateId == candidateId);
+            }
+        }
+        public string GetCandidatesCount()
+        {
+            using (var db = new eBotoDBEntities())
+            {
+                return db.Candidates.Count().ToString();
+            }
+        }
+
+
 
     }
 }

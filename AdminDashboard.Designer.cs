@@ -200,6 +200,7 @@
             this.voter_image.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.voter_image.Name = "voter_image";
             this.voter_image.Size = new System.Drawing.Size(277, 225);
+            this.voter_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.voter_image.TabIndex = 13;
             this.voter_image.TabStop = false;
             // 

@@ -50,8 +50,11 @@ namespace WindowsFormsApp1
                 election_name.Text = voter.Election.ElectionName.ToUpper();
                 election_department_label.Text = voter.Department.DepartmentName.ToUpper();
                 LoadDashboard();
-
-
+                if (voterDTO.Voter.Status)
+                    LoadLiveResults();
+                else
+                    live_results_flow.Controls.Add(new ResultLabelcs());
+                    
             }
 
         }
@@ -75,10 +78,27 @@ namespace WindowsFormsApp1
                 vote_now_bttn.Text = "Election is Inactive";
             }
         }
+
+        public void LoadLiveResults()
+        {
+            live_results_flow.Controls.Clear();
+            foreach (var position in voterDTO.Positions)
+            {
+                List<Candidate> candidates = new List<Candidate>();
+
+                foreach (var candidate in voterDTO.Candidates)
+                    if (candidate.PositionId == position.PositionId)
+                        candidates.Add(candidate);
+
+                live_results_flow.Controls.Add(new LiveResults(position.PositionName, candidates, new VotedCandidatesService().GetCandidatesAndVotes(voterDTO.Election.ElectionId)));
+            }
+        }
+
         private void vote_now_bttn_Click(object sender, EventArgs e)
         {
             var voteNow = new VoteNow(voterDTO.Positions, voterDTO.Election.ElectionId, voterDTO.Voter.VoterId, this.voterDTO);
             voteNow.OnUpdateRequested += LoadDashboard;
+            voteNow.OnUpdateRequested += LoadLiveResults;
             voteNow.ShowDialog();
             
         }
@@ -90,14 +110,26 @@ namespace WindowsFormsApp1
             new Login().ShowDialog();
         }
 
-        private void edit_profile_icon_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void view_ballot_icon_Click(object sender, EventArgs e)
         {
+            StringBuilder ballot = new StringBuilder();
+            if (voterDTO.Voter.Status && voterDTO.Election.Status)
+            {
+                Voter voter = new VotedCandidatesService().GetAllVotedCandidates(voterDTO.Voter.VoterId);
 
+                foreach (var votedCandidate in voter.VotedCandidates)
+                {
+                    Candidate candidate = new CandidateService().GetCandidate((int)votedCandidate.CandidateId);
+                    string positionName = new PositionService().GetPositionName(candidate.PositionId);
+                    ballot.AppendLine($"{positionName} - {candidate.CandidateName}");
+                }
+                MessageBox.Show($"eBallot\n{ballot}");
+
+            }
+            else if (voterDTO.Election.Status && !voterDTO.Voter.Status)
+                MessageBox.Show("Your ballot is empty. Vote now!");
+            else
+                MessageBox.Show("No election started");
         }
        
     }

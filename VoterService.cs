@@ -114,5 +114,20 @@ namespace WindowsFormsApp1
                     
         }
 
+        public string GetVotersCount()
+        {
+            using(var db =new eBotoDBEntities())
+            {
+                return db.Voters.Count().ToString();
+            }
+        }
+
+        public string GetVotedCount() { 
+            using(var db =new eBotoDBEntities())
+            {
+                return db.Voters.Count(v => v.Status == true).ToString();
+            }
+        }
+
     }
 }

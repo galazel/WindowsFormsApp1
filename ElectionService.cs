@@ -155,6 +155,14 @@ namespace WindowsFormsApp1
             }
         }
 
+        public string GetElectionsCount()
+        {
+            using (var db = new eBotoDBEntities())
+            {
+                return db.Elections.Count().ToString();
+            }
+        }
+
 
     }
 }

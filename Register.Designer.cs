@@ -360,6 +360,7 @@
             this.photo_box.Margin = new System.Windows.Forms.Padding(4);
             this.photo_box.Name = "photo_box";
             this.photo_box.Size = new System.Drawing.Size(135, 131);
+            this.photo_box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.photo_box.TabIndex = 29;
             this.photo_box.TabStop = false;
             this.photo_box.Click += new System.EventHandler(this.photo_box_Click);
