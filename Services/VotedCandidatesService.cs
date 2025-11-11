@@ -8,12 +8,10 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    internal class VotedCandidatesService
+    internal class VotedCandidatesService : DBConnection
     {
         public void AddVotedCandidates(int voterId, int candidateId, int electionId)
         {
-            using(var db = new eBotoDBEntities())
-            {
                 VotedCandidate votedCandidate = new VotedCandidate()
                 {
                     VoterId = voterId,
@@ -22,21 +20,15 @@ namespace WindowsFormsApp1
                 };
                 db.VotedCandidates.Add(votedCandidate);
                 db.SaveChanges();
-            }
 
         }
         public Voter GetAllVotedCandidates(int voterId)
         {
-            using(var db = new eBotoDBEntities())
-            {
                 return db.Voters.Include(v => v.VotedCandidates).FirstOrDefault(v => v.VoterId == voterId);   
-            }
         }
 
         public List<CandidatesDTO> GetCandidatesAndVotes(int electionId)
         {
-            using (var db = new eBotoDBEntities())
-            {
                 var result = db.VotedCandidates.Where(v => v.ElectionId == electionId).GroupBy(v => v.CandidateId).Select(g => new CandidatesDTO
                 {
                     CandidateId = (int)g.Key,
@@ -45,7 +37,6 @@ namespace WindowsFormsApp1
                     .ToList();
 
                 return result;
-            }
         }
 
 

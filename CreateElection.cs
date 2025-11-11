@@ -43,7 +43,7 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Please fill in all required fields.");
             }
-            else if (electionService.DoesElectionAlreadyExists(election_name_box.Text, departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString())))
+            else if (electionService.DoesElectionAlreadyExisted(election_name_box.Text, departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString())))
             {
                 MessageBox.Show("An election already exists in the selected department.");
                 return;

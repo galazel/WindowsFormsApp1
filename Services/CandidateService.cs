@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace WindowsFormsApp1
 {
-    internal class CandidateService
+    internal class CandidateService : DBConnection
     {
         private PositionService positionService;
         public CandidateService()
@@ -17,44 +17,33 @@ namespace WindowsFormsApp1
         }
         public Boolean DoesCandidateExist(string candidateName)
         {
-            using(var db = new eBotoDBEntities())
-            {
-                return db.Candidates.Any(c => c.CandidateName == candidateName);
-            }
+           return db.Candidates.Any(c => c.CandidateName == candidateName);
         }
         public void AddCandidate(List<Others> candidates, int electionId)
         {
-            using(var db = new eBotoDBEntities())
-            {
-                foreach(var candidate in candidates)
-                {
-                    Candidate newCandidate = new Candidate
-                    {
-                        CandidateName = candidate.CandidateName,
-                        Partylist = candidate.Partylist,
-                        Motto = candidate.Motto,
-                        PositionId = candidate.PositionId,
-                        Image = candidate.Image,
-                        DepartmentId = candidate.DepartmentId,
-                        ElectionId = electionId
-                    };
+           foreach(var candidate in candidates)
+           {
+               Candidate newCandidate = new Candidate
+               {
+                   CandidateName = candidate.CandidateName,
+                   Partylist = candidate.Partylist,
+                   Motto = candidate.Motto,
+                   PositionId = candidate.PositionId,
+                   Image = candidate.Image,
+                   DepartmentId = candidate.DepartmentId,
+                   ElectionId = electionId
+                   };
                     db.Candidates.Add(newCandidate);
-                }
-                db.SaveChanges();
-            }
+               }
+               db.SaveChanges();
         }
 
         public List<Candidate> GetCandidatesByElectionId(int electionId)
         {
-            using(var db = new eBotoDBEntities())
-            {
-                return db.Candidates.Where(c => c.ElectionId ==  electionId).ToList();
-            }
+           return db.Candidates.Where(c => c.ElectionId ==  electionId).ToList();
         }
         public void GetPositions(int electionId, int departmentId)
         {
-            using (var db = new eBotoDBEntities())
-            {
                 var positions = db.Candidates.Where(c => c.ElectionId == electionId && c.DepartmentId == departmentId).Select(c => c.PositionId).Distinct().ToList();
                 Console.WriteLine(positions.Count());
                 foreach(var po in positions)
@@ -62,38 +51,25 @@ namespace WindowsFormsApp1
                     string positionName = positionService.GetPositionName(po);
                     Console.WriteLine("Position: " + positionName);
                 }
-            }
         }
 
         public Boolean IsPosition(int positionId, int electionId)
         {
-            using (var db = new eBotoDBEntities())
-            {
-                return db.Candidates.Any(c => c.PositionId == positionId && c.ElectionId == electionId);
-            }
+            return db.Candidates.Any(c => c.PositionId == positionId && c.ElectionId == electionId);
         }
 
-        public List<Candidate> GetCandidate(int positionId, int electionId)
+        public List<Candidate> GetCandidates(int positionId, int electionId)
         {
-            using(var db = new eBotoDBEntities())
-            {
-                return db.Candidates.Where(ca => ca.PositionId == positionId && ca.ElectionId == electionId).ToList();
-            }
+           return db.Candidates.Where(ca => ca.PositionId == positionId && ca.ElectionId == electionId).ToList();
         }
 
         public Candidate GetCandidate(int candidateId)
         {
-            using (var db = new eBotoDBEntities())
-            {
-                return db.Candidates.FirstOrDefault(c => c.CandidateId == candidateId);
-            }
+           return db.Candidates.FirstOrDefault(c => c.CandidateId == candidateId);
         }
         public string GetCandidatesCount()
         {
-            using (var db = new eBotoDBEntities())
-            {
-                return db.Candidates.Count().ToString();
-            }
+           return db.Candidates.Count().ToString();
         }
 
 

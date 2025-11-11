@@ -6,12 +6,10 @@ using System.Windows.Documents;
 
 namespace WindowsFormsApp1
 {
-    internal class VoterService
+    internal class VoterService : DBConnection
     {
         public Boolean AddVoter(Voter voter)
         {
-            using (var db = new eBotoDBEntities())
-            {
                 var existingVoter = db.Voters.FirstOrDefault(v => v.FirstName == voter.FirstName && v.LastName == voter.LastName && v.DepartmentId == voter.DepartmentId && v.BirthDate == voter.BirthDate);
 
                 if (existingVoter != null)
@@ -20,12 +18,9 @@ namespace WindowsFormsApp1
                 db.Voters.Add(voter);
                 db.SaveChanges();
                 return true;
-            }
         }
         public Boolean UpdateVoter(Voter voter)
         {
-            using (var db = new eBotoDBEntities())
-            {
                 var existingVoter = db.Voters.Find(voter.VoterId);
                 if (existingVoter == null)
                     return false;
@@ -44,32 +39,24 @@ namespace WindowsFormsApp1
                 existingVoter.Status = voter.Status;
                 db.SaveChanges();
                 return true;
-            }
         }
         public int GetVoterIdByUsername(string username)
         {
-            using (var db = new eBotoDBEntities())
-            {
                 var voter = db.Voters.FirstOrDefault(v => v.Username == username);
                 return voter != null ? voter.VoterId : -1;
-            }
         }
         public Boolean DoesVoterAlreadyExisted(string username, string password)
         {
-            using (var db = new eBotoDBEntities())
-            {
+
                 var voter = db.Voters.FirstOrDefault(v => v.Username == username && v.Password == password);
                 if (voter == null)
                     return false;
-            }
             return true;
 
 
         }
         public VoterDTO GetVoterDepartment(int voterId)
         {
-            using (var db = new eBotoDBEntities())
-            {
                 var voter = from v in db.Voters
                             join d in db.Departments on v.DepartmentId equals d.DepartmentId
                             where v.VoterId == voterId
@@ -79,13 +66,11 @@ namespace WindowsFormsApp1
                                 Department = d
                             };
                 return voter.FirstOrDefault();
-            }
         }
 
         public VoterDTO GetVoterDepartmentElection(int voterId)
         {
-            using (var db = new eBotoDBEntities())
-            {
+
                 var voter = from v in db.Voters
                             join d in db.Departments on v.DepartmentId equals d.DepartmentId
                             join e in db.Elections on d.DepartmentId equals e.DepartmentId
@@ -100,33 +85,21 @@ namespace WindowsFormsApp1
                                 Positions = e.Candidates.Where(ca => ca.ElectionId == e.ElectionId).Select(ca => ca.Position).Distinct().ToList()
                             };
                 return voter.FirstOrDefault();
-
-            }
         }
         public void SetVoterStatus(int voterId)
         {
-            using(var db = new eBotoDBEntities())
-            {
                 db.Voters.FirstOrDefault(v => v.VoterId == voterId).Status = true;
                 db.SaveChanges();
-            }
-
                     
         }
 
         public string GetVotersCount()
         {
-            using(var db =new eBotoDBEntities())
-            {
-                return db.Voters.Count().ToString();
-            }
+            return db.Voters.Count().ToString();
         }
 
         public string GetVotedCount() { 
-            using(var db =new eBotoDBEntities())
-            {
-                return db.Voters.Count(v => v.Status == true).ToString();
-            }
+            return db.Voters.Count(v => v.Status == true).ToString();
         }
 
     }

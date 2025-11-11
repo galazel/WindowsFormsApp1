@@ -49,7 +49,7 @@ namespace WindowsFormsApp1
                 ElectionSummary.ChoosenCandidates.Add(positionName, null);
                 if (new CandidateService().IsPosition(positionId, electionId))
                 {
-                    List <Candidate> candidates = new CandidateService().GetCandidate(positionId, electionId);
+                    List <Candidate> candidates = new CandidateService().GetCandidates(positionId, electionId);
                     PositionFlowLayout positionFlowLayout = new PositionFlowLayout(positionName);
 
                     foreach (Candidate candidate in candidates)

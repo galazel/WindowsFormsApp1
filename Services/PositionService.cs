@@ -6,71 +6,48 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    internal class PositionService
+    internal class PositionService : DBConnection
     {
         public int GetPositionId(string positionName)
         {
-            using (var db = new eBotoDBEntities())
-            {
                 var position = db.Positions.FirstOrDefault(p => p.PositionName == positionName);
                 return position != null ? position.PositionId : -1;
-            }
         }
         public string GetPositionName(int positionId)
         {
-            using (var db = new eBotoDBEntities())
-            {
                 var position = db.Positions.FirstOrDefault(p => p.PositionId == positionId);
                 return position != null ? position.PositionName : null;
-            }
         }
         public List<string> GetAllPositions()
         {
-            using (var db = new eBotoDBEntities())
-            {
                 return db.Positions.Select(p => p.PositionName).ToList();
-            }
         }
         public void SavePosition(string positionName)
         {
-            using (var db = new eBotoDBEntities())
-            {
                 db.Positions.Add(new Position { PositionName = positionName.ToUpper() });
                 db.SaveChanges();
-            }
         }
 
         public void DeletePosition(int positionId)
         {
-            using (var db = new eBotoDBEntities())
-            {
                 var position = db.Positions.FirstOrDefault(p => p.PositionId == positionId);
                 db.Positions.Remove(position);
                 db.SaveChanges();
-
-            }
         }
         public Boolean DoesExists(string positionName)
         {
-            using (var db = new eBotoDBEntities())
-            {
                 var post = db.Positions.FirstOrDefault(d => d.PositionName == positionName);
                 if (post == null)
                     return false;
-
-            }
             return true;
         }
         public void EditPosition(int positionId, string newPosition)
         {
-            using (var db = new eBotoDBEntities())
-            {
                 var position = db.Positions.FirstOrDefault(p => p.PositionId == positionId);
                 if (position == null) return;
                 else position.PositionName = newPosition;
 
                 db.SaveChanges();
-            }
         }
 
        

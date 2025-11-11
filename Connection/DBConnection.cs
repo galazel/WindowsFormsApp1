@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    internal interface DBConnection
+    public abstract class DBConnection
     {
+        protected readonly eBotoDBEntities db;
 
-
-
+        public DBConnection()
+        {
+            db = new eBotoDBEntities();
+        }
+        protected void CloseConnection()
+        {
+            db.Dispose();
+        }
     }
 }
