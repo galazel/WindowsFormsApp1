@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Dialog : Form, DBConnection
+    public partial class Dialog : Form
     {
         private DepartmentService departmentService;
         private PositionService positionService;

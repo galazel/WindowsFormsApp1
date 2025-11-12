@@ -71,7 +71,7 @@ namespace WindowsFormsApp1
         {
             var list = new List<ElectionDTO>();
             DepartmentService departmentService = new DepartmentService();
-                var elections = db.Elections.Include(e => e.Candidates).Include(e => e.Department).Where(e => e.EndStatus == true).ToList();
+                var elections = db.Elections.Include(e => e.Candidates).Include(e => e.Department).Include(e => e.Winners).Where(e => e.EndStatus == true && e.Status == true).ToList();
                 foreach (var election in elections)
                 {
                     ElectionDTO electionDTO = new ElectionDTO();
@@ -80,6 +80,7 @@ namespace WindowsFormsApp1
                     electionDTO.Department = election.Department.DepartmentName;
                     electionDTO.Description = election.Description;
                     electionDTO.Candidates = election.Candidates.ToList();
+                    electionDTO.Winners = election.Winners.ToList();
                     list.Add(electionDTO);
                 }
             return list;
@@ -125,6 +126,12 @@ namespace WindowsFormsApp1
         public string GetElectionsCount()
         {
                 return db.Elections.Count().ToString();
+        }
+        public void SetEndStatus(int electionId)
+        {
+            var election = db.Elections.FirstOrDefault(e => e.ElectionId == electionId);
+            election.EndStatus = true;
+            db.SaveChanges();
         }
 
 

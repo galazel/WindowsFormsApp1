@@ -36,9 +36,7 @@ namespace WindowsFormsApp1
         private void start_bttn_Click(object sender, EventArgs e)
         {
             status = !status;
-
             electionService.UpdateElectionStatus(id);
-
             MessageBox.Show("Election status updated successfully!");
             OnUpdateRequested?.Invoke();
         }

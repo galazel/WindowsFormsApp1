@@ -47,11 +47,12 @@
             // ongoing_flow
             // 
             this.ongoing_flow.AutoScroll = true;
+            this.ongoing_flow.AutoSize = true;
             this.ongoing_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.ongoing_flow.Location = new System.Drawing.Point(71, 119);
-            this.ongoing_flow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ongoing_flow.Location = new System.Drawing.Point(69, 121);
+            this.ongoing_flow.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ongoing_flow.Name = "ongoing_flow";
-            this.ongoing_flow.Size = new System.Drawing.Size(1083, 736);
+            this.ongoing_flow.Size = new System.Drawing.Size(1049, 736);
             this.ongoing_flow.TabIndex = 24;
             this.ongoing_flow.WrapContents = false;
             // 
@@ -59,11 +60,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ongoing_flow);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "AdminOngoingPanel";
             this.Size = new System.Drawing.Size(1256, 941);
             this.ResumeLayout(false);

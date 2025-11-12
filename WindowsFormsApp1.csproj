@@ -73,11 +73,11 @@
     <Compile Include="AddCandidate.Designer.cs">
       <DependentUpon>AddCandidate.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminResultsPanel.cs">
+    <Compile Include="AdminEndedPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AdminResultsPanel.Designer.cs">
-      <DependentUpon>AdminResultsPanel.cs</DependentUpon>
+    <Compile Include="AdminEndedPanel.Designer.cs">
+      <DependentUpon>AdminEndedPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="CandidatePanel.cs">
       <SubType>UserControl</SubType>
@@ -119,6 +119,18 @@
     </Compile>
     <Compile Include="Candidate.cs">
       <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectionResults.Designer.cs">
+      <DependentUpon>ElectionResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EndedPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EndedPanel.Designer.cs">
+      <DependentUpon>EndedPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\CandidateService.cs" />
     <Compile Include="CreateElection.cs">
@@ -274,8 +286,8 @@
     <EmbeddedResource Include="AddCandidate.resx">
       <DependentUpon>AddCandidate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminResultsPanel.resx">
-      <DependentUpon>AdminResultsPanel.cs</DependentUpon>
+    <EmbeddedResource Include="AdminEndedPanel.resx">
+      <DependentUpon>AdminEndedPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CandidatePanel.resx">
       <DependentUpon>CandidatePanel.cs</DependentUpon>
@@ -306,6 +318,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ElectionPanel.resx">
       <DependentUpon>ElectionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionResults.resx">
+      <DependentUpon>ElectionResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EndedPanel.resx">
+      <DependentUpon>EndedPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LiveResults.resx">
       <DependentUpon>LiveResults.cs</DependentUpon>

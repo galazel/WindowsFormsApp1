@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
                     break;
                 case "Results":
                     panel.Controls.Clear();
-                    panel.Controls.Add(new AdminResultsPanel());
+                    panel.Controls.Add(new AdminEndedPanel());
                     break;
                 default:
                   

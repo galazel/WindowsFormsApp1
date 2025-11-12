@@ -25,8 +25,6 @@ namespace WindowsFormsApp1
             }
         }
 
-
-
         private void create_election_bttn_Click(object sender, EventArgs e)
         {
             new CreateElection(this.elections_flow).ShowDialog();

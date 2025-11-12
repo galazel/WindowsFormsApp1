@@ -16,6 +16,7 @@ namespace WindowsFormsApp1
         private string description;
         private int id;
         private ElectionService electionService;
+        public event Action OnUpdateRequested;
         public OngoingPanel(ElectionDTO electionDto)
         {
             InitializeComponent();
@@ -33,15 +34,16 @@ namespace WindowsFormsApp1
             PositionService positionService = new PositionService();
 
             foreach (Candidate candidate in candidates)
-            {
                 candidatesString.AppendLine(candidate.CandidateName + "----------" + positionService.GetPositionName(candidate.PositionId)+ "----------");
-            }
             MessageBox.Show($"Election Name: {election_name_label.Text}\nDepartment: {department_label.Text}\nDescription: {description}\nCandidates: \n" + candidatesString);
         }
 
         private void end_bttn_Click(object sender, EventArgs e)
         {
-
+            new ElectionService().SetEndStatus(id);
+            MessageBox.Show("Election ended successfully!");
+            OnUpdateRequested?.Invoke();
+            this.Hide();
         }
     }
 }

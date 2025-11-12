@@ -25,19 +25,20 @@ namespace WindowsFormsApp1
             electionsFlow.Controls.Clear();
             ElectionService electionService = new ElectionService();
             foreach(var election in electionService.GetElections())
-            {
-                electionsFlow.Controls.Add(new ElectionPanel(election));
-            }
-            
+                electionsFlow.Controls.Add(new ElectionPanel(election));    
         }
         public static void LoadOngoingElections(FlowLayoutPanel electionsFlow)
         {
             electionsFlow.Controls.Clear();
             ElectionService electionService = new ElectionService();
             foreach (var election in electionService.GetOngoingElections())
-            {
                 electionsFlow.Controls.Add(new OngoingPanel(election));
-            }
+        }
+        public static void LoadEndedElections(FlowLayoutPanel endElectionsFlow)
+        {
+            endElectionsFlow.Controls.Clear();
+            foreach (var election in new ElectionService().GetEndedElections())
+                endElectionsFlow.Controls.Add(new EndedPanel(election)); 
         }
 
    

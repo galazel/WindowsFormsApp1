@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class AdminResultsPanel
+    partial class AdminEndedPanel
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,18 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.results_flow = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.ended_flow = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
-            // 
-            // results_flow
-            // 
-            this.results_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.results_flow.Location = new System.Drawing.Point(69, 121);
-            this.results_flow.Name = "results_flow";
-            this.results_flow.Size = new System.Drawing.Size(1049, 736);
-            this.results_flow.TabIndex = 26;
-            this.results_flow.WrapContents = false;
             // 
             // label1
             // 
@@ -53,14 +44,27 @@
             this.label1.TabIndex = 27;
             this.label1.Text = "OFFICIAL RESULTS";
             // 
-            // AdminResultsPanel
+            // ended_flow
+            // 
+            this.ended_flow.AutoScroll = true;
+            this.ended_flow.AutoSize = true;
+            this.ended_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.ended_flow.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ended_flow.Location = new System.Drawing.Point(69, 121);
+            this.ended_flow.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ended_flow.Name = "ended_flow";
+            this.ended_flow.Size = new System.Drawing.Size(1049, 736);
+            this.ended_flow.TabIndex = 28;
+            this.ended_flow.WrapContents = false;
+            // 
+            // AdminEndedPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ended_flow);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.results_flow);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "AdminResultsPanel";
+            this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.Name = "AdminEndedPanel";
             this.Size = new System.Drawing.Size(1256, 941);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -68,8 +72,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.FlowLayoutPanel results_flow;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel ended_flow;
     }
 }

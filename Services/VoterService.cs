@@ -70,7 +70,6 @@ namespace WindowsFormsApp1
 
         public VoterDTO GetVoterDepartmentElection(int voterId)
         {
-
                 var voter = from v in db.Voters
                             join d in db.Departments on v.DepartmentId equals d.DepartmentId
                             join e in db.Elections on d.DepartmentId equals e.DepartmentId

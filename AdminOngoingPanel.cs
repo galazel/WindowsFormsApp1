@@ -20,7 +20,14 @@ namespace WindowsFormsApp1
         }
         public void LoadOngoingElections()
         {
-            Others.LoadOngoingElections(this.ongoing_flow);
+            ongoing_flow.Controls.Clear();
+            foreach (var election in new ElectionService().GetOngoingElections())
+            {
+                var panel = new OngoingPanel(election);
+                panel.OnUpdateRequested += LoadOngoingElections;
+                ongoing_flow.Controls.Add(panel);
+            }
         }
+
     }
 }
