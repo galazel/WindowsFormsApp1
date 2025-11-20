@@ -43,7 +43,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 161);
+            this.label1.Location = new System.Drawing.Point(36, 162);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 17);
@@ -53,7 +53,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 103);
+            this.label3.Location = new System.Drawing.Point(36, 104);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 17);
@@ -63,7 +63,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(55, 276);
+            this.label4.Location = new System.Drawing.Point(36, 277);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 17);
@@ -75,7 +75,7 @@
             this.add_candidate_bttn.BackColor = System.Drawing.Color.Transparent;
             this.add_candidate_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.add_candidate_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.add_candidate_bttn.Location = new System.Drawing.Point(58, 332);
+            this.add_candidate_bttn.Location = new System.Drawing.Point(39, 333);
             this.add_candidate_bttn.Margin = new System.Windows.Forms.Padding(4);
             this.add_candidate_bttn.Name = "add_candidate_bttn";
             this.add_candidate_bttn.Size = new System.Drawing.Size(162, 30);
@@ -86,9 +86,10 @@
             // 
             // candidates_list
             // 
+            this.candidates_list.BackColor = System.Drawing.Color.White;
             this.candidates_list.FormattingEnabled = true;
             this.candidates_list.ItemHeight = 17;
-            this.candidates_list.Location = new System.Drawing.Point(58, 395);
+            this.candidates_list.Location = new System.Drawing.Point(39, 396);
             this.candidates_list.Margin = new System.Windows.Forms.Padding(4);
             this.candidates_list.Name = "candidates_list";
             this.candidates_list.Size = new System.Drawing.Size(493, 174);
@@ -97,7 +98,8 @@
             // 
             // description_box
             // 
-            this.description_box.Location = new System.Drawing.Point(58, 182);
+            this.description_box.BackColor = System.Drawing.Color.White;
+            this.description_box.Location = new System.Drawing.Point(39, 183);
             this.description_box.Margin = new System.Windows.Forms.Padding(4);
             this.description_box.Multiline = true;
             this.description_box.Name = "description_box";
@@ -106,7 +108,8 @@
             // 
             // election_name_box
             // 
-            this.election_name_box.Location = new System.Drawing.Point(58, 124);
+            this.election_name_box.BackColor = System.Drawing.Color.White;
+            this.election_name_box.Location = new System.Drawing.Point(39, 125);
             this.election_name_box.Margin = new System.Windows.Forms.Padding(4);
             this.election_name_box.Name = "election_name_box";
             this.election_name_box.Size = new System.Drawing.Size(493, 22);
@@ -114,8 +117,9 @@
             // 
             // departments_combo
             // 
+            this.departments_combo.BackColor = System.Drawing.Color.White;
             this.departments_combo.FormattingEnabled = true;
-            this.departments_combo.Location = new System.Drawing.Point(58, 297);
+            this.departments_combo.Location = new System.Drawing.Point(39, 298);
             this.departments_combo.Margin = new System.Windows.Forms.Padding(4);
             this.departments_combo.Name = "departments_combo";
             this.departments_combo.Size = new System.Drawing.Size(493, 25);
@@ -126,10 +130,10 @@
             this.add_election_bttn.BackColor = System.Drawing.Color.Transparent;
             this.add_election_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.add_election_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.add_election_bttn.Location = new System.Drawing.Point(229, 594);
+            this.add_election_bttn.Location = new System.Drawing.Point(196, 590);
             this.add_election_bttn.Margin = new System.Windows.Forms.Padding(4);
             this.add_election_bttn.Name = "add_election_bttn";
-            this.add_election_bttn.Size = new System.Drawing.Size(162, 30);
+            this.add_election_bttn.Size = new System.Drawing.Size(162, 44);
             this.add_election_bttn.TabIndex = 30;
             this.add_election_bttn.Text = "ADD ELECTION";
             this.add_election_bttn.UseVisualStyleBackColor = false;
@@ -140,7 +144,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
-            this.label5.Location = new System.Drawing.Point(225, 33);
+            this.label5.Location = new System.Drawing.Point(189, 35);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(169, 23);
@@ -152,7 +156,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(607, 689);
+            this.ClientSize = new System.Drawing.Size(560, 647);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.add_election_bttn);
             this.Controls.Add(this.departments_combo);

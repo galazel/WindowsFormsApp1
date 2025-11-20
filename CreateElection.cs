@@ -83,9 +83,7 @@ namespace WindowsFormsApp1
         {
             candidateList.Items.Clear();
             foreach (var candidate in Others.othersList)
-            {
-                candidateList.Items.Add(candidate.CandidateName.ToUpper() + " <----------> " + positionService.GetPositionName(candidate.PositionId));
-            }
+                candidateList.Items.Add(candidate.CandidateName.ToUpper() + " ===================>" + positionService.GetPositionName(candidate.PositionId));
         }
     }
 }
