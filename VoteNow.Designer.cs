@@ -32,8 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.vote_candidate_bttn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.chosen_flow = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +53,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
-            this.label1.Location = new System.Drawing.Point(29, 48);
+            this.label1.Location = new System.Drawing.Point(439, 33);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(383, 32);
@@ -77,6 +77,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.chosen_flow);
             this.panel1.Controls.Add(this.label2);
@@ -85,6 +86,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(257, 533);
             this.panel1.TabIndex = 34;
+            // 
+            // chosen_flow
+            // 
+            this.chosen_flow.AutoScroll = true;
+            this.chosen_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.chosen_flow.Location = new System.Drawing.Point(17, 40);
+            this.chosen_flow.Name = "chosen_flow";
+            this.chosen_flow.Padding = new System.Windows.Forms.Padding(1);
+            this.chosen_flow.Size = new System.Drawing.Size(216, 424);
+            this.chosen_flow.TabIndex = 36;
+            this.chosen_flow.WrapContents = false;
             // 
             // label2
             // 
@@ -97,16 +109,6 @@
             this.label2.Size = new System.Drawing.Size(104, 23);
             this.label2.TabIndex = 35;
             this.label2.Text = "SUMMARY";
-            // 
-            // chosen_flow
-            // 
-            this.chosen_flow.AutoScroll = true;
-            this.chosen_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.chosen_flow.Location = new System.Drawing.Point(17, 40);
-            this.chosen_flow.Name = "chosen_flow";
-            this.chosen_flow.Size = new System.Drawing.Size(216, 424);
-            this.chosen_flow.TabIndex = 36;
-            this.chosen_flow.WrapContents = false;
             // 
             // VoteNow
             // 
