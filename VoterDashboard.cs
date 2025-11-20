@@ -82,10 +82,6 @@ namespace WindowsFormsApp1
                 vote_now_bttn.Enabled = false;
                 vote_now_bttn.Text = "Already Voted!";
                 
-            }else if(voterDTO.Election.Status && voterDTO.Election.EndStatus)
-            {
-                vote_now_bttn.Enabled = false;
-                vote_now_bttn.Text = "No election available";
             }
             else
             {
