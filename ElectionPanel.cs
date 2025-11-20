@@ -8,11 +8,8 @@ namespace WindowsFormsApp1
     public partial class ElectionPanel : UserControl
     {
         private List<Candidate> candidates;
-        private string description;
-        private bool status;
-        private int id;
         private ElectionService electionService;
-
+        private ElectionDTO election;
         public event Action OnUpdateRequested;
 
         public ElectionPanel(ElectionDTO electionDto)
@@ -20,12 +17,9 @@ namespace WindowsFormsApp1
             InitializeComponent();
             electionService = new ElectionService();
 
-            election_name_label.Text = electionDto.ElectionName;
-            department_label.Text = electionDto.Department;
-            this.status = electionDto.Status;
-            this.id = electionDto.ElectionId;
+            election_name_label.Text = electionDto.Election.ElectionName;
+            department_label.Text = electionDto.Department.DepartmentName;
             this.candidates = electionDto.Candidates;
-            this.description = electionDto.Description;
         }
 
         public ElectionPanel()
@@ -35,8 +29,8 @@ namespace WindowsFormsApp1
 
         private void start_bttn_Click(object sender, EventArgs e)
         {
-            status = !status;
-            electionService.UpdateElectionStatus(id);
+            election.Election.Status = !election.Election.Status;
+            electionService.UpdateElectionStatus(election.Election.ElectionId);
             MessageBox.Show("Election status updated successfully!");
             OnUpdateRequested?.Invoke();
         }
@@ -56,14 +50,14 @@ namespace WindowsFormsApp1
             MessageBox.Show(
                 $"Election Name: {election_name_label.Text}\n" +
                 $"Department: {department_label.Text}\n" +
-                $"Description: {description}\n" +
+                $"Description: {election.Election.Description}\n" +
                 $"Candidates:\n{candidatesString}"
             );
         }
 
         private void delete_bttn_Click(object sender, EventArgs e)
         {
-            electionService.DeleteElection(id);
+            electionService.DeleteElection(election.Election.ElectionId);
 
             MessageBox.Show("Election deleted successfully!");
             OnUpdateRequested?.Invoke();

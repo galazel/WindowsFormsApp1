@@ -15,8 +15,8 @@ namespace WindowsFormsApp1
         public EndedPanel(ElectionDTO electionDTO)
         {
             InitializeComponent();
-            department_name_label.Text = electionDTO.Department;
-            election_name_label.Text = electionDTO.ElectionName;
+            department_name_label.Text = electionDTO.Department.DepartmentName;
+            election_name_label.Text = electionDTO.Election.ElectionName;
         }
 
         private void view_result_Click(object sender, EventArgs e)

@@ -40,33 +40,35 @@ namespace WindowsFormsApp1
 
                 foreach (var election in elections)
                 {
-                    ElectionDTO electionDTO = new ElectionDTO();
-                    electionDTO.ElectionId = election.ElectionId;
-                    electionDTO.ElectionName = election.ElectionName;
-                    electionDTO.Department = election.Department.DepartmentName;
-                    electionDTO.Status = election.Status;
-                    electionDTO.Description = election.Description;
-                    electionDTO.Candidates = election.Candidates.ToList();
-                    list.Add(electionDTO);
-                }
+                //ElectionDTO electionDTO = new ElectionDTO();
+                //electionDTO.ElectionId = election.ElectionId;
+                //electionDTO.ElectionName = election.ElectionName;
+                //electionDTO.Department = election.Department.DepartmentName;
+                //electionDTO.Status = election.Status;
+                //electionDTO.Description = election.Description;
+                //electionDTO.Candidates = election.Candidates.ToList();
+                //list.Add(electionDTO);
+                list.Add(GetElectionDepartmentPositions(election.ElectionId));
+            }
 
             return list;
         }
         public List<ElectionDTO> GetOngoingElections()
         {
             var list = new List<ElectionDTO>();
-            DepartmentService departmentService = new DepartmentService();
-                var elections = db.Elections.Include(e => e.Candidates).Include(e => e.Department).Where(e => e.Status == true &&  e.EndStatus == false).ToList();
-                foreach (var election in elections)
-                {
-                    ElectionDTO electionDTO = new ElectionDTO();
-                    electionDTO.ElectionId = election.ElectionId;
-                    electionDTO.ElectionName = election.ElectionName;
-                    electionDTO.Department = election.Department.DepartmentName;
-                    electionDTO.Description = election.Description;
-                    electionDTO.Candidates = election.Candidates.ToList();
-                    list.Add(electionDTO);
-                }
+            var elections = db.Elections.Include(e => e.Candidates).Include(e => e.Department).Where(e => e.Status == true && e.EndStatus == false).ToList();
+            foreach (var election in elections)
+            {
+                //ElectionDTO electionDTO = new ElectionDTO();
+                //electionDTO.ElectionId = election.ElectionId;
+                //electionDTO.ElectionName = election.ElectionName;
+                //electionDTO.Department = election.Department.DepartmentName;
+                //electionDTO.Description = election.Description;
+                //electionDTO.Candidates = election.Candidates.ToList();
+                //electionDTO.Positions = GetElectionDepartmentPositions(election.ElectionId).Positions;
+                
+                list.Add(GetElectionDepartmentPositions(election.ElectionId));
+            }
 
             return list;
         }
@@ -78,15 +80,17 @@ namespace WindowsFormsApp1
                 var elections = db.Elections.Include(e => e.Candidates).Include(e => e.Department).Include(e => e.Winners).Where(e => e.EndStatus == true && e.Status == true).ToList();
                 foreach (var election in elections)
                 {
-                    ElectionDTO electionDTO = new ElectionDTO();
-                    electionDTO.ElectionId = election.ElectionId;
-                    electionDTO.ElectionName = election.ElectionName;
-                    electionDTO.Department = election.Department.DepartmentName;
-                    electionDTO.Description = election.Description;
-                    electionDTO.Candidates = election.Candidates.ToList();
-                    electionDTO.Winners = election.Winners.ToList();
-                    list.Add(electionDTO);
-                }
+                //ElectionDTO electionDTO = new ElectionDTO();
+                //electionDTO.ElectionId = election.ElectionId;
+                //electionDTO.ElectionName = election.ElectionName;
+                //electionDTO.Department = election.Department.DepartmentName;
+                //electionDTO.Description = election.Description;
+                //electionDTO.Candidates = election.Candidates.ToList();
+                //electionDTO.Winners = election.Winners.ToList();
+
+                //list.Add(electionDTO);
+                list.Add(GetElectionDepartmentPositions(election.ElectionId));
+            }
             return list;
         }
         public Boolean DoesElectionAlreadyExisted(string electionName, int departmentId)
@@ -137,6 +141,24 @@ namespace WindowsFormsApp1
             election.EndStatus = true;
             db.SaveChanges();
         }
+
+        public ElectionDTO GetElectionDepartmentPositions(int electionId)
+        {
+            var election = from v in db.Elections
+                        join d in db.Departments on v.DepartmentId equals d.DepartmentId
+                        join c in db.Candidates on v.ElectionId equals c.ElectionId
+                        where v.ElectionId  == electionId
+                        select new ElectionDTO
+                        {
+                            Department = d,
+                            Election = v,
+                            Candidates = v.Candidates.ToList(),
+                            Positions = v.Candidates.Where(ca => ca.ElectionId == v.ElectionId).Select(ca => ca.Position).Distinct().ToList()
+                        };
+            return election.FirstOrDefault();
+        }
+
+
         public List<int> GetAllPositionsElection(int electionId)
         {
             return db.Candidates

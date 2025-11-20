@@ -10,9 +10,10 @@ namespace WindowsFormsApp1
     {
         public int ElectionId { get; set; } 
         public string ElectionName { get; set; }
-        public string Department {  get; set; }
+        public Department Department {  get; set; }
         public bool Status { get; set; }
         public string Description { get; set; }
+        public Election Election { get; set; }
         public List <Candidate> Candidates { get; set; }
         public List <Winner> Winners { get; set; }
 
