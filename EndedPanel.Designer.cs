@@ -69,11 +69,11 @@
             // winners_flow
             // 
             this.winners_flow.AutoScroll = true;
-            this.winners_flow.BackColor = System.Drawing.Color.Gainsboro;
+            this.winners_flow.BackColor = System.Drawing.Color.Transparent;
             this.winners_flow.Location = new System.Drawing.Point(23, 86);
             this.winners_flow.Name = "winners_flow";
             this.winners_flow.Padding = new System.Windows.Forms.Padding(10);
-            this.winners_flow.Size = new System.Drawing.Size(1005, 240);
+            this.winners_flow.Size = new System.Drawing.Size(1005, 404);
             this.winners_flow.TabIndex = 52;
             // 
             // label1
@@ -101,7 +101,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "EndedPanel";
             this.Padding = new System.Windows.Forms.Padding(10);
-            this.Size = new System.Drawing.Size(1117, 416);
+            this.Size = new System.Drawing.Size(1117, 530);
             this.ResumeLayout(false);
             this.PerformLayout();
 

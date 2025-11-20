@@ -71,11 +71,11 @@ namespace WindowsFormsApp1
 
         public VoterDTO GetVoterDepartmentElection(int voterId)
         {
-                var voter = from v in db.Voters
-                            join d in db.Departments on v.DepartmentId equals d.DepartmentId
-                            join e in db.Elections on d.DepartmentId equals e.DepartmentId
-                            join c in db.Candidates on e.ElectionId equals c.ElectionId
-                            where v.VoterId == voterId
+            var voter = from v in db.Voters
+                        join d in db.Departments on v.DepartmentId equals d.DepartmentId
+                        join e in db.Elections on d.DepartmentId equals e.DepartmentId
+                        join c in db.Candidates on e.ElectionId equals c.ElectionId
+                        where v.VoterId == voterId && e.Status == true && e.EndStatus == false
                             select new VoterDTO
                             {
                                 Voter = v,
@@ -100,6 +100,11 @@ namespace WindowsFormsApp1
 
         public string GetVotedCount() { 
             return db.Voters.Count(v => v.Status == true).ToString();
+        }
+
+        public void SetAllVotersStatusInDepartment(int departmentId, int electionId)
+        {
+            
         }
 
     }

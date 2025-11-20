@@ -65,7 +65,6 @@ namespace WindowsFormsApp1
                 
             foreach (var election in elections)
             {
-                MessageBox.Show(""+election.Winners.Count());
                 ElectionDTO electionDTO = new ElectionDTO()
                 {
                     Election = election,
@@ -75,6 +74,7 @@ namespace WindowsFormsApp1
                 };
                 list.Add(electionDTO);
             }
+
             return list;
         }
         public Boolean DoesElectionAlreadyExisted(string electionName, int departmentId)
@@ -112,7 +112,7 @@ namespace WindowsFormsApp1
         public bool FindDepartmentActiveElection(int departmentId)
         {
                 var hasActiveElection = db.Elections
-                    .Any(e => e.DepartmentId == departmentId && e.Status == true);
+                    .Any(e => e.DepartmentId == departmentId && e.Status == true && e.EndStatus == false);
                 return hasActiveElection;  
         }
         public string GetElectionsCount()

@@ -22,7 +22,7 @@ namespace WindowsFormsApp1
             service = new WinnersService();
             department_name_label.Text = electionDTO.Department.DepartmentName;
             election_name_label.Text = electionDTO.Election.ElectionName;
-            this.election = electionDTO;
+            election = electionDTO;
             LoadWinners();
         }
         public void LoadWinners()

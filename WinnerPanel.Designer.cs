@@ -51,12 +51,12 @@
             // name
             // 
             this.name.AutoSize = true;
-            this.name.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name.ForeColor = System.Drawing.Color.Black;
             this.name.Location = new System.Drawing.Point(18, 150);
             this.name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(166, 17);
+            this.name.Size = new System.Drawing.Size(169, 16);
             this.name.TabIndex = 34;
             this.name.Text = "Name: GLYZEL GALAGAR";
             // 
@@ -100,13 +100,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.Controls.Add(this.position);
             this.Controls.Add(this.votes);
             this.Controls.Add(this.party);
             this.Controls.Add(this.name);
             this.Controls.Add(this.candidate_image);
             this.Name = "WinnerPanel";
-            this.Size = new System.Drawing.Size(227, 244);
+            this.Size = new System.Drawing.Size(227, 230);
             ((System.ComponentModel.ISupportInitialize)(this.candidate_image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

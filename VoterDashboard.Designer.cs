@@ -258,7 +258,7 @@
             this.view_ballot_icon.Name = "view_ballot_icon";
             this.view_ballot_icon.Size = new System.Drawing.Size(275, 76);
             this.view_ballot_icon.TabIndex = 44;
-            this.view_ballot_icon.Text = "View eBallot";
+            this.view_ballot_icon.Text = "Download eBallot";
             this.view_ballot_icon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.view_ballot_icon.UseVisualStyleBackColor = false;
             this.view_ballot_icon.Click += new System.EventHandler(this.view_ballot_icon_Click);

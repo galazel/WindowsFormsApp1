@@ -17,6 +17,8 @@ namespace WindowsFormsApp1
         public WinnerPanel(Winner winner)
         {
             InitializeComponent();
+            candidateService = new CandidateService();
+            positionService = new PositionService();
 
             string n = candidateService.GetCandidateNameById(winner.CandidateId);
             string po = positionService.GetPositionName(winner.PositionId);
@@ -25,10 +27,10 @@ namespace WindowsFormsApp1
             string image = candidateService.GetCandidateImage(winner.CandidateId);
 
 
-            name.Text = n;
-            position.Text = po;
-            party.Text = pa;
-            votes.Text = v;
+            name.Text = $"Name: {n}";
+            position.Text = $"Position: {po}";
+            party.Text = $"Party: {pa}";
+            votes.Text = $"Votes: {v}";
             candidate_image.Image = Image.FromFile(image);
         }
     }

@@ -1,11 +1,9 @@
-﻿using System;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -18,7 +16,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
             this.voterDTO = voter;
 
-            voter_image.Image = Image.FromFile(voter.Voter.Image);
+            voter_image.Image = System.Drawing.Image.FromFile(voter.Voter.Image);
             name_label.Text = voter.Voter.FirstName + " " + voter.Voter.MiddleName + " " + voter.Voter.LastName;
             status_label.Text = voter.Voter.Status ? "Status: Voted" : "Status: Not Voted";
             department_label.Text = "Department: " + voter.Department.DepartmentName;
@@ -39,12 +37,11 @@ namespace WindowsFormsApp1
   
                 Label noElectionLabel = new Label();
                 noElectionLabel.Text = "No Election Available";
-                noElectionLabel.Font = new Font("Century Gothic", 10, FontStyle.Bold);
+                noElectionLabel.Font = new System.Drawing.Font("Century Gothic", 10, FontStyle.Bold);
                 noElectionLabel.ForeColor = Color.Red;
                 live_results_flow.Controls.Add(noElectionLabel);
 
-            }
-            else
+            }else if(voter.Election.Status && !voter.Election.EndStatus)
             {
                 status_election_label.Text = voter.Election.Status ? "Started Now" : "Not Yet Started";
                 election_name.Text = voter.Election.ElectionName.ToUpper();
@@ -54,23 +51,40 @@ namespace WindowsFormsApp1
                     LoadLiveResults();
                 else
                     live_results_flow.Controls.Add(new ResultLabelcs("YOU NEED TO VOTE FIRST TO VIEW THE RESULT"));
-                    
+            } else if (voter.Election.Status && voter.Election.EndStatus)
+            {
+                status_election_label.Text = "";
+                election_name.Text = "ELECTION IS ALREADY ENDED";
+                election_department_label.Text = "";
+                vote_now_bttn.Enabled = false;
+                vote_now_bttn.Text = "No Election Available";
+
+                Label noElectionLabel = new Label();
+                noElectionLabel.Text = "No Election Available";
+                noElectionLabel.Font = new System.Drawing.Font("Century Gothic", 10, FontStyle.Bold);
+                noElectionLabel.ForeColor = Color.Red;
+                live_results_flow.Controls.Add(noElectionLabel);
+
             }
 
         }
 
         public void LoadDashboard()
         {
-            if (voterDTO.Election.Status && !voterDTO.Voter.Status)
+            if (voterDTO.Election.Status && !voterDTO.Election.EndStatus && !voterDTO.Voter.Status)
             {
                 vote_now_bttn.Enabled = true;
                 vote_now_bttn.Text = "Vote Now!";
             }
-            else if (voterDTO.Election.Status && voterDTO.Voter.Status)
+            else if (voterDTO.Election.Status && !voterDTO.Election.EndStatus && voterDTO.Voter.Status)
             {
                 vote_now_bttn.Enabled = false;
                 vote_now_bttn.Text = "Already Voted!";
                 
+            }else if(voterDTO.Election.Status && voterDTO.Election.EndStatus)
+            {
+                vote_now_bttn.Enabled = false;
+                vote_now_bttn.Text = "No election available";
             }
             else
             {
@@ -112,26 +126,160 @@ namespace WindowsFormsApp1
 
         private void view_ballot_icon_Click(object sender, EventArgs e)
         {
-            StringBuilder ballot = new StringBuilder();
-            if (voterDTO.Voter.Status && voterDTO.Election.Status)
+            if (!voterDTO.Voter.Status)
             {
-                Voter voter = new VotedCandidatesService().GetAllVotedCandidates(voterDTO.Voter.VoterId);
+                MessageBox.Show("You must vote first before viewing your ballot.");
+                return;
+            }
+            if (!voterDTO.Election.Status && !voterDTO.Election.EndStatus)
+            {
+                MessageBox.Show("Election is not active.");
+                return;
+            }else if(voterDTO.Election.Status && voterDTO.Election.EndStatus)
+            {
+                MessageBox.Show("Election is already ended");
+                return;
+            }
+            
+            List<(string Position, string Candidate)> ballotData = new List<(string, string)>();
 
-                foreach (var votedCandidate in voter.VotedCandidates)
+            Voter voter = new VotedCandidatesService().GetAllVotedCandidates(voterDTO.Voter.VoterId);
+            foreach (var votedCandidate in voter.VotedCandidates)
+            {
+                Candidate candidate = new CandidateService().GetCandidate((int)votedCandidate.CandidateId);
+                string positionName = new PositionService().GetPositionName(candidate.PositionId);
+                ballotData.Add((positionName, candidate.CandidateName));
+            }
+
+            if (ballotData.Count == 0)
+            {
+                MessageBox.Show("Your ballot is empty.");
+                return;
+            }
+
+            string filename = $"eBallot_{voterDTO.Voter.FirstName}_{voterDTO.Voter.LastName}_{DateTime.Now.Year}.pdf";
+
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "PDF File (*.pdf)|*.pdf";
+            save.FileName = filename;
+
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                Document pdf = new Document(PageSize.A4, 40, 40, 40, 40);
+                PdfWriter writer = PdfWriter.GetInstance(pdf, new FileStream(save.FileName, FileMode.Create));
+                pdf.Open();
+
+                try
                 {
-                    Candidate candidate = new CandidateService().GetCandidate((int)votedCandidate.CandidateId);
-                    string positionName = new PositionService().GetPositionName(candidate.PositionId);
-                    ballot.AppendLine($"{positionName} - {candidate.CandidateName}");
+                    string logoPath = "logo.png"; // replace with your logo filename
+                    if (File.Exists(logoPath))
+                    {
+                        iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(logoPath);
+                        logo.ScaleToFit(100f, 100f);
+                        logo.Alignment = Element.ALIGN_CENTER;
+                        pdf.Add(logo);
+                    }
                 }
-                MessageBox.Show($"eBallot\n{ballot}");
+                catch { }
 
-            } 
-            else if(voterDTO.Election == null)
-                MessageBox.Show("No election available");
-            else if (voterDTO.Election.Status && !voterDTO.Voter.Status)
-                MessageBox.Show("Your ballot is empty. Vote now!");
-               
+                pdf.Add(new Paragraph("\n"));
+
+                iTextSharp.text.Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 20);
+                Paragraph title = new Paragraph("OFFICIAL eBALLOT SUMMARY\n\n", titleFont);
+                title.Alignment = Element.ALIGN_CENTER;
+                pdf.Add(title);
+
+
+                PdfPTable table = new PdfPTable(2);
+                table.WidthPercentage = 100;
+                table.SetWidths(new float[] { 40, 60 });
+
+                iTextSharp.text.Font headerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
+
+                PdfPCell posHeader = new PdfPCell(new Phrase("Position", headerFont));
+                PdfPCell candHeader = new PdfPCell(new Phrase("Candidate", headerFont));
+
+                posHeader.BackgroundColor = BaseColor.LIGHT_GRAY;
+                candHeader.BackgroundColor = BaseColor.LIGHT_GRAY;
+
+                posHeader.HorizontalAlignment = Element.ALIGN_CENTER;
+                candHeader.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                table.AddCell(posHeader);
+                table.AddCell(candHeader);
+
+                iTextSharp.text.Font cellFont = FontFactory.GetFont(FontFactory.HELVETICA, 12);
+
+                foreach (var item in ballotData)
+                {
+                    table.AddCell(new PdfPCell(new Phrase(item.Position, cellFont)));
+                    table.AddCell(new PdfPCell(new Phrase(item.Candidate, cellFont)));
+                }
+
+                pdf.Add(table);
+                pdf.Add(new Paragraph("\n\n"));
+
+                string qrData =
+                    $"Voter ID: {voterDTO.Voter.VoterId}\n" +
+                    $"Date: {DateTime.Now}\n" +
+                    $"Election: {voterDTO.Election.ElectionName}";
+
+                using (var qrGen = new QRCoder.QRCodeGenerator())
+                {
+                    var qrCodeData = qrGen.CreateQrCode(qrData, QRCoder.QRCodeGenerator.ECCLevel.Q);
+                    var qrCode = new QRCoder.QRCode(qrCodeData);
+                    using (Bitmap qrBitmap = qrCode.GetGraphic(20))
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        qrBitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                        iTextSharp.text.Image qrImage = iTextSharp.text.Image.GetInstance(ms.ToArray());
+                        qrImage.ScaleToFit(120f, 120f);
+                        qrImage.Alignment = Element.ALIGN_LEFT;
+                        pdf.Add(qrImage);
+                    }
+                }
+
+                pdf.Add(new Paragraph("\n\n"));
+
+                iTextSharp.text.Font sigFont = FontFactory.GetFont(FontFactory.HELVETICA, 12);
+
+                Paragraph voterSig = new Paragraph(
+                    $"\n\n{voterDTO.Voter.FirstName} {voterDTO.Voter.MiddleName} {voterDTO.Voter.LastName}\n" +
+                    "Voter Signature",
+                    sigFont
+                );
+                voterSig.Alignment = Element.ALIGN_LEFT;
+
+                Paragraph adminSig = new Paragraph(
+                    "\n\nGLYZEL M. GALAGAR\n" +
+                    "Election Commissioner",
+                    sigFont
+                );
+                adminSig.Alignment = Element.ALIGN_RIGHT;
+
+                pdf.Add(voterSig);
+                pdf.Add(adminSig);
+
+                pdf.Add(new Paragraph("\n\n"));
+
+                iTextSharp.text.Font footerFont = FontFactory.GetFont(FontFactory.HELVETICA_OBLIQUE, 10);
+                Paragraph footer = new Paragraph(
+                    $"Generated by: eBoto | Date: {DateTime.Now}",
+                    footerFont
+                );
+                footer.Alignment = Element.ALIGN_CENTER;
+
+                pdf.Add(footer);
+
+                pdf.Close();
+
+                MessageBox.Show("Your complete eBallot PDF has been downloaded!",
+                    "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
-       
+
+
+
+
     }
 }
