@@ -54,6 +54,7 @@ namespace WindowsFormsApp1
         {
             electionService.SetWinners(electionDTO.Election.ElectionId);
             electionService.SetEndStatus(electionDTO.Election.ElectionId);
+            new VoterService().SetAllVotersStatusInDepartment(electionDTO.Department.DepartmentId);
             MessageBox.Show("Election ended successfully!");
             OnUpdateRequested?.Invoke();
             this.Hide();

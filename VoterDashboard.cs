@@ -78,6 +78,7 @@ namespace WindowsFormsApp1
             }
             else if (voterDTO.Election.Status && !voterDTO.Election.EndStatus && voterDTO.Voter.Status)
             {
+                status_label.Text = voterDTO.Voter.Status ? "Status: Voted" : "Status: Not Voted";
                 vote_now_bttn.Enabled = false;
                 vote_now_bttn.Text = "Already Voted!";
                 
@@ -131,7 +132,7 @@ namespace WindowsFormsApp1
                 MessageBox.Show("You must vote first before viewing your ballot.");
                 return;
             }
-            if (!voterDTO.Election.Status && !voterDTO.Election.EndStatus)
+            if (voterDTO.Election == null)
             {
                 MessageBox.Show("Election is not active.");
                 return;
@@ -139,9 +140,9 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Election is already ended");
                 return;
-            }
-            
-            List<(string Position, string Candidate)> ballotData = new List<(string, string)>();
+            }else
+
+               { List<(string Position, string Candidate)> ballotData = new List<(string, string)>();
 
             Voter voter = new VotedCandidatesService().GetAllVotedCandidates(voterDTO.Voter.VoterId);
             foreach (var votedCandidate in voter.VotedCandidates)
@@ -171,7 +172,7 @@ namespace WindowsFormsApp1
 
                 try
                 {
-                    string logoPath = "logo.png"; // replace with your logo filename
+                    string logoPath = "logo.png"; 
                     if (File.Exists(logoPath))
                     {
                         iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(logoPath);
@@ -273,8 +274,9 @@ namespace WindowsFormsApp1
 
                 pdf.Close();
 
-                MessageBox.Show("Your complete eBallot PDF has been downloaded!",
-                    "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Your complete eBallot PDF has been downloaded!",
+                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 
