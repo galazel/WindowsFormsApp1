@@ -4,19 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="94ae7a058c174ab7b01ca3a9da75610d" Name="Diagram1">
+      <Diagram DiagramId="599bf9d4f96a4ede9a0d462c562d7345" Name="Diagram1">
         <EntityTypeShape EntityType="eBotoDBModel.Candidate" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="eBotoDBModel.Department" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="eBotoDBModel.Election" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="eBotoDBModel.EndedElection" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="eBotoDBModel.OngoingElection" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="eBotoDBModel.Position" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="eBotoDBModel.Election" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="eBotoDBModel.EndedElection" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="eBotoDBModel.OngoingElection" Width="1.5" PointX="5.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="eBotoDBModel.Position" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="eBotoDBModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="eBotoDBModel.VotedCandidate" Width="1.5" PointX="7.5" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="eBotoDBModel.VotedCandidate" Width="1.5" PointX="7.5" PointY="8.375" IsExpanded="true" />
         <EntityTypeShape EntityType="eBotoDBModel.Voter" Width="1.5" PointX="12.75" PointY="6.625" IsExpanded="true" />
         <EntityTypeShape EntityType="eBotoDBModel.Winner" Width="1.5" PointX="10.5" PointY="8.5" IsExpanded="true" />
         <AssociationConnector Association="eBotoDBModel.FK_Candidates_Departments1" ManuallyRouted="false" />
         <AssociationConnector Association="eBotoDBModel.FK_Candidates_Elections1" ManuallyRouted="false" />
+        <AssociationConnector Association="eBotoDBModel.FK_Candidates_Positions" ManuallyRouted="false" />
         <AssociationConnector Association="eBotoDBModel.FK_VotedCandidates_Candidates2" ManuallyRouted="false" />
         <AssociationConnector Association="eBotoDBModel.FK_Winners_Candidates1" ManuallyRouted="false" />
         <AssociationConnector Association="eBotoDBModel.FK_Elections_Departments1" ManuallyRouted="false" />
@@ -29,7 +30,6 @@
         <AssociationConnector Association="eBotoDBModel.FK_Winners_Positions" ManuallyRouted="false" />
         <AssociationConnector Association="eBotoDBModel.FK_VotedCandidates_Voters" ManuallyRouted="false" />
         <AssociationConnector Association="eBotoDBModel.FK_Voters_VotedCandidates1" ManuallyRouted="false" />
-        <AssociationConnector Association="eBotoDBModel.FK_Candidates_Positions" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

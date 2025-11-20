@@ -10,6 +10,7 @@ namespace WindowsFormsApp1
     {
         public int CandidateId { get; set; }
         public int Count { get; set; }
+        public int PositionId { get; set; }
 
     }
 }

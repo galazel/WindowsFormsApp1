@@ -32,10 +32,10 @@ namespace WindowsFormsApp1
     
         public virtual Department Department { get; set; }
         public virtual Election Election { get; set; }
+        public virtual Position Position { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VotedCandidate> VotedCandidates { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Winner> Winners { get; set; }
-        public virtual Position Position { get; set; }
     }
 }

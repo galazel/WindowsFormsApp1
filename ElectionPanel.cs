@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             electionService = new ElectionService();
-
+            this.election = electionDto;
             election_name_label.Text = electionDto.Election.ElectionName;
             department_label.Text = electionDto.Department.DepartmentName;
             this.candidates = electionDto.Candidates;

@@ -71,7 +71,19 @@ namespace WindowsFormsApp1
         {
            return db.Candidates.Count().ToString();
         }
+        public string GetCandidateNameById(int id)
+        {
+            return db.Candidates.FirstOrDefault(c => c.CandidateId == id).CandidateName;
+        }
+        public string GetCandidatePartyById(int id)
+        {
+            return db.Candidates.FirstOrDefault(c => c.CandidateId == id).Partylist;
+        }
 
+        public string GetCandidateImage(int id)
+        {
+            return db.Candidates.FirstOrDefault(c => c.CandidateId == id).Image;
+        }
 
 
     }

@@ -246,6 +246,7 @@
     <Compile Include="ResultsPanel.Designer.cs">
       <DependentUpon>ResultsPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\WinnersService.cs" />
     <Compile Include="SummaryPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -284,6 +285,12 @@
     </Compile>
     <Compile Include="Winner.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WinnerPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinnerPanel.Designer.cs">
+      <DependentUpon>WinnerPanel.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddCandidate.resx">
       <DependentUpon>AddCandidate.cs</DependentUpon>
@@ -368,6 +375,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VoteSummary.resx">
       <DependentUpon>VoteSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinnerPanel.resx">
+      <DependentUpon>WinnerPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

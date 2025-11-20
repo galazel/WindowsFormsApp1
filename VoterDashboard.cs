@@ -53,7 +53,7 @@ namespace WindowsFormsApp1
                 if (voterDTO.Voter.Status)
                     LoadLiveResults();
                 else
-                    live_results_flow.Controls.Add(new ResultLabelcs());
+                    live_results_flow.Controls.Add(new ResultLabelcs("YOU NEED TO VOTE FIRST TO VIEW THE RESULT"));
                     
             }
 

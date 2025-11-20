@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.create_election_bttn = new System.Windows.Forms.Button();
             this.elections_flow = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -72,11 +73,25 @@
             this.elections_flow.TabIndex = 25;
             this.elections_flow.WrapContents = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(68, 101);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(599, 17);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "The election has been scheduled but has not started yet. Voting will open once it" +
+    " initialized.";
+            // 
             // AdminElectionsPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.elections_flow);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.create_election_bttn);
@@ -93,5 +108,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button create_election_bttn;
         private System.Windows.Forms.FlowLayoutPanel elections_flow;
+        private System.Windows.Forms.Label label2;
     }
 }

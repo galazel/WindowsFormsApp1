@@ -31,7 +31,7 @@
             this.department_name_label = new System.Windows.Forms.Label();
             this.election_name_label = new System.Windows.Forms.Label();
             this.iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.winners_flow = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -66,15 +66,15 @@
             this.iconMenuItem1.Size = new System.Drawing.Size(32, 19);
             this.iconMenuItem1.Text = "iconMenuItem1";
             // 
-            // flowLayoutPanel1
+            // winners_flow
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Gainsboro;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(23, 86);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1005, 240);
-            this.flowLayoutPanel1.TabIndex = 52;
+            this.winners_flow.AutoScroll = true;
+            this.winners_flow.BackColor = System.Drawing.Color.Gainsboro;
+            this.winners_flow.Location = new System.Drawing.Point(23, 86);
+            this.winners_flow.Name = "winners_flow";
+            this.winners_flow.Padding = new System.Windows.Forms.Padding(10);
+            this.winners_flow.Size = new System.Drawing.Size(1005, 240);
+            this.winners_flow.TabIndex = 52;
             // 
             // label1
             // 
@@ -94,7 +94,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.winners_flow);
             this.Controls.Add(this.election_name_label);
             this.Controls.Add(this.department_name_label);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -112,7 +112,7 @@
         private System.Windows.Forms.Label department_name_label;
         private System.Windows.Forms.Label election_name_label;
         private FontAwesome.Sharp.IconMenuItem iconMenuItem1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel winners_flow;
         private System.Windows.Forms.Label label1;
     }
 }

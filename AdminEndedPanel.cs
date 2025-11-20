@@ -21,12 +21,12 @@ namespace WindowsFormsApp1
         }
         public void LoadEndedElections()
         {
-            ended_flow.Controls.Clear();
-            foreach (var election in new ElectionService().GetEndedElections())
-            {
-                var panel = new EndedPanel(election);
-                ended_flow.Controls.Add(panel);
-            }
+                ended_flow.Controls.Clear();
+                foreach (var election in new ElectionService().GetEndedElections())
+                {
+                    var panel = new EndedPanel(election);
+                    ended_flow.Controls.Add(panel);
+                }
         }
     }
 }

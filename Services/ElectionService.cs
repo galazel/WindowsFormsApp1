@@ -34,21 +34,17 @@ namespace WindowsFormsApp1
         public List<ElectionDTO> GetElections()
         {
             var list = new List<ElectionDTO>();
-            DepartmentService departmentService = new DepartmentService();
+            var elections =  db.Elections.Include(e => e.Candidates).Include(e => e.Department).Where(e => e.Status == false).ToList();
 
-                var elections =  db.Elections.Include(e => e.Candidates).Include(e => e.Department).Where(e => e.Status == false).ToList();
-
-                foreach (var election in elections)
+            foreach (var election in elections)
+            {
+                ElectionDTO electionDTO = new ElectionDTO()
                 {
-                //ElectionDTO electionDTO = new ElectionDTO();
-                //electionDTO.ElectionId = election.ElectionId;
-                //electionDTO.ElectionName = election.ElectionName;
-                //electionDTO.Department = election.Department.DepartmentName;
-                //electionDTO.Status = election.Status;
-                //electionDTO.Description = election.Description;
-                //electionDTO.Candidates = election.Candidates.ToList();
-                //list.Add(electionDTO);
-                list.Add(GetElectionDepartmentPositions(election.ElectionId));
+                    Election = election,
+                    Department = election.Department,
+                    Candidates = election.Candidates.ToList()
+                };
+                list.Add(electionDTO);
             }
 
             return list;
@@ -58,38 +54,26 @@ namespace WindowsFormsApp1
             var list = new List<ElectionDTO>();
             var elections = db.Elections.Include(e => e.Candidates).Include(e => e.Department).Where(e => e.Status == true && e.EndStatus == false).ToList();
             foreach (var election in elections)
-            {
-                //ElectionDTO electionDTO = new ElectionDTO();
-                //electionDTO.ElectionId = election.ElectionId;
-                //electionDTO.ElectionName = election.ElectionName;
-                //electionDTO.Department = election.Department.DepartmentName;
-                //electionDTO.Description = election.Description;
-                //electionDTO.Candidates = election.Candidates.ToList();
-                //electionDTO.Positions = GetElectionDepartmentPositions(election.ElectionId).Positions;
-                
                 list.Add(GetElectionDepartmentPositions(election.ElectionId));
-            }
-
             return list;
         }
 
         public List<ElectionDTO> GetEndedElections()
         {
             var list = new List<ElectionDTO>();
-            DepartmentService departmentService = new DepartmentService();
                 var elections = db.Elections.Include(e => e.Candidates).Include(e => e.Department).Include(e => e.Winners).Where(e => e.EndStatus == true && e.Status == true).ToList();
-                foreach (var election in elections)
+                
+            foreach (var election in elections)
+            {
+                MessageBox.Show(""+election.Winners.Count());
+                ElectionDTO electionDTO = new ElectionDTO()
                 {
-                //ElectionDTO electionDTO = new ElectionDTO();
-                //electionDTO.ElectionId = election.ElectionId;
-                //electionDTO.ElectionName = election.ElectionName;
-                //electionDTO.Department = election.Department.DepartmentName;
-                //electionDTO.Description = election.Description;
-                //electionDTO.Candidates = election.Candidates.ToList();
-                //electionDTO.Winners = election.Winners.ToList();
-
-                //list.Add(electionDTO);
-                list.Add(GetElectionDepartmentPositions(election.ElectionId));
+                    Election = election,
+                    Department = election.Department,
+                    Candidates = election.Candidates.ToList(),
+                    Winners = election.Winners.ToList()
+                };
+                list.Add(electionDTO);
             }
             return list;
         }
@@ -169,32 +153,50 @@ namespace WindowsFormsApp1
         }
         public void SetWinners(int electionId)
         {
-            foreach (var position in GetAllPositionsElection(electionId))
+            List<CandidatesDTO> list = GetCandidatesEachPosition(electionId);
+            foreach (CandidatesDTO candidate in list)
             {
-                var maxVotes = db.VotedCandidates
+                db.Winners.Add(new Winner()
+                {
+                    ElectionId = electionId,
+                    CandidateId = candidate.CandidateId,
+                    Count = candidate.Count,
+                    PositionId = candidate.PositionId
+                });
+                db.SaveChanges();
+            }
+
+        }
+        public List<CandidatesDTO> GetCandidatesEachPosition(int electionId)
+        {
+            List<CandidatesDTO> list = new List<CandidatesDTO>();
+
+            var positions = GetAllPositionsElection(electionId);
+
+            foreach (var position in positions)
+            {
+                var groupedCandidates = db.VotedCandidates
                     .Where(vc => vc.ElectionId == electionId && vc.PositionId == position)
                     .GroupBy(vc => vc.CandidateId)
-                    .Select(g => new
+                    .Select(g => new CandidatesDTO
                     {
-                        Candidate = g.Key,
-                        Count = g.Count()
+                        CandidateId = (int)g.Key,
+                        Count = g.Count(),
+                        PositionId = position
                     })
-                    .OrderByDescending(g => g.Count)
-                    .FirstOrDefault();
+                    .ToList();
 
-                if (maxVotes != null)
+                if (groupedCandidates.Any())
                 {
-                    db.Winners.Add(new Winner()
-                    {
-                        ElectionId = electionId,
-                        CandidateId = (int)maxVotes.Candidate,
-                        Count = maxVotes.Count,
-                        PositionId = position,
-                    });
-
-                    db.SaveChanges();
+                    int maxVotes = groupedCandidates.Max(c => c.Count);
+                    var topCandidates = groupedCandidates
+                        .Where(c => c.Count == maxVotes)
+                        .ToList();
+                    list.AddRange(topCandidates);
                 }
             }
+
+            return list;
         }
 
 
