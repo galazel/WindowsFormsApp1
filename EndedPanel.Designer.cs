@@ -30,14 +30,16 @@
         {
             this.department_name_label = new System.Windows.Forms.Label();
             this.election_name_label = new System.Windows.Forms.Label();
-            this.view_result = new System.Windows.Forms.Button();
+            this.iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // department_name_label
             // 
             this.department_name_label.AutoSize = true;
             this.department_name_label.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.department_name_label.Location = new System.Drawing.Point(58, 37);
+            this.department_name_label.Location = new System.Drawing.Point(19, 20);
             this.department_name_label.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
             this.department_name_label.Name = "department_name_label";
             this.department_name_label.Size = new System.Drawing.Size(248, 19);
@@ -48,40 +50,58 @@
             // 
             this.election_name_label.AutoSize = true;
             this.election_name_label.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.election_name_label.Location = new System.Drawing.Point(58, 56);
+            this.election_name_label.Location = new System.Drawing.Point(19, 39);
             this.election_name_label.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
             this.election_name_label.Name = "election_name_label";
             this.election_name_label.Size = new System.Drawing.Size(483, 19);
             this.election_name_label.TabIndex = 51;
             this.election_name_label.Text = "PHILIPPINE SOCIETY OF INFORMATION TECHNOLOGY STUDENTS";
             // 
-            // view_result
+            // iconMenuItem1
             // 
-            this.view_result.BackColor = System.Drawing.Color.White;
-            this.view_result.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.view_result.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.view_result.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.view_result.Location = new System.Drawing.Point(62, 87);
-            this.view_result.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.view_result.Name = "view_result";
-            this.view_result.Size = new System.Drawing.Size(150, 39);
-            this.view_result.TabIndex = 52;
-            this.view_result.Text = "VIEW RESULT";
-            this.view_result.UseVisualStyleBackColor = false;
-            this.view_result.Click += new System.EventHandler(this.view_result_Click);
+            this.iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconMenuItem1.IconColor = System.Drawing.Color.Black;
+            this.iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconMenuItem1.Name = "iconMenuItem1";
+            this.iconMenuItem1.Size = new System.Drawing.Size(32, 19);
+            this.iconMenuItem1.Text = "iconMenuItem1";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(23, 86);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1005, 240);
+            this.flowLayoutPanel1.TabIndex = 52;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 64);
+            this.label1.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 19);
+            this.label1.TabIndex = 53;
+            this.label1.Text = "WINNERS";
             // 
             // EndedPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
-            this.Controls.Add(this.view_result);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.election_name_label);
             this.Controls.Add(this.department_name_label);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "EndedPanel";
-            this.Size = new System.Drawing.Size(929, 122);
+            this.Padding = new System.Windows.Forms.Padding(10);
+            this.Size = new System.Drawing.Size(1117, 416);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,6 +111,8 @@
 
         private System.Windows.Forms.Label department_name_label;
         private System.Windows.Forms.Label election_name_label;
-        private System.Windows.Forms.Button view_result;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItem1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label label1;
     }
 }

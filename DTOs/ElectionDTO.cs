@@ -15,5 +15,7 @@ namespace WindowsFormsApp1
         public string Description { get; set; }
         public List <Candidate> Candidates { get; set; }
         public List <Winner> Winners { get; set; }
+
+        public List<Position> Positions { get; set; }
     }
 }

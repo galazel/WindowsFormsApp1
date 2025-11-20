@@ -63,7 +63,8 @@ namespace WindowsFormsApp1
                             select new VoterDTO
                             {
                                 Voter = v,
-                                Department = d
+                                Department = d,
+                                Election = null
                             };
                 return voter.FirstOrDefault();
         }

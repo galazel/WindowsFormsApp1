@@ -44,6 +44,7 @@
             this.result_chart.Location = new System.Drawing.Point(15, 43);
             this.result_chart.Margin = new System.Windows.Forms.Padding(4);
             this.result_chart.Name = "result_chart";
+            this.result_chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
             this.result_chart.Size = new System.Drawing.Size(993, 271);
             this.result_chart.TabIndex = 0;
             this.result_chart.Text = "chart1";

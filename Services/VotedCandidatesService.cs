@@ -10,13 +10,14 @@ namespace WindowsFormsApp1
 {
     internal class VotedCandidatesService : DBConnection
     {
-        public void AddVotedCandidates(int voterId, int candidateId, int electionId)
+        public void AddVotedCandidates(int voterId, int candidateId, int electionId, int positionId)
         {
                 VotedCandidate votedCandidate = new VotedCandidate()
                 {
                     VoterId = voterId,
                     CandidateId = candidateId,
-                    ElectionId = electionId
+                    ElectionId = electionId,
+                    PositionId = positionId
                 };
                 db.VotedCandidates.Add(votedCandidate);
                 db.SaveChanges();

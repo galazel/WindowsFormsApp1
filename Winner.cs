@@ -17,8 +17,11 @@ namespace WindowsFormsApp1
         public int WinnerId { get; set; }
         public int ElectionId { get; set; }
         public int CandidateId { get; set; }
+        public int Count { get; set; }
+        public int PositionId { get; set; }
     
         public virtual Candidate Candidate { get; set; }
         public virtual Election Election { get; set; }
+        public virtual Position Position { get; set; }
     }
 }

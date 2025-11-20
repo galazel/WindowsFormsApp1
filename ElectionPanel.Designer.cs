@@ -39,7 +39,7 @@
             // 
             this.election_name_label.AutoSize = true;
             this.election_name_label.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.election_name_label.Location = new System.Drawing.Point(58, 37);
+            this.election_name_label.Location = new System.Drawing.Point(36, 30);
             this.election_name_label.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.election_name_label.Name = "election_name_label";
             this.election_name_label.Size = new System.Drawing.Size(141, 19);
@@ -50,7 +50,7 @@
             // 
             this.department_label.AutoSize = true;
             this.department_label.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.department_label.Location = new System.Drawing.Point(58, 73);
+            this.department_label.Location = new System.Drawing.Point(36, 66);
             this.department_label.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.department_label.Name = "department_label";
             this.department_label.Size = new System.Drawing.Size(145, 19);
@@ -63,7 +63,7 @@
             this.view_details_bttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.view_details_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.view_details_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.view_details_bttn.Location = new System.Drawing.Point(773, 37);
+            this.view_details_bttn.Location = new System.Drawing.Point(782, 30);
             this.view_details_bttn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.view_details_bttn.Name = "view_details_bttn";
             this.view_details_bttn.Size = new System.Drawing.Size(76, 35);
@@ -78,7 +78,7 @@
             this.delete_bttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.delete_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.delete_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.delete_bttn.Location = new System.Drawing.Point(941, 37);
+            this.delete_bttn.Location = new System.Drawing.Point(950, 30);
             this.delete_bttn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.delete_bttn.Name = "delete_bttn";
             this.delete_bttn.Size = new System.Drawing.Size(76, 35);
@@ -93,7 +93,7 @@
             this.start_bttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.start_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.start_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.start_bttn.Location = new System.Drawing.Point(857, 37);
+            this.start_bttn.Location = new System.Drawing.Point(866, 30);
             this.start_bttn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.start_bttn.Name = "start_bttn";
             this.start_bttn.Size = new System.Drawing.Size(76, 35);
@@ -117,7 +117,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "ElectionPanel";
             this.Padding = new System.Windows.Forms.Padding(17, 16, 17, 16);
-            this.Size = new System.Drawing.Size(1051, 123);
+            this.Size = new System.Drawing.Size(1069, 123);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -20,16 +20,16 @@ namespace WindowsFormsApp1
             this.Candidates = new HashSet<Candidate>();
             this.EndedElections = new HashSet<EndedElection>();
             this.OngoingElections = new HashSet<OngoingElection>();
-            this.Winners = new HashSet<Winner>();
             this.VotedCandidates = new HashSet<VotedCandidate>();
+            this.Winners = new HashSet<Winner>();
         }
     
         public int ElectionId { get; set; }
         public string ElectionName { get; set; }
         public string Description { get; set; }
         public bool Status { get; set; }
-        public int DepartmentId { get; set; }
         public bool EndStatus { get; set; }
+        public int DepartmentId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Candidate> Candidates { get; set; }
@@ -39,8 +39,8 @@ namespace WindowsFormsApp1
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OngoingElection> OngoingElections { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Winner> Winners { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VotedCandidate> VotedCandidates { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Winner> Winners { get; set; }
     }
 }

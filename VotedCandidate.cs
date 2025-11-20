@@ -24,11 +24,13 @@ namespace WindowsFormsApp1
         public Nullable<int> VoterId { get; set; }
         public Nullable<int> CandidateId { get; set; }
         public Nullable<int> ElectionId { get; set; }
+        public Nullable<int> PositionId { get; set; }
     
+        public virtual Candidate Candidate { get; set; }
+        public virtual Election Election { get; set; }
+        public virtual Position Position { get; set; }
         public virtual Voter Voter { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Voter> Voters { get; set; }
-        public virtual Candidate Candidate { get; set; }
-        public virtual Election Election { get; set; }
     }
 }

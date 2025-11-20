@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
-using System.Runtime.InteropServices.WindowsRuntime;
+using System.Windows;
+using WindowsFormsApp1.DTOs;
 
 namespace WindowsFormsApp1
 {
@@ -87,7 +91,7 @@ namespace WindowsFormsApp1
         }
         public Boolean DoesElectionAlreadyExisted(string electionName, int departmentId)
         {
-                var election = db.Elections.FirstOrDefault(e => e.ElectionName == electionName || e.DepartmentId == departmentId && e.Status == true);
+                var election = db.Elections.FirstOrDefault(e => e.ElectionName == electionName || e.DepartmentId == departmentId && e.Status && e.EndStatus == false);
                 if (election == null)
                     return false;
                 return true;
@@ -132,6 +136,43 @@ namespace WindowsFormsApp1
             var election = db.Elections.FirstOrDefault(e => e.ElectionId == electionId);
             election.EndStatus = true;
             db.SaveChanges();
+        }
+        public List<int> GetAllPositionsElection(int electionId)
+        {
+            return db.Candidates
+                .Where(c => c.ElectionId == electionId)
+                .Select(c => c.PositionId)
+                .Distinct()
+                .ToList();
+        }
+        public void SetWinners(int electionId)
+        {
+            foreach (var position in GetAllPositionsElection(electionId))
+            {
+                var maxVotes = db.VotedCandidates
+                    .Where(vc => vc.ElectionId == electionId && vc.PositionId == position)
+                    .GroupBy(vc => vc.CandidateId)
+                    .Select(g => new
+                    {
+                        Candidate = g.Key,
+                        Count = g.Count()
+                    })
+                    .OrderByDescending(g => g.Count)
+                    .FirstOrDefault();
+
+                if (maxVotes != null)
+                {
+                    db.Winners.Add(new Winner()
+                    {
+                        ElectionId = electionId,
+                        CandidateId = (int)maxVotes.Candidate,
+                        Count = maxVotes.Count,
+                        PositionId = position,
+                    });
+
+                    db.SaveChanges();
+                }
+            }
         }
 
 

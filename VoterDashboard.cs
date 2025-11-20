@@ -125,11 +125,12 @@ namespace WindowsFormsApp1
                 }
                 MessageBox.Show($"eBallot\n{ballot}");
 
-            }
+            } 
+            else if(voterDTO.Election == null)
+                MessageBox.Show("No election available");
             else if (voterDTO.Election.Status && !voterDTO.Voter.Status)
                 MessageBox.Show("Your ballot is empty. Vote now!");
-            else
-                MessageBox.Show("No election started");
+               
         }
        
     }

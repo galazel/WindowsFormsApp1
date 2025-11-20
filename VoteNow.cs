@@ -86,7 +86,7 @@ namespace WindowsFormsApp1
             voterDTO.Voter.Status = true;
 
             foreach (var candidate in ElectionSummary.ChoosenCandidates)
-              new VotedCandidatesService().AddVotedCandidates(voterId, candidate.Value.CandidateId, electionId);
+              new VotedCandidatesService().AddVotedCandidates(voterId, candidate.Value.CandidateId, electionId, candidate.Value.PositionId);
 
             MessageBox.Show("Thank you for voting!");
             OnUpdateRequested?.Invoke();

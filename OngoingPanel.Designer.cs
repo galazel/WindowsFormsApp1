@@ -32,13 +32,14 @@
             this.election_name_label = new System.Windows.Forms.Label();
             this.view_details_bttn = new System.Windows.Forms.Button();
             this.end_bttn = new System.Windows.Forms.Button();
+            this.ongoing_results_flow = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // department_label
             // 
             this.department_label.AutoSize = true;
             this.department_label.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.department_label.Location = new System.Drawing.Point(58, 73);
+            this.department_label.Location = new System.Drawing.Point(41, 75);
             this.department_label.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.department_label.Name = "department_label";
             this.department_label.Size = new System.Drawing.Size(145, 19);
@@ -49,7 +50,7 @@
             // 
             this.election_name_label.AutoSize = true;
             this.election_name_label.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.election_name_label.Location = new System.Drawing.Point(58, 37);
+            this.election_name_label.Location = new System.Drawing.Point(41, 39);
             this.election_name_label.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.election_name_label.Name = "election_name_label";
             this.election_name_label.Size = new System.Drawing.Size(141, 19);
@@ -62,7 +63,7 @@
             this.view_details_bttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.view_details_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.view_details_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.view_details_bttn.Location = new System.Drawing.Point(887, 37);
+            this.view_details_bttn.Location = new System.Drawing.Point(870, 39);
             this.view_details_bttn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.view_details_bttn.Name = "view_details_bttn";
             this.view_details_bttn.Size = new System.Drawing.Size(76, 35);
@@ -77,7 +78,7 @@
             this.end_bttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.end_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.end_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.end_bttn.Location = new System.Drawing.Point(971, 37);
+            this.end_bttn.Location = new System.Drawing.Point(954, 39);
             this.end_bttn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.end_bttn.Name = "end_bttn";
             this.end_bttn.Size = new System.Drawing.Size(76, 35);
@@ -86,12 +87,24 @@
             this.end_bttn.UseVisualStyleBackColor = false;
             this.end_bttn.Click += new System.EventHandler(this.end_bttn_Click);
             // 
+            // ongoing_results_flow
+            // 
+            this.ongoing_results_flow.AutoScroll = true;
+            this.ongoing_results_flow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ongoing_results_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.ongoing_results_flow.Location = new System.Drawing.Point(45, 119);
+            this.ongoing_results_flow.Name = "ongoing_results_flow";
+            this.ongoing_results_flow.Padding = new System.Windows.Forms.Padding(10);
+            this.ongoing_results_flow.Size = new System.Drawing.Size(985, 546);
+            this.ongoing_results_flow.TabIndex = 53;
+            // 
             // OngoingPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.ongoing_results_flow);
             this.Controls.Add(this.end_bttn);
             this.Controls.Add(this.view_details_bttn);
             this.Controls.Add(this.department_label);
@@ -100,7 +113,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "OngoingPanel";
             this.Padding = new System.Windows.Forms.Padding(17, 16, 17, 16);
-            this.Size = new System.Drawing.Size(1083, 122);
+            this.Size = new System.Drawing.Size(1083, 696);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,5 +124,6 @@
         private System.Windows.Forms.Label election_name_label;
         private System.Windows.Forms.Button view_details_bttn;
         private System.Windows.Forms.Button end_bttn;
+        private System.Windows.Forms.FlowLayoutPanel ongoing_results_flow;
     }
 }
