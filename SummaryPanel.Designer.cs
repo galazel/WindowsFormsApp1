@@ -46,11 +46,11 @@
             // candidate_label
             // 
             this.candidate_label.AutoSize = true;
-            this.candidate_label.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.candidate_label.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.candidate_label.Location = new System.Drawing.Point(6, 22);
             this.candidate_label.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.candidate_label.Name = "candidate_label";
-            this.candidate_label.Size = new System.Drawing.Size(102, 16);
+            this.candidate_label.Size = new System.Drawing.Size(134, 19);
             this.candidate_label.TabIndex = 51;
             this.candidate_label.Text = "CANDIDATE NAE";
             // 
@@ -61,7 +61,7 @@
             this.Controls.Add(this.candidate_label);
             this.Controls.Add(this.position_label);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SummaryPanel";
             this.Size = new System.Drawing.Size(193, 58);
             this.ResumeLayout(false);

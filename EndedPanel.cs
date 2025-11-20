@@ -21,7 +21,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
             service = new WinnersService();
             department_name_label.Text = electionDTO.Department.DepartmentName;
-            election_name_label.Text = electionDTO.Election.ElectionName;
+            election_name_label.Text = electionDTO.Election.ElectionName.ToUpper();
             election = electionDTO;
             LoadWinners();
         }
