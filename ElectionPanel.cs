@@ -58,7 +58,6 @@ namespace WindowsFormsApp1
         private void delete_bttn_Click(object sender, EventArgs e)
         {
             electionService.DeleteElection(election.Election.ElectionId);
-
             MessageBox.Show("Election deleted successfully!");
             OnUpdateRequested?.Invoke();
         }

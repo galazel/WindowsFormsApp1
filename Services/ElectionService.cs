@@ -77,6 +77,19 @@ namespace WindowsFormsApp1
 
             return list;
         }
+        public void ClearEndedElections()
+        {
+                var endedElections = db.Elections.Where(e => e.EndStatus == true).ToList();
+                foreach (var election in endedElections)
+                {
+                    db.Candidates.RemoveRange(db.Candidates.Where(c => c.ElectionId == election.ElectionId));
+                    db.VotedCandidates.RemoveRange(db.VotedCandidates.Where(vc => vc.ElectionId == election.ElectionId));
+                    db.Winners.RemoveRange(db.Winners.Where(w => w.ElectionId == election.ElectionId));
+                }
+                db.Elections.RemoveRange(endedElections);
+                db.SaveChanges();
+        }
+
         public Boolean DoesElectionAlreadyExisted(string electionName, int departmentId)
         {
                 var election = db.Elections.FirstOrDefault(e => e.ElectionName == electionName || e.DepartmentId == departmentId && e.Status && e.EndStatus == false);

@@ -11,5 +11,15 @@ namespace WindowsFormsApp1.Services
         public List<Winner> GetWinners(int electionId) {        
             return db.Winners.Where(w => w.ElectionId == electionId).OrderBy(w => w.PositionId).ToList();
         }
+        public void ClearAll()
+        {
+            var allWinners = db.Winners.ToList();
+            db.Winners.RemoveRange(allWinners);
+            db.SaveChanges();
+        }
+        public int WinnersCount()
+        {
+            return db.Winners.Count();
+        }
     }
 }

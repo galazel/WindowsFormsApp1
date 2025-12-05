@@ -44,7 +44,7 @@
             this.vote_candidates_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.vote_candidates_flow.Location = new System.Drawing.Point(35, 95);
             this.vote_candidates_flow.Name = "vote_candidates_flow";
-            this.vote_candidates_flow.Size = new System.Drawing.Size(905, 533);
+            this.vote_candidates_flow.Size = new System.Drawing.Size(739, 533);
             this.vote_candidates_flow.TabIndex = 0;
             this.vote_candidates_flow.WrapContents = false;
             // 
@@ -53,7 +53,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
-            this.label1.Location = new System.Drawing.Point(439, 33);
+            this.label1.Location = new System.Drawing.Point(29, 43);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(383, 32);
@@ -77,12 +77,12 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
+            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.chosen_flow);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.vote_candidate_bttn);
-            this.panel1.Location = new System.Drawing.Point(947, 95);
+            this.panel1.Location = new System.Drawing.Point(780, 95);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(257, 533);
             this.panel1.TabIndex = 34;
@@ -115,7 +115,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(1216, 656);
+            this.ClientSize = new System.Drawing.Size(1067, 656);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.vote_candidates_flow);

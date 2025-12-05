@@ -20,6 +20,32 @@ namespace WindowsFormsApp1
             LoadLabel();
             LoadDepartments();
             LoadPositions();
+            LoadVoters();
+        }
+        public void LoadVoters()
+        {
+            try
+            {
+                DataTable voters = new DataTable();
+                voters.Columns.Add("VoterId", typeof(int));
+                voters.Columns.Add("FirstName", typeof(string));
+                voters.Columns.Add("LastName", typeof(string));
+                voters.Columns.Add("MiddleName", typeof(string));
+                voters.Columns.Add("DepartmentId", typeof(int));
+                voters.Columns.Add("Section", typeof(string));
+                voters.Columns.Add("Year", typeof(int));
+
+                using (var db = new eBotoDBEntities())
+                {
+                    foreach (var voter in db.Voters.ToList())
+                        voters.Rows.Add(voter.VoterId, voter.FirstName, voter.LastName, voter.MiddleName, voter.DepartmentId, voter.Section, voter.Year);
+                }
+                voters_view.DataSource = voters;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading departments: " + ex.Message);
+            }
         }
 
         public void LoadLabel()
@@ -44,9 +70,6 @@ namespace WindowsFormsApp1
                 }
 
                 departments_grid.DataSource = departments;
-
-                if (departments_grid.Columns["DepartmentID"] != null)
-                    departments_grid.Columns["DepartmentID"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -68,9 +91,6 @@ namespace WindowsFormsApp1
                 }
 
                 positions_grid.DataSource = positions;
-
-                if (positions_grid.Columns["PositionID"] != null)
-                    positions_grid.Columns["PositionID"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -89,83 +109,63 @@ namespace WindowsFormsApp1
             new Dialog(false).ShowDialog();
             LoadPositions();
         }
-
-        private void departments_grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                string deptName = departments_grid.Rows[e.RowIndex].Cells["Department Name"].Value?.ToString();
-
-                var confirm = MessageBox.Show(
-                    $"Are you sure you want to delete '{deptName}'?",
-                    "Confirm Delete",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning
-                );
-
-                if (confirm == DialogResult.Yes)
-                {
-                    try
-                    {
-                        int id = Convert.ToInt32(departments_grid.Rows[e.RowIndex].Cells["DepartmentID"].Value);
-                        departmentService.DeleteDepartment(id);
-                        MessageBox.Show("Department deleted successfully!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadDepartments();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error deleting department: " + ex.Message);
-                    }
-                }
-            }
-        }
-
-        private void positions_grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                string posName = positions_grid.Rows[e.RowIndex].Cells["Position Name"].Value?.ToString();
-
-                var confirm = MessageBox.Show(
-                    $"Are you sure you want to delete '{posName}'?",
-                    "Confirm Delete",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning
-                );
-
-                if (confirm == DialogResult.Yes)
-                {
-                    try
-                    {
-                        int id = Convert.ToInt32(positions_grid.Rows[e.RowIndex].Cells["PositionID"].Value);
-                        positionService.DeletePosition(id);
-                        MessageBox.Show("Position deleted successfully!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadPositions();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error deleting position: " + ex.Message);
-                    }
-                }
-            }
-        }
         private void departments_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && !departments_grid.Rows[e.RowIndex].Cells["DepartmentID"].Value.ToString().Equals(""))
             {
                 int id = Convert.ToInt32(departments_grid.Rows[e.RowIndex].Cells["DepartmentID"].Value);
                 new EditDashboard(true, id).ShowDialog();
                 LoadDepartments();
             }
         }
-
         private void positions_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && !positions_grid.Rows[e.RowIndex].Cells["PositionID"].Value.ToString().Equals(""))
             {
                 int id = Convert.ToInt32(positions_grid.Rows[e.RowIndex].Cells["PositionID"].Value);
                 new EditDashboard(false, id).ShowDialog();
                 LoadPositions();
+            }
+        }
+        private void departments_grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        private void departments_grid_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0)
+            {
+                var confirm = MessageBox.Show("Delete this row?", "Confirm",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (confirm == DialogResult.Yes)
+                {
+                    string name = Convert.ToString(departments_grid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                    MessageBox.Show(""+name);
+                    int id = departmentService.GetDepartmentIdByName(name);
+                    departmentService.DeleteDepartment(id);
+                    departments_grid.Rows.RemoveAt(e.RowIndex);
+                    
+                }
+            }
+        }
+
+        private void positions_grid_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0)
+            {
+                var confirm = MessageBox.Show("Delete this row?", "Confirm",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (confirm == DialogResult.Yes)
+                {
+                    string name = Convert.ToString(positions_grid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                    int id = positionService.GetPositionId(name);
+                    positionService.DeletePosition(id);
+
+                    positions_grid.Rows.RemoveAt(e.RowIndex);
+                                    
+                }
             }
         }
     }

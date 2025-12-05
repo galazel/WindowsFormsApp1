@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.ended_flow = new System.Windows.Forms.FlowLayoutPanel();
+            this.clear_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -57,11 +58,27 @@
             this.ended_flow.TabIndex = 28;
             this.ended_flow.WrapContents = false;
             // 
+            // clear_button
+            // 
+            this.clear_button.BackColor = System.Drawing.Color.White;
+            this.clear_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.clear_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clear_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
+            this.clear_button.Location = new System.Drawing.Point(908, 44);
+            this.clear_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.clear_button.Name = "clear_button";
+            this.clear_button.Size = new System.Drawing.Size(76, 35);
+            this.clear_button.TabIndex = 53;
+            this.clear_button.Text = "CLEAR ";
+            this.clear_button.UseVisualStyleBackColor = false;
+            this.clear_button.Click += new System.EventHandler(this.clear_button_Click);
+            // 
             // AdminEndedPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
+            this.Controls.Add(this.clear_button);
             this.Controls.Add(this.ended_flow);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
@@ -75,5 +92,6 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel ended_flow;
+        private System.Windows.Forms.Button clear_button;
     }
 }
