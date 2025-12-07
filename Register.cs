@@ -68,14 +68,19 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("You are not allowed to vote");
                 return;
+            }else if(contact_box.Text.Length > 11 && contact_box.Text.Length < 1)
+            {
+                MessageBox.Show("Contact number must be 11 digits");
+                return;
+
             }
             else if (new VoterService().AddVoter(voter))
             {
                 MessageBox.Show("Registration Successful!");
                 this.Hide();
-                
+
                 int departmentId = voter.DepartmentId.HasValue ? voter.DepartmentId.Value : -1;
-               
+
                 if (!new ElectionService().FindDepartmentActiveElection(departmentId))
                 {
                     VoterDTO voterDTO = new VoterService().GetVoterDepartment(voter.VoterId);
@@ -86,7 +91,7 @@ namespace WindowsFormsApp1
                     VoterDTO voterDTO = new VoterService().GetVoterDepartmentElection(voter.VoterId);
                     new VoterDashboard(voterDTO).ShowDialog();
                 }
-                    
+
             }
             else
             {
