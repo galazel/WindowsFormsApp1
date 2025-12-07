@@ -49,6 +49,12 @@ namespace WindowsFormsApp1
 
             db.SaveChanges();
         }
+        public void ClearAllDepartments()
+        {
+            var allDepartments = db.Departments.ToList();
+            db.Departments.RemoveRange(allDepartments);
+            db.SaveChanges();
+        }
 
 
 

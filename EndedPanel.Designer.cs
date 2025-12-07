@@ -33,6 +33,7 @@
             this.iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
             this.winners_flow = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.download_bttn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // department_name_label
@@ -87,12 +88,27 @@
             this.label1.TabIndex = 53;
             this.label1.Text = "WINNERS";
             // 
+            // download_bttn
+            // 
+            this.download_bttn.BackColor = System.Drawing.Color.White;
+            this.download_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.download_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
+            this.download_bttn.Location = new System.Drawing.Point(905, 25);
+            this.download_bttn.Margin = new System.Windows.Forms.Padding(4);
+            this.download_bttn.Name = "download_bttn";
+            this.download_bttn.Size = new System.Drawing.Size(123, 37);
+            this.download_bttn.TabIndex = 29;
+            this.download_bttn.Text = "DOWNLOAD";
+            this.download_bttn.UseVisualStyleBackColor = false;
+            this.download_bttn.Click += new System.EventHandler(this.download_bttn_Click);
+            // 
             // EndedPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.download_bttn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.winners_flow);
             this.Controls.Add(this.election_name_label);
@@ -114,5 +130,6 @@
         private FontAwesome.Sharp.IconMenuItem iconMenuItem1;
         private System.Windows.Forms.FlowLayoutPanel winners_flow;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button download_bttn;
     }
 }

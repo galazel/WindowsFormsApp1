@@ -40,7 +40,6 @@ namespace WindowsFormsApp1
             new WinnersService().ClearAll();
             new ElectionService().ClearEndedElections();
             ended_flow.Controls.Clear();
-
         }
     }
 }

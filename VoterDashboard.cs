@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
             if (voter.Election == null)
             { 
                 status_election_label.Text = "";
-                election_name.Text = "NO ELECTION CREATED";
+                election_name.Text = "Your department currently has no active elections.D";
                 election_department_label.Text = "";
                 vote_now_bttn.Enabled = false;
                 vote_now_bttn.Text = "No Election Available";

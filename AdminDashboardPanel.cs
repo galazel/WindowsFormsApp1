@@ -9,6 +9,7 @@ namespace WindowsFormsApp1
     {
         private DepartmentService departmentService;
         private PositionService positionService;
+        private VoterService voterService;
 
         public AdminDashboardPanel()
         {
@@ -16,7 +17,7 @@ namespace WindowsFormsApp1
 
             departmentService = new DepartmentService();
             positionService = new PositionService();
-
+            voterService = new VoterService();
             LoadLabel();
             LoadDepartments();
             LoadPositions();
@@ -34,11 +35,18 @@ namespace WindowsFormsApp1
                 voters.Columns.Add("DepartmentId", typeof(int));
                 voters.Columns.Add("Section", typeof(string));
                 voters.Columns.Add("Year", typeof(int));
+                voters.Columns.Add("BirthDate", typeof(DateTime));
+                voters.Columns.Add("ContactNumber", typeof(string));
+                voters.Columns.Add("Email", typeof(string));
+                voters.Columns.Add("Username", typeof(string));
+                voters.Columns.Add("City", typeof(string));
+                voters.Columns.Add("Status", typeof(bool));
+                
 
                 using (var db = new eBotoDBEntities())
                 {
                     foreach (var voter in db.Voters.ToList())
-                        voters.Rows.Add(voter.VoterId, voter.FirstName, voter.LastName, voter.MiddleName, voter.DepartmentId, voter.Section, voter.Year);
+                        voters.Rows.Add(voter.VoterId, voter.FirstName, voter.LastName, voter.MiddleName, voter.DepartmentId, voter.Section, voter.Year, voter.BirthDate, voter.ContactNumber, voter.Email, voter.Username, voter.City, voter.Status);
                 }
                 voters_view.DataSource = voters;
             }
@@ -167,6 +175,18 @@ namespace WindowsFormsApp1
                                     
                 }
             }
+        }
+
+        private void clearAll_Click(object sender, EventArgs e)
+        {
+            departmentService.ClearAllDepartments();
+            positionService.ClearAllPositions();
+            voterService.ClearAllVoters();
+            MessageBox.Show("All departments, positions, and voters have been cleared.");
+            LoadDepartments();
+            LoadPositions();
+            LoadVoters();
+           
         }
     }
 }

@@ -49,7 +49,13 @@ namespace WindowsFormsApp1
 
                 db.SaveChanges();
         }
+        public void ClearAllPositions()
+        {
+            var allPositions = db.Positions.ToList();
+            db.Positions.RemoveRange(allPositions);
+            db.SaveChanges();
+        }
 
-       
+
     }
 }
