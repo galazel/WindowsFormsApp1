@@ -12,7 +12,7 @@ using WindowsFormsApp1.DTOs;
 
 namespace WindowsFormsApp1
 {
-    internal class ElectionService : DBConnection
+    public class ElectionService : DBConnection
     {
         public int GetElectionId(string electionName)
         {
@@ -118,8 +118,8 @@ namespace WindowsFormsApp1
         }
         public void DeleteElection(int electionId)
         {
-               db.Candidates.RemoveRange(db.Candidates.Where(c => c.ElectionId == electionId));
-                db.Elections.RemoveRange(db.Elections.Where(e => e.ElectionId == electionId));
+            db.Elections.RemoveRange(db.Elections.Where(e => e.ElectionId == electionId));
+            db.Candidates.RemoveRange(db.Candidates.Where(c => c.ElectionId == electionId));    
                 db.SaveChanges();
         }
         public bool FindDepartmentActiveElection(int departmentId)

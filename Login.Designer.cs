@@ -112,7 +112,7 @@
             this.register_label.Cursor = System.Windows.Forms.Cursors.Hand;
             this.register_label.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.register_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.register_label.Location = new System.Drawing.Point(37, 651);
+            this.register_label.Location = new System.Drawing.Point(38, 464);
             this.register_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.register_label.Name = "register_label";
             this.register_label.Size = new System.Drawing.Size(402, 24);
@@ -154,8 +154,8 @@
             // 
             this.splitContainer1.Panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("splitContainer1.Panel2.BackgroundImage")));
             this.splitContainer1.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.splitContainer1.Size = new System.Drawing.Size(1100, 707);
-            this.splitContainer1.SplitterDistance = 499;
+            this.splitContainer1.Size = new System.Drawing.Size(1114, 670);
+            this.splitContainer1.SplitterDistance = 505;
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 7;
             // 
@@ -166,7 +166,7 @@
             this.AutoSize = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(188)))), ((int)(((byte)(65)))));
-            this.ClientSize = new System.Drawing.Size(1100, 707);
+            this.ClientSize = new System.Drawing.Size(1114, 670);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;

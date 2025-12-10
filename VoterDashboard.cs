@@ -28,20 +28,19 @@ namespace WindowsFormsApp1
             department_label.Text = voter.Department.DepartmentName.ToUpper();
 
             if (voter.Election == null)
-            { 
-                status_election_label.Text = "";
-                election_name.Text = "Your department currently has no active elections.D";
-                election_department_label.Text = "";
+            {
+                status_election_label.Text = "Status: No Elections";
+                election_name.Text = "YOUR DEPARTMENT HAS NO ACTIVE ELECTIONS";
+                election_department_label.Text = "Department Election: Unavailable";
+
                 vote_now_bttn.Enabled = false;
                 vote_now_bttn.Text = "No Election Available";
-  
-                Label noElectionLabel = new Label();
-                noElectionLabel.Text = "No Election Available";
-                noElectionLabel.Font = new System.Drawing.Font("Century Gothic", 10, FontStyle.Bold);
-                noElectionLabel.ForeColor = Color.Red;
-                live_results_flow.Controls.Add(noElectionLabel);
 
-            }else if(voter.Election.Status && !voter.Election.EndStatus)
+                live_results_flow.Controls.Add(new ResultLabelcs());
+
+
+            }
+            else if(voter.Election.Status && !voter.Election.EndStatus)
             {
                 status_election_label.Text = voter.Election.Status ? "Started Now" : "Not Yet Started";
                 election_name.Text = voter.Election.ElectionName.ToUpper();
@@ -50,7 +49,7 @@ namespace WindowsFormsApp1
                 if (voterDTO.Voter.Status)
                     LoadLiveResults();
                 else
-                    live_results_flow.Controls.Add(new ResultLabelcs("YOU NEED TO VOTE FIRST TO VIEW THE RESULT"));
+                    live_results_flow.Controls.Add(new ResultLabelcs());
             } else if (voter.Election.Status && voter.Election.EndStatus)
             {
                 status_election_label.Text = "";
@@ -294,6 +293,5 @@ namespace WindowsFormsApp1
                 }
             }
         }
-
     }
 }

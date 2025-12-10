@@ -42,7 +42,7 @@
             this.candidate_image.Location = new System.Drawing.Point(18, 20);
             this.candidate_image.Margin = new System.Windows.Forms.Padding(4);
             this.candidate_image.Name = "candidate_image";
-            this.candidate_image.Size = new System.Drawing.Size(190, 136);
+            this.candidate_image.Size = new System.Drawing.Size(191, 125);
             this.candidate_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.candidate_image.TabIndex = 0;
             this.candidate_image.TabStop = false;
@@ -73,14 +73,14 @@
             // 
             // vote_candidate_bttn
             // 
-            this.vote_candidate_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
+            this.vote_candidate_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
             this.vote_candidate_bttn.Cursor = System.Windows.Forms.Cursors.Default;
             this.vote_candidate_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.vote_candidate_bttn.ForeColor = System.Drawing.Color.White;
             this.vote_candidate_bttn.Location = new System.Drawing.Point(18, 202);
             this.vote_candidate_bttn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.vote_candidate_bttn.Name = "vote_candidate_bttn";
-            this.vote_candidate_bttn.Size = new System.Drawing.Size(190, 30);
+            this.vote_candidate_bttn.Size = new System.Drawing.Size(191, 43);
             this.vote_candidate_bttn.TabIndex = 32;
             this.vote_candidate_bttn.Text = "VOTE";
             this.vote_candidate_bttn.UseVisualStyleBackColor = false;
@@ -99,7 +99,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CandidatePanel";
-            this.Size = new System.Drawing.Size(227, 243);
+            this.Size = new System.Drawing.Size(228, 258);
             ((System.ComponentModel.ISupportInitialize)(this.candidate_image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

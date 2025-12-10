@@ -12,10 +12,9 @@ namespace WindowsFormsApp1
 {
     public partial class ResultLabelcs : UserControl
     {
-        public ResultLabelcs(string text)
+        public ResultLabelcs()
         {
             InitializeComponent();
-            label.Text = text;
         }
     }
 }

@@ -336,9 +336,9 @@
             // 
             // register_bttn
             // 
-            this.register_bttn.BackColor = System.Drawing.Color.White;
+            this.register_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
             this.register_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.register_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
+            this.register_bttn.ForeColor = System.Drawing.Color.White;
             this.register_bttn.Location = new System.Drawing.Point(657, 738);
             this.register_bttn.Margin = new System.Windows.Forms.Padding(4);
             this.register_bttn.Name = "register_bttn";

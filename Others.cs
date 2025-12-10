@@ -25,7 +25,7 @@ namespace WindowsFormsApp1
             electionsFlow.Controls.Clear();
             ElectionService electionService = new ElectionService();
             foreach(var election in electionService.GetElections())
-                electionsFlow.Controls.Add(new ElectionPanel(election));    
+                electionsFlow.Controls.Add(new ElectionPanel(election, electionsFlow));    
         }
         public static void LoadOngoingElections(FlowLayoutPanel electionsFlow)
         {

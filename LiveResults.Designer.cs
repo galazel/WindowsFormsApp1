@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.result_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.position_name_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.result_chart)).BeginInit();
@@ -37,15 +37,15 @@
             // 
             // result_chart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.result_chart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.result_chart.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.result_chart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.result_chart.Legends.Add(legend1);
             this.result_chart.Location = new System.Drawing.Point(15, 43);
             this.result_chart.Margin = new System.Windows.Forms.Padding(4);
             this.result_chart.Name = "result_chart";
             this.result_chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            this.result_chart.Size = new System.Drawing.Size(993, 271);
+            this.result_chart.Size = new System.Drawing.Size(896, 198);
             this.result_chart.TabIndex = 0;
             this.result_chart.Text = "chart1";
             // 
@@ -66,13 +66,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.position_name_label);
             this.Controls.Add(this.result_chart);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LiveResults";
             this.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.Size = new System.Drawing.Size(1031, 344);
+            this.Size = new System.Drawing.Size(930, 266);
             ((System.ComponentModel.ISupportInitialize)(this.result_chart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

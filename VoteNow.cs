@@ -36,7 +36,7 @@ namespace WindowsFormsApp1
                 if(chosen.Value == null)
                     chosen_flow.Controls.Add(new SummaryPanel("", chosen.Key));
                 else
-                    chosen_flow.Controls.Add(new SummaryPanel(chosen.Value.CandidateName,chosen.Key));
+                    chosen_flow.Controls.Add(new SummaryPanel(chosen.Value.CandidateName,chosen.Key.ToUpper()));
             }
         }
         public void AddFlowEachPosition()

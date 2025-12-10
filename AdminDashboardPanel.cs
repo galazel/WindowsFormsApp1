@@ -14,7 +14,6 @@ namespace WindowsFormsApp1
         public AdminDashboardPanel()
         {
             InitializeComponent();
-
             departmentService = new DepartmentService();
             positionService = new PositionService();
             voterService = new VoterService();
@@ -182,6 +181,7 @@ namespace WindowsFormsApp1
             departmentService.ClearAllDepartments();
             positionService.ClearAllPositions();
             voterService.ClearAllVoters();
+            LoadLabel();
             MessageBox.Show("All departments, positions, and voters have been cleared.");
             LoadDepartments();
             LoadPositions();

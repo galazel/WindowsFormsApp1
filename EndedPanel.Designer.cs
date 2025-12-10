@@ -39,22 +39,22 @@
             // department_name_label
             // 
             this.department_name_label.AutoSize = true;
-            this.department_name_label.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.department_name_label.Location = new System.Drawing.Point(21, 25);
+            this.department_name_label.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.department_name_label.Location = new System.Drawing.Point(19, 10);
             this.department_name_label.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
             this.department_name_label.Name = "department_name_label";
-            this.department_name_label.Size = new System.Drawing.Size(248, 19);
+            this.department_name_label.Size = new System.Drawing.Size(191, 16);
             this.department_name_label.TabIndex = 50;
             this.department_name_label.Text = "COLLEGE OF COMPUTER STUDIES";
             // 
             // election_name_label
             // 
             this.election_name_label.AutoSize = true;
-            this.election_name_label.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.election_name_label.Location = new System.Drawing.Point(19, 44);
+            this.election_name_label.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.election_name_label.Location = new System.Drawing.Point(19, 30);
             this.election_name_label.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
             this.election_name_label.Name = "election_name_label";
-            this.election_name_label.Size = new System.Drawing.Size(820, 32);
+            this.election_name_label.Size = new System.Drawing.Size(474, 19);
             this.election_name_label.TabIndex = 51;
             this.election_name_label.Text = "PHILIPPINE SOCIETY OF INFORMATION TECHNOLOGY STUDENTS";
             // 
@@ -71,20 +71,22 @@
             // 
             this.winners_flow.AutoScroll = true;
             this.winners_flow.BackColor = System.Drawing.Color.Transparent;
-            this.winners_flow.Location = new System.Drawing.Point(23, 99);
+            this.winners_flow.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.winners_flow.Location = new System.Drawing.Point(23, 69);
             this.winners_flow.Name = "winners_flow";
             this.winners_flow.Padding = new System.Windows.Forms.Padding(10);
-            this.winners_flow.Size = new System.Drawing.Size(1005, 404);
+            this.winners_flow.Size = new System.Drawing.Size(930, 325);
             this.winners_flow.TabIndex = 52;
+            this.winners_flow.WrapContents = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(21, 76);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(20, 49);
             this.label1.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 21);
+            this.label1.Size = new System.Drawing.Size(62, 17);
             this.label1.TabIndex = 53;
             this.label1.Text = "WINNERS";
             // 
@@ -93,7 +95,7 @@
             this.download_bttn.BackColor = System.Drawing.Color.White;
             this.download_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.download_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.download_bttn.Location = new System.Drawing.Point(905, 25);
+            this.download_bttn.Location = new System.Drawing.Point(830, 10);
             this.download_bttn.Margin = new System.Windows.Forms.Padding(4);
             this.download_bttn.Name = "download_bttn";
             this.download_bttn.Size = new System.Drawing.Size(123, 37);
@@ -106,8 +108,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(233)))), ((int)(((byte)(255)))));
             this.Controls.Add(this.download_bttn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.winners_flow);
@@ -117,7 +118,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "EndedPanel";
             this.Padding = new System.Windows.Forms.Padding(10);
-            this.Size = new System.Drawing.Size(1117, 546);
+            this.Size = new System.Drawing.Size(966, 418);
             this.ResumeLayout(false);
             this.PerformLayout();
 

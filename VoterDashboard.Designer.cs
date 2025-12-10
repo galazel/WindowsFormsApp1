@@ -42,7 +42,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.name_label = new System.Windows.Forms.Label();
             this.status_label = new System.Windows.Forms.Label();
-            this.view_ballot_icon = new FontAwesome.Sharp.IconButton();
             this.logout_icon = new FontAwesome.Sharp.IconButton();
             this.label10 = new System.Windows.Forms.Label();
             this.email_label = new System.Windows.Forms.Label();
@@ -55,6 +54,7 @@
             this.voter_image = new System.Windows.Forms.PictureBox();
             this.profile_button = new FontAwesome.Sharp.IconButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.view_ballot_icon = new FontAwesome.Sharp.IconButton();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -75,10 +75,11 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.label);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1258, 943);
+            this.panel2.Size = new System.Drawing.Size(1070, 876);
             this.panel2.TabIndex = 1;
             // 
             // label2
@@ -86,7 +87,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(43, 86);
+            this.label2.Location = new System.Drawing.Point(17, 68);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(955, 34);
@@ -97,8 +98,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
-            this.label1.Location = new System.Drawing.Point(42, 379);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(16, 335);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(315, 23);
@@ -108,27 +109,27 @@
             // live_results_flow
             // 
             this.live_results_flow.AutoScroll = true;
-            this.live_results_flow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
+            this.live_results_flow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(233)))), ((int)(((byte)(255)))));
             this.live_results_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.live_results_flow.Location = new System.Drawing.Point(46, 412);
+            this.live_results_flow.Location = new System.Drawing.Point(20, 362);
             this.live_results_flow.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.live_results_flow.Name = "live_results_flow";
             this.live_results_flow.Padding = new System.Windows.Forms.Padding(10);
-            this.live_results_flow.Size = new System.Drawing.Size(1155, 488);
+            this.live_results_flow.Size = new System.Drawing.Size(1027, 488);
             this.live_results_flow.TabIndex = 12;
             this.live_results_flow.WrapContents = false;
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(233)))), ((int)(((byte)(255)))));
             this.panel3.Controls.Add(this.vote_now_bttn);
             this.panel3.Controls.Add(this.status_election_label);
             this.panel3.Controls.Add(this.election_department_label);
             this.panel3.Controls.Add(this.election_name);
-            this.panel3.Location = new System.Drawing.Point(46, 153);
+            this.panel3.Location = new System.Drawing.Point(20, 123);
             this.panel3.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1155, 188);
+            this.panel3.Size = new System.Drawing.Size(1027, 188);
             this.panel3.TabIndex = 11;
             // 
             // vote_now_bttn
@@ -186,8 +187,8 @@
             // 
             this.label.AutoSize = true;
             this.label.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
-            this.label.Location = new System.Drawing.Point(39, 33);
+            this.label.ForeColor = System.Drawing.Color.Black;
+            this.label.Location = new System.Drawing.Point(13, 27);
             this.label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(348, 38);
@@ -196,7 +197,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
             this.panel1.Controls.Add(this.name_label);
             this.panel1.Controls.Add(this.status_label);
             this.panel1.Controls.Add(this.view_ballot_icon);
@@ -215,18 +216,18 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(337, 943);
+            this.panel1.Size = new System.Drawing.Size(303, 876);
             this.panel1.TabIndex = 0;
             // 
             // name_label
             // 
             this.name_label.AutoSize = true;
-            this.name_label.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name_label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name_label.ForeColor = System.Drawing.Color.White;
-            this.name_label.Location = new System.Drawing.Point(23, 270);
+            this.name_label.Location = new System.Drawing.Point(13, 265);
             this.name_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.name_label.Name = "name_label";
-            this.name_label.Size = new System.Drawing.Size(154, 21);
+            this.name_label.Size = new System.Drawing.Size(118, 17);
             this.name_label.TabIndex = 10;
             this.name_label.Text = "GLYZEL GALAGAR";
             // 
@@ -235,49 +236,28 @@
             this.status_label.AutoSize = true;
             this.status_label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.status_label.ForeColor = System.Drawing.Color.White;
-            this.status_label.Location = new System.Drawing.Point(24, 302);
+            this.status_label.Location = new System.Drawing.Point(13, 282);
             this.status_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.status_label.Name = "status_label";
             this.status_label.Size = new System.Drawing.Size(47, 17);
             this.status_label.TabIndex = 11;
             this.status_label.Text = "STATUS";
             // 
-            // view_ballot_icon
-            // 
-            this.view_ballot_icon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.view_ballot_icon.Cursor = System.Windows.Forms.Cursors.Default;
-            this.view_ballot_icon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.view_ballot_icon.ForeColor = System.Drawing.Color.Transparent;
-            this.view_ballot_icon.IconChar = FontAwesome.Sharp.IconChar.VoteYea;
-            this.view_ballot_icon.IconColor = System.Drawing.Color.White;
-            this.view_ballot_icon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.view_ballot_icon.IconSize = 80;
-            this.view_ballot_icon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.view_ballot_icon.Location = new System.Drawing.Point(26, 741);
-            this.view_ballot_icon.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.view_ballot_icon.Name = "view_ballot_icon";
-            this.view_ballot_icon.Size = new System.Drawing.Size(275, 76);
-            this.view_ballot_icon.TabIndex = 44;
-            this.view_ballot_icon.Text = "Download eBallot";
-            this.view_ballot_icon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.view_ballot_icon.UseVisualStyleBackColor = false;
-            this.view_ballot_icon.Click += new System.EventHandler(this.view_ballot_icon_Click);
-            // 
             // logout_icon
             // 
-            this.logout_icon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
+            this.logout_icon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
             this.logout_icon.Cursor = System.Windows.Forms.Cursors.Default;
             this.logout_icon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logout_icon.ForeColor = System.Drawing.Color.Transparent;
             this.logout_icon.IconChar = FontAwesome.Sharp.IconChar.SignOut;
             this.logout_icon.IconColor = System.Drawing.Color.White;
             this.logout_icon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.logout_icon.IconSize = 80;
+            this.logout_icon.IconSize = 50;
             this.logout_icon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.logout_icon.Location = new System.Drawing.Point(26, 825);
+            this.logout_icon.Location = new System.Drawing.Point(15, 775);
             this.logout_icon.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.logout_icon.Name = "logout_icon";
-            this.logout_icon.Size = new System.Drawing.Size(275, 76);
+            this.logout_icon.Size = new System.Drawing.Size(272, 49);
             this.logout_icon.TabIndex = 43;
             this.logout_icon.Text = "Logout";
             this.logout_icon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -289,7 +269,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(22, 505);
+            this.label10.Location = new System.Drawing.Point(12, 312);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(238, 23);
@@ -301,7 +281,7 @@
             this.email_label.AutoSize = true;
             this.email_label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.email_label.ForeColor = System.Drawing.Color.White;
-            this.email_label.Location = new System.Drawing.Point(22, 605);
+            this.email_label.Location = new System.Drawing.Point(13, 370);
             this.email_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.email_label.Name = "email_label";
             this.email_label.Size = new System.Drawing.Size(44, 17);
@@ -313,7 +293,7 @@
             this.contact_label.AutoSize = true;
             this.contact_label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contact_label.ForeColor = System.Drawing.Color.White;
-            this.contact_label.Location = new System.Drawing.Point(22, 573);
+            this.contact_label.Location = new System.Drawing.Point(11, 353);
             this.contact_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.contact_label.Name = "contact_label";
             this.contact_label.Size = new System.Drawing.Size(70, 17);
@@ -325,7 +305,7 @@
             this.birthday_label.AutoSize = true;
             this.birthday_label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.birthday_label.ForeColor = System.Drawing.Color.White;
-            this.birthday_label.Location = new System.Drawing.Point(22, 539);
+            this.birthday_label.Location = new System.Drawing.Point(11, 336);
             this.birthday_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.birthday_label.Name = "birthday_label";
             this.birthday_label.Size = new System.Drawing.Size(66, 17);
@@ -337,7 +317,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(22, 352);
+            this.label9.Location = new System.Drawing.Point(10, 400);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(222, 23);
@@ -349,7 +329,7 @@
             this.section_label.AutoSize = true;
             this.section_label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.section_label.ForeColor = System.Drawing.Color.White;
-            this.section_label.Location = new System.Drawing.Point(22, 452);
+            this.section_label.Location = new System.Drawing.Point(13, 457);
             this.section_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.section_label.Name = "section_label";
             this.section_label.Size = new System.Drawing.Size(61, 17);
@@ -361,7 +341,7 @@
             this.year_label.AutoSize = true;
             this.year_label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.year_label.ForeColor = System.Drawing.Color.White;
-            this.year_label.Location = new System.Drawing.Point(22, 420);
+            this.year_label.Location = new System.Drawing.Point(11, 440);
             this.year_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.year_label.Name = "year_label";
             this.year_label.Size = new System.Drawing.Size(39, 17);
@@ -373,7 +353,7 @@
             this.department_label.AutoSize = true;
             this.department_label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.department_label.ForeColor = System.Drawing.Color.White;
-            this.department_label.Location = new System.Drawing.Point(22, 386);
+            this.department_label.Location = new System.Drawing.Point(11, 423);
             this.department_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.department_label.Name = "department_label";
             this.department_label.Size = new System.Drawing.Size(88, 17);
@@ -386,10 +366,10 @@
             this.voter_image.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.voter_image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.voter_image.Cursor = System.Windows.Forms.Cursors.Default;
-            this.voter_image.Location = new System.Drawing.Point(26, 34);
+            this.voter_image.Location = new System.Drawing.Point(16, 28);
             this.voter_image.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.voter_image.Name = "voter_image";
-            this.voter_image.Size = new System.Drawing.Size(276, 225);
+            this.voter_image.Size = new System.Drawing.Size(270, 231);
             this.voter_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.voter_image.TabIndex = 4;
             this.voter_image.TabStop = false;
@@ -426,17 +406,38 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel2);
-            this.splitContainer1.Size = new System.Drawing.Size(1597, 943);
-            this.splitContainer1.SplitterDistance = 337;
+            this.splitContainer1.Size = new System.Drawing.Size(1375, 876);
+            this.splitContainer1.SplitterDistance = 303;
             this.splitContainer1.SplitterWidth = 2;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // view_ballot_icon
+            // 
+            this.view_ballot_icon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
+            this.view_ballot_icon.Cursor = System.Windows.Forms.Cursors.Default;
+            this.view_ballot_icon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.view_ballot_icon.ForeColor = System.Drawing.Color.Transparent;
+            this.view_ballot_icon.IconChar = FontAwesome.Sharp.IconChar.VoteYea;
+            this.view_ballot_icon.IconColor = System.Drawing.Color.White;
+            this.view_ballot_icon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.view_ballot_icon.IconSize = 50;
+            this.view_ballot_icon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.view_ballot_icon.Location = new System.Drawing.Point(14, 718);
+            this.view_ballot_icon.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.view_ballot_icon.Name = "view_ballot_icon";
+            this.view_ballot_icon.Size = new System.Drawing.Size(272, 49);
+            this.view_ballot_icon.TabIndex = 44;
+            this.view_ballot_icon.Text = "Download eBallot";
+            this.view_ballot_icon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.view_ballot_icon.UseVisualStyleBackColor = false;
+            this.view_ballot_icon.Click += new System.EventHandler(this.view_ballot_icon_Click);
             // 
             // VoterDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1597, 943);
+            this.ClientSize = new System.Drawing.Size(1375, 876);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -472,7 +473,6 @@
         private System.Windows.Forms.Label election_name;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Panel panel1;
-        private FontAwesome.Sharp.IconButton view_ballot_icon;
         private FontAwesome.Sharp.IconButton logout_icon;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label email_label;
@@ -489,5 +489,6 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private FontAwesome.Sharp.IconButton view_ballot_icon;
     }
 }

@@ -47,9 +47,9 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("An election already exists in the selected department.");
                 return;
-            }else if(candidates_list.Items.Count < 1 && departments_combo.Items.Count > 1)
+            }else if(candidates_list.Items.Count < 5 && departments_combo.Items.Count > 1)
             {
-                MessageBox.Show("Please add at least one candidate.");
+                MessageBox.Show("Please add at least five candidate.");
                 return;
             }
             else
@@ -57,9 +57,9 @@ namespace WindowsFormsApp1
                 electionService.AddElection(election_name_box.Text, description_box.Text, false, departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString()));
                 candidateService.AddCandidate(Others.othersList, electionService.GetElectionId(election_name_box.Text));
                 MessageBox.Show("Election Added Successfully!");
-                this.Hide();
                 Others.othersList.Clear();
                 Others.LoadElections(electionsPanel);
+                this.Hide();
 
             }
         }

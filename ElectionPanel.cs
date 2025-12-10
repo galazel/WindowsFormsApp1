@@ -10,21 +10,17 @@ namespace WindowsFormsApp1
         private List<Candidate> candidates;
         private ElectionService electionService;
         private ElectionDTO election;
-        public event Action OnUpdateRequested;
+        private FlowLayoutPanel childLayout;
 
-        public ElectionPanel(ElectionDTO electionDto)
+        public ElectionPanel(ElectionDTO electionDto, FlowLayoutPanel parentLayout)
         {
             InitializeComponent();
             electionService = new ElectionService();
+            this.childLayout = parentLayout;
             this.election = electionDto;
             election_name_label.Text = electionDto.Election.ElectionName;
             department_label.Text = electionDto.Department.DepartmentName;
             this.candidates = electionDto.Candidates;
-        }
-
-        public ElectionPanel()
-        {
-            InitializeComponent();
         }
 
         private void start_bttn_Click(object sender, EventArgs e)
@@ -32,7 +28,7 @@ namespace WindowsFormsApp1
             election.Election.Status = !election.Election.Status;
             electionService.UpdateElectionStatus(election.Election.ElectionId);
             MessageBox.Show("Election status updated successfully!");
-            OnUpdateRequested?.Invoke();
+            Others.LoadElections(childLayout);
         }
 
         private void view_details_bttn_Click_1(object sender, EventArgs e)
@@ -59,7 +55,7 @@ namespace WindowsFormsApp1
         {
             electionService.DeleteElection(election.Election.ElectionId);
             MessageBox.Show("Election deleted successfully!");
-            OnUpdateRequested?.Invoke();
+            Others.LoadElections(childLayout);
         }
     }
 }

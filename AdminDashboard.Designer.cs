@@ -54,7 +54,7 @@
             this.admin_panel.Location = new System.Drawing.Point(0, 0);
             this.admin_panel.Margin = new System.Windows.Forms.Padding(0);
             this.admin_panel.Name = "admin_panel";
-            this.admin_panel.Size = new System.Drawing.Size(1256, 941);
+            this.admin_panel.Size = new System.Drawing.Size(1068, 874);
             this.admin_panel.TabIndex = 0;
             // 
             // ongoing_icon
@@ -65,12 +65,12 @@
             this.ongoing_icon.IconChar = FontAwesome.Sharp.IconChar.Spinner;
             this.ongoing_icon.IconColor = System.Drawing.Color.White;
             this.ongoing_icon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ongoing_icon.IconSize = 80;
+            this.ongoing_icon.IconSize = 50;
             this.ongoing_icon.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.ongoing_icon.Location = new System.Drawing.Point(26, 565);
+            this.ongoing_icon.Location = new System.Drawing.Point(16, 445);
             this.ongoing_icon.Margin = new System.Windows.Forms.Padding(5);
             this.ongoing_icon.Name = "ongoing_icon";
-            this.ongoing_icon.Size = new System.Drawing.Size(277, 76);
+            this.ongoing_icon.Size = new System.Drawing.Size(270, 49);
             this.ongoing_icon.TabIndex = 2;
             this.ongoing_icon.Text = "Ongoing Elections";
             this.ongoing_icon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -86,12 +86,12 @@
             this.elections_icon.IconChar = FontAwesome.Sharp.IconChar.Bullhorn;
             this.elections_icon.IconColor = System.Drawing.Color.White;
             this.elections_icon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.elections_icon.IconSize = 80;
+            this.elections_icon.IconSize = 50;
             this.elections_icon.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.elections_icon.Location = new System.Drawing.Point(26, 464);
+            this.elections_icon.Location = new System.Drawing.Point(16, 386);
             this.elections_icon.Margin = new System.Windows.Forms.Padding(5);
             this.elections_icon.Name = "elections_icon";
-            this.elections_icon.Size = new System.Drawing.Size(277, 76);
+            this.elections_icon.Size = new System.Drawing.Size(270, 49);
             this.elections_icon.TabIndex = 1;
             this.elections_icon.Text = "Elections";
             this.elections_icon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -107,12 +107,12 @@
             this.results_icon.IconChar = FontAwesome.Sharp.IconChar.ChartBar;
             this.results_icon.IconColor = System.Drawing.Color.White;
             this.results_icon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.results_icon.IconSize = 80;
+            this.results_icon.IconSize = 50;
             this.results_icon.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.results_icon.Location = new System.Drawing.Point(26, 670);
+            this.results_icon.Location = new System.Drawing.Point(16, 504);
             this.results_icon.Margin = new System.Windows.Forms.Padding(5);
             this.results_icon.Name = "results_icon";
-            this.results_icon.Size = new System.Drawing.Size(277, 76);
+            this.results_icon.Size = new System.Drawing.Size(270, 49);
             this.results_icon.TabIndex = 3;
             this.results_icon.Text = "Results";
             this.results_icon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -128,12 +128,12 @@
             this.dashboard_icon.IconChar = FontAwesome.Sharp.IconChar.TachometerAltFast;
             this.dashboard_icon.IconColor = System.Drawing.Color.White;
             this.dashboard_icon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.dashboard_icon.IconSize = 80;
+            this.dashboard_icon.IconSize = 50;
             this.dashboard_icon.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.dashboard_icon.Location = new System.Drawing.Point(26, 362);
+            this.dashboard_icon.Location = new System.Drawing.Point(16, 327);
             this.dashboard_icon.Margin = new System.Windows.Forms.Padding(5);
             this.dashboard_icon.Name = "dashboard_icon";
-            this.dashboard_icon.Size = new System.Drawing.Size(277, 76);
+            this.dashboard_icon.Size = new System.Drawing.Size(270, 49);
             this.dashboard_icon.TabIndex = 0;
             this.dashboard_icon.Text = "Dashboard";
             this.dashboard_icon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -149,12 +149,12 @@
             this.logout_icon.IconChar = FontAwesome.Sharp.IconChar.SignOut;
             this.logout_icon.IconColor = System.Drawing.Color.White;
             this.logout_icon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.logout_icon.IconSize = 80;
+            this.logout_icon.IconSize = 50;
             this.logout_icon.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.logout_icon.Location = new System.Drawing.Point(26, 773);
+            this.logout_icon.Location = new System.Drawing.Point(16, 563);
             this.logout_icon.Margin = new System.Windows.Forms.Padding(5);
             this.logout_icon.Name = "logout_icon";
-            this.logout_icon.Size = new System.Drawing.Size(277, 76);
+            this.logout_icon.Size = new System.Drawing.Size(270, 49);
             this.logout_icon.TabIndex = 4;
             this.logout_icon.Text = "Logout";
             this.logout_icon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -173,7 +173,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
             this.splitContainer1.Panel1.Controls.Add(this.logout_icon);
             this.splitContainer1.Panel1.Controls.Add(this.voter_image);
             this.splitContainer1.Panel1.Controls.Add(this.results_icon);
@@ -185,8 +185,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.admin_panel);
-            this.splitContainer1.Size = new System.Drawing.Size(1597, 943);
-            this.splitContainer1.SplitterDistance = 337;
+            this.splitContainer1.Size = new System.Drawing.Size(1375, 876);
+            this.splitContainer1.SplitterDistance = 303;
             this.splitContainer1.SplitterWidth = 2;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -197,10 +197,10 @@
             this.voter_image.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.voter_image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.voter_image.Cursor = System.Windows.Forms.Cursors.Default;
-            this.voter_image.Location = new System.Drawing.Point(26, 34);
+            this.voter_image.Location = new System.Drawing.Point(16, 28);
             this.voter_image.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.voter_image.Name = "voter_image";
-            this.voter_image.Size = new System.Drawing.Size(277, 225);
+            this.voter_image.Size = new System.Drawing.Size(270, 231);
             this.voter_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.voter_image.TabIndex = 13;
             this.voter_image.TabStop = false;
@@ -210,7 +210,7 @@
             this.name_label.AutoSize = true;
             this.name_label.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name_label.ForeColor = System.Drawing.Color.White;
-            this.name_label.Location = new System.Drawing.Point(92, 277);
+            this.name_label.Location = new System.Drawing.Point(86, 263);
             this.name_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.name_label.Name = "name_label";
             this.name_label.Size = new System.Drawing.Size(143, 21);
@@ -221,7 +221,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1597, 943);
+            this.ClientSize = new System.Drawing.Size(1375, 876);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
