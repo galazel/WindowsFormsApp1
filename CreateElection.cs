@@ -33,7 +33,7 @@ namespace WindowsFormsApp1
 
         private void add_candidate_bttn_Click(object sender, EventArgs e)
         {
-            new s(departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString())).ShowDialog();
+            new s(departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString()), "add", candidateList).ShowDialog();
         }
 
         private void add_election_bttn_Click(object sender, EventArgs e)
@@ -82,6 +82,14 @@ namespace WindowsFormsApp1
                     LoadCandidates();
                 }
                    
+            }else if(e.KeyCode == Keys.E)
+            {
+                if (candidates_list.SelectedItem == null)
+                    return;
+                int index = candidates_list.SelectedIndex;
+                var selectedCandidate = Others.othersList[index];
+                new s(selectedCandidate,index, candidateList, "edit").ShowDialog();
+
             }
         }
         public void LoadCandidates()

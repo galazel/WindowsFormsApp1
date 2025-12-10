@@ -117,6 +117,7 @@
             this.add_candidate_bttn.TabIndex = 35;
             this.add_candidate_bttn.Text = "ADD CANDIDATE";
             this.add_candidate_bttn.UseVisualStyleBackColor = false;
+            this.add_candidate_bttn.Click += new System.EventHandler(this.add_candidate_bttn_Click);
             // 
             // label4
             // 

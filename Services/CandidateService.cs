@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace WindowsFormsApp1
 {
@@ -37,15 +38,20 @@ namespace WindowsFormsApp1
                }
                db.SaveChanges();
         }
-        public void UpdateCandidate(int electionId)
+        public void UpdateCandidate(int electionId, Dictionary <string,string> candidates)
         {
-            var candidates = db.Candidates.Where(c => c.ElectionId == electionId).ToList();
-            if(candidates.Count != 0)
-               db.Candidates.RemoveRange(candidates);
+            foreach (var candidate in candidates) {
+                var existingCandidate = db.Candidates.FirstOrDefault(c => c.CandidateName == candidate.Key && c.ElectionId == electionId);
+                if (existingCandidate != null)
+                {
+                    int positionId = positionService.GetPositionId(candidate.Value);
+                    existingCandidate.PositionId = positionId;
+                    db.Candidates.AddOrUpdate(existingCandidate);
 
-            db.SaveChanges();
+                }
+                db.SaveChanges();
+            }
         }
-
         public List<Candidate> GetCandidatesByElectionId(int electionId)
         {
            return db.Candidates.Where(c => c.ElectionId ==  electionId).ToList();
@@ -59,6 +65,19 @@ namespace WindowsFormsApp1
                     string positionName = positionService.GetPositionName(po);
                     Console.WriteLine("Position: " + positionName);
                 }
+        }
+        public int GetCandidateId(string candidateName, int electionId)
+        {
+            return db.Candidates.FirstOrDefault(c => c.CandidateName == candidateName && c.ElectionId == electionId).CandidateId;
+        }
+        public void DeleteCandidate(int candidateId)
+        {
+            var candidate = db.Candidates.FirstOrDefault(c => c.CandidateId == candidateId);
+            if(candidate != null)
+            {
+                db.Candidates.Remove(candidate);
+                db.SaveChanges();
+            }
         }
 
         public Boolean IsPosition(int positionId, int electionId)

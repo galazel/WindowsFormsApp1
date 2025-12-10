@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    internal class Others
+    public class Others
     {
         public String CandidateName { get; set; }
         public String Partylist { get; set; }
@@ -41,7 +41,14 @@ namespace WindowsFormsApp1
                 endElectionsFlow.Controls.Add(new EndedPanel(election)); 
         }
 
-   
+        public static void LoadCandidates(ListBox candidateList)
+        {
+            candidateList.Items.Clear();
+            foreach (var candidate in Others.othersList)
+                candidateList.Items.Add(candidate.CandidateName.ToUpper() + " ===================>" + new PositionService().GetPositionName(candidate.PositionId));
+        }
+
+
 
     }
 }

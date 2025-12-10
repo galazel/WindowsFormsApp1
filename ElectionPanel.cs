@@ -60,7 +60,8 @@ namespace WindowsFormsApp1
 
         private void update_bttn_Click(object sender, EventArgs e)
         {
-            new UpdateElection(childLayout,election.Election.ElectionId).ShowDialog();
+            electionService.SetElectionsOnList(election.Election.ElectionId);
+            new UpdateElection(childLayout,election.Election.ElectionId, election.Department.DepartmentId).ShowDialog();
         }
     }
 }

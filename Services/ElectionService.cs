@@ -227,6 +227,22 @@ namespace WindowsFormsApp1
             return list;
         }
 
+        public void SetElectionsOnList(int electionId)
+        {
+            Others.othersList.Clear();
+            Others.othersList = db.Candidates
+                .Where(c => c.ElectionId == electionId)
+                .Select(c => new Others
+                {
+                    CandidateName = c.CandidateName,
+                    Partylist = c.Partylist,
+                    Motto = c.Motto,
+                    Image = c.Image,
+                    PositionId = c.PositionId,
+                    DepartmentId = c.Election.DepartmentId
+                })
+                .ToList();
+        }
 
     }
 }

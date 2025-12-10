@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Data.Entity.Infrastructure.Design.Executor;
 
 namespace WindowsFormsApp1
 {
@@ -17,15 +18,41 @@ namespace WindowsFormsApp1
         private string imagePath = string.Empty;
         private CandidateService candidateService;
         private int departmentId;
-        public s(int departmentId)
+        private ListBox formListBox;
+        private string action;
+        private int index;
+
+        public s(int departmentId, string action, ListBox formListBox)
         {
             InitializeComponent();
             candidateService = new CandidateService();
             positionService = new PositionService();
             this.departmentId = departmentId;
+            this.action = action;
+            this.formListBox = formListBox;
             LoadPositions();
 
         }
+
+        public s(Others editCandidate, int index, ListBox box, string action)
+        {
+            InitializeComponent();
+            candidateService = new CandidateService();
+            positionService = new PositionService();
+            formListBox = box;
+            candidate_name_box.Text = editCandidate.CandidateName;
+            candidate_partylist_box.Text = editCandidate.Partylist;
+            motto_box.Text = editCandidate.Motto;
+            imagePath = editCandidate.Image;
+            candidate_photo_picture.Image = Image.FromFile(imagePath);
+            candidate_positions_combo.SelectedItem = positionService.GetPositionName(editCandidate.PositionId);
+            this.action = action;
+            this.index = index;
+            LoadPositions();
+
+        }
+
+
         public void LoadPositions()
         {
             List<string> positions = positionService.GetAllPositions();
@@ -35,7 +62,6 @@ namespace WindowsFormsApp1
                 candidate_positions_combo.Items.Add(pos);
             }
         }
-
         private void add_candidate_bttn_Click(object sender, EventArgs e)
         {
             if (candidateService.DoesCandidateExist(candidate_name_box.Text))
@@ -49,20 +75,34 @@ namespace WindowsFormsApp1
                 return;
             }else
             {
-                Others.othersList.Add(new Others
+                if(action != null && action.Equals("edit"))
                 {
-                    CandidateName = candidate_name_box.Text,
-                    Partylist = candidate_partylist_box.Text,
-                    Motto = motto_box.Text,
-                    Image = imagePath,
-                    PositionId = positionService.GetPositionId(candidate_positions_combo.SelectedItem.ToString()),
-                    DepartmentId = departmentId
-                });
-                CreateElection.candidateList.Items.Add(candidate_name_box.Text.ToUpper() + " <----------> " + candidate_positions_combo.SelectedItem.ToString());
+                    Others.othersList[index].CandidateName = candidate_name_box.Text;
+                    Others.othersList[index].Partylist = candidate_partylist_box.Text;
+                    Others.othersList[index].Motto = motto_box.Text;
+                    Others.othersList[index].Image = imagePath;
+                    Others.othersList[index].PositionId = positionService.GetPositionId(candidate_positions_combo.SelectedItem.ToString());
+                    Others.LoadCandidates(formListBox);
+                }
+                else if(action != null && action.Equals("add"))
+                    AddCandidateTemporary();
                 this.Hide();
             }
         }
 
+        public void AddCandidateTemporary()
+        {
+            Others.othersList.Add(new Others
+            {
+                CandidateName = candidate_name_box.Text,
+                Partylist = candidate_partylist_box.Text,
+                Motto = motto_box.Text,
+                Image = imagePath,
+                PositionId = positionService.GetPositionId(candidate_positions_combo.SelectedItem.ToString()),
+                DepartmentId = departmentId
+            });
+            Others.LoadCandidates(formListBox);
+        }
         private void candidate_photo_picture_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();

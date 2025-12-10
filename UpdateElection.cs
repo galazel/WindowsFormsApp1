@@ -18,13 +18,17 @@ namespace WindowsFormsApp1
         private CandidateService candidateService = new CandidateService();
         private PositionService positionService = new PositionService();
         private FlowLayoutPanel electionsPanel;
+        public static ListBox candidateList;
 
         private int electionId;
-        public UpdateElection(FlowLayoutPanel layout, int electionId)
+        private int departmentId;
+        public UpdateElection(FlowLayoutPanel layout, int electionId, int departmentId)
         {
             InitializeComponent();
             this.electionsPanel = layout;
             this.electionId= electionId;
+            this.departmentId = departmentId;
+            candidateList = candidates_list;
             LoadDepartments();
             LoadContents();
         }
@@ -45,10 +49,8 @@ namespace WindowsFormsApp1
         public void LoadCandidates()
         {
             candidates_list.Items.Clear();
-            foreach (var candidate in Others.othersList)
-            {
+            foreach (var candidate in candidateService.GetCandidatesByElectionId(electionId))
                 candidates_list.Items.Add(candidate.CandidateName.ToUpper() + " <----------> " + positionService.GetPositionName(candidate.PositionId));
-            }
         }
         public void LoadDepartments()
         {
@@ -76,8 +78,17 @@ namespace WindowsFormsApp1
                 }
 
             }
-        }
+            else if (e.KeyCode == Keys.E)
+            {
+                if (candidates_list.SelectedItem == null)
+                    return;
+                int index = candidates_list.SelectedIndex;
+                MessageBox.Show(index.ToString());
+                var selectedCandidate = Others.othersList[index];
+                new s(selectedCandidate, index, candidateList, "edit").ShowDialog();
 
+            }
+        }
         private void update_election_bttn_Click(object sender, EventArgs e)
         {
             if (election_name_box.Text.Equals("") || description_box.Text.Equals("") || departments_combo.SelectedItem == null || candidates_list.Items.Count == 0)
@@ -96,14 +107,19 @@ namespace WindowsFormsApp1
             }
             else
             {
-                electionService.EditElection(Others.FlowState ? electionService.GetElectionId(Others.othersList[0].CandidateName) : electionService.GetElectionId(election_name_box.Text), election_name_box.Text, description_box.Text, departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString()));
-                candidateService.UpdateCandidate(electionService.GetElectionId(election_name_box.Text));
-                MessageBox.Show("Election Updated Successfully!");
+                electionService.AddElection(election_name_box.Text, description_box.Text, false, departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString()));
+                candidateService.AddCandidate(Others.othersList, electionService.GetElectionId(election_name_box.Text));
+                MessageBox.Show("Election Added Successfully!");
                 Others.othersList.Clear();
                 Others.LoadElections(electionsPanel);
                 this.Hide();
 
             }
+        }
+
+        private void add_candidate_bttn_Click(object sender, EventArgs e)
+        {
+            new s(departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString()), "add", candidateList).ShowDialog();
         }
     }
 }
