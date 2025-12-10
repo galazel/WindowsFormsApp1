@@ -57,5 +57,10 @@ namespace WindowsFormsApp1
             MessageBox.Show("Election deleted successfully!");
             Others.LoadElections(childLayout);
         }
+
+        private void update_bttn_Click(object sender, EventArgs e)
+        {
+            new UpdateElection(childLayout,election.Election.ElectionId).ShowDialog();
+        }
     }
 }

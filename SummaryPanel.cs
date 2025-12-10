@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             position_label.Text = positionName;
-            candidate_label.Text = candidateName;
+            candidate_label.Text = candidateName.ToUpper();
         }
     }
 }

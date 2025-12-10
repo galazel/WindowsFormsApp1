@@ -39,7 +39,7 @@
             // 
             this.candidate_image.BackColor = System.Drawing.Color.Black;
             this.candidate_image.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.candidate_image.Location = new System.Drawing.Point(18, 20);
+            this.candidate_image.Location = new System.Drawing.Point(18, 16);
             this.candidate_image.Margin = new System.Windows.Forms.Padding(4);
             this.candidate_image.Name = "candidate_image";
             this.candidate_image.Size = new System.Drawing.Size(191, 125);
@@ -52,7 +52,7 @@
             this.candidate_name_label.AutoSize = true;
             this.candidate_name_label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.candidate_name_label.ForeColor = System.Drawing.Color.Black;
-            this.candidate_name_label.Location = new System.Drawing.Point(14, 160);
+            this.candidate_name_label.Location = new System.Drawing.Point(15, 145);
             this.candidate_name_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.candidate_name_label.Name = "candidate_name_label";
             this.candidate_name_label.Size = new System.Drawing.Size(166, 17);
@@ -64,7 +64,7 @@
             this.candidate_party_label.AutoSize = true;
             this.candidate_party_label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.candidate_party_label.ForeColor = System.Drawing.Color.Black;
-            this.candidate_party_label.Location = new System.Drawing.Point(15, 181);
+            this.candidate_party_label.Location = new System.Drawing.Point(15, 162);
             this.candidate_party_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.candidate_party_label.Name = "candidate_party_label";
             this.candidate_party_label.Size = new System.Drawing.Size(44, 17);
@@ -77,7 +77,7 @@
             this.vote_candidate_bttn.Cursor = System.Windows.Forms.Cursors.Default;
             this.vote_candidate_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.vote_candidate_bttn.ForeColor = System.Drawing.Color.White;
-            this.vote_candidate_bttn.Location = new System.Drawing.Point(18, 202);
+            this.vote_candidate_bttn.Location = new System.Drawing.Point(18, 183);
             this.vote_candidate_bttn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.vote_candidate_bttn.Name = "vote_candidate_bttn";
             this.vote_candidate_bttn.Size = new System.Drawing.Size(191, 43);
@@ -99,7 +99,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CandidatePanel";
-            this.Size = new System.Drawing.Size(228, 258);
+            this.Size = new System.Drawing.Size(228, 235);
             ((System.ComponentModel.ISupportInitialize)(this.candidate_image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

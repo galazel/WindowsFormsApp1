@@ -31,6 +31,17 @@ namespace WindowsFormsApp1
                 db.Elections.Add(newElection);
                 db.SaveChanges();
         }
+        public void EditElection(int electionId, string electionName, string description, int departmentId)
+        {
+                var election = db.Elections.FirstOrDefault(e => e.ElectionId == electionId);
+                if (election != null)
+                {
+                    election.ElectionName = electionName;
+                    election.Description = description;
+                    election.DepartmentId = departmentId;
+                    db.SaveChanges();
+                }
+        }
         public List<ElectionDTO> GetElections()
         {
             var list = new List<ElectionDTO>();
@@ -48,6 +59,10 @@ namespace WindowsFormsApp1
             }
 
             return list;
+        }
+        public Election GetElection(int electionId)
+        {
+            return db.Elections.FirstOrDefault(e => e.ElectionId == electionId);
         }
         public List<ElectionDTO> GetOngoingElections()
         {

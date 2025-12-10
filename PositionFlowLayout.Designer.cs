@@ -40,7 +40,7 @@
             this.candidates_flow.Margin = new System.Windows.Forms.Padding(4);
             this.candidates_flow.Name = "candidates_flow";
             this.candidates_flow.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.candidates_flow.Size = new System.Drawing.Size(617, 242);
+            this.candidates_flow.Size = new System.Drawing.Size(617, 268);
             this.candidates_flow.TabIndex = 0;
             this.candidates_flow.WrapContents = false;
             // 
@@ -66,7 +66,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PositionFlowLayout";
-            this.Size = new System.Drawing.Size(650, 289);
+            this.Size = new System.Drawing.Size(650, 315);
             this.ResumeLayout(false);
             this.PerformLayout();
 

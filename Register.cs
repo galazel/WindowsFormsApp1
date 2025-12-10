@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace WindowsFormsApp1
 {
     public partial class Register : Form
     {
+        private VoterService voterService = new VoterService();
         private string imagePath = string.Empty;
         
         private int GetDepartmentId(string departmentName)
@@ -64,16 +66,34 @@ namespace WindowsFormsApp1
                 DepartmentId = GetDepartmentId(department_combo.SelectedItem.ToString()),
                 Image = imagePath
             };
+
             if (age < 18)
             {
                 MessageBox.Show("You are not allowed to vote");
                 return;
-            }else if(contact_box.Text.Length > 11 && contact_box.Text.Length < 1)
-            {
-                MessageBox.Show("Contact number must be 11 digits");
-                return;
-
             }
+            if(username_box.Text.Length < 8 || password_box.Text.Length < 8)
+            {
+                MessageBox.Show("Username and Password must be at least 5 characters long.");
+                return;
+            }
+
+            if (!IsValidContactNumber(contact_box.Text))
+            {
+                MessageBox.Show("Please enter a valid contact number.");
+                return;
+            }
+            if (!IsValidEmail(email_box.Text))
+            {
+                MessageBox.Show("Please enter a valid email address.");
+                return;
+            }
+            if (voterService.DoesVoterAlreadyExisted(voter))
+            {
+                MessageBox.Show("Voter already exists!");
+                return;
+            }
+           
             else if (new VoterService().AddVoter(voter))
             {
                 MessageBox.Show("Registration Successful!");
@@ -97,6 +117,17 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Voter already exists!");
             }
+        }
+
+        public bool IsValidEmail(string email)
+        {
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, pattern);
+        }
+        public bool IsValidContactNumber(string contactNumber)
+        {
+            string pattern = @"^(09\d{9}|\+639\d{9})$";
+            return Regex.IsMatch(contactNumber, pattern);
         }
 
         private void return_icon_Click(object sender, EventArgs e)

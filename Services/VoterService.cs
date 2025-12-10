@@ -45,15 +45,19 @@ namespace WindowsFormsApp1
             var voter = db.Voters.FirstOrDefault(v => v.Username == username);
             return voter != null ? voter.VoterId : -1;
         }
-        public Boolean DoesVoterAlreadyExisted(string username, string password)
+        public Boolean DoesVoterAlreadyExisted(Voter voter)
         {
-
-            var voter = db.Voters.FirstOrDefault(v => v.Username == username && v.Password == password);
-            if (voter == null)
+            var vot = db.Voters.FirstOrDefault(v => (v.FirstName == voter.FirstName && v.LastName == voter.LastName) || v.Username == voter.Username && v.Password == voter.Password);
+            if (vot == null)
                 return false;
             return true;
-
-
+        }
+        public Boolean DoesVoterAlreadyExisted(string username, string password)
+        {
+            var vot = db.Voters.FirstOrDefault(v => v.Username == username && v.Password == password);
+            if (vot == null)
+                return false;
+            return true;
         }
         public VoterDTO GetVoterDepartment(int voterId)
         {

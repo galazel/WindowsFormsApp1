@@ -37,6 +37,14 @@ namespace WindowsFormsApp1
                }
                db.SaveChanges();
         }
+        public void UpdateCandidate(int electionId)
+        {
+            var candidates = db.Candidates.Where(c => c.ElectionId == electionId).ToList();
+            if(candidates.Count != 0)
+               db.Candidates.RemoveRange(candidates);
+
+            db.SaveChanges();
+        }
 
         public List<Candidate> GetCandidatesByElectionId(int electionId)
         {

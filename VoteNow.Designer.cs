@@ -41,11 +41,10 @@
             // 
             this.vote_candidates_flow.AutoScroll = true;
             this.vote_candidates_flow.BackColor = System.Drawing.Color.Transparent;
-            this.vote_candidates_flow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.vote_candidates_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.vote_candidates_flow.Location = new System.Drawing.Point(12, 95);
             this.vote_candidates_flow.Name = "vote_candidates_flow";
-            this.vote_candidates_flow.Size = new System.Drawing.Size(650, 496);
+            this.vote_candidates_flow.Size = new System.Drawing.Size(718, 496);
             this.vote_candidates_flow.TabIndex = 0;
             this.vote_candidates_flow.WrapContents = false;
             // 
@@ -83,7 +82,7 @@
             this.panel1.Controls.Add(this.chosen_flow);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.vote_candidate_bttn);
-            this.panel1.Location = new System.Drawing.Point(670, 95);
+            this.panel1.Location = new System.Drawing.Point(736, 95);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(248, 496);
             this.panel1.TabIndex = 34;
@@ -116,7 +115,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(939, 603);
+            this.ClientSize = new System.Drawing.Size(996, 603);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.vote_candidates_flow);

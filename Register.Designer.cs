@@ -47,7 +47,6 @@
             this.email_box = new System.Windows.Forms.TextBox();
             this.contact_box = new System.Windows.Forms.TextBox();
             this.section_box = new System.Windows.Forms.TextBox();
-            this.year_box = new System.Windows.Forms.TextBox();
             this.password_box = new System.Windows.Forms.TextBox();
             this.username_box = new System.Windows.Forms.TextBox();
             this.department_combo = new System.Windows.Forms.ComboBox();
@@ -63,7 +62,9 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.year_box = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.photo_box)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.year_box)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -282,16 +283,6 @@
             this.section_box.Size = new System.Drawing.Size(242, 27);
             this.section_box.TabIndex = 22;
             // 
-            // year_box
-            // 
-            this.year_box.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.year_box.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.year_box.Location = new System.Drawing.Point(55, 424);
-            this.year_box.Margin = new System.Windows.Forms.Padding(4);
-            this.year_box.Name = "year_box";
-            this.year_box.Size = new System.Drawing.Size(242, 27);
-            this.year_box.TabIndex = 21;
-            // 
             // password_box
             // 
             this.password_box.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -473,12 +464,35 @@
             this.label16.TabIndex = 38;
             this.label16.Text = "VOTER\'S REGISTRATION";
             // 
+            // year_box
+            // 
+            this.year_box.Location = new System.Drawing.Point(55, 424);
+            this.year_box.Maximum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.year_box.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.year_box.Name = "year_box";
+            this.year_box.Size = new System.Drawing.Size(242, 22);
+            this.year_box.TabIndex = 39;
+            this.year_box.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.ClientSize = new System.Drawing.Size(882, 805);
+            this.Controls.Add(this.year_box);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.barangay_box);
@@ -495,7 +509,6 @@
             this.Controls.Add(this.password_box);
             this.Controls.Add(this.username_box);
             this.Controls.Add(this.section_box);
-            this.Controls.Add(this.year_box);
             this.Controls.Add(this.email_box);
             this.Controls.Add(this.contact_box);
             this.Controls.Add(this.middle_box);
@@ -521,6 +534,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
             ((System.ComponentModel.ISupportInitialize)(this.photo_box)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.year_box)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -546,7 +560,6 @@
         private System.Windows.Forms.TextBox email_box;
         private System.Windows.Forms.TextBox contact_box;
         private System.Windows.Forms.TextBox section_box;
-        private System.Windows.Forms.TextBox year_box;
         private System.Windows.Forms.TextBox password_box;
         private System.Windows.Forms.TextBox username_box;
         private System.Windows.Forms.ComboBox department_combo;
@@ -562,5 +575,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.NumericUpDown year_box;
     }
 }

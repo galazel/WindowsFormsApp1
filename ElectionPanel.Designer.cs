@@ -116,6 +116,7 @@
             this.update_bttn.TabIndex = 46;
             this.update_bttn.Text = "UPDATE";
             this.update_bttn.UseVisualStyleBackColor = false;
+            this.update_bttn.Click += new System.EventHandler(this.update_bttn_Click);
             // 
             // ElectionPanel
             // 
