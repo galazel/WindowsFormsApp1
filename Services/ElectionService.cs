@@ -122,6 +122,15 @@ namespace WindowsFormsApp1
             }
  
         }
+        public void SetElectionInactive(int electionId)
+        {
+            var election = db.Elections.FirstOrDefault(e => e.ElectionId == electionId);
+            if (election != null)
+            {
+                election.Status = false;
+                db.SaveChanges();
+            }
+        }
         public List<Election> GetActiveElections()
         {
                 return db.Elections.Where(e => e.Status == true).ToList();
@@ -243,6 +252,8 @@ namespace WindowsFormsApp1
                 })
                 .ToList();
         }
+
+        
 
     }
 }

@@ -34,21 +34,49 @@ namespace WindowsFormsApp1
                    DepartmentId = candidate.DepartmentId,
                    ElectionId = electionId
                    };
+                var existingCandidate = db.Candidates.FirstOrDefault(c => c.CandidateName == newCandidate.CandidateName && c.ElectionId == electionId);
+                if (existingCandidate != null)
+                { 
+                    //db.Candidates.Remove(existingCandidate);
+                    db.Candidates.AddOrUpdate(newCandidate);
+                }else
+                    {
                     db.Candidates.Add(newCandidate);
-               }
+                }
+
+
+            }
                db.SaveChanges();
         }
-        public void UpdateCandidate(int electionId, Dictionary <string,string> candidates)
+        public void DeleteCandidateByNameAndElectionId(string candidateName, int electionId)
         {
-            foreach (var candidate in candidates) {
-                var existingCandidate = db.Candidates.FirstOrDefault(c => c.CandidateName == candidate.Key && c.ElectionId == electionId);
-                if (existingCandidate != null)
-                {
-                    int positionId = positionService.GetPositionId(candidate.Value);
-                    existingCandidate.PositionId = positionId;
-                    db.Candidates.AddOrUpdate(existingCandidate);
+            var candidate = db.Candidates.FirstOrDefault(c => c.CandidateName == candidateName && c.ElectionId == electionId);
+            if (candidate != null)
+            {
+                db.Candidates.Remove(candidate);
+                db.SaveChanges();
+            }
+        }
 
-                }
+
+        public void UpdateCandidate(List<Others> candidateList, int electionId)
+        {
+            var electionCandidates = db.Candidates.Where(c => c.ElectionId == electionId).ToList();
+            db.Candidates.RemoveRange(electionCandidates);
+            db.SaveChanges();
+
+            foreach (var candidate in candidateList) {
+                Candidate updatedCandidate = new Candidate
+                {
+                    CandidateName = candidate.CandidateName,
+                    Partylist = candidate.Partylist,
+                    Motto = candidate.Motto,
+                    PositionId = candidate.PositionId,
+                    Image = candidate.Image,
+                    DepartmentId = candidate.DepartmentId,
+                    ElectionId = electionId
+                };
+                db.Candidates.Add(updatedCandidate);
                 db.SaveChanges();
             }
         }

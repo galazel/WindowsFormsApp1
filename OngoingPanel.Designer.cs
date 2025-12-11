@@ -33,6 +33,7 @@
             this.view_details_bttn = new System.Windows.Forms.Button();
             this.end_bttn = new System.Windows.Forms.Button();
             this.ongoing_results_flow = new System.Windows.Forms.FlowLayoutPanel();
+            this.cancel_bttn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // department_label
@@ -97,12 +98,28 @@
             this.ongoing_results_flow.Size = new System.Drawing.Size(966, 367);
             this.ongoing_results_flow.TabIndex = 53;
             // 
+            // cancel_bttn
+            // 
+            this.cancel_bttn.BackColor = System.Drawing.Color.White;
+            this.cancel_bttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cancel_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancel_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
+            this.cancel_bttn.Location = new System.Drawing.Point(707, 16);
+            this.cancel_bttn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cancel_bttn.Name = "cancel_bttn";
+            this.cancel_bttn.Size = new System.Drawing.Size(89, 35);
+            this.cancel_bttn.TabIndex = 54;
+            this.cancel_bttn.Text = "CANCEL";
+            this.cancel_bttn.UseVisualStyleBackColor = false;
+            this.cancel_bttn.Click += new System.EventHandler(this.cancel_bttn_Click);
+            // 
             // OngoingPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(233)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.cancel_bttn);
             this.Controls.Add(this.ongoing_results_flow);
             this.Controls.Add(this.end_bttn);
             this.Controls.Add(this.view_details_bttn);
@@ -124,5 +141,6 @@
         private System.Windows.Forms.Button view_details_bttn;
         private System.Windows.Forms.Button end_bttn;
         private System.Windows.Forms.FlowLayoutPanel ongoing_results_flow;
+        private System.Windows.Forms.Button cancel_bttn;
     }
 }

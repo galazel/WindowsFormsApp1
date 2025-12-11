@@ -9,6 +9,7 @@ namespace WindowsFormsApp1
 {
     public class Others
     {
+        public int CandidateId { get; set; }
         public String CandidateName { get; set; }
         public String Partylist { get; set; }
         public String Motto { get; set; }
@@ -17,6 +18,7 @@ namespace WindowsFormsApp1
         public int DepartmentId { get; set; }
 
         public static List<Others> othersList = othersList = new List<Others>();
+        public static Dictionary<string, string> oldNames = new Dictionary<string, string>();
 
         public static bool FlowState = false;
 
@@ -42,6 +44,12 @@ namespace WindowsFormsApp1
         }
 
         public static void LoadCandidates(ListBox candidateList)
+        {
+            candidateList.Items.Clear();
+            foreach (var candidate in Others.othersList)
+                candidateList.Items.Add(candidate.CandidateName.ToUpper() + " ===================>" + new PositionService().GetPositionName(candidate.PositionId));
+        }
+        public static void LoadCandidatesForEdit(ListBox candidateList)
         {
             candidateList.Items.Clear();
             foreach (var candidate in Others.othersList)

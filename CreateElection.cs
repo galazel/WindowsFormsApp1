@@ -12,6 +12,9 @@ namespace WindowsFormsApp1
         private PositionService positionService;
         public static ListBox candidateList;
         private FlowLayoutPanel electionsPanel;
+        private string action;
+        private ElectionDTO election;
+  
         public CreateElection(FlowLayoutPanel electionsPanel)
         {
             InitializeComponent();
@@ -23,6 +26,26 @@ namespace WindowsFormsApp1
             positionService = new PositionService();
             LoadDepartments();
         }
+        public CreateElection(FlowLayoutPanel electionsPanel, ElectionDTO election, string action)
+        {
+            InitializeComponent();
+            this.electionsPanel = electionsPanel;
+            departmentService = new DepartmentService();
+            electionService = new ElectionService();
+            candidateService = new CandidateService();
+            candidateList = candidates_list;
+            positionService = new PositionService();
+            this.action = action;
+            this.election = election;
+            election_name_box.Text = election.Election.ElectionName;
+            description_box.Text = election.Election.Description;
+            LoadDepartments();
+            departments_combo.SelectedItem = departmentService.GetDepartmentNameById(election.Department.DepartmentId);
+            electionService.SetElectionsOnList(election.Election.ElectionId);
+            LoadCandidates();
+           
+        }
+
         public void LoadDepartments()
         {
             List<string> departments = departmentService.GetAllDepartments();
@@ -38,30 +61,40 @@ namespace WindowsFormsApp1
 
         private void add_election_bttn_Click(object sender, EventArgs e)
         {
-            
+
             if (election_name_box.Text.Equals("") || description_box.Text.Equals("") || departments_combo.SelectedItem == null || candidates_list.Items.Count == 0)
             {
                 MessageBox.Show("Please fill in all required fields.");
             }
-            else if (electionService.DoesElectionAlreadyExisted(election_name_box.Text, departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString())))
+            else if (electionService.DoesElectionAlreadyExisted(election_name_box.Text, departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString())) && action == null)
             {
                 MessageBox.Show("An election already exists in the selected department.");
-                return;
-            }else if(candidates_list.Items.Count < 5 && departments_combo.Items.Count > 1)
-            {
-                MessageBox.Show("Please add at least five candidate.");
                 return;
             }
             else
             {
-                electionService.AddElection(election_name_box.Text, description_box.Text, false, departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString()));
-                candidateService.AddCandidate(Others.othersList, electionService.GetElectionId(election_name_box.Text));
-                MessageBox.Show("Election Added Successfully!");
-                Others.othersList.Clear();
-                Others.LoadElections(electionsPanel);
-                this.Hide();
-
+                if (action != null && action.Equals("edit"))
+                {
+                    electionService.EditElection(election.Election.ElectionId, election_name_box.Text, description_box.Text, departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString()));
+                    candidateService.UpdateCandidate(Others.othersList, election.Election.ElectionId);
+                    MessageBox.Show("Election Updated Successfully!");
+                    Others.othersList.Clear();
+                    Others.LoadElections(electionsPanel);
+                    this.Hide();
+                    
+                }
+                else
+                { 
+                    MessageBox.Show("Adding Election...");
+                    electionService.AddElection(election_name_box.Text, description_box.Text, false, departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString()));
+                    candidateService.AddCandidate(Others.othersList, electionService.GetElectionId(election_name_box.Text));
+                    MessageBox.Show("Election Added Successfully!");
+                    Others.othersList.Clear();
+                    Others.LoadElections(electionsPanel);
+                    this.Hide();
+                }
             }
+        
         }
 
         private void candidates_list_KeyDown(object sender, KeyEventArgs e)
@@ -78,8 +111,18 @@ namespace WindowsFormsApp1
 
                 if (confirm == DialogResult.Yes)
                 {
-                    Others.othersList.RemoveAt(candidates_list.SelectedIndex);
-                    LoadCandidates();
+                    if(action != null && action.Equals("edit"))
+                    {
+                        Others.othersList.RemoveAt(candidates_list.SelectedIndex);
+                        candidateService.UpdateCandidate(Others.othersList, election.Election.ElectionId);
+                        LoadCandidates();
+                    }
+                    else
+                    {
+                        Others.othersList.RemoveAt(candidates_list.SelectedIndex);
+                        LoadCandidates();
+                    }
+                        
                 }
                    
             }else if(e.KeyCode == Keys.E)
@@ -88,6 +131,7 @@ namespace WindowsFormsApp1
                     return;
                 int index = candidates_list.SelectedIndex;
                 var selectedCandidate = Others.othersList[index];
+                MessageBox.Show(selectedCandidate.CandidateName);
                 new s(selectedCandidate,index, candidateList, "edit").ShowDialog();
 
             }

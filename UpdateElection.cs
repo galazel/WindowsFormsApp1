@@ -95,19 +95,9 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Please fill in all required fields.");
             }
-            else if (electionService.DoesElectionAlreadyExisted(election_name_box.Text, departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString())))
-            {
-                MessageBox.Show("An election already exists in the selected department.");
-                return;
-            }
-            else if (candidates_list.Items.Count < 5 && departments_combo.Items.Count > 1)
-            {
-                MessageBox.Show("Please add at least five candidate.");
-                return;
-            }
             else
             {
-                electionService.AddElection(election_name_box.Text, description_box.Text, false, departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString()));
+                electionService.EditElection(electionId,election_name_box.Text, description_box.Text, departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString()));
                 candidateService.AddCandidate(Others.othersList, electionService.GetElectionId(election_name_box.Text));
                 MessageBox.Show("Election Added Successfully!");
                 Others.othersList.Clear();

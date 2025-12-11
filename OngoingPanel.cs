@@ -59,5 +59,13 @@ namespace WindowsFormsApp1
             OnUpdateRequested?.Invoke();
             this.Hide();
         }
+
+        private void cancel_bttn_Click(object sender, EventArgs e)
+        {
+            electionService.SetElectionInactive(electionDTO.Election.ElectionId);
+            MessageBox.Show("Election cancelled successfully!");
+            OnUpdateRequested?.Invoke();
+            this.Hide();
+        }
     }
 }
