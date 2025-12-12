@@ -23,17 +23,13 @@ namespace WindowsFormsApp1
         public void LoadEndedElections()
         {
             ended_flow.Controls.Clear();
-            if(new WinnersService().WinnersCount() != 0)
+            foreach (var election in new ElectionService().GetEndedElections())
             {
-                foreach (var election in new ElectionService().GetEndedElections())
-                {
-                    var panel = new EndedPanel(election);
-                    ended_flow.Controls.Add(panel);
-                }
+               var panel = new EndedPanel(election);
+               ended_flow.Controls.Add(panel);
             }
             
         }
-
         private void clear_button_Click(object sender, EventArgs e)
         {
             MessageBox.Show("All winners data has been cleared.");

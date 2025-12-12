@@ -74,8 +74,8 @@
             this.winners_flow.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.winners_flow.Location = new System.Drawing.Point(23, 69);
             this.winners_flow.Name = "winners_flow";
-            this.winners_flow.Padding = new System.Windows.Forms.Padding(10);
-            this.winners_flow.Size = new System.Drawing.Size(930, 325);
+            this.winners_flow.Padding = new System.Windows.Forms.Padding(5);
+            this.winners_flow.Size = new System.Drawing.Size(912, 325);
             this.winners_flow.TabIndex = 52;
             this.winners_flow.WrapContents = false;
             // 
@@ -95,7 +95,7 @@
             this.download_bttn.BackColor = System.Drawing.Color.White;
             this.download_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.download_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.download_bttn.Location = new System.Drawing.Point(830, 10);
+            this.download_bttn.Location = new System.Drawing.Point(812, 10);
             this.download_bttn.Margin = new System.Windows.Forms.Padding(4);
             this.download_bttn.Name = "download_bttn";
             this.download_bttn.Size = new System.Drawing.Size(123, 37);
@@ -118,7 +118,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "EndedPanel";
             this.Padding = new System.Windows.Forms.Padding(10);
-            this.Size = new System.Drawing.Size(966, 418);
+            this.Size = new System.Drawing.Size(952, 418);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -46,11 +46,11 @@
             // candidate_label
             // 
             this.candidate_label.AutoSize = true;
-            this.candidate_label.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.candidate_label.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.candidate_label.Location = new System.Drawing.Point(6, 22);
             this.candidate_label.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.candidate_label.Name = "candidate_label";
-            this.candidate_label.Size = new System.Drawing.Size(159, 23);
+            this.candidate_label.Size = new System.Drawing.Size(134, 19);
             this.candidate_label.TabIndex = 51;
             this.candidate_label.Text = "CANDIDATE NAE";
             // 

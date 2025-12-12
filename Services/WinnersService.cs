@@ -21,5 +21,6 @@ namespace WindowsFormsApp1.Services
         {
             return db.Winners.Count();
         }
+        
     }
 }

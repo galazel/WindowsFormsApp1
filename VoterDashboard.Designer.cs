@@ -42,6 +42,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.name_label = new System.Windows.Forms.Label();
             this.status_label = new System.Windows.Forms.Label();
+            this.view_ballot_icon = new FontAwesome.Sharp.IconButton();
             this.logout_icon = new FontAwesome.Sharp.IconButton();
             this.label10 = new System.Windows.Forms.Label();
             this.email_label = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.voter_image = new System.Windows.Forms.PictureBox();
             this.profile_button = new FontAwesome.Sharp.IconButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.view_ballot_icon = new FontAwesome.Sharp.IconButton();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -99,7 +99,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(16, 335);
+            this.label1.Location = new System.Drawing.Point(16, 311);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(315, 23);
@@ -111,11 +111,11 @@
             this.live_results_flow.AutoScroll = true;
             this.live_results_flow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(233)))), ((int)(((byte)(255)))));
             this.live_results_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.live_results_flow.Location = new System.Drawing.Point(20, 362);
+            this.live_results_flow.Location = new System.Drawing.Point(20, 338);
             this.live_results_flow.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.live_results_flow.Name = "live_results_flow";
             this.live_results_flow.Padding = new System.Windows.Forms.Padding(10);
-            this.live_results_flow.Size = new System.Drawing.Size(1027, 488);
+            this.live_results_flow.Size = new System.Drawing.Size(1027, 510);
             this.live_results_flow.TabIndex = 12;
             this.live_results_flow.WrapContents = false;
             // 
@@ -126,7 +126,7 @@
             this.panel3.Controls.Add(this.status_election_label);
             this.panel3.Controls.Add(this.election_department_label);
             this.panel3.Controls.Add(this.election_name);
-            this.panel3.Location = new System.Drawing.Point(20, 123);
+            this.panel3.Location = new System.Drawing.Point(20, 110);
             this.panel3.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1027, 188);
@@ -242,6 +242,27 @@
             this.status_label.Size = new System.Drawing.Size(47, 17);
             this.status_label.TabIndex = 11;
             this.status_label.Text = "STATUS";
+            // 
+            // view_ballot_icon
+            // 
+            this.view_ballot_icon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
+            this.view_ballot_icon.Cursor = System.Windows.Forms.Cursors.Default;
+            this.view_ballot_icon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.view_ballot_icon.ForeColor = System.Drawing.Color.Transparent;
+            this.view_ballot_icon.IconChar = FontAwesome.Sharp.IconChar.VoteYea;
+            this.view_ballot_icon.IconColor = System.Drawing.Color.White;
+            this.view_ballot_icon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.view_ballot_icon.IconSize = 50;
+            this.view_ballot_icon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.view_ballot_icon.Location = new System.Drawing.Point(14, 718);
+            this.view_ballot_icon.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.view_ballot_icon.Name = "view_ballot_icon";
+            this.view_ballot_icon.Size = new System.Drawing.Size(272, 49);
+            this.view_ballot_icon.TabIndex = 44;
+            this.view_ballot_icon.Text = "Download eBallot";
+            this.view_ballot_icon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.view_ballot_icon.UseVisualStyleBackColor = false;
+            this.view_ballot_icon.Click += new System.EventHandler(this.view_ballot_icon_Click);
             // 
             // logout_icon
             // 
@@ -410,27 +431,6 @@
             this.splitContainer1.SplitterDistance = 303;
             this.splitContainer1.SplitterWidth = 2;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // view_ballot_icon
-            // 
-            this.view_ballot_icon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
-            this.view_ballot_icon.Cursor = System.Windows.Forms.Cursors.Default;
-            this.view_ballot_icon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.view_ballot_icon.ForeColor = System.Drawing.Color.Transparent;
-            this.view_ballot_icon.IconChar = FontAwesome.Sharp.IconChar.VoteYea;
-            this.view_ballot_icon.IconColor = System.Drawing.Color.White;
-            this.view_ballot_icon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.view_ballot_icon.IconSize = 50;
-            this.view_ballot_icon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.view_ballot_icon.Location = new System.Drawing.Point(14, 718);
-            this.view_ballot_icon.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.view_ballot_icon.Name = "view_ballot_icon";
-            this.view_ballot_icon.Size = new System.Drawing.Size(272, 49);
-            this.view_ballot_icon.TabIndex = 44;
-            this.view_ballot_icon.Text = "Download eBallot";
-            this.view_ballot_icon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.view_ballot_icon.UseVisualStyleBackColor = false;
-            this.view_ballot_icon.Click += new System.EventHandler(this.view_ballot_icon_Click);
             // 
             // VoterDashboard
             // 

@@ -22,10 +22,25 @@ namespace WindowsFormsApp1
             election_name_label.Text = electionDTO.Election.ElectionName.ToUpper();
             election = electionDTO;
             LoadWinners();
+            
         }
         public void LoadWinners()
         {
             List<Winner> winners = election.Winners;
+            if(winners.Count == 0)
+            {
+                winners_flow.Controls.Add(new Label()
+                {
+                    Text = "No winners declared.",
+                    AutoSize = true,
+                    Font = new System.Drawing.Font("Century Gothic", 12, FontStyle.Bold),
+                    ForeColor = Color.Red,
+                    Dock = DockStyle.Fill,
+                    TextAlign = ContentAlignment.MiddleCenter
+                });
+                this.Height = 116;
+                return;
+            }
             foreach (var winner in winners)
             {
                 winners_flow.Controls.Add(new WinnerPanel(winner)); 

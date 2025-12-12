@@ -39,6 +39,12 @@ namespace WindowsFormsApp1
 
                 return result;
         }
+        public void ClearVotedCandidates(int electionId)
+        {
+                var votedCandidates = db.VotedCandidates.Where(vc => vc.ElectionId == electionId).ToList();
+                db.VotedCandidates.RemoveRange(votedCandidates);
+                db.SaveChanges();
+        }
 
 
     }

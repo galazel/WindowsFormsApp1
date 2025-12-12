@@ -95,7 +95,7 @@
             this.ongoing_results_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.ongoing_results_flow.Location = new System.Drawing.Point(26, 75);
             this.ongoing_results_flow.Name = "ongoing_results_flow";
-            this.ongoing_results_flow.Size = new System.Drawing.Size(966, 367);
+            this.ongoing_results_flow.Size = new System.Drawing.Size(938, 280);
             this.ongoing_results_flow.TabIndex = 53;
             // 
             // cancel_bttn
@@ -129,7 +129,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "OngoingPanel";
             this.Padding = new System.Windows.Forms.Padding(17, 16, 17, 16);
-            this.Size = new System.Drawing.Size(1016, 467);
+            this.Size = new System.Drawing.Size(989, 375);
             this.ResumeLayout(false);
             this.PerformLayout();
 

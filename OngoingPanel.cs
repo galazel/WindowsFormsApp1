@@ -63,6 +63,8 @@ namespace WindowsFormsApp1
         private void cancel_bttn_Click(object sender, EventArgs e)
         {
             electionService.SetElectionInactive(electionDTO.Election.ElectionId);
+            new VoterService().SetAllVotersStatusInDepartment(electionDTO.Department.DepartmentId);
+            new VotedCandidatesService().ClearVotedCandidates(electionDTO.Election.ElectionId);
             MessageBox.Show("Election cancelled successfully!");
             OnUpdateRequested?.Invoke();
             this.Hide();

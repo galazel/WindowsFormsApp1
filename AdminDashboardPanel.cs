@@ -28,6 +28,7 @@ namespace WindowsFormsApp1
             {
                 DataTable voters = new DataTable();
                 voters.Columns.Add("VoterId", typeof(int));
+                voters.Columns.Add("Image", typeof(string));
                 voters.Columns.Add("FirstName", typeof(string));
                 voters.Columns.Add("LastName", typeof(string));
                 voters.Columns.Add("MiddleName", typeof(string));
@@ -38,14 +39,16 @@ namespace WindowsFormsApp1
                 voters.Columns.Add("ContactNumber", typeof(string));
                 voters.Columns.Add("Email", typeof(string));
                 voters.Columns.Add("Username", typeof(string));
+                voters.Columns.Add("Password", typeof(string));
+                voters.Columns.Add("Province", typeof(string));
+                voters.Columns.Add("Barangay", typeof(string));
                 voters.Columns.Add("City", typeof(string));
                 voters.Columns.Add("Status", typeof(bool));
-                
 
                 using (var db = new eBotoDBEntities())
                 {
                     foreach (var voter in db.Voters.ToList())
-                        voters.Rows.Add(voter.VoterId, voter.FirstName, voter.LastName, voter.MiddleName, voter.DepartmentId, voter.Section, voter.Year, voter.BirthDate, voter.ContactNumber, voter.Email, voter.Username, voter.City, voter.Status);
+                        voters.Rows.Add(voter.VoterId,voter.Image, voter.FirstName, voter.LastName, voter.MiddleName, voter.DepartmentId, voter.Section, voter.Year, voter.BirthDate, voter.ContactNumber, voter.Email, voter.Username, voter.Password, voter.Province, voter.Barangay, voter.City, voter.Status);
                 }
                 voters_view.DataSource = voters;
             }
@@ -181,12 +184,12 @@ namespace WindowsFormsApp1
             departmentService.ClearAllDepartments();
             positionService.ClearAllPositions();
             voterService.ClearAllVoters();
-            LoadLabel();
-            MessageBox.Show("All departments, positions, and voters have been cleared.");
             LoadDepartments();
             LoadPositions();
             LoadVoters();
-           
+            LoadLabel();
+            MessageBox.Show("All departments, positions, and voters have been cleared.");
+
         }
     }
 }

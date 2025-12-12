@@ -54,9 +54,12 @@ namespace WindowsFormsApp1
         }
         public Boolean DoesVoterAlreadyExisted(string username, string password)
         {
-            var vot = db.Voters.FirstOrDefault(v => v.Username == username && v.Password == password);
+
+            var vot = db.Voters.FirstOrDefault(v => v.Username == username);
             if (vot == null)
                 return false;
+            if(!PasswordHasher.Verify(password, vot.Password))
+                return false;   
             return true;
         }
         public VoterDTO GetVoterDepartment(int voterId)

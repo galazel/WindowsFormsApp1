@@ -77,21 +77,12 @@ namespace WindowsFormsApp1
             }else
             {
                 if(action != null && action.Equals("edit"))
-                {
-                    Others.oldNames.Add(Others.othersList[index].CandidateName, candidate_name_box.Text);
-                    
+                { 
                     Others.othersList[index].CandidateName = candidate_name_box.Text;
                     Others.othersList[index].Partylist = candidate_partylist_box.Text;
                     Others.othersList[index].Motto = motto_box.Text;
                     Others.othersList[index].Image = imagePath;
                     Others.othersList[index].PositionId = positionService.GetPositionId(candidate_positions_combo.SelectedItem.ToString());
-                    
-                    foreach (var candidate in Others.othersList)
-                    {
-                        Console.WriteLine("Candidate Name: " + candidate.CandidateName);
-
-                    }
-
                     Others.LoadCandidates(formListBox);
                 }
                 else if(action != null && action.Equals("add"))
