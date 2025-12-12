@@ -104,10 +104,17 @@ namespace WindowsFormsApp1
                 db.Elections.RemoveRange(endedElections);
                 db.SaveChanges();
         }
-
-        public Boolean DoesElectionAlreadyExisted(string electionName, int departmentId)
+        public bool DoesElectionInDepartmentStillOngoing(int departmentId)
         {
-                var election = db.Elections.FirstOrDefault(e => e.ElectionName == electionName || e.DepartmentId == departmentId && e.Status && e.EndStatus == false);
+                var election = db.Elections.FirstOrDefault(e => e.DepartmentId == departmentId && e.Status && !e.EndStatus);
+                if (election == null)
+                    return false;
+                return true;
+        }
+
+        public Boolean DoesElectionAlreadyExisted(string electionName)
+        {
+                var election = db.Elections.FirstOrDefault(e => e.ElectionName == electionName);
                 if (election == null)
                     return false;
                 return true;

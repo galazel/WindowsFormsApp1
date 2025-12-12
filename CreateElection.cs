@@ -56,7 +56,13 @@ namespace WindowsFormsApp1
 
         private void add_candidate_bttn_Click(object sender, EventArgs e)
         {
-            new s(departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString()), "add", candidateList).ShowDialog();
+            if (departments_combo.SelectedItem == null)
+            {
+                MessageBox.Show("Please select the valid department first before adding candidates.");
+                return;
+            }
+            new s(departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString()), "add", candidateList).ShowDialog(); 
+
         }
 
         private void add_election_bttn_Click(object sender, EventArgs e)
@@ -65,10 +71,12 @@ namespace WindowsFormsApp1
             if (election_name_box.Text.Equals("") || description_box.Text.Equals("") || departments_combo.SelectedItem == null || candidates_list.Items.Count == 0)
             {
                 MessageBox.Show("Please fill in all required fields.");
-            }
-            else if (electionService.DoesElectionAlreadyExisted(election_name_box.Text, departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString())) && action == null)
+            }else if(electionService.DoesElectionAlreadyExisted(election_name_box.Text) && action == null)
             {
-                MessageBox.Show("An election already exists in the selected department.");
+                MessageBox.Show("An Election with that name already exists!");
+            }else if(departments_combo.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a valid department.");
                 return;
             }
             else
@@ -81,10 +89,10 @@ namespace WindowsFormsApp1
                     Others.othersList.Clear();
                     Others.LoadElections(electionsPanel);
                     this.Hide();
-                    
+
                 }
                 else
-                { 
+                {
                     MessageBox.Show("Adding Election...");
                     electionService.AddElection(election_name_box.Text, description_box.Text, false, departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString()));
                     candidateService.AddCandidate(Others.othersList, electionService.GetElectionId(election_name_box.Text));
@@ -131,7 +139,6 @@ namespace WindowsFormsApp1
                     return;
                 int index = candidates_list.SelectedIndex;
                 var selectedCandidate = Others.othersList[index];
-                MessageBox.Show(selectedCandidate.CandidateName);
                 new s(selectedCandidate,index, candidateList, "edit").ShowDialog();
 
             }

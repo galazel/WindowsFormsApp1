@@ -46,8 +46,8 @@ namespace WindowsFormsApp1
             PositionService positionService = new PositionService();
 
             foreach (Candidate candidate in electionDTO.Candidates)
-                candidatesString.AppendLine(candidate.CandidateName + "----------" + positionService.GetPositionName(candidate.PositionId)+ "----------");
-            MessageBox.Show($"Election Name: {election_name_label.Text}\nDepartment: {department_label.Text}\nDescription: {electionDTO.Department.DepartmentName}\nCandidates: \n" + candidatesString);
+                candidatesString.AppendLine(candidate.CandidateName + "----------" + positionService.GetPositionName(candidate.PositionId));
+            MessageBox.Show($"Election Name: {election_name_label.Text}\nDepartment: {department_label.Text}\nDescription: {electionDTO.Election.Description}\nCandidates: \n" + candidatesString);
         }
 
         private void end_bttn_Click(object sender, EventArgs e)

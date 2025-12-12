@@ -64,7 +64,7 @@
             this.view_details_bttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.view_details_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.view_details_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.view_details_bttn.Location = new System.Drawing.Point(657, 16);
+            this.view_details_bttn.Location = new System.Drawing.Point(632, 16);
             this.view_details_bttn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.view_details_bttn.Name = "view_details_bttn";
             this.view_details_bttn.Size = new System.Drawing.Size(76, 35);
@@ -79,7 +79,7 @@
             this.delete_bttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.delete_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.delete_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.delete_bttn.Location = new System.Drawing.Point(919, 16);
+            this.delete_bttn.Location = new System.Drawing.Point(894, 16);
             this.delete_bttn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.delete_bttn.Name = "delete_bttn";
             this.delete_bttn.Size = new System.Drawing.Size(76, 35);
@@ -94,7 +94,7 @@
             this.start_bttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.start_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.start_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.start_bttn.Location = new System.Drawing.Point(835, 16);
+            this.start_bttn.Location = new System.Drawing.Point(810, 16);
             this.start_bttn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.start_bttn.Name = "start_bttn";
             this.start_bttn.Size = new System.Drawing.Size(76, 35);
@@ -109,7 +109,7 @@
             this.update_bttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.update_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.update_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.update_bttn.Location = new System.Drawing.Point(741, 16);
+            this.update_bttn.Location = new System.Drawing.Point(716, 16);
             this.update_bttn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.update_bttn.Name = "update_bttn";
             this.update_bttn.Size = new System.Drawing.Size(86, 35);
@@ -134,7 +134,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "ElectionPanel";
             this.Padding = new System.Windows.Forms.Padding(17, 16, 17, 16);
-            this.Size = new System.Drawing.Size(1016, 83);
+            this.Size = new System.Drawing.Size(991, 83);
             this.ResumeLayout(false);
             this.PerformLayout();
 

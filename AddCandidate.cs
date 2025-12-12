@@ -65,6 +65,18 @@ namespace WindowsFormsApp1
         }
         private void add_candidate_bttn_Click(object sender, EventArgs e)
         {
+            if (candidate_positions_combo != null)
+            {
+                foreach (var cand in Others.othersList)
+                {
+                    if (cand.CandidateName.Equals(candidate_name_box.Text))
+                    {
+                        MessageBox.Show("Candidate already exists for the selected position!");
+                        return;
+                    }
+                }
+            }
+
             if (candidateService.DoesCandidateExist(candidate_name_box.Text))
             {
                 MessageBox.Show("Candidate already exists!");
@@ -74,10 +86,17 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Please fill in all required fields.");
                 return;
-            }else
+            }
+           
+            else if (candidate_positions_combo.SelectedItem == null)
             {
-                if(action != null && action.Equals("edit"))
-                { 
+                MessageBox.Show("Please select a valid position.");
+                return;
+            }
+            else
+            {
+                if (action != null && action.Equals("edit"))
+                {
                     Others.othersList[index].CandidateName = candidate_name_box.Text;
                     Others.othersList[index].Partylist = candidate_partylist_box.Text;
                     Others.othersList[index].Motto = motto_box.Text;
@@ -85,7 +104,7 @@ namespace WindowsFormsApp1
                     Others.othersList[index].PositionId = positionService.GetPositionId(candidate_positions_combo.SelectedItem.ToString());
                     Others.LoadCandidates(formListBox);
                 }
-                else if(action != null && action.Equals("add"))
+                else if (action != null && action.Equals("add"))
                     AddCandidateTemporary();
                 this.Hide();
             }

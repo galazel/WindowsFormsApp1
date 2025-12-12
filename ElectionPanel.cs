@@ -25,10 +25,19 @@ namespace WindowsFormsApp1
 
         private void start_bttn_Click(object sender, EventArgs e)
         {
-            election.Election.Status = !election.Election.Status;
-            electionService.UpdateElectionStatus(election.Election.ElectionId);
-            MessageBox.Show("Election status updated successfully!");
-            Others.LoadElections(childLayout);
+            if(electionService.DoesElectionInDepartmentStillOngoing(election.Department.DepartmentId))
+            {
+                MessageBox.Show("Another election is already ongoing. Please end that election before starting a new one.");
+                return;
+            }else
+            {
+                election.Election.Status = !election.Election.Status;
+                electionService.UpdateElectionStatus(election.Election.ElectionId);
+                MessageBox.Show("Election status updated successfully!");
+                Others.LoadElections(childLayout);
+            }
+
+                
         }
 
         private void view_details_bttn_Click_1(object sender, EventArgs e)
