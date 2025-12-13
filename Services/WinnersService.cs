@@ -21,6 +21,12 @@ namespace WindowsFormsApp1.Services
         {
             return db.Winners.Count();
         }
-        
+        public void ClearAllWinners()
+        {
+            var allWinners = db.Winners.ToList();
+            db.Winners.RemoveRange(allWinners);
+            db.SaveChanges();
+        }
+
     }
 }

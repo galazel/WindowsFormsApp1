@@ -55,6 +55,10 @@ namespace WindowsFormsApp1
             db.Positions.RemoveRange(allPositions);
             db.SaveChanges();
         }
+        public int GetPositionsCount()
+        {
+            return db.Positions.Count();
+        }
 
 
     }

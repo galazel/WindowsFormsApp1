@@ -32,10 +32,23 @@ namespace WindowsFormsApp1
         }
         private void clear_button_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("All winners data has been cleared.");
-            new WinnersService().ClearAll();
-            new ElectionService().ClearEndedElections();
-            ended_flow.Controls.Clear();
+            if (new DepartmentService().GetDepartmentsCount() == 0)
+            {
+                MessageBox.Show("No departments found to clear winners data.", "No Departments Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (new WinnersService().WinnersCount() == 0)
+            {
+                MessageBox.Show("No winners data found to clear.", "No Winners Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            } else
+            {
+                MessageBox.Show("All winners data has been cleared.");
+                new WinnersService().ClearAll();
+                new ElectionService().ClearEndedElections();
+                ended_flow.Controls.Clear();
+            }
+               
         }
     }
 }

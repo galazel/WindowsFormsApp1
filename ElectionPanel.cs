@@ -27,7 +27,7 @@ namespace WindowsFormsApp1
         {
             if(electionService.DoesElectionInDepartmentStillOngoing(election.Department.DepartmentId))
             {
-                MessageBox.Show("Another election is already ongoing. Please end that election before starting a new one.");
+                MessageBox.Show("Another election is already ongoing in your deparment. Please end that election before starting a new one.");
                 return;
             }else
             {

@@ -49,7 +49,6 @@ namespace WindowsFormsApp1
             candidate_positions_combo.SelectedItem = positionService.GetPositionName(editCandidate.PositionId);
             this.action = action;
             this.index = index;
-            
 
         }
 
@@ -71,15 +70,14 @@ namespace WindowsFormsApp1
                 {
                     if (cand.CandidateName.Equals(candidate_name_box.Text))
                     {
-                        MessageBox.Show("Candidate already exists for the selected position!");
+                        MessageBox.Show("Candidate already exists!");
                         return;
                     }
                 }
             }
-
             if (candidateService.DoesCandidateExist(candidate_name_box.Text))
             {
-                MessageBox.Show("Candidate already exists!");
+                MessageBox.Show("Candidate already exists in another election!");
                 return;
             }
             else if (candidate_name_box.Text.Equals("") || candidate_positions_combo.SelectedItem == null || candidate_partylist_box.Text.Equals("") || string.IsNullOrEmpty(imagePath))
@@ -87,7 +85,7 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Please fill in all required fields.");
                 return;
             }
-           
+
             else if (candidate_positions_combo.SelectedItem == null)
             {
                 MessageBox.Show("Please select a valid position.");
@@ -133,6 +131,13 @@ namespace WindowsFormsApp1
                 candidate_photo_picture.Image = Image.FromFile(openFileDialog.FileName);
                 imagePath = openFileDialog.FileName;
             }
+        }
+
+        private void s_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            candidateService?.Dispose();
+            positionService?.Dispose();
+            base.OnFormClosed(e);
         }
     }
 }

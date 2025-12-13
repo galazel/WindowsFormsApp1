@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    public abstract class DBConnection
+    public abstract class DBConnection:IDisposable
     {
         protected readonly eBotoDBEntities db;
 
@@ -14,9 +14,9 @@ namespace WindowsFormsApp1
         {
             db = new eBotoDBEntities();
         }
-        protected void CloseConnection()
+        public void Dispose()
         {
-            db.Dispose();
+            throw new NotImplementedException();
         }
     }
 }

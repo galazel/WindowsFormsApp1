@@ -93,7 +93,6 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    MessageBox.Show("Adding Election...");
                     electionService.AddElection(election_name_box.Text, description_box.Text, false, departmentService.GetDepartmentIdByName(departments_combo.SelectedItem.ToString()));
                     candidateService.AddCandidate(Others.othersList, electionService.GetElectionId(election_name_box.Text));
                     MessageBox.Show("Election Added Successfully!");

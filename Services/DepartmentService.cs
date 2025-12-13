@@ -55,6 +55,12 @@ namespace WindowsFormsApp1
             db.Departments.RemoveRange(allDepartments);
             db.SaveChanges();
         }
+        public int GetDepartmentsCount()
+        {
+            return db.Departments.Count();
+        }
+
+
 
 
 

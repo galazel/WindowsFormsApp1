@@ -104,6 +104,10 @@ namespace WindowsFormsApp1
         {
             return db.Voters.Count().ToString();
         }
+        public int GetVotersCountInt()
+        {
+            return db.Voters.Count();
+        }
 
         public string GetVotedCount()
         {

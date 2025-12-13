@@ -45,6 +45,12 @@ namespace WindowsFormsApp1
                 db.VotedCandidates.RemoveRange(votedCandidates);
                 db.SaveChanges();
         }
+        public void ClearAllVotedCandidates()
+        {
+                var allVotedCandidates = db.VotedCandidates.ToList();
+                db.VotedCandidates.RemoveRange(allVotedCandidates);
+                db.SaveChanges();
+        }
 
 
     }

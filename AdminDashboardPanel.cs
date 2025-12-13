@@ -2,6 +2,7 @@
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using WindowsFormsApp1.Services;
 
 namespace WindowsFormsApp1
 {
@@ -21,6 +22,8 @@ namespace WindowsFormsApp1
             LoadDepartments();
             LoadPositions();
             LoadVoters();
+            //LoadWinners();
+            //LoadVotedCandidates();
         }
         public void LoadVoters()
         {
@@ -107,7 +110,6 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Error loading positions: " + ex.Message);
             }
         }
-
         private void add_department_Click(object sender, EventArgs e)
         {
             new Dialog(true).ShowDialog();
@@ -181,14 +183,25 @@ namespace WindowsFormsApp1
 
         private void clearAll_Click(object sender, EventArgs e)
         {
-            departmentService.ClearAllDepartments();
-            positionService.ClearAllPositions();
-            voterService.ClearAllVoters();
-            LoadDepartments();
-            LoadPositions();
-            LoadVoters();
-            LoadLabel();
-            MessageBox.Show("All departments, positions, and voters have been cleared.");
+            if(new DepartmentService().GetDepartmentsCount() == 0 &&
+               new PositionService().GetPositionsCount() == 0 &&
+               new VoterService().GetVotersCountInt() == 0)
+            {
+                MessageBox.Show("No departments, positions, or voters found to clear.", "No Data Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                departmentService.ClearAllDepartments();
+                positionService.ClearAllPositions();
+                voterService.ClearAllVoters();
+                LoadDepartments();
+                LoadPositions();
+                LoadVoters();
+                LoadLabel();
+                MessageBox.Show("All departments, positions, and voters have been cleared.");
+            }
+                
 
         }
     }

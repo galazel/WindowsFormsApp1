@@ -194,6 +194,7 @@
             this.Name = "s";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddPosition";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.s_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.candidate_photo_picture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
