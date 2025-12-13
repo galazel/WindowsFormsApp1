@@ -13,6 +13,7 @@ namespace WindowsFormsApp1
         private VoterService voterService = new VoterService();
         private CandidateService candidateService = new CandidateService();
         private ElectionService electionService = new ElectionService();
+        private VotedCandidatesService votedCandidatesService = new VotedCandidatesService();
 
         public AdminDashboardPanel()
         {
@@ -22,6 +23,7 @@ namespace WindowsFormsApp1
             LoadDepartments();
             LoadPositions();
             LoadVoters();
+            LoadVotedCandidates();
         }
         public void LoadVoters()
         {
@@ -101,6 +103,27 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Error loading positions: " + ex.Message);
             }
            
+        }
+        public void LoadVotedCandidates()
+        {
+            try
+            {
+                DataTable votedCandidates = new DataTable();
+                votedCandidates.Columns.Add("VotedCandidatesID", typeof(int));
+                votedCandidates.Columns.Add("VoterID", typeof(int));
+                votedCandidates.Columns.Add("CandidateID", typeof(int));
+                votedCandidates.Columns.Add("ElectionID", typeof(int));
+                votedCandidates.Columns.Add("PositionID", typeof(int));
+
+                foreach (var post in votedCandidatesService.GetAllVotedCandidatesList())
+                    votedCandidates.Rows.Add(post.VotedCandidatesId,post.VoterId, post.CandidateId, post.ElectionId, post.PositionId);
+
+                voted_candidates_view.DataSource = votedCandidates;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading positions: " + ex.Message);
+            }
         }
         private void add_department_Click(object sender, EventArgs e)
         {
@@ -208,6 +231,7 @@ namespace WindowsFormsApp1
                     LoadPositions();
                     LoadVoters();
                     LoadLabel();
+                    LoadVotedCandidates();
                     MessageBox.Show("All departments, positions, and voters have been cleared.");
                 }
             }

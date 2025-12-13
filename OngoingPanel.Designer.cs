@@ -60,14 +60,14 @@
             // 
             // view_details_bttn
             // 
-            this.view_details_bttn.BackColor = System.Drawing.Color.White;
+            this.view_details_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
             this.view_details_bttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.view_details_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.view_details_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.view_details_bttn.Location = new System.Drawing.Point(804, 16);
+            this.view_details_bttn.ForeColor = System.Drawing.Color.White;
+            this.view_details_bttn.Location = new System.Drawing.Point(758, 16);
             this.view_details_bttn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.view_details_bttn.Name = "view_details_bttn";
-            this.view_details_bttn.Size = new System.Drawing.Size(76, 35);
+            this.view_details_bttn.Size = new System.Drawing.Size(101, 42);
             this.view_details_bttn.TabIndex = 51;
             this.view_details_bttn.Text = "VIEW";
             this.view_details_bttn.UseVisualStyleBackColor = false;
@@ -75,14 +75,14 @@
             // 
             // end_bttn
             // 
-            this.end_bttn.BackColor = System.Drawing.Color.White;
+            this.end_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
             this.end_bttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.end_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.end_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.end_bttn.Location = new System.Drawing.Point(888, 16);
+            this.end_bttn.ForeColor = System.Drawing.Color.White;
+            this.end_bttn.Location = new System.Drawing.Point(867, 16);
             this.end_bttn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.end_bttn.Name = "end_bttn";
-            this.end_bttn.Size = new System.Drawing.Size(76, 35);
+            this.end_bttn.Size = new System.Drawing.Size(101, 42);
             this.end_bttn.TabIndex = 52;
             this.end_bttn.Text = "END";
             this.end_bttn.UseVisualStyleBackColor = false;
@@ -91,23 +91,23 @@
             // ongoing_results_flow
             // 
             this.ongoing_results_flow.AutoScroll = true;
-            this.ongoing_results_flow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(233)))), ((int)(((byte)(255)))));
+            this.ongoing_results_flow.BackColor = System.Drawing.Color.Transparent;
             this.ongoing_results_flow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.ongoing_results_flow.Location = new System.Drawing.Point(26, 75);
             this.ongoing_results_flow.Name = "ongoing_results_flow";
-            this.ongoing_results_flow.Size = new System.Drawing.Size(938, 280);
+            this.ongoing_results_flow.Size = new System.Drawing.Size(938, 609);
             this.ongoing_results_flow.TabIndex = 53;
             // 
             // cancel_bttn
             // 
-            this.cancel_bttn.BackColor = System.Drawing.Color.White;
+            this.cancel_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
             this.cancel_bttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cancel_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancel_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.cancel_bttn.Location = new System.Drawing.Point(707, 16);
+            this.cancel_bttn.ForeColor = System.Drawing.Color.White;
+            this.cancel_bttn.Location = new System.Drawing.Point(649, 16);
             this.cancel_bttn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cancel_bttn.Name = "cancel_bttn";
-            this.cancel_bttn.Size = new System.Drawing.Size(89, 35);
+            this.cancel_bttn.Size = new System.Drawing.Size(101, 42);
             this.cancel_bttn.TabIndex = 54;
             this.cancel_bttn.Text = "CANCEL";
             this.cancel_bttn.UseVisualStyleBackColor = false;
@@ -118,7 +118,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(233)))), ((int)(((byte)(255)))));
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.cancel_bttn);
             this.Controls.Add(this.ongoing_results_flow);
             this.Controls.Add(this.end_bttn);
@@ -129,7 +130,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "OngoingPanel";
             this.Padding = new System.Windows.Forms.Padding(17, 16, 17, 16);
-            this.Size = new System.Drawing.Size(989, 375);
+            this.Size = new System.Drawing.Size(989, 705);
             this.ResumeLayout(false);
             this.PerformLayout();
 

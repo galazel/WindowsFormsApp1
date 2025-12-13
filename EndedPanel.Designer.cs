@@ -75,7 +75,7 @@
             this.winners_flow.Location = new System.Drawing.Point(23, 69);
             this.winners_flow.Name = "winners_flow";
             this.winners_flow.Padding = new System.Windows.Forms.Padding(5);
-            this.winners_flow.Size = new System.Drawing.Size(900, 325);
+            this.winners_flow.Size = new System.Drawing.Size(922, 325);
             this.winners_flow.TabIndex = 52;
             this.winners_flow.WrapContents = false;
             // 
@@ -92,13 +92,13 @@
             // 
             // download_bttn
             // 
-            this.download_bttn.BackColor = System.Drawing.Color.White;
+            this.download_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
             this.download_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.download_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.download_bttn.Location = new System.Drawing.Point(800, 10);
+            this.download_bttn.ForeColor = System.Drawing.Color.White;
+            this.download_bttn.Location = new System.Drawing.Point(807, 14);
             this.download_bttn.Margin = new System.Windows.Forms.Padding(4);
             this.download_bttn.Name = "download_bttn";
-            this.download_bttn.Size = new System.Drawing.Size(123, 37);
+            this.download_bttn.Size = new System.Drawing.Size(138, 42);
             this.download_bttn.TabIndex = 29;
             this.download_bttn.Text = "DOWNLOAD";
             this.download_bttn.UseVisualStyleBackColor = false;
@@ -108,7 +108,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(233)))), ((int)(((byte)(255)))));
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.download_bttn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.winners_flow);
@@ -118,7 +119,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "EndedPanel";
             this.Padding = new System.Windows.Forms.Padding(10);
-            this.Size = new System.Drawing.Size(941, 418);
+            this.Size = new System.Drawing.Size(959, 416);
             this.ResumeLayout(false);
             this.PerformLayout();
 

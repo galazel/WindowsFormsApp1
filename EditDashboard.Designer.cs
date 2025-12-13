@@ -43,16 +43,16 @@
             // 
             // edit
             // 
-            this.edit.BackColor = System.Drawing.Color.Transparent;
+            this.edit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
             this.edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
+            this.edit.ForeColor = System.Drawing.Color.White;
             this.edit.IconChar = FontAwesome.Sharp.IconChar.None;
             this.edit.IconColor = System.Drawing.Color.Black;
             this.edit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.edit.Location = new System.Drawing.Point(89, 112);
+            this.edit.Location = new System.Drawing.Point(75, 106);
             this.edit.Margin = new System.Windows.Forms.Padding(4);
             this.edit.Name = "edit";
-            this.edit.Size = new System.Drawing.Size(112, 30);
+            this.edit.Size = new System.Drawing.Size(138, 42);
             this.edit.TabIndex = 29;
             this.edit.Text = "EDIT";
             this.edit.UseVisualStyleBackColor = false;
@@ -61,8 +61,8 @@
             // label_add
             // 
             this.label_add.AutoSize = true;
-            this.label_add.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
-            this.label_add.Location = new System.Drawing.Point(85, 29);
+            this.label_add.ForeColor = System.Drawing.Color.Black;
+            this.label_add.Location = new System.Drawing.Point(89, 29);
             this.label_add.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_add.Name = "label_add";
             this.label_add.Size = new System.Drawing.Size(112, 17);

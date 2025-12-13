@@ -37,7 +37,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(21, 25);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
@@ -60,14 +60,14 @@
             // 
             // clear_button
             // 
-            this.clear_button.BackColor = System.Drawing.Color.White;
+            this.clear_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
             this.clear_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.clear_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clear_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.clear_button.Location = new System.Drawing.Point(849, 25);
+            this.clear_button.ForeColor = System.Drawing.Color.White;
+            this.clear_button.Location = new System.Drawing.Point(869, 21);
             this.clear_button.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.clear_button.Name = "clear_button";
-            this.clear_button.Size = new System.Drawing.Size(158, 35);
+            this.clear_button.Size = new System.Drawing.Size(138, 42);
             this.clear_button.TabIndex = 53;
             this.clear_button.Text = "CLEAR ";
             this.clear_button.UseVisualStyleBackColor = false;

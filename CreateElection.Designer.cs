@@ -127,9 +127,9 @@
             // 
             // add_election_bttn
             // 
-            this.add_election_bttn.BackColor = System.Drawing.Color.Transparent;
+            this.add_election_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
             this.add_election_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.add_election_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
+            this.add_election_bttn.ForeColor = System.Drawing.Color.White;
             this.add_election_bttn.Location = new System.Drawing.Point(159, 539);
             this.add_election_bttn.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.add_election_bttn.Name = "add_election_bttn";
@@ -143,7 +143,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(170, 32);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(213, 28);

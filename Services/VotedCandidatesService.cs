@@ -70,5 +70,13 @@ namespace WindowsFormsApp1
                 db.SaveChanges();
             }
         }
+
+        public List<VotedCandidate> GetAllVotedCandidatesList()
+        {
+            using (var db = new eBotoDBEntities())
+            {
+                return db.VotedCandidates.ToList();
+            }
+        }
     }
 }

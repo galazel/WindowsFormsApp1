@@ -58,12 +58,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.candidate_label);
             this.Controls.Add(this.position_label);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.Black;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SummaryPanel";
-            this.Size = new System.Drawing.Size(193, 58);
+            this.Size = new System.Drawing.Size(214, 58);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -38,7 +38,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(18, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
@@ -48,14 +48,14 @@
             // 
             // create_election_bttn
             // 
-            this.create_election_bttn.BackColor = System.Drawing.Color.White;
+            this.create_election_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
             this.create_election_bttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.create_election_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.create_election_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
-            this.create_election_bttn.Location = new System.Drawing.Point(907, 22);
+            this.create_election_bttn.ForeColor = System.Drawing.Color.White;
+            this.create_election_bttn.Location = new System.Drawing.Point(885, 22);
             this.create_election_bttn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.create_election_bttn.Name = "create_election_bttn";
-            this.create_election_bttn.Size = new System.Drawing.Size(135, 30);
+            this.create_election_bttn.Size = new System.Drawing.Size(138, 42);
             this.create_election_bttn.TabIndex = 20;
             this.create_election_bttn.Text = "CREATE";
             this.create_election_bttn.UseVisualStyleBackColor = false;

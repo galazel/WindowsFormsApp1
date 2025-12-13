@@ -89,6 +89,9 @@ namespace WindowsFormsApp1
                 if (election_name_box.Text.Equals("") || description_box.Text.Equals("") || departments_combo.SelectedItem == null || candidates_list.Items.Count == 0)
                 {
                     MessageBox.Show("Please fill in all required fields.");
+                }else if(election_name_box.Text.Length < 10)
+                {
+                    MessageBox.Show("Election name must be at least 10 characters long.");
                 }
                 else if (electionService.DoesElectionAlreadyExisted(election_name_box.Text) && action == null)
                 {

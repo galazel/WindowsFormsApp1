@@ -35,16 +35,16 @@
             // 
             // add_position
             // 
-            this.add_position.BackColor = System.Drawing.Color.Transparent;
+            this.add_position.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
             this.add_position.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.add_position.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
+            this.add_position.ForeColor = System.Drawing.Color.White;
             this.add_position.IconChar = FontAwesome.Sharp.IconChar.None;
             this.add_position.IconColor = System.Drawing.Color.Black;
             this.add_position.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.add_position.Location = new System.Drawing.Point(90, 124);
+            this.add_position.Location = new System.Drawing.Point(78, 115);
             this.add_position.Margin = new System.Windows.Forms.Padding(4);
             this.add_position.Name = "add_position";
-            this.add_position.Size = new System.Drawing.Size(112, 30);
+            this.add_position.Size = new System.Drawing.Size(138, 42);
             this.add_position.TabIndex = 26;
             this.add_position.Text = "ADD";
             this.add_position.UseVisualStyleBackColor = false;
@@ -62,7 +62,7 @@
             // 
             this.label_add.AutoSize = true;
             this.label_add.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_add.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
+            this.label_add.ForeColor = System.Drawing.Color.Black;
             this.label_add.Location = new System.Drawing.Point(63, 28);
             this.label_add.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_add.Name = "label_add";

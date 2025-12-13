@@ -110,9 +110,9 @@
             // 
             // add_candidate_bttn
             // 
-            this.add_candidate_bttn.BackColor = System.Drawing.Color.Transparent;
+            this.add_candidate_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
             this.add_candidate_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.add_candidate_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(70)))), ((int)(((byte)(134)))));
+            this.add_candidate_bttn.ForeColor = System.Drawing.Color.White;
             this.add_candidate_bttn.Location = new System.Drawing.Point(305, 300);
             this.add_candidate_bttn.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.add_candidate_bttn.Name = "add_candidate_bttn";
@@ -163,8 +163,8 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
-            this.label7.Location = new System.Drawing.Point(171, 21);
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(170, 20);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(207, 28);

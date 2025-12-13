@@ -48,7 +48,7 @@
             // 
             this.position_label.AutoSize = true;
             this.position_label.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.position_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
+            this.position_label.ForeColor = System.Drawing.Color.Black;
             this.position_label.Location = new System.Drawing.Point(12, 0);
             this.position_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.position_label.Name = "position_label";

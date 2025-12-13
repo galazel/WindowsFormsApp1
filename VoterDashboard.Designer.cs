@@ -134,7 +134,7 @@
             // 
             // vote_now_bttn
             // 
-            this.vote_now_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(84)))), ((int)(((byte)(166)))));
+            this.vote_now_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
             this.vote_now_bttn.Cursor = System.Windows.Forms.Cursors.Default;
             this.vote_now_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.vote_now_bttn.ForeColor = System.Drawing.Color.White;
