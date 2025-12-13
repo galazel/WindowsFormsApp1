@@ -50,11 +50,11 @@ namespace WindowsFormsApp1
                     MessageBox.Show("No departments found to clear winners data.", "No Departments Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                else if (winnersService.WinnersCount() == 0)
-                {
-                    MessageBox.Show("No winners data found to clear.", "No Winners Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                //else if (winnersService.WinnersCount() == 0)
+                //{
+                //    MessageBox.Show("No winners data found to clear.", "No Winners Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
                 else
                 {
                     MessageBox.Show("All winners data has been cleared.");

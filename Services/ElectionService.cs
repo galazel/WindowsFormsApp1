@@ -21,7 +21,17 @@ namespace WindowsFormsApp1
                 return election != null ? election.ElectionId : -1;
             }
         }
-
+        public bool DoesElectionStillOngoing()
+        {
+            using (var db = new eBotoDBEntities())
+            {
+                var election = db.Elections.FirstOrDefault(e => (e.Status && !e.EndStatus) || (e.Status && e.EndStatus));
+                if(election != null)
+                    return true;
+                else
+                    return false;
+            }
+        }
         public void AddElection(string electionName, string description, bool isActive, int departmentId)
         {
             using (var db = new eBotoDBEntities())

@@ -81,7 +81,6 @@ namespace WindowsFormsApp1
                 if (checkDept != null)
                 {
                     MessageBox.Show("Department already exists.");
-                    return;
                 }
                 else
                 {

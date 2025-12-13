@@ -82,7 +82,6 @@ namespace WindowsFormsApp1
                 if (checkPos != null)
                 {
                     MessageBox.Show("Department already exists.");
-                    return;
                 }else
                 {
                     var position = db.Positions.FirstOrDefault(p => p.PositionId == positionId);

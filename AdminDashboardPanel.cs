@@ -167,11 +167,18 @@ namespace WindowsFormsApp1
 
                     if (confirm == DialogResult.Yes)
                     {
-                        string name = Convert.ToString(positions_grid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
-                        int id = positionService.GetPositionId(name);
-                        positionService.DeletePosition(id);
-                        positions_grid.Rows.RemoveAt(e.RowIndex);
-
+                        if(electionService.DoesElectionStillOngoing())
+                        {                             
+                            MessageBox.Show("Cannot delete position while an election is ongoing or in record.", "Action Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }else
+                        {
+                            string name = Convert.ToString(positions_grid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                            int id = positionService.GetPositionId(name);
+                            positionService.DeletePosition(id);
+                            positions_grid.Rows.RemoveAt(e.RowIndex);
+                        }
+                       
                     }
                 }
             }
