@@ -8,22 +8,20 @@ namespace WindowsFormsApp1
 {
     public partial class AdminDashboardPanel : UserControl
     {
-        private DepartmentService departmentService;
-        private PositionService positionService;
-        private VoterService voterService;
+        private DepartmentService departmentService = new DepartmentService();
+        private PositionService positionService = new PositionService();
+        private VoterService voterService = new VoterService();
+        private CandidateService candidateService = new CandidateService();
+        private ElectionService electionService = new ElectionService();
 
         public AdminDashboardPanel()
         {
             InitializeComponent();
-            departmentService = new DepartmentService();
-            positionService = new PositionService();
-            voterService = new VoterService();
+           
             LoadLabel();
             LoadDepartments();
             LoadPositions();
             LoadVoters();
-            //LoadWinners();
-            //LoadVotedCandidates();
         }
         public void LoadVoters()
         {
@@ -48,25 +46,23 @@ namespace WindowsFormsApp1
                 voters.Columns.Add("City", typeof(string));
                 voters.Columns.Add("Status", typeof(bool));
 
-                using (var db = new eBotoDBEntities())
-                {
-                    foreach (var voter in db.Voters.ToList())
-                        voters.Rows.Add(voter.VoterId,voter.Image, voter.FirstName, voter.LastName, voter.MiddleName, voter.DepartmentId, voter.Section, voter.Year, voter.BirthDate, voter.ContactNumber, voter.Email, voter.Username, voter.Password, voter.Province, voter.Barangay, voter.City, voter.Status);
-                }
+                foreach (var voter in voterService.GetAllVoters())
+                    voters.Rows.Add(voter.VoterId, voter.Image, voter.FirstName, voter.LastName, voter.MiddleName, voter.DepartmentId, voter.Section, voter.Year, voter.BirthDate, voter.ContactNumber, voter.Email, voter.Username, voter.Password, voter.Province, voter.Barangay, voter.City, voter.Status);
                 voters_view.DataSource = voters;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error loading departments: " + ex.Message);
             }
+           
         }
 
         public void LoadLabel()
         {
-            total_voters.Text = new VoterService().GetVotersCount();
-            total_candidates.Text = new CandidateService().GetCandidatesCount();
-            total_elections.Text = new ElectionService().GetElectionsCount();
-            total_voted.Text = new VoterService().GetVotedCount();
+            total_voters.Text = voterService.GetVotersCount();
+            total_candidates.Text = candidateService.GetCandidatesCount();
+            total_elections.Text = electionService.GetElectionsCount();
+            total_voted.Text = voterService.GetVotedCount();
         }
         public void LoadDepartments()
         {
@@ -76,13 +72,11 @@ namespace WindowsFormsApp1
                 departments.Columns.Add("DepartmentID", typeof(int));
                 departments.Columns.Add("Department Name", typeof(string));
 
-                using (var db = new eBotoDBEntities())
-                {
-                    foreach (var dept in db.Departments.ToList())
-                        departments.Rows.Add(dept.DepartmentId, dept.DepartmentName);
-                }
+                foreach (var dept in departmentService.GetAllDepartmentObjects())
+                    departments.Rows.Add(dept.DepartmentId, dept.DepartmentName);
 
                 departments_grid.DataSource = departments;
+ 
             }
             catch (Exception ex)
             {
@@ -97,11 +91,8 @@ namespace WindowsFormsApp1
                 positions.Columns.Add("PositionID", typeof(int));
                 positions.Columns.Add("Position Name", typeof(string));
 
-                using (var db = new eBotoDBEntities())
-                {
-                    foreach (var post in db.Positions.ToList())
-                        positions.Rows.Add(post.PositionId, post.PositionName);
-                }
+                foreach (var post in positionService.GetAllPositionObjects())
+                    positions.Rows.Add(post.PositionId, post.PositionName);
 
                 positions_grid.DataSource = positions;
             }
@@ -109,6 +100,7 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Error loading positions: " + ex.Message);
             }
+           
         }
         private void add_department_Click(object sender, EventArgs e)
         {
@@ -139,70 +131,84 @@ namespace WindowsFormsApp1
                 LoadPositions();
             }
         }
-        private void departments_grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
         private void departments_grid_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right && e.RowIndex >= 0)
+            try
             {
-                var confirm = MessageBox.Show("Delete this row?", "Confirm",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                if (confirm == DialogResult.Yes)
+                if (e.Button == MouseButtons.Right && e.RowIndex >= 0)
                 {
-                    string name = Convert.ToString(departments_grid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
-                    MessageBox.Show(""+name);
-                    int id = departmentService.GetDepartmentIdByName(name);
-                    departmentService.DeleteDepartment(id);
-                    departments_grid.Rows.RemoveAt(e.RowIndex);
-                    
+                    var confirm = MessageBox.Show("Delete this row?", "Confirm",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (confirm == DialogResult.Yes)
+                    {
+                        string name = Convert.ToString(departments_grid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                        int id = departmentService.GetDepartmentIdByName(name);
+                        departmentService.DeleteDepartment(id);
+                        departments_grid.Rows.RemoveAt(e.RowIndex);
+
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting department: " + ex.Message);
+            }        
         }
 
         private void positions_grid_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right && e.RowIndex >= 0)
+            try
             {
-                var confirm = MessageBox.Show("Delete this row?", "Confirm",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                if (confirm == DialogResult.Yes)
+                if (e.Button == MouseButtons.Right && e.RowIndex >= 0)
                 {
-                    string name = Convert.ToString(positions_grid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
-                    int id = positionService.GetPositionId(name);
-                    positionService.DeletePosition(id);
+                    var confirm = MessageBox.Show("Delete this row?", "Confirm",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                    positions_grid.Rows.RemoveAt(e.RowIndex);
-                                    
+                    if (confirm == DialogResult.Yes)
+                    {
+                        string name = Convert.ToString(positions_grid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                        int id = positionService.GetPositionId(name);
+                        positionService.DeletePosition(id);
+                        positions_grid.Rows.RemoveAt(e.RowIndex);
+
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting position: " + ex.Message);
             }
         }
 
         private void clearAll_Click(object sender, EventArgs e)
         {
-            if(new DepartmentService().GetDepartmentsCount() == 0 &&
-               new PositionService().GetPositionsCount() == 0 &&
-               new VoterService().GetVotersCountInt() == 0)
+            try
             {
-                MessageBox.Show("No departments, positions, or voters found to clear.", "No Data Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (departmentService.GetDepartmentsCount() == 0 &&
+               positionService.GetPositionsCount() == 0 &&
+               voterService.GetVotersCountInt() == 0)
+                {
+                    MessageBox.Show("No departments, positions, or voters found to clear.", "No Data Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    departmentService.ClearAllDepartments();
+                    positionService.ClearAllPositions();
+                    voterService.ClearAllVoters();
+                    LoadDepartments();
+                    LoadPositions();
+                    LoadVoters();
+                    LoadLabel();
+                    MessageBox.Show("All departments, positions, and voters have been cleared.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else
-            {
-                departmentService.ClearAllDepartments();
-                positionService.ClearAllPositions();
-                voterService.ClearAllVoters();
-                LoadDepartments();
-                LoadPositions();
-                LoadVoters();
-                LoadLabel();
-                MessageBox.Show("All departments, positions, and voters have been cleared.");
-            }
-                
-
         }
     }
 }

@@ -137,12 +137,6 @@
     <Compile Include="Election.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ElectionResults.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ElectionResults.Designer.cs">
-      <DependentUpon>ElectionResults.cs</DependentUpon>
-    </Compile>
     <Compile Include="EndedElection.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -187,12 +181,6 @@
     <Compile Include="EditDashboard.Designer.cs">
       <DependentUpon>EditDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EditProfile.Designer.cs">
-      <DependentUpon>EditProfile.cs</DependentUpon>
-    </Compile>
     <Compile Include="DTOs\ElectionDTO.cs" />
     <Compile Include="ElectionSummary.cs" />
     <Compile Include="Connection\DBConnection.cs" />
@@ -215,12 +203,6 @@
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="OfficialResults.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="OfficialResults.Designer.cs">
-      <DependentUpon>OfficialResults.cs</DependentUpon>
     </Compile>
     <Compile Include="OngoingPanel.cs">
       <SubType>UserControl</SubType>
@@ -249,12 +231,6 @@
     </Compile>
     <Compile Include="ResultLabelcs.Designer.cs">
       <DependentUpon>ResultLabelcs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ResultsPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ResultsPanel.Designer.cs">
-      <DependentUpon>ResultsPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\WinnersService.cs" />
     <Compile Include="SummaryPanel.cs">
@@ -338,14 +314,8 @@
     <EmbeddedResource Include="EditDashboard.resx">
       <DependentUpon>EditDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditProfile.resx">
-      <DependentUpon>EditProfile.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ElectionPanel.resx">
       <DependentUpon>ElectionPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ElectionResults.resx">
-      <DependentUpon>ElectionResults.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EndedPanel.resx">
       <DependentUpon>EndedPanel.cs</DependentUpon>
@@ -376,9 +346,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ResultLabelcs.resx">
       <DependentUpon>ResultLabelcs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResultsPanel.resx">
-      <DependentUpon>ResultsPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SummaryPanel.resx">
       <DependentUpon>SummaryPanel.cs</DependentUpon>

@@ -12,8 +12,8 @@ namespace WindowsFormsApp1
 {
     public partial class EditDashboard : Form
     {
-        private DepartmentService departmentService;
-        private PositionService positionService;
+        private DepartmentService departmentService = new DepartmentService();
+        private PositionService positionService = new PositionService();
         private bool isTrue;
         private int id;
         public EditDashboard(bool isDepartment, int id)
@@ -21,8 +21,6 @@ namespace WindowsFormsApp1
             InitializeComponent();
             this.isTrue = isDepartment;
             this.id = id;
-            departmentService = new DepartmentService();
-            positionService = new PositionService();
 
             if (isDepartment)
                 label_add.Text = "EDIT DEPARTMENT";
@@ -32,26 +30,33 @@ namespace WindowsFormsApp1
 
         private void edit_Click(object sender, EventArgs e)
         {
-            if (add_box.Text.Equals(""))
+            try
             {
-                MessageBox.Show("Input the required field");
-                return;
-            }
-            else
-            {
-                string item = add_box.Text;
-                if (isTrue)
+                if (add_box.Text.Equals(""))
                 {
-                    departmentService.EditDepartment(id,item);
-                    MessageBox.Show("Edited Successfully");
-                    this.Hide();
+                    MessageBox.Show("Input the required field");
+                    return;
                 }
                 else
                 {
-                    positionService.EditPosition(id,item);
-                    MessageBox.Show("Edited Successfully");
-                    this.Hide();
+                    string item = add_box.Text;
+                    if (isTrue)
+                    {
+                        departmentService.EditDepartment(id, item);
+                        this.Hide();
+                    }
+                    else
+                    {
+                        positionService.EditPosition(id, item);
+
+                        this.Hide();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
             }
         }
     }

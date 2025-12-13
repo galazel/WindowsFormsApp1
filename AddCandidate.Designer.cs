@@ -45,16 +45,16 @@
             // 
             // candidate_name_box
             // 
-            this.candidate_name_box.Location = new System.Drawing.Point(72, 146);
+            this.candidate_name_box.Location = new System.Drawing.Point(15, 84);
             this.candidate_name_box.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.candidate_name_box.Name = "candidate_name_box";
-            this.candidate_name_box.Size = new System.Drawing.Size(377, 27);
+            this.candidate_name_box.Size = new System.Drawing.Size(280, 27);
             this.candidate_name_box.TabIndex = 30;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(66, 120);
+            this.label3.Location = new System.Drawing.Point(11, 58);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 21);
@@ -63,16 +63,16 @@
             // 
             // candidate_partylist_box
             // 
-            this.candidate_partylist_box.Location = new System.Drawing.Point(71, 264);
+            this.candidate_partylist_box.Location = new System.Drawing.Point(14, 202);
             this.candidate_partylist_box.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.candidate_partylist_box.Name = "candidate_partylist_box";
-            this.candidate_partylist_box.Size = new System.Drawing.Size(377, 27);
+            this.candidate_partylist_box.Size = new System.Drawing.Size(280, 27);
             this.candidate_partylist_box.TabIndex = 32;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(66, 178);
+            this.label1.Location = new System.Drawing.Point(9, 116);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 21);
@@ -82,16 +82,16 @@
             // candidate_positions_combo
             // 
             this.candidate_positions_combo.FormattingEnabled = true;
-            this.candidate_positions_combo.Location = new System.Drawing.Point(72, 204);
+            this.candidate_positions_combo.Location = new System.Drawing.Point(15, 142);
             this.candidate_positions_combo.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.candidate_positions_combo.Name = "candidate_positions_combo";
-            this.candidate_positions_combo.Size = new System.Drawing.Size(377, 29);
+            this.candidate_positions_combo.Size = new System.Drawing.Size(280, 29);
             this.candidate_positions_combo.TabIndex = 34;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(65, 238);
+            this.label4.Location = new System.Drawing.Point(8, 176);
             this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 21);
@@ -101,7 +101,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(65, 357);
+            this.label5.Location = new System.Drawing.Point(301, 58);
             this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 21);
@@ -113,10 +113,10 @@
             this.add_candidate_bttn.BackColor = System.Drawing.Color.Transparent;
             this.add_candidate_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.add_candidate_bttn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(70)))), ((int)(((byte)(134)))));
-            this.add_candidate_bttn.Location = new System.Drawing.Point(160, 567);
+            this.add_candidate_bttn.Location = new System.Drawing.Point(305, 300);
             this.add_candidate_bttn.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.add_candidate_bttn.Name = "add_candidate_bttn";
-            this.add_candidate_bttn.Size = new System.Drawing.Size(196, 33);
+            this.add_candidate_bttn.Size = new System.Drawing.Size(211, 52);
             this.add_candidate_bttn.TabIndex = 37;
             this.add_candidate_bttn.Text = "ADD CANDIDATE";
             this.add_candidate_bttn.UseVisualStyleBackColor = false;
@@ -130,11 +130,11 @@
             this.candidate_photo_picture.IconChar = FontAwesome.Sharp.IconChar.None;
             this.candidate_photo_picture.IconColor = System.Drawing.SystemColors.ControlText;
             this.candidate_photo_picture.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.candidate_photo_picture.IconSize = 158;
-            this.candidate_photo_picture.Location = new System.Drawing.Point(71, 383);
+            this.candidate_photo_picture.IconSize = 206;
+            this.candidate_photo_picture.Location = new System.Drawing.Point(305, 84);
             this.candidate_photo_picture.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.candidate_photo_picture.Name = "candidate_photo_picture";
-            this.candidate_photo_picture.Size = new System.Drawing.Size(376, 158);
+            this.candidate_photo_picture.Size = new System.Drawing.Size(211, 206);
             this.candidate_photo_picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.candidate_photo_picture.TabIndex = 38;
             this.candidate_photo_picture.TabStop = false;
@@ -143,7 +143,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(66, 299);
+            this.label6.Location = new System.Drawing.Point(9, 237);
             this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 21);
@@ -152,10 +152,11 @@
             // 
             // motto_box
             // 
-            this.motto_box.Location = new System.Drawing.Point(72, 325);
+            this.motto_box.Location = new System.Drawing.Point(15, 263);
             this.motto_box.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.motto_box.Multiline = true;
             this.motto_box.Name = "motto_box";
-            this.motto_box.Size = new System.Drawing.Size(377, 27);
+            this.motto_box.Size = new System.Drawing.Size(280, 89);
             this.motto_box.TabIndex = 40;
             // 
             // label7
@@ -163,7 +164,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(12)))), ((int)(((byte)(1)))));
-            this.label7.Location = new System.Drawing.Point(163, 54);
+            this.label7.Location = new System.Drawing.Point(171, 21);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(207, 28);
@@ -175,7 +176,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(529, 631);
+            this.ClientSize = new System.Drawing.Size(529, 372);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.motto_box);
             this.Controls.Add(this.label6);
@@ -194,7 +195,6 @@
             this.Name = "s";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddPosition";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.s_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.candidate_photo_picture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

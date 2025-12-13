@@ -12,6 +12,8 @@ namespace WindowsFormsApp1
 {
     public partial class Login : Form
     {
+        private VoterService voterService = new VoterService();
+        private ElectionService electionService = new ElectionService();
         public Login()
         {
             InitializeComponent();
@@ -19,40 +21,51 @@ namespace WindowsFormsApp1
 
         private void login_bttn_Click(object sender, EventArgs e)
         {
-            if (username_box.Text.Equals("admin") && password_box.Text.Equals("admin123"))
+            try
             {
-                this.Hide();
-                new AdminDashboard(new AdminDashboardPanel()).ShowDialog();
-            }
-            else if (username_box.Text.Equals("") || password_box.Text.Equals(""))
-                MessageBox.Show("Please input the required fields");
-            else
-            {
-                if(!new VoterService().DoesVoterAlreadyExisted(username_box.Text, password_box.Text))
+                if (username_box.Text.Equals("admin") && password_box.Text.Equals("admin123"))
                 {
-                    MessageBox.Show("No registered voter found. Please register first.");
-                    return;
-                }else
-                {
-                    MessageBox.Show("Login Successful!");
                     this.Hide();
-
-                    int voterId = new VoterService().GetVoterIdByUsername(username_box.Text);
-                    int departmentId = new VoterService().GetVoterDepartment(voterId).Department.DepartmentId;
-
-                    if (!new ElectionService().FindDepartmentActiveElection(departmentId))
+                    new AdminDashboard(new AdminDashboardPanel()).ShowDialog();
+                }
+                else if (username_box.Text.Equals("") || password_box.Text.Equals(""))
+                    MessageBox.Show("Please input the required fields");
+                else
+                {
+                    if (!voterService.DoesVoterAlreadyExisted(username_box.Text, password_box.Text))
                     {
-                        VoterDTO voterDTO = new VoterService().GetVoterDepartment(voterId);
-                        new VoterDashboard(voterDTO).ShowDialog();
+                        MessageBox.Show("No registered voter found. Please register first.");
+                        return;
                     }
                     else
                     {
-                        VoterDTO voterDTO = new VoterService().GetVoterDepartmentElection(voterId);
-                        new VoterDashboard(voterDTO).ShowDialog();
+                        MessageBox.Show("Login Successful!");
+                        this.Hide();
+
+                        int voterId = voterService.GetVoterIdByUsername(username_box.Text);
+                        int departmentId = voterService.GetVoterDepartment(voterId).Department.DepartmentId;
+
+                        if (!new ElectionService().FindDepartmentActiveElection(departmentId))
+                        {
+                            VoterDTO voterDTO = voterService.GetVoterDepartment(voterId);
+                            new VoterDashboard(voterDTO).ShowDialog();
+                        }
+                        else
+                        {
+                            VoterDTO voterDTO = voterService.GetVoterDepartmentElection(voterId);
+                            new VoterDashboard(voterDTO).ShowDialog();
+                        }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred during login: " + ex.Message);
+            }
+          
+
         }
+
 
         private void register_label_Click(object sender, EventArgs e)
         {

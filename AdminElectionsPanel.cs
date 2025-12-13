@@ -6,41 +6,56 @@ namespace WindowsFormsApp1
 {
     public partial class AdminElectionsPanel : UserControl
     {
-        private ElectionService electionService;
+        private ElectionService electionService = new ElectionService();
+        private DepartmentService departmentService = new DepartmentService();
+        private PositionService positionService = new PositionService();
         public AdminElectionsPanel()
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
-            electionService = new ElectionService();
             LoadElections();       
         }
         public void LoadElections()
         {
-            var elections = electionService.GetElections();
-            elections_flow.Controls.Clear();
-            foreach (var election in elections)
+            try
             {
-              var panel = new ElectionPanel(election, elections_flow);
-              elections_flow.Controls.Add(panel);
+                var elections = electionService.GetElections();
+                elections_flow.Controls.Clear();
+                foreach (var election in elections)
+                {
+                    var panel = new ElectionPanel(election, elections_flow);
+                    elections_flow.Controls.Add(panel);
+                }
             }
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while loading elections: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void create_election_bttn_Click(object sender, EventArgs e)
         {
-            if (new DepartmentService().GetDepartmentsCount() == 0)
+            try
             {
-                MessageBox.Show("Please add a department before creating an election.", "No Departments Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                if (departmentService.GetDepartmentsCount() == 0)
+                {
+                    MessageBox.Show("Please add a department before creating an election.", "No Departments Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else if (positionService.GetPositionsCount() == 0)
+                {
+                    MessageBox.Show("Please add a position before creating an election.", "No Positions Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    new CreateElection(this.elections_flow).ShowDialog();
+                }
             }
-            else if (new PositionService().GetPositionsCount() == 0)
+            catch (Exception ex)
             {
-                MessageBox.Show("Please add a position before creating an election.", "No Positions Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-            {
-                new CreateElection(this.elections_flow).ShowDialog();
-            }
+            
         }
     }
 }

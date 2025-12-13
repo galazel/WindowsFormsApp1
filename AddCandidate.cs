@@ -14,9 +14,9 @@ namespace WindowsFormsApp1
 {
     public partial class s : Form
     {
-        private PositionService positionService;
+        private PositionService positionService = new PositionService();
+        private CandidateService candidateService = new CandidateService();
         private string imagePath = string.Empty;
-        private CandidateService candidateService;
         private int departmentId;
         private ListBox formListBox;
         private string action;
@@ -25,8 +25,6 @@ namespace WindowsFormsApp1
         public s(int departmentId, string action, ListBox formListBox)
         {
             InitializeComponent();
-            candidateService = new CandidateService();
-            positionService = new PositionService();
             this.departmentId = departmentId;
             this.action = action;
             this.formListBox = formListBox;
@@ -37,8 +35,6 @@ namespace WindowsFormsApp1
         public s(Others editCandidate, int index, ListBox box, string action)
         {
             InitializeComponent();
-            candidateService = new CandidateService();
-            positionService = new PositionService();
             formListBox = box;
             candidate_name_box.Text = editCandidate.CandidateName;
             candidate_partylist_box.Text = editCandidate.Partylist;
@@ -55,89 +51,155 @@ namespace WindowsFormsApp1
 
         public void LoadPositions()
         {
-            List<string> positions = positionService.GetAllPositions();
-            candidate_positions_combo.Items.Clear();
-            foreach (var pos in positions)
+            try
             {
-                candidate_positions_combo.Items.Add(pos);
+                List<string> positions = positionService.GetAllPositions();
+                candidate_positions_combo.Items.Clear();
+
+                foreach (var pos in positions)
+                    candidate_positions_combo.Items.Add(pos);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Failed to load positions.\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+            
         }
+
         private void add_candidate_bttn_Click(object sender, EventArgs e)
         {
-            if (candidate_positions_combo != null)
+            try
             {
                 foreach (var cand in Others.othersList)
                 {
-                    if (cand.CandidateName.Equals(candidate_name_box.Text))
+                    if (cand.CandidateName.Equals(candidate_name_box.Text, StringComparison.OrdinalIgnoreCase))
                     {
                         MessageBox.Show("Candidate already exists!");
                         return;
                     }
                 }
-            }
-            if (candidateService.DoesCandidateExist(candidate_name_box.Text))
-            {
-                MessageBox.Show("Candidate already exists in another election!");
-                return;
-            }
-            else if (candidate_name_box.Text.Equals("") || candidate_positions_combo.SelectedItem == null || candidate_partylist_box.Text.Equals("") || string.IsNullOrEmpty(imagePath))
-            {
-                MessageBox.Show("Please fill in all required fields.");
-                return;
-            }
 
-            else if (candidate_positions_combo.SelectedItem == null)
-            {
-                MessageBox.Show("Please select a valid position.");
-                return;
-            }
-            else
-            {
-                if (action != null && action.Equals("edit"))
+                if (candidateService.DoesCandidateExist(candidate_name_box.Text))
+                {
+                    MessageBox.Show("Candidate already exists in another election!");
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(candidate_name_box.Text) ||
+                    candidate_positions_combo.SelectedItem == null ||
+                    string.IsNullOrWhiteSpace(candidate_partylist_box.Text) ||
+                    string.IsNullOrEmpty(imagePath))
+                {
+                    MessageBox.Show("Please fill in all required fields.");
+                    return;
+                }
+
+                if (candidate_name_box.Text.Length > 100)
+                {
+                    MessageBox.Show("Candidate name is too long.");
+                    return;
+                }
+
+                if (candidate_name_box.Text.Length < 3)
+                {
+                    MessageBox.Show("Candidate name is too short.");
+                    return;
+                }
+
+                if (candidate_name_box.Text.Any(ch =>
+                    !char.IsLetterOrDigit(ch) &&
+                    !char.IsWhiteSpace(ch) &&
+                    ch != '.' && ch != ',' && ch != '-' && ch != '\''))
+                {
+                    MessageBox.Show("Candidate name contains invalid characters.");
+                    return;
+                }
+                if (action == "edit")
                 {
                     Others.othersList[index].CandidateName = candidate_name_box.Text;
                     Others.othersList[index].Partylist = candidate_partylist_box.Text;
                     Others.othersList[index].Motto = motto_box.Text;
                     Others.othersList[index].Image = imagePath;
-                    Others.othersList[index].PositionId = positionService.GetPositionId(candidate_positions_combo.SelectedItem.ToString());
+                    Others.othersList[index].PositionId =
+                        positionService.GetPositionId(candidate_positions_combo.SelectedItem.ToString());
+
                     Others.LoadCandidates(formListBox);
                 }
-                else if (action != null && action.Equals("add"))
+                else if (action == "add")
+                {
                     AddCandidateTemporary();
+                }
+
                 this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "An unexpected error occurred.\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
         }
 
         public void AddCandidateTemporary()
         {
-            Others.othersList.Add(new Others
+            try
             {
-                CandidateName = candidate_name_box.Text,
-                Partylist = candidate_partylist_box.Text,
-                Motto = motto_box.Text,
-                Image = imagePath,
-                PositionId = positionService.GetPositionId(candidate_positions_combo.SelectedItem.ToString()),
-                DepartmentId = departmentId
-            });
-            Others.LoadCandidates(formListBox);
-        }
-        private void candidate_photo_picture_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+                Others.othersList.Add(new Others
+                {
+                    CandidateName = candidate_name_box.Text,
+                    Partylist = candidate_partylist_box.Text,
+                    Motto = motto_box.Text,
+                    Image = imagePath,
+                    PositionId = positionService.GetPositionId(
+                        candidate_positions_combo.SelectedItem.ToString()),
+                    DepartmentId = departmentId
+                });
+                Others.LoadCandidates(formListBox);
+            }
+            catch (Exception ex)
             {
-                candidate_photo_picture.Image = Image.FromFile(openFileDialog.FileName);
-                imagePath = openFileDialog.FileName;
+                MessageBox.Show(
+                    "Failed to add candidate.\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
         }
 
-        private void s_FormClosed(object sender, FormClosedEventArgs e)
+        private void candidate_photo_picture_Click(object sender, EventArgs e)
         {
-            candidateService?.Dispose();
-            positionService?.Dispose();
-            base.OnFormClosed(e);
+            try
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog
+                {
+                    Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"
+                };
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    candidate_photo_picture.Image = Image.FromFile(openFileDialog.FileName);
+                    imagePath = openFileDialog.FileName;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Failed to load image.\n" + ex.Message,
+                    "Image Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
         }
+
     }
 }

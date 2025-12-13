@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -14,24 +8,39 @@ namespace WindowsFormsApp1
     {
         private CandidateService candidateService;
         private PositionService positionService;
+
         public WinnerPanel(Winner winner)
         {
             InitializeComponent();
-            candidateService = new CandidateService();
-            positionService = new PositionService();
 
-            string n = candidateService.GetCandidateNameById(winner.CandidateId);
-            string po = positionService.GetPositionName(winner.PositionId);
-            string pa = candidateService.GetCandidatePartyById(winner.CandidateId);
-            string v = Convert.ToString(winner.Count);
-            string image = candidateService.GetCandidateImage(winner.CandidateId);
+            try
+            {
+                if (winner == null)
+                    throw new ArgumentNullException(nameof(winner), "Winner data is missing.");
 
+                candidateService = new CandidateService();
+                positionService = new PositionService();
 
-            name.Text = $"Name: {n}";
-            position.Text = $"Position: {po}";
-            party.Text = $"Party: {pa}";
-            votes.Text = $"Votes: {v}";
-            candidate_image.Image = Image.FromFile(image);
+                string candidateName = candidateService.GetCandidateNameById(winner.CandidateId) ?? "Unknown";
+                string positionName = positionService.GetPositionName(winner.PositionId) ?? "Unknown";
+                string partyName = candidateService.GetCandidatePartyById(winner.CandidateId) ?? "Unknown";
+                string voteCount = winner.Count.ToString();
+                string imagePath = candidateService.GetCandidateImage(winner.CandidateId);
+
+                name.Text = $"Name: {candidateName}";
+                position.Text = $"Position: {positionName}";
+                party.Text = $"Party: {partyName}";
+                votes.Text = $"Votes: {voteCount}";
+
+                if (!string.IsNullOrEmpty(imagePath) && System.IO.File.Exists(imagePath))
+                    candidate_image.Image = Image.FromFile(imagePath);
+                else
+                    candidate_image.Image = Properties.Resources.default_candidate;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to load winner panel.\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

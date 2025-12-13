@@ -109,7 +109,7 @@
             this.departments_grid.Size = new System.Drawing.Size(481, 170);
             this.departments_grid.TabIndex = 19;
             this.departments_grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.departments_grid_CellClick);
-            this.departments_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.departments_grid_CellContentClick);
+        
             this.departments_grid.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.departments_grid_CellMouseClick);
             // 
             // panel4

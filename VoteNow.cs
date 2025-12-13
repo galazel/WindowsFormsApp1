@@ -1,99 +1,151 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
     public partial class VoteNow : Form
     {
-        private List<Position> positions;
-        private int electionId, voterId;
+        private readonly List<Position> positions;
+        private readonly int electionId;
+        private readonly int voterId;
+
+        private readonly CandidateService candidateService = new CandidateService();
+        private readonly VoterService voterService = new VoterService();
+        private readonly VotedCandidatesService votedCandidatesService = new VotedCandidatesService();
+
         public event Action OnUpdateRequested;
-        private VoterDTO voterDTO;
+        private readonly VoterDTO voterDTO;
 
         public VoteNow(List<Position> positions, int electionId, int voterId, VoterDTO voterDto)
         {
             InitializeComponent();
+
             this.positions = positions;
             this.electionId = electionId;
             this.voterId = voterId;
             this.voterDTO = voterDto;
-            AddFlowEachPosition();
-            SetSummary();
+
+            try
+            {
+                AddFlowEachPosition();
+                SetSummary();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to load voting data.\n" + ex.Message);
+            }
         }
 
         public void SetSummary()
         {
-            chosen_flow.Controls.Clear();
-            foreach(var chosen in ElectionSummary.ChoosenCandidates)
-            { 
-                if(chosen.Value == null)
-                    chosen_flow.Controls.Add(new SummaryPanel("", chosen.Key));
-                else
-                    chosen_flow.Controls.Add(new SummaryPanel(chosen.Value.CandidateName,chosen.Key));
+            try
+            {
+                chosen_flow.Controls.Clear();
+
+                foreach (var chosen in ElectionSummary.ChoosenCandidates)
+                {
+                    if (chosen.Value == null)
+                        chosen_flow.Controls.Add(new SummaryPanel("", chosen.Key));
+                    else
+                        chosen_flow.Controls.Add(
+                            new SummaryPanel(chosen.Value.CandidateName, chosen.Key)
+                        );
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating summary.\n" + ex.Message);
             }
         }
+
         public void AddFlowEachPosition()
         {
-            ElectionSummary.ChoosenCandidates.Clear();
-            foreach (var position in positions)
+            try
             {
-                int positionId = position.PositionId;
-                string positionName = position.PositionName;
-                ElectionSummary.ChoosenCandidates.Add(positionName, null);
-                if (new CandidateService().IsPosition(positionId, electionId))
+                ElectionSummary.ChoosenCandidates.Clear();
+                vote_candidates_flow.Controls.Clear();
+
+                foreach (var position in positions)
                 {
-                    List <Candidate> candidates = new CandidateService().GetCandidates(positionId, electionId);
-                    PositionFlowLayout positionFlowLayout = new PositionFlowLayout(positionName);
+                    int positionId = position.PositionId;
+                    string positionName = position.PositionName;
+
+                    ElectionSummary.ChoosenCandidates.Add(positionName, null);
+
+                    if (!candidateService.IsPosition(positionId, electionId))
+                        continue;
+
+                    List<Candidate> candidates =
+                        candidateService.GetCandidates(positionId, electionId);
+
+                    if (candidates == null || candidates.Count == 0)
+                        continue;
+
+                    PositionFlowLayout positionFlowLayout =
+                        new PositionFlowLayout(positionName);
 
                     foreach (Candidate candidate in candidates)
                     {
-                        CandidatePanel candidatePanel = new CandidatePanel(candidate, positionName);
-                        positionFlowLayout.AddPositionPanel(candidatePanel);
-                        candidatePanel.OnUpdateRequested += SetSummary;
-                    }
-                    
-                    vote_candidates_flow.Controls.Add(positionFlowLayout);
+                        CandidatePanel candidatePanel =
+                            new CandidatePanel(candidate, positionName);
 
+                        candidatePanel.OnUpdateRequested += SetSummary;
+                        positionFlowLayout.AddPositionPanel(candidatePanel);
+                    }
+
+                    vote_candidates_flow.Controls.Add(positionFlowLayout);
                 }
             }
-            Console.WriteLine(ElectionSummary.ChoosenCandidates.Count());
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading candidates.\n" + ex.Message);
+            }
         }
 
         private void vote_candidate_bttn_Click(object sender, EventArgs e)
         {
-            foreach(var chosen in ElectionSummary.ChoosenCandidates)
+            try
             {
-                if(chosen.Value == null)
+                foreach (var chosen in ElectionSummary.ChoosenCandidates)
                 {
-                    MessageBox.Show("Choose your prefer candidate first");
-                    return;
+                    if (chosen.Value == null)
+                    {
+                        MessageBox.Show("Please choose a candidate for all positions.");
+                        return;
+                    }
                 }
+
+                StringBuilder summary = new StringBuilder();
+                foreach (var item in ElectionSummary.ChoosenCandidates)
+                {
+                    summary.AppendLine($"{item.Key} - {item.Value.CandidateName}");
+                }
+
+                MessageBox.Show("Summary:\n" + summary);
+
+                voterService.SetVoterStatus(voterId);
+                voterDTO.Voter.Status = true;
+
+                foreach (var candidate in ElectionSummary.ChoosenCandidates.Values)
+                {
+                    votedCandidatesService.AddVotedCandidates(
+                        voterId,
+                        candidate.CandidateId,
+                        electionId,
+                        candidate.PositionId
+                    );
+                }
+
+                MessageBox.Show("Thank you for voting!");
+                OnUpdateRequested?.Invoke();
+                this.Hide();
             }
-
-            StringBuilder summary = new StringBuilder();
-            foreach (var item in ElectionSummary.ChoosenCandidates)
-                summary.AppendLine($"{item.Key} - {item.Value.CandidateName}");
-
-            MessageBox.Show("Summary: \n" + summary);
-            new VoterService().SetVoterStatus(voterId);
-            voterDTO.Voter.Status = true;
-
-            foreach (var candidate in ElectionSummary.ChoosenCandidates)
-              new VotedCandidatesService().AddVotedCandidates(voterId, candidate.Value.CandidateId, electionId, candidate.Value.PositionId);
-
-            MessageBox.Show("Thank you for voting!");
-            OnUpdateRequested?.Invoke();
-            this.Hide();
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show("Voting failed.\n" + ex.Message);
+            }
         }
-
-    
     }
 }

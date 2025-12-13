@@ -13,13 +13,15 @@ namespace WindowsFormsApp1
     public partial class OngoingPanel : UserControl
     {
         private List<Candidate> candidates;
-        private ElectionService electionService;
+        private ElectionService electionService = new ElectionService();
+        private PositionService positionService = new PositionService();
+        private VoterService voterService = new VoterService();
+        private VotedCandidatesService votedCandidatesService = new VotedCandidatesService();
         public event Action OnUpdateRequested;
         private ElectionDTO electionDTO;
         public OngoingPanel(ElectionDTO electionDto)
         {
             InitializeComponent();
-            electionService = new ElectionService();
             election_name_label.Text = electionDto.Election.ElectionName;
             department_label.Text = electionDto.Department.DepartmentName;
             this.electionDTO = electionDto;
@@ -28,46 +30,76 @@ namespace WindowsFormsApp1
         }
         public void LoadOngoingResults()
         {
-            foreach (var position in electionDTO.Positions)
+            try
             {
-                List<Candidate> candidates = new List<Candidate>();
+                foreach (var position in electionDTO.Positions)
+                {
+                    List<Candidate> candidates = new List<Candidate>();
 
-                foreach (var candidate in electionDTO.Candidates)
-                    if (candidate.PositionId == position.PositionId)
-                        candidates.Add(candidate);
+                    foreach (var candidate in electionDTO.Candidates)
+                        if (candidate.PositionId == position.PositionId)
+                            candidates.Add(candidate);
 
-                ongoing_results_flow.Controls.Add(new LiveResults(position.PositionName, candidates, new VotedCandidatesService().GetCandidatesAndVotes(electionDTO.Election.ElectionId)));
+                    ongoing_results_flow.Controls.Add(new LiveResults(position.PositionName, candidates, new VotedCandidatesService().GetCandidatesAndVotes(electionDTO.Election.ElectionId)));
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while loading ongoing results: " + ex.Message);
+
+            }
+           
         }
 
         private void view_details_bttn_Click(object sender, EventArgs e)
         {
-            StringBuilder candidatesString = new StringBuilder();
-            PositionService positionService = new PositionService();
+            try
+            {
+                StringBuilder candidatesString = new StringBuilder();
 
-            foreach (Candidate candidate in electionDTO.Candidates)
-                candidatesString.AppendLine(candidate.CandidateName + "----------" + positionService.GetPositionName(candidate.PositionId));
-            MessageBox.Show($"Election Name: {election_name_label.Text}\nDepartment: {department_label.Text}\nDescription: {electionDTO.Election.Description}\nCandidates: \n" + candidatesString);
+                foreach (Candidate candidate in electionDTO.Candidates)
+                    candidatesString.AppendLine(candidate.CandidateName + "----------" + positionService.GetPositionName(candidate.PositionId));
+                MessageBox.Show($"Election Name: {election_name_label.Text}\nDepartment: {department_label.Text}\nDescription: {electionDTO.Election.Description}\nCandidates: \n" + candidatesString);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while viewing election details: " + ex.Message);
+
+            }
+           
         }
 
         private void end_bttn_Click(object sender, EventArgs e)
         {
-            electionService.SetWinners(electionDTO.Election.ElectionId);
-            electionService.SetEndStatus(electionDTO.Election.ElectionId);
-            new VoterService().SetAllVotersStatusInDepartment(electionDTO.Department.DepartmentId);
-            MessageBox.Show("Election ended successfully!");
-            OnUpdateRequested?.Invoke();
-            this.Hide();
+            try {
+                electionService.SetWinners(electionDTO.Election.ElectionId);
+                electionService.SetEndStatus(electionDTO.Election.ElectionId);
+                voterService.SetAllVotersStatusInDepartment(electionDTO.Department.DepartmentId);
+                MessageBox.Show("Election ended successfully!");
+                OnUpdateRequested?.Invoke();
+                this.Hide();
+            } catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while ending the election: " + ex.Message);
+            } 
         }
 
         private void cancel_bttn_Click(object sender, EventArgs e)
         {
-            electionService.SetElectionInactive(electionDTO.Election.ElectionId);
-            new VoterService().SetAllVotersStatusInDepartment(electionDTO.Department.DepartmentId);
-            new VotedCandidatesService().ClearVotedCandidates(electionDTO.Election.ElectionId);
-            MessageBox.Show("Election cancelled successfully!");
-            OnUpdateRequested?.Invoke();
-            this.Hide();
-        }
+            try
+            {
+                electionService.SetElectionInactive(electionDTO.Election.ElectionId);
+                voterService.SetAllVotersStatusInDepartment(electionDTO.Department.DepartmentId);
+                votedCandidatesService.ClearVotedCandidates(electionDTO.Election.ElectionId);
+                MessageBox.Show("Election cancelled successfully!");
+                OnUpdateRequested?.Invoke();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while cancelling the election: " + ex.Message);
+            }
+          
+            }
     }
 }

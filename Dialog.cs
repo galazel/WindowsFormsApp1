@@ -12,15 +12,13 @@ namespace WindowsFormsApp1
 {
     public partial class Dialog : Form
     {
-        private DepartmentService departmentService;
-        private PositionService positionService;
+        private DepartmentService departmentService = new DepartmentService();
+        private PositionService positionService = new PositionService();
         private bool isTrue;
         public Dialog(bool isDepartment)
         {
             InitializeComponent();
             this.isTrue = isDepartment;
-            departmentService = new DepartmentService();
-            positionService = new PositionService();
 
             if (isDepartment)
                 label_add.Text = "ADD DEPARTMENT";
@@ -30,38 +28,49 @@ namespace WindowsFormsApp1
 
         private void add_position_Click(object sender, EventArgs e)
         {
-           if(add_box.Text.Equals(""))
+            try
             {
-                MessageBox.Show("Input the required field");
-                return;
-            }
-            else
-            {
-                string item = add_box.Text;
-                if (isTrue)
+                if (add_box.Text.Equals(""))
                 {
-                    if (departmentService.DoesExists(item))
+                    MessageBox.Show("Input the required field");
+                    return;
+                }
+                else
+                {
+                    string item = add_box.Text;
+                    if (isTrue)
                     {
-                        MessageBox.Show("Department already existed.");
-                        return;
-                    }
+                        if (departmentService.DoesExists(item))
+                        {
+                            MessageBox.Show("Department already existed.");
+                            return;
+                        }
 
-                    departmentService.SaveDepartment(item);
-                    MessageBox.Show("Added Successfully");
-                    this.Hide();
-                }else
-                {
-                    if (positionService.DoesExists(item))
-                    {
-                        MessageBox.Show("Position already existed.");
-                        return;
+                        departmentService.SaveDepartment(item);
+                        MessageBox.Show("Added Successfully");
+                        this.Hide();
                     }
-                    positionService.SavePosition(item);
-                    MessageBox.Show("Added Successfully");
-                    this.Hide();
+                    else
+                    {
+                        if (positionService.DoesExists(item))
+                        {
+                            MessageBox.Show("Position already existed.");
+                            return;
+                        }
+                        positionService.SavePosition(item);
+                        MessageBox.Show("Added Successfully");
+                        this.Hide();
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+   
         }
-        
-    }
+
+        }
+    
 }
