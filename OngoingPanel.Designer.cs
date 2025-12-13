@@ -30,10 +30,10 @@
         {
             this.department_label = new System.Windows.Forms.Label();
             this.election_name_label = new System.Windows.Forms.Label();
-            this.view_details_bttn = new System.Windows.Forms.Button();
-            this.end_bttn = new System.Windows.Forms.Button();
             this.ongoing_results_flow = new System.Windows.Forms.FlowLayoutPanel();
-            this.cancel_bttn = new System.Windows.Forms.Button();
+            this.edit = new FontAwesome.Sharp.IconButton();
+            this.delete = new FontAwesome.Sharp.IconButton();
+            this.view_details = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // department_label
@@ -58,36 +58,6 @@
             this.election_name_label.TabIndex = 49;
             this.election_name_label.Text = "ELECTION RESULTS";
             // 
-            // view_details_bttn
-            // 
-            this.view_details_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
-            this.view_details_bttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.view_details_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.view_details_bttn.ForeColor = System.Drawing.Color.White;
-            this.view_details_bttn.Location = new System.Drawing.Point(758, 16);
-            this.view_details_bttn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.view_details_bttn.Name = "view_details_bttn";
-            this.view_details_bttn.Size = new System.Drawing.Size(101, 42);
-            this.view_details_bttn.TabIndex = 51;
-            this.view_details_bttn.Text = "VIEW";
-            this.view_details_bttn.UseVisualStyleBackColor = false;
-            this.view_details_bttn.Click += new System.EventHandler(this.view_details_bttn_Click);
-            // 
-            // end_bttn
-            // 
-            this.end_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
-            this.end_bttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.end_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.end_bttn.ForeColor = System.Drawing.Color.White;
-            this.end_bttn.Location = new System.Drawing.Point(867, 16);
-            this.end_bttn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.end_bttn.Name = "end_bttn";
-            this.end_bttn.Size = new System.Drawing.Size(101, 42);
-            this.end_bttn.TabIndex = 52;
-            this.end_bttn.Text = "END";
-            this.end_bttn.UseVisualStyleBackColor = false;
-            this.end_bttn.Click += new System.EventHandler(this.end_bttn_Click);
-            // 
             // ongoing_results_flow
             // 
             this.ongoing_results_flow.AutoScroll = true;
@@ -98,20 +68,53 @@
             this.ongoing_results_flow.Size = new System.Drawing.Size(938, 609);
             this.ongoing_results_flow.TabIndex = 53;
             // 
-            // cancel_bttn
+            // edit
             // 
-            this.cancel_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
-            this.cancel_bttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cancel_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancel_bttn.ForeColor = System.Drawing.Color.White;
-            this.cancel_bttn.Location = new System.Drawing.Point(649, 16);
-            this.cancel_bttn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cancel_bttn.Name = "cancel_bttn";
-            this.cancel_bttn.Size = new System.Drawing.Size(101, 42);
-            this.cancel_bttn.TabIndex = 54;
-            this.cancel_bttn.Text = "CANCEL";
-            this.cancel_bttn.UseVisualStyleBackColor = false;
-            this.cancel_bttn.Click += new System.EventHandler(this.cancel_bttn_Click);
+            this.edit.BackColor = System.Drawing.Color.Transparent;
+            this.edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.edit.ForeColor = System.Drawing.Color.Gainsboro;
+            this.edit.IconChar = FontAwesome.Sharp.IconChar.CircleXmark;
+            this.edit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
+            this.edit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.edit.IconSize = 40;
+            this.edit.Location = new System.Drawing.Point(872, 16);
+            this.edit.Name = "edit";
+            this.edit.Size = new System.Drawing.Size(43, 42);
+            this.edit.TabIndex = 57;
+            this.edit.UseVisualStyleBackColor = false;
+            this.edit.Click += new System.EventHandler(this.cancel_bttn_Click);
+            // 
+            // delete
+            // 
+            this.delete.BackColor = System.Drawing.Color.Transparent;
+            this.delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.delete.ForeColor = System.Drawing.Color.Gainsboro;
+            this.delete.IconChar = FontAwesome.Sharp.IconChar.StopCircle;
+            this.delete.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
+            this.delete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.delete.IconSize = 40;
+            this.delete.Location = new System.Drawing.Point(921, 17);
+            this.delete.Name = "delete";
+            this.delete.Size = new System.Drawing.Size(43, 42);
+            this.delete.TabIndex = 56;
+            this.delete.UseVisualStyleBackColor = false;
+            this.delete.Click += new System.EventHandler(this.end_bttn_Click);
+            // 
+            // view_details
+            // 
+            this.view_details.BackColor = System.Drawing.Color.Transparent;
+            this.view_details.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.view_details.ForeColor = System.Drawing.Color.Gainsboro;
+            this.view_details.IconChar = FontAwesome.Sharp.IconChar.Pager;
+            this.view_details.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
+            this.view_details.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.view_details.IconSize = 40;
+            this.view_details.Location = new System.Drawing.Point(823, 17);
+            this.view_details.Name = "view_details";
+            this.view_details.Size = new System.Drawing.Size(43, 42);
+            this.view_details.TabIndex = 55;
+            this.view_details.UseVisualStyleBackColor = false;
+            this.view_details.Click += new System.EventHandler(this.view_details_bttn_Click);
             // 
             // OngoingPanel
             // 
@@ -120,10 +123,10 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.cancel_bttn);
+            this.Controls.Add(this.edit);
+            this.Controls.Add(this.delete);
+            this.Controls.Add(this.view_details);
             this.Controls.Add(this.ongoing_results_flow);
-            this.Controls.Add(this.end_bttn);
-            this.Controls.Add(this.view_details_bttn);
             this.Controls.Add(this.department_label);
             this.Controls.Add(this.election_name_label);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -139,9 +142,9 @@
         #endregion
         private System.Windows.Forms.Label department_label;
         private System.Windows.Forms.Label election_name_label;
-        private System.Windows.Forms.Button view_details_bttn;
-        private System.Windows.Forms.Button end_bttn;
         private System.Windows.Forms.FlowLayoutPanel ongoing_results_flow;
-        private System.Windows.Forms.Button cancel_bttn;
+        private FontAwesome.Sharp.IconButton edit;
+        private FontAwesome.Sharp.IconButton delete;
+        private FontAwesome.Sharp.IconButton view_details;
     }
 }

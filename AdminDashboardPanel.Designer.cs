@@ -50,10 +50,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.voters_view = new System.Windows.Forms.DataGridView();
-            this.clearAll = new FontAwesome.Sharp.IconButton();
             this.voted_candidates_view = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.clearAll = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.positions_grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.departments_grid)).BeginInit();
             this.panel4.SuspendLayout();
@@ -329,23 +329,6 @@
             this.voters_view.Size = new System.Drawing.Size(973, 235);
             this.voters_view.TabIndex = 32;
             // 
-            // clearAll
-            // 
-            this.clearAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
-            this.clearAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearAll.ForeColor = System.Drawing.Color.White;
-            this.clearAll.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.clearAll.IconColor = System.Drawing.Color.Black;
-            this.clearAll.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.clearAll.Location = new System.Drawing.Point(870, 268);
-            this.clearAll.Margin = new System.Windows.Forms.Padding(4);
-            this.clearAll.Name = "clearAll";
-            this.clearAll.Size = new System.Drawing.Size(138, 42);
-            this.clearAll.TabIndex = 33;
-            this.clearAll.Text = "CLEAR ALL";
-            this.clearAll.UseVisualStyleBackColor = false;
-            this.clearAll.Click += new System.EventHandler(this.clearAll_Click);
-            // 
             // voted_candidates_view
             // 
             this.voted_candidates_view.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(214)))), ((int)(((byte)(249)))));
@@ -377,6 +360,23 @@
             this.panel5.Size = new System.Drawing.Size(976, 39);
             this.panel5.TabIndex = 36;
             // 
+            // clearAll
+            // 
+            this.clearAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
+            this.clearAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearAll.ForeColor = System.Drawing.Color.White;
+            this.clearAll.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.clearAll.IconColor = System.Drawing.Color.Black;
+            this.clearAll.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.clearAll.Location = new System.Drawing.Point(870, 268);
+            this.clearAll.Margin = new System.Windows.Forms.Padding(4);
+            this.clearAll.Name = "clearAll";
+            this.clearAll.Size = new System.Drawing.Size(138, 42);
+            this.clearAll.TabIndex = 33;
+            this.clearAll.Text = "CLEAR ALL";
+            this.clearAll.UseVisualStyleBackColor = false;
+            this.clearAll.Click += new System.EventHandler(this.clearAll_Click);
+            // 
             // AdminDashboardPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -405,7 +405,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminDashboardPanel";
             this.Padding = new System.Windows.Forms.Padding(5);
-            this.Size = new System.Drawing.Size(1046, 874);
+            this.Size = new System.Drawing.Size(1045, 874);
             ((System.ComponentModel.ISupportInitialize)(this.positions_grid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.departments_grid)).EndInit();
             this.panel4.ResumeLayout(false);
@@ -446,9 +446,9 @@
         private System.Windows.Forms.Label total_voters;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView voters_view;
-        private FontAwesome.Sharp.IconButton clearAll;
         private System.Windows.Forms.DataGridView voted_candidates_view;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel5;
+        private FontAwesome.Sharp.IconButton clearAll;
     }
 }

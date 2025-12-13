@@ -87,7 +87,7 @@ namespace WindowsFormsApp1
                     var department = db.Departments.FirstOrDefault(p => p.DepartmentId == departmentId);
                     if (department != null)
                     {
-                        department.DepartmentName = newDepartment;
+                        department.DepartmentName = newDepartment.ToUpper();
                         db.SaveChanges();
                     }
                 }

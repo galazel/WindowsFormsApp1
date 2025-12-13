@@ -109,7 +109,7 @@
             this.Controls.Add(this.name);
             this.Controls.Add(this.candidate_image);
             this.Name = "WinnerPanel";
-            this.Size = new System.Drawing.Size(225, 228);
+            this.Size = new System.Drawing.Size(225, 221);
             ((System.ComponentModel.ISupportInitialize)(this.candidate_image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

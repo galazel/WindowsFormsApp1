@@ -38,8 +38,8 @@ namespace WindowsFormsApp1
             {
                 Election newElection = new Election
                 {
-                    ElectionName = electionName,
-                    Description = description,
+                    ElectionName = electionName.ToUpper(),
+                    Description = description.ToUpper(),
                     Status = isActive,
                     DepartmentId = departmentId
                 };
@@ -55,8 +55,8 @@ namespace WindowsFormsApp1
                 var election = db.Elections.FirstOrDefault(e => e.ElectionId == electionId);
                 if (election != null)
                 {
-                    election.ElectionName = electionName;
-                    election.Description = description;
+                    election.ElectionName = electionName.ToUpper();
+                    election.Description = description.ToUpper();
                     election.DepartmentId = departmentId;
                     db.SaveChanges();
                 }

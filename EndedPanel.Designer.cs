@@ -33,7 +33,7 @@
             this.iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
             this.winners_flow = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.download_bttn = new System.Windows.Forms.Button();
+            this.view_details = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // department_name_label
@@ -90,19 +90,21 @@
             this.label1.TabIndex = 53;
             this.label1.Text = "WINNERS";
             // 
-            // download_bttn
+            // view_details
             // 
-            this.download_bttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
-            this.download_bttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.download_bttn.ForeColor = System.Drawing.Color.White;
-            this.download_bttn.Location = new System.Drawing.Point(807, 14);
-            this.download_bttn.Margin = new System.Windows.Forms.Padding(4);
-            this.download_bttn.Name = "download_bttn";
-            this.download_bttn.Size = new System.Drawing.Size(138, 42);
-            this.download_bttn.TabIndex = 29;
-            this.download_bttn.Text = "DOWNLOAD";
-            this.download_bttn.UseVisualStyleBackColor = false;
-            this.download_bttn.Click += new System.EventHandler(this.download_bttn_Click);
+            this.view_details.BackColor = System.Drawing.Color.Transparent;
+            this.view_details.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.view_details.ForeColor = System.Drawing.Color.Gainsboro;
+            this.view_details.IconChar = FontAwesome.Sharp.IconChar.Download;
+            this.view_details.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(62)))), ((int)(((byte)(125)))));
+            this.view_details.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.view_details.IconSize = 40;
+            this.view_details.Location = new System.Drawing.Point(902, 13);
+            this.view_details.Name = "view_details";
+            this.view_details.Size = new System.Drawing.Size(43, 42);
+            this.view_details.TabIndex = 54;
+            this.view_details.UseVisualStyleBackColor = false;
+            this.view_details.Click += new System.EventHandler(this.download_bttn_Click);
             // 
             // EndedPanel
             // 
@@ -110,7 +112,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.download_bttn);
+            this.Controls.Add(this.view_details);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.winners_flow);
             this.Controls.Add(this.election_name_label);
@@ -132,6 +134,6 @@
         private FontAwesome.Sharp.IconMenuItem iconMenuItem1;
         private System.Windows.Forms.FlowLayoutPanel winners_flow;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button download_bttn;
+        private FontAwesome.Sharp.IconButton view_details;
     }
 }

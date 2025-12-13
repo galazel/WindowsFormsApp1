@@ -34,9 +34,9 @@ namespace WindowsFormsApp1
                 {
                     Candidate newCandidate = new Candidate
                     {
-                        CandidateName = candidate.CandidateName,
-                        Partylist = candidate.Partylist,
-                        Motto = candidate.Motto,
+                        CandidateName = candidate.CandidateName.ToUpper(),
+                        Partylist = candidate.Partylist.ToUpper(),
+                        Motto = candidate.Motto.ToUpper(),
                         PositionId = candidate.PositionId,
                         Image = candidate.Image,
                         DepartmentId = candidate.DepartmentId,
@@ -81,9 +81,9 @@ namespace WindowsFormsApp1
                 {
                     Candidate updatedCandidate = new Candidate
                     {
-                        CandidateName = candidate.CandidateName,
-                        Partylist = candidate.Partylist,
-                        Motto = candidate.Motto,
+                        CandidateName = candidate.CandidateName.ToUpper(),
+                        Partylist = candidate.Partylist.ToUpper(),
+                        Motto = candidate.Motto.ToUpper(),
                         PositionId = candidate.PositionId,
                         Image = candidate.Image,
                         DepartmentId = candidate.DepartmentId,

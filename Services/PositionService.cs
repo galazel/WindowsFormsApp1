@@ -87,7 +87,7 @@ namespace WindowsFormsApp1
                     var position = db.Positions.FirstOrDefault(p => p.PositionId == positionId);
                     if (position != null)
                     {
-                        position.PositionName = newPosition;
+                        position.PositionName = newPosition.ToUpper();
                         db.SaveChanges();
                     }
                 }
