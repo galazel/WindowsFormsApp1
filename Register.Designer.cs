@@ -269,6 +269,7 @@
             this.contact_box.ForeColor = System.Drawing.Color.Black;
             this.contact_box.Location = new System.Drawing.Point(322, 277);
             this.contact_box.Margin = new System.Windows.Forms.Padding(4);
+            this.contact_box.MaxLength = 11;
             this.contact_box.Name = "contact_box";
             this.contact_box.Size = new System.Drawing.Size(242, 27);
             this.contact_box.TabIndex = 19;
@@ -468,7 +469,7 @@
             // 
             this.year_box.Location = new System.Drawing.Point(55, 424);
             this.year_box.Maximum = new decimal(new int[] {
-            6,
+            5,
             0,
             0,
             0});

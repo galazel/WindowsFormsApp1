@@ -78,5 +78,13 @@ namespace WindowsFormsApp1
                 return db.VotedCandidates.ToList();
             }
         }
+        public int GetCandidateVoteCount(int candidateId, int electionId)
+        {
+            using (var db = new eBotoDBEntities())
+            {
+                return db.VotedCandidates.Count(vc => vc.CandidateId == candidateId && vc.ElectionId == electionId);
+            }
+        }
+
     }
 }

@@ -72,13 +72,25 @@ namespace WindowsFormsApp1
                 {
                     MessageBox.Show("Please fill in all required fields.");
                     return;
-                }
+                }else if(username_box.Text.ToLower() == "admin")
+                {
+                    MessageBox.Show("The name 'admin' is reserved. Please choose a different name.");
+                    return;
+                }else if(firstname_box.Text.Length < 8 || lastname_box.Text.Length < 8 || middle_box.Text.Length < 8)
+                {
+                    MessageBox.Show("First name must be at least 2 characters long.");
+                    return;
 
+                }
                 int age = DateTime.Now.Year - birthdate_date.Value.Year;
 
                 if (age < 18)
                 {
                     MessageBox.Show("You are not allowed to vote.");
+                    return;
+                }else if(age > 110)
+                {
+                    MessageBox.Show("Please enter a valid birthdate.");
                     return;
                 }
 

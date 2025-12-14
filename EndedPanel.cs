@@ -14,6 +14,7 @@ namespace WindowsFormsApp1
         private WinnersService service = new WinnersService();
         private CandidateService candidateService = new CandidateService();
         private PositionService positionService = new PositionService();
+        private VotedCandidatesService votedCandidatesService = new VotedCandidatesService();
         private ElectionDTO election;
 
         public EndedPanel(ElectionDTO electionDTO)
@@ -59,16 +60,26 @@ namespace WindowsFormsApp1
         {
             try
             {
-                List<(string Position, string Candidate)> electionResult = new List<(string, string)>();
+                List<(string Position, string Candidate, int Count)> electionResultWinners = new List<(string, string, int)>();
+                List<(string Position, string Candidate, int Count)> electionResultAll = new List<(string, string, int)>();
+
+                foreach (var election in election.Candidates)
+                {
+                    Candidate candidate = candidateService.GetCandidate((int)election.CandidateId);
+                    string positionName = positionService.GetPositionName(candidate.PositionId);
+                    int count = votedCandidatesService.GetCandidateVoteCount((int)election.CandidateId, election.ElectionId);
+                    electionResultAll.Add((positionName, candidate.CandidateName, count));
+                }
 
                 foreach (var election in election.Winners)
                 {
                     Candidate candidate = candidateService.GetCandidate((int)election.CandidateId);
                     string positionName = positionService.GetPositionName(candidate.PositionId);
-                    electionResult.Add((positionName, candidate.CandidateName));
+                    int count = election.Count;
+                    electionResultWinners.Add((positionName, candidate.CandidateName, count));
                 }
 
-                if (electionResult.Count == 0)
+                if (electionResultWinners.Count == 0)
                 {
                     MessageBox.Show("There are no winners declared");
                     return;
@@ -123,13 +134,20 @@ namespace WindowsFormsApp1
                     pdf.Add(new Paragraph("\n"));
 
 
-                    PdfPTable table = new PdfPTable(2)
+                    PdfPTable winnersTable = new PdfPTable(3)
                     {
                         WidthPercentage = 100
                     };
-                    table.SetWidths(new float[] { 40, 60 });
+                    winnersTable.SetWidths(new float[] { 40, 60 , 40});
+
+                    PdfPTable all = new PdfPTable(3)
+                    {
+                        WidthPercentage = 100
+                    };
+                    all.SetWidths(new float[] { 40, 60, 40 });
 
                     iTextSharp.text.Font headerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
+
                     PdfPCell posHeader = new PdfPCell(new Phrase("Position", headerFont))
                     {
                         BackgroundColor = BaseColor.LIGHT_GRAY,
@@ -140,41 +158,51 @@ namespace WindowsFormsApp1
                         BackgroundColor = BaseColor.LIGHT_GRAY,
                         HorizontalAlignment = Element.ALIGN_CENTER
                     };
-                    table.AddCell(posHeader);
-                    table.AddCell(candHeader);
+                    PdfPCell countHeader = new PdfPCell(new Phrase("No of Votes", headerFont))
+                    {
+                        BackgroundColor = BaseColor.LIGHT_GRAY,
+                        HorizontalAlignment = Element.ALIGN_CENTER
+                    };
+                    winnersTable.AddCell(posHeader);
+                    winnersTable.AddCell(candHeader);
+                    winnersTable.AddCell(countHeader);
+
+                    all.AddCell(posHeader);
+                    all.AddCell(candHeader);
+                    all.AddCell(countHeader);
 
                     iTextSharp.text.Font cellFont = FontFactory.GetFont(FontFactory.HELVETICA, 12);
-                    foreach (var item in electionResult)
+                    foreach (var item in electionResultWinners)
                     {
-                        table.AddCell(new PdfPCell(new Phrase(item.Position, cellFont)));
-                        table.AddCell(new PdfPCell(new Phrase(item.Candidate, cellFont)));
-                    }
+                        winnersTable.AddCell(new PdfPCell(new Phrase(item.Position, cellFont)));
+                        winnersTable.AddCell(new PdfPCell(new Phrase(item.Candidate, cellFont)));
+                        winnersTable.AddCell(new PdfPCell(new Phrase(Convert.ToString(item.Count), cellFont)));
 
-                    pdf.Add(table);
+                    }
+                    foreach (var item in electionResultAll)
+                    {
+                        all.AddCell(new PdfPCell(new Phrase(item.Position, cellFont)));
+                        all.AddCell(new PdfPCell(new Phrase(item.Candidate, cellFont)));
+                        all.AddCell(new PdfPCell(new Phrase(Convert.ToString(item.Count), cellFont)));
+
+                    }
+                    Paragraph winnersPara = new Paragraph("Election Winners", FontFactory.GetFont(FontFactory.HELVETICA, 12))
+                    {
+                        Alignment = Element.ALIGN_CENTER
+                    };
+                    pdf.Add(winnersPara);
+                    pdf.Add(new Paragraph("\n\n"));
+                    pdf.Add(winnersTable);
+                    pdf.Add(new Paragraph("\n\n"));
+                    Paragraph allPara = new Paragraph("Overall Result", FontFactory.GetFont(FontFactory.HELVETICA, 12))
+                    {
+                        Alignment = Element.ALIGN_CENTER
+                    };
+                    pdf.Add(allPara);
+                    pdf.Add(new Paragraph("\n\n"));
+                    pdf.Add(all);
                     pdf.Add(new Paragraph("\n\n"));
 
-
-                    string qrData =
-                        $"Election ID: {election.ElectionId}\n" +
-                        $"Date: {DateTime.Now}\n" +
-                        $"Election: {election.ElectionName}";
-
-                    using (var qrGen = new QRCoder.QRCodeGenerator())
-                    {
-                        var qrCodeData = qrGen.CreateQrCode(qrData, QRCoder.QRCodeGenerator.ECCLevel.Q);
-                        var qrCode = new QRCoder.QRCode(qrCodeData);
-                        using (Bitmap qrBitmap = qrCode.GetGraphic(20))
-                        using (MemoryStream ms = new MemoryStream())
-                        {
-                            qrBitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                            iTextSharp.text.Image qrImage = iTextSharp.text.Image.GetInstance(ms.ToArray());
-                            qrImage.ScaleToFit(120f, 120f);
-                            qrImage.Alignment = Element.ALIGN_LEFT;
-                            pdf.Add(qrImage);
-                        }
-                    }
-
-                    pdf.Add(new Paragraph("\n\n"));
 
                     iTextSharp.text.Font sigFont = FontFactory.GetFont(FontFactory.HELVETICA, 12);
 
@@ -186,7 +214,6 @@ namespace WindowsFormsApp1
                     };
                     pdf.Add(adminSig);
                     pdf.Add(new Paragraph("\n\n"));
-
 
                     iTextSharp.text.Font footerFont = FontFactory.GetFont(FontFactory.HELVETICA_OBLIQUE, 10);
                     Paragraph footer = new Paragraph(
@@ -210,5 +237,6 @@ namespace WindowsFormsApp1
             }
           
         }
+       
     }
 }

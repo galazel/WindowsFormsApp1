@@ -197,6 +197,7 @@
             this.voter_image.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.voter_image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.voter_image.Cursor = System.Windows.Forms.Cursors.Default;
+            this.voter_image.Image = ((System.Drawing.Image)(resources.GetObject("voter_image.Image")));
             this.voter_image.Location = new System.Drawing.Point(16, 28);
             this.voter_image.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.voter_image.Name = "voter_image";
