@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
@@ -18,12 +19,21 @@ namespace WindowsFormsApp1
             positionService = new PositionService();
         }
 
-        public Boolean DoesCandidateExist(string candidateName)
+        public bool DoesCandidateExist(string candidateName)
         {
             using (var db = new eBotoDBEntities())
             {
-                return db.Candidates.Any(c => c.CandidateName == candidateName);
+                bool exists = db.Elections
+                    .Include(e => e.Candidates)
+                    .Any(e =>
+                        !e.EndStatus &&                 
+                        (e.Status || !e.Status) &&   
+                        e.Candidates.Any(c => c.CandidateName == candidateName)
+                    );
+                if (exists)
+                    return true;
             }
+            return false;
         }
 
         public void AddCandidate(List<Others> candidates, int electionId)
