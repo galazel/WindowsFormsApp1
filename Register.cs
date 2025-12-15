@@ -76,9 +76,9 @@ namespace WindowsFormsApp1
                 {
                     MessageBox.Show("The name 'admin' is reserved. Please choose a different name.");
                     return;
-                }else if(firstname_box.Text.Length < 8 || lastname_box.Text.Length < 8 || middle_box.Text.Length < 8)
+                }else if(firstname_box.Text.Length < 2 || lastname_box.Text.Length < 2 || middle_box.Text.Length < 2)
                 {
-                    MessageBox.Show("First name must be at least 2 characters long.");
+                    MessageBox.Show("The input fields are too short");
                     return;
 
                 }

@@ -172,6 +172,7 @@
             this.Name = "CreateElection";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateElection";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CreateElection_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

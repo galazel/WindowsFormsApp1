@@ -193,5 +193,10 @@ namespace WindowsFormsApp1
             }
            
         }
+        private void CreateElection_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Others.othersList.Clear();
+            MessageBox.Show("Operation cancelled. No changes were made.");
+        }
     }
 }

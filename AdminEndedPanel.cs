@@ -61,6 +61,7 @@ namespace WindowsFormsApp1
                     winnersService.ClearAll();
                     electionService.ClearEndedElections();
                     ended_flow.Controls.Clear();
+                    Others.othersList.Clear();
                 }
             }
             catch (Exception ex)
