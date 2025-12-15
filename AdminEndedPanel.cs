@@ -57,11 +57,12 @@ namespace WindowsFormsApp1
                 //}
                 else
                 {
-                    MessageBox.Show("All winners data has been cleared.");
                     winnersService.ClearAll();
                     electionService.ClearEndedElections();
                     ended_flow.Controls.Clear();
                     Others.othersList.Clear();
+                    MessageBox.Show("All winners data has been cleared.");
+                   
                 }
             }
             catch (Exception ex)
