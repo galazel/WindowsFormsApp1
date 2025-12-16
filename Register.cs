@@ -54,7 +54,6 @@ namespace WindowsFormsApp1
         {
             try
             {
-                // ✅ Safe null checks
                 if (string.IsNullOrWhiteSpace(firstname_box.Text) ||
                     string.IsNullOrWhiteSpace(lastname_box.Text) ||
                     string.IsNullOrWhiteSpace(middle_box.Text) ||
