@@ -69,13 +69,13 @@ namespace WindowsFormsApp1
 
         private void register_label_Click(object sender, EventArgs e)
         {
-            if(voterService.GetVotersCountInt() < 1)
+            if(new DepartmentService().GetDepartmentsCount() < 1)
             {
                 MessageBox.Show("Registration is currently closed. Please contact the administrator.", "Registration Closed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             this.Hide();
-            new Register().ShowDialog();sfda
+            new Register().ShowDialog();
 
 
 
